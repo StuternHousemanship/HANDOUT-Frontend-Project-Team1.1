@@ -1,18 +1,17 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import SignUp from "./pages/SignUp";
+import LogIn from "./pages/LogIn";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>A platform for unwanted personal items</p>
-        <p>
-          This platform allows people to give out useful but unwanted others who
-          may need them...
-        </p>
-      </header>
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="signup" element={<SignUp />} />
+        <Route path="login" element={<LogIn />} />
+      </Routes>
     </div>
   );
 }
