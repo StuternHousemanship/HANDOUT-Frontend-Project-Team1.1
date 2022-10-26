@@ -10,7 +10,7 @@ function App() {
         <p>A platform for unwanted personal items</p>
         <p>
           This platform allows people to give out useful but unwanted others who
-          may need them.
+          may need them...
         </p>
       </header>
     </div>

@@ -19,6 +19,7 @@
   "plugins": ["react"],
   "rules": {
     "react/prop-types": 0,
+    "no-underscore-dangle": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "prettier/prettier": [
