@@ -10,10 +10,12 @@ import hidePwd from "../assets/svg/hide-password.svg";
 
 function SignUp() {
   const [pwd, setPwd] = useState("");
+  const [pwdConfirm, setPwdconfirm] = useState("");
   const [isRevealPwd, setIsRevealPwd] = useState(false);
+  const [isRevealConfirmPwd, setIsRevealConfirmPwd] = useState(false);
   return (
-    <div className="form">
-      <div className="bg-[FFFFFF] min-h-screen flex flex-col">
+    <div className="form bg-[#E5E5E5]">
+      <div className="bg-[FFFFFF] py-[40px] min-h-screen flex flex-col">
         <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
           <div className="bg-white px-6 py-8 rounded shadow-md text-[#424242] w-full">
             <h1 className="mb-8 text-3xl font-Inter">Create account</h1>
@@ -51,7 +53,6 @@ function SignUp() {
               <input
                 className="block border border-grey-light w-full p-3 rounded mb-4"
                 name="pwd"
-                placeholder="Enter Password"
                 type={isRevealPwd ? "text" : "password"}
                 value={pwd}
                 onChange={(e) => setPwd(e.target.value)}
@@ -59,7 +60,7 @@ function SignUp() {
               <img
                 className="w-6 absolute top-10 right-2"
                 title={isRevealPwd ? "Hide password" : "Show password"}
-                src={isRevealPwd ? hidePwd : showPwd}
+                src={isRevealPwd ? showPwd : hidePwd}
                 onClick={() => setIsRevealPwd((prevState) => !prevState)}
               />
             </div>
@@ -68,16 +69,15 @@ function SignUp() {
               <input
                 className="block border border-grey-light w-full p-3 rounded mb-4"
                 name="pwd"
-                placeholder="confirm Password"
-                type={isRevealPwd ? "text" : "password"}
-                value={pwd}
-                onChange={(e) => setPwd(e.target.value)}
+                type={isRevealConfirmPwd ? "text" : "password"}
+                value={pwdConfirm}
+                onChange={(e) => setPwdconfirm(e.target.value)}
               />
               <img
                 className="w-6 absolute top-10 right-2"
-                title={isRevealPwd ? "Hide password" : "Show password"}
-                src={isRevealPwd ? hidePwd : showPwd}
-                onClick={() => setIsRevealPwd((prevState) => !prevState)}
+                title={isRevealConfirmPwd ? "Hide password" : "Show password"}
+                src={isRevealConfirmPwd ? showPwd : hidePwd}
+                onClick={() => setIsRevealConfirmPwd((prevState) => !prevState)}
               />
             </div>
 
