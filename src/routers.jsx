@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { NonAuthRoutes } from "./url";
