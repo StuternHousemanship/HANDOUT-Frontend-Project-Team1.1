@@ -3,16 +3,69 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
+import validator from "validator";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
+// eslint-disable-next-line import/no-cycle
+import onboarding from "../api/onboarding";
 import showPwd from "../assets/svg/show-password.svg";
 import hidePwd from "../assets/svg/hide-password.svg";
 
 function SignUp() {
-  const [pwd, setPwd] = useState("");
+  const [password, setPassword] = useState("");
   const [pwdConfirm, setPwdconfirm] = useState("");
   const [isRevealPwd, setIsRevealPwd] = useState(false);
   const [isRevealConfirmPwd, setIsRevealConfirmPwd] = useState(false);
+  const [phoneNovalue, setPhoneNoValue] = useState();
+  const [passwordStrong, setPasswordStrong] = useState(true);
+
+  const handlePasswordOnChange = (value) => {
+    if (
+      validator.isStrongPassword(value, {
+        minLength: 8,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+      })
+    ) {
+      setPasswordStrong(true);
+    } else {
+      setPasswordStrong(false);
+    }
+
+    setPassword(value);
+  };
+
+  /** Function to take off warnings in console on app load */
+  useEffect(() => {
+    const ac = new AbortController();
+
+    document.title = "Sign Up - Handout";
+    return function cleanup() {
+      ac.abort();
+    };
+  }, []);
+
+  /** Handle Sign Up Button */
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    // setButtonIsLoading(true);
+    onboarding
+      // eslint-disable-next-line no-undef
+      .SignUp(firstName, lastName, email, phoneNumber, password)
+      .then((response) => {
+        if (response.status === 200) {
+          const accessToken = response.access_token;
+          const refreshToken = response.refresh_token;
+          Cookies.set("accessToken", accessToken);
+          localStorage.setItem("token", refreshToken);
+        }
+      });
+  };
+
   return (
     <div className="form bg-[#E5E5E5]">
       <div className="bg-[FFFFFF] py-[72px] min-h-screen flex flex-col">
@@ -42,11 +95,15 @@ function SignUp() {
               /* placeholder="Email" */
             />
             <label htmlFor="mobile"> Mobile </label>
-            <input
-              type="text"
-              className="block border border-grey-light w-full p-3 rounded mb-4"
-              name="mobile"
-              /* placeholder="mobile " */
+            <PhoneInput
+              required
+              defaultCountry="NG"
+              international
+              countryCallingCodeEditable={false}
+              value={phoneNovalue}
+              onChange={setPhoneNoValue}
+              id="mobile"
+              className=" border border-grey-light w-full p-3 rounded mb-4 outline-0  "
             />
             <div className="relative">
               <label htmlFor="password"> Password</label>
@@ -54,8 +111,9 @@ function SignUp() {
                 className="block border border-grey-light w-full p-3 rounded mb-4"
                 name="pwd"
                 type={isRevealPwd ? "text" : "password"}
-                value={pwd}
-                onChange={(e) => setPwd(e.target.value)}
+                value={password}
+                onChange={(e) => handlePasswordOnChange(e.target.value)}
+                // onChange={(e) => setPwd(e.target.value)}
               />
               <img
                 className="w-6 absolute top-10 right-2"
@@ -63,6 +121,13 @@ function SignUp() {
                 src={isRevealPwd ? showPwd : hidePwd}
                 onClick={() => setIsRevealPwd((prevState) => !prevState)}
               />
+              {passwordStrong ? null : (
+                <p className="text-[#d42121] border border-[#d42121] text-center rounded">
+                  Must be more than 8 characters <br />
+                  Must include uppercase letters, lowercase letters and number
+                  from 0 - 9
+                </p>
+              )}
             </div>
             <div className="relative">
               <label htmlFor="password"> Re-enter password</label>
@@ -84,6 +149,7 @@ function SignUp() {
             <button
               type="submit"
               className="w-full text-center py-3 rounded bg-[#424242] text-white hover:bg-green-dark focus:outline-none my-1"
+              onClick={handleSignUp}
             >
               Continue
             </button>
