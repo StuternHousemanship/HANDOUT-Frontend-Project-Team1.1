@@ -21,14 +21,24 @@ function Home() {
             Go To Sign-Up Page
           </button>
         </Link>
-        <Link to="login">
-          <button
-            type="button"
-            className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-          >
-            Go To Log-In Page
-          </button>
-        </Link>
+        <span>
+          <Link to="login">
+            <button
+              type="button"
+              className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+            >
+              Go To Log-In Page
+            </button>
+          </Link>
+          <Link to="logout">
+            <button
+              type="button"
+              className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+            >
+              Log-out Page
+            </button>
+          </Link>
+        </span>
       </header>
     </div>
   );

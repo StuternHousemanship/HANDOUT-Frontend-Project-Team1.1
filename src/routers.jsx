@@ -5,6 +5,7 @@ import { ReactComponent as LoadingIcon } from "./assets/svg/loading-icon.svg";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
+import Logout from "./pages/Logout";
 
 function Routers() {
   return (
@@ -21,6 +22,7 @@ function Routers() {
           <Route path={NonAuthRoutes.Home} element={<Home />} />
           <Route path={NonAuthRoutes.SignUp} element={<SignUp />} />
           <Route path={NonAuthRoutes.LogIn} element={<LogIn />} />
+          <Route path={NonAuthRoutes.Logout} element={<Logout />} />
         </Routes>
       </Suspense>
     </div>
