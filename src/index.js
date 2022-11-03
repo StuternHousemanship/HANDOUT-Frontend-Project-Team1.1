@@ -1,10 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+import { createBrowserHistory } from "history";
 import "./index.css";
+// eslint-disable-next-line import/no-cycle
 import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
+
+// eslint-disable-next-line import/prefer-default-export
+export const history = createBrowserHistory();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
