@@ -22,6 +22,7 @@ function SignUp() {
   const [phoneNovalue, setPhoneNoValue] = useState();
   const [passwordStrong, setPasswordStrong] = useState(true);
 
+  /** Function to validate password using thr Validator package */
   const handlePasswordOnChange = (value) => {
     if (
       validator.isStrongPassword(value, {
