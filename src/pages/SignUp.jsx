@@ -18,6 +18,9 @@ import hidePwd from "../assets/svg/hide-password.svg";
 
 function SignUp() {
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
   const [pwdConfirm, setPwdconfirm] = useState("");
   const [isRevealPwd, setIsRevealPwd] = useState(false);
   const [isRevealConfirmPwd, setIsRevealConfirmPwd] = useState(false);
@@ -57,8 +60,7 @@ function SignUp() {
     e.preventDefault();
     // setButtonIsLoading(true);
 
-    // eslint-disable-next-line no-undef
-    signUp(firstName, lastName, email, phoneNumber, password).then(
+    signUp(firstName, lastName, email, phoneNovalue, password).then(
       (response) => {
         if (response.status === 200) {
           const accessToken = response.access_token;
@@ -81,14 +83,14 @@ function SignUp() {
               type="text"
               className="block border border-grey-light w-full p-3 rounded mb-4 "
               name="firstname"
-              // placeholder="Full Name"
+              onChange={(e) => setFirstName(e.target.value)}
             />
             <label htmlFor="lastName">Last Name</label>
             <input
               type="text"
               className="block border border-grey-light w-full p-3 rounded mb-4"
               name="lastname"
-              // placeholder="Full Name"
+              onChange={(e) => setLastName(e.target.value)}
             />
 
             <label htmlFor="email"> Email</label>
@@ -96,7 +98,7 @@ function SignUp() {
               type="email"
               className="block border border-grey-light w-full p-3 rounded mb-4"
               name="email"
-              /* placeholder="Email" */
+              onChange={(e) => setEmail(e.target.value)}
             />
             <label htmlFor="mobile"> Mobile </label>
             <PhoneInput

@@ -6,14 +6,14 @@ export const SignUp = async (
   firstName,
   lastName,
   email,
-  phoneNumber,
+  phoneNovalue,
   password
 ) => {
   const data = {
     firstName,
     lastName,
     email,
-    phoneNumber,
+    phoneNovalue,
     password,
   };
   const stringifiedData = JSON.stringify(data);
