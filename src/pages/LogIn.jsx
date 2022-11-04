@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import Input from "@mui/material/Input";
+import validator from "validator";
 import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
@@ -10,6 +11,25 @@ function LogIn() {
   const [values, setValues] = useState({
     showPassword: false,
   });
+  const [passwordStrong, setPasswordStrong] = useState(true);
+  const [password, setPassword] = useState("");
+
+  const handlePasswordOnChange = (value) => {
+    if (
+      validator.isStrongPassword(value, {
+        minLength: 8,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+      })
+    ) {
+      setPasswordStrong(true);
+    } else {
+      setPasswordStrong(false);
+    }
+
+    setPassword(value);
+  };
 
   /** Function to toggle the state of show password */
   const handleClickShowPassword = () => {
@@ -40,16 +60,18 @@ function LogIn() {
             />
           </label>
         </div>
-        <div className="mt-6">
+        <div className="relative">
           <label htmlFor="password">
-            <p className="text-[#424242] text-[16px] font-[400] leading-[18px] mb-[8px]">
-              Password
-            </p>
+            {/* <p className="text-[#424242] text-[16px] font-[400] leading-[18px] mb-[8px]"> */}
+            <p>Password</p>
+            {/* </p> */}
             <Input
               type={values.showPassword ? "text" : "password"}
               className="xs:w-[348px] p-3 sm:w-[450px] h-[56px] rounded-[4px] border-[1px] border-[#717171] relative"
               disableUnderline
               required
+              value={password}
+              onChange={(e) => handlePasswordOnChange(e.target.value)}
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton
@@ -61,11 +83,18 @@ function LogIn() {
                 </InputAdornment>
               }
             />
+
             {/* <IconButton>
               <VisibilityOffOutlinedIcon className="absolute top-0 left-0" />{" "}
             </IconButton> */}
           </label>
         </div>
+        {passwordStrong ? null : (
+          <p className="text-[#d42121] border border-[#d42121] text-center mt-3  xs:w-[348px] p-3 sm:w-[450px] h-auto rounded-[4px]">
+            Must be more than 8 characters, Must include uppercase letters,
+            lowercase letters and number from 0 - 9
+          </p>
+        )}
         <div>
           <p className="text-[#424242] text-right underline my-[16px] ">
             Forgot Password
