@@ -6,6 +6,6 @@
         "$libs/*": ["src/libs/*"]
         }
     },
-    "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.svelte", "src/pages/Logout.jsx"],
+    "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.svelte", "src/pages/Dashboard.jsx"],
     "exclude": ["node_modules", "**/node_modules", "dist"]
 }
