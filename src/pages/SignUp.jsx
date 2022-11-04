@@ -4,6 +4,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
 import React, { useState, useEffect } from "react";
+// eslint-disable-next-line import/no-duplicates
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import validator from "validator";
@@ -11,10 +12,13 @@ import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 // eslint-disable-next-line import/no-cycle
 // import onboarding from "../api/onboarding";
+// eslint-disable-next-line import/no-cycle, import/no-duplicates
+import { useNavigate } from "react-router-dom";
 // eslint-disable-next-line import/no-cycle
 import { SignUp as signUp } from "../api/onboarding";
 import showPwd from "../assets/svg/show-password.svg";
 import hidePwd from "../assets/svg/hide-password.svg";
+import { NonAuthRoutes } from "../url";
 
 function SignUp() {
   const [password, setPassword] = useState("");
@@ -55,10 +59,14 @@ function SignUp() {
     };
   }, []);
 
+  const navigate = useNavigate();
+
   /** Handle Sign Up Button */
   const handleSignUp = (e) => {
     e.preventDefault();
     // setButtonIsLoading(true);
+
+    navigate(NonAuthRoutes.VerifyEmail);
 
     signUp(firstName, lastName, email, phoneNovalue, password).then(
       (response) => {

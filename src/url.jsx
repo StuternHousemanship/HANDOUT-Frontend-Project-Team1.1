@@ -9,6 +9,7 @@ const NonAuthRoutes = {
   LogIn: "/login",
   SignUp: "/signup",
   Logout: "/logout",
+  VerifyEmail: "/verify-email",
 };
 
 export { AuthRoutes, NonAuthRoutes };
