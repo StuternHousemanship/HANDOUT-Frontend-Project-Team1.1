@@ -2,7 +2,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function Logout() {
+function Dashboard() {
   const navigate = useNavigate();
   const logout = (e) => {
     e.preventDefault();
@@ -26,4 +26,4 @@ function Logout() {
   );
 }
 
-export default Logout;
+export default Dashboard;
