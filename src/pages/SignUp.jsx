@@ -10,7 +10,9 @@ import validator from "validator";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 // eslint-disable-next-line import/no-cycle
-import onboarding from "../api/onboarding";
+// import onboarding from "../api/onboarding";
+// eslint-disable-next-line import/no-cycle
+import { SignUp as signUp } from "../api/onboarding";
 import showPwd from "../assets/svg/show-password.svg";
 import hidePwd from "../assets/svg/hide-password.svg";
 
@@ -54,17 +56,18 @@ function SignUp() {
   const handleSignUp = (e) => {
     e.preventDefault();
     // setButtonIsLoading(true);
-    onboarding
-      // eslint-disable-next-line no-undef
-      .SignUp(firstName, lastName, email, phoneNumber, password)
-      .then((response) => {
+
+    // eslint-disable-next-line no-undef
+    signUp(firstName, lastName, email, phoneNumber, password).then(
+      (response) => {
         if (response.status === 200) {
           const accessToken = response.access_token;
           const refreshToken = response.refresh_token;
           Cookies.set("accessToken", accessToken);
           localStorage.setItem("token", refreshToken);
         }
-      });
+      }
+    );
   };
 
   return (

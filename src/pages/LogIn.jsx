@@ -6,6 +6,9 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
+// eslint-disable-next-line import/no-cycle
+import { Login } from "../api/onboarding";
 
 function LogIn() {
   const [values, setValues] = useState({
@@ -30,7 +33,21 @@ function LogIn() {
 
     setPassword(value);
   };
+  /** Handle Login Button */
+  const handleLogin = (e) => {
+    e.preventDefault();
+    // setButtonIsLoading(true);
 
+    // eslint-disable-next-line no-undef
+    Login(email, password).then((response) => {
+      if (response.status === 200) {
+        const accessToken = response.access_token;
+        const refreshToken = response.refresh_token;
+        Cookies.set("accessToken", accessToken);
+        localStorage.setItem("token", refreshToken);
+      }
+    });
+  };
   /** Function to toggle the state of show password */
   const handleClickShowPassword = () => {
     setValues({
@@ -100,6 +117,7 @@ function LogIn() {
             Forgot Password
           </p>
           <button
+            onClick={handleLogin}
             type="submit"
             className=" xs:w-[348px] sm:w-[450px] h-[56px] rounded-[4px] border-[1px] border-[#717171] outline-0 bg-[#424242] text-white font-sans text-[20px] leading-[23px] font-[400] "
           >
