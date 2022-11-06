@@ -33,7 +33,7 @@ function LogIn() {
 
     setPassword(value);
   };
-  /** Handle Login Button */
+  /** Handle to Login */
   const handleLogin = (e) => {
     e.preventDefault();
     // setButtonIsLoading(true);
@@ -112,10 +112,18 @@ function LogIn() {
             lowercase letters and number from 0 - 9
           </p>
         )}
-        <div>
-          <p className="text-[#424242] text-right underline my-[16px] ">
+        <div className="">
+          <div className="text-right my-4">
+            <Link
+              to="/forgot-password"
+              className=" text-[#424242] underline my-[16px] "
+            >
+              Forgot Password
+            </Link>
+          </div>
+          {/* <p className="text-[#424242] text-right underline my-[16px] ">
             Forgot Password
-          </p>
+          </p> */}
           <button
             onClick={handleLogin}
             type="submit"
@@ -123,7 +131,6 @@ function LogIn() {
           >
             Continue
           </button>{" "}
-          <br />
           <Link
             to="/signup"
             className="text-[#424242] flex justify-center items-center text-center underline mt-[16px] "

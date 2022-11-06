@@ -30,7 +30,7 @@ function Home() {
               Go To Log-In Page
             </button>
           </Link>
-          <Link to="logout">
+          <Link to="dashboard">
             <button
               type="button"
               className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"

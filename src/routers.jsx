@@ -8,6 +8,8 @@ import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
 import VerifyEmail from "./pages/VerifyEmail";
 import Dashboard from "./pages/Dashboard";
+import ForgotPassword from "./pages/ForgotPassword";
+import ForgotPassword2 from "./pages/ForgotPassword2";
 
 function Routers() {
   return (
@@ -26,6 +28,14 @@ function Routers() {
           <Route path={NonAuthRoutes.LogIn} element={<LogIn />} />
           <Route path={NonAuthRoutes.VerifyEmail} element={<VerifyEmail />} />
           <Route path={AuthRoutes.Dashboard} element={<Dashboard />} />
+          <Route
+            path={NonAuthRoutes.ForgotPassword}
+            element={<ForgotPassword />}
+          />
+          <Route
+            path={NonAuthRoutes.ForgotPassword2}
+            element={<ForgotPassword2 />}
+          />
         </Routes>
       </Suspense>
     </div>
