@@ -38,6 +38,22 @@ function Home() {
               Log-out Page
             </button>
           </Link>
+          <Link to="resetpassword">
+            <button
+              type="button"
+              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+            >
+              Reset-Password
+            </button>
+          </Link>
+          <Link to="accountrecovered">
+            <button
+              type="button"
+              className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+            >
+              Account Recovered
+            </button>
+          </Link>
         </span>
       </header>
     </div>

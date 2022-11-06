@@ -12,6 +12,8 @@ const NonAuthRoutes = {
   VerifyEmail: "/verify-email",
   ForgotPassword: "/forgot-password",
   ForgotPassword2: "/forgot-password2",
+  ResetPassword: "/resetpassword",
+  AccountRecovered: "/accountrecovered",
 };
 
 export { AuthRoutes, NonAuthRoutes };
