@@ -4,15 +4,14 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import Cookies from "js-cookie";
 import validator from "validator";
 import "react-phone-number-input/style.css";
 
-// eslint-disable-next-line import/no-cycle
-// import onboarding from "../api/onboarding";
 import showPwd from "../assets/svg/show-password.svg";
 import hidePwd from "../assets/svg/hide-password.svg";
+import { NonAuthRoutes } from "../url";
 
 function ResetPassword() {
   const [password, setPassword] = useState("");
@@ -50,10 +49,10 @@ function ResetPassword() {
     };
   }, []);
 
-  /** Handle reset Button */
+  /** function to handle reset password Button */
   const handleResetPassword = (e) => {
     e.preventDefault();
-    navigate("/accountrecovered");
+    navigate(NonAuthRoutes.AccountRecovered);
 
     // setButtonIsLoading(true);
     // onboarding
@@ -118,8 +117,10 @@ function ResetPassword() {
                 onClick={() => setIsRevealConfirmPwd((prevState) => !prevState)}
               />
             </div>
-            <div className="underline text-grey-dark mt-6 text-end">
-              <Link to="/login"> Forgot password</Link>
+            <div className="underline text-grey-dark mt-6 cursor-pointer text-end">
+              <p onClick={() => navigate(NonAuthRoutes.ForgotPassword)}>
+                Forgot password
+              </p>
             </div>
 
             <button
@@ -129,8 +130,8 @@ function ResetPassword() {
             >
               Continue
             </button>
-            <div className="underline text-grey-dark mt-6 text-center">
-              <Link to="/login"> Back to logIn</Link>
+            <div className="underline text-grey-dark mt-6 text-center cursor-pointer">
+              <p onClick={() => navigate(NonAuthRoutes.LogIn)}>Back to logIn</p>
             </div>
           </div>
         </div>
