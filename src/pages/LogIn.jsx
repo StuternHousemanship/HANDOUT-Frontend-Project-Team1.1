@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import Input from "@mui/material/Input";
 import validator from "validator";
 import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 // eslint-disable-next-line import/no-cycle
 import { Login } from "../api/onboarding";
+// import { NonAuthRoutes } from "../url";
 
 function LogIn() {
   const [values, setValues] = useState({
@@ -16,6 +17,7 @@ function LogIn() {
   });
   const [passwordStrong, setPasswordStrong] = useState(true);
   const [password, setPassword] = useState("");
+  // const navigate = useNavigate();
 
   const handlePasswordOnChange = (value) => {
     if (
@@ -33,6 +35,7 @@ function LogIn() {
 
     setPassword(value);
   };
+
   /** Handle to Login */
   const handleLogin = (e) => {
     e.preventDefault();
@@ -55,6 +58,11 @@ function LogIn() {
       showPassword: !values.showPassword,
     });
   };
+
+  /** Handle to switch to Forgot Password page */
+  // const handleSwitchPage = () => {
+  //   navigate(NonAuthRoutes.ForgotPassword);
+  // };
 
   return (
     <div className="sm:h-[100vh] sm:w-screen sm:bg-[#E5E5E5] flex justify-center items-center xs:w-[428px] xs:h-[926px] xs:bg-white  ">
@@ -113,15 +121,26 @@ function LogIn() {
           </p>
         )}
         <div className="">
-          <div className="text-right my-4">
+          {/* <div
+            className=" text-right my-4"
+            onClick={() => navigate(NonAuthRoutes.ForgotPassword)}
+          >
+            <p className="cursor-pointer text-[#424242] underline my-[16px] ">
+              Forgot Password
+            </p>
+          </div> */}
+          <div className=" text-right my-4">
             <Link
-              to="/forgot-password"
+              to="/forgotPassword"
               className=" text-[#424242] underline my-[16px] "
             >
               Forgot Password
             </Link>
           </div>
-          {/* <p className="text-[#424242] text-right underline my-[16px] ">
+          {/* <p
+            className="text-[#424242] text-right underline my-[16px] "
+            onClick={handleSwitchPage}
+          >
             Forgot Password
           </p> */}
           <button

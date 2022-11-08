@@ -1,12 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { NonAuthRoutes } from "../url";
 
 function ForgotPassword() {
   const navigate = useNavigate();
 
   /** Handle to switch to login */
   const handleClick = () => {
-    navigate("/login");
+    navigate(NonAuthRoutes.LogIn);
   };
 
   return (

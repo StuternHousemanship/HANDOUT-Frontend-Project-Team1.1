@@ -61,7 +61,7 @@ function SignUp() {
 
   const navigate = useNavigate();
 
-  /** Handle Sign Up Button */
+  /** Handle to Sign Up and route to the email verification  page */
   const handleSignUp = (e) => {
     e.preventDefault();
     // setButtonIsLoading(true);
@@ -82,7 +82,7 @@ function SignUp() {
 
   return (
     <div className="form bg-[#E5E5E5]">
-      <div className="bg-[FFFFFF] py-[72px] min-h-screen flex flex-col">
+      <form className="bg-[FFFFFF] py-[72px] min-h-screen flex flex-col">
         <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
           <div className="bg-white px-6 py-8 rounded shadow-md text-[#424242] w-full">
             <h1 className="mb-8 text-3xl font-Inter">Create account</h1>
@@ -172,7 +172,7 @@ function SignUp() {
             </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { NonAuthRoutes } from "../url";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -7,7 +8,7 @@ function ForgotPassword() {
 
   /** Handle to switch to forgot password page2 */
   const handleClick = () => {
-    navigate("/forgot-password2");
+    navigate(NonAuthRoutes.ForgotPassword2);
   };
 
   return (

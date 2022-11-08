@@ -10,8 +10,8 @@ const NonAuthRoutes = {
   SignUp: "/signup",
   Logout: "/logout",
   VerifyEmail: "/verify-email",
-  ForgotPassword: "/forgot-password",
-  ForgotPassword2: "/forgot-password2",
+  ForgotPassword: "/forgotPassword",
+  ForgotPassword2: "/forgotPassword2",
   ResetPassword: "/resetpassword",
   AccountRecovered: "/accountrecovered",
 };
