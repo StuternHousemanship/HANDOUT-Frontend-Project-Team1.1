@@ -21,6 +21,14 @@ function Home() {
             Go To Sign-Up Page
           </button>
         </Link>
+        <Link to="signuptwo">
+          <button
+            type="button"
+            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+          >
+            Go To Sign-Up Page-2
+          </button>
+        </Link>
         <span>
           <Link to="login">
             <button

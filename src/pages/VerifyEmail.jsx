@@ -22,7 +22,7 @@ function VerifyEmail() {
                 type="button"
                 className="w-largeScreenHeight h-14 rounded bg-buttonColor mt-20 text-white"
               >
-                <Link to="/login"> Okay </Link>
+                Okay
               </button>
             </div>
           </div>

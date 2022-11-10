@@ -12,6 +12,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import ForgotPassword2 from "./pages/ForgotPassword2";
 import AccountRecovered from "./pages/AccountRecovered";
 import ResetPassword from "./pages/ResetPassword";
+import SignUpTwo from "./pages/SignUpTwo";
 
 function Routers() {
   return (
@@ -30,6 +31,7 @@ function Routers() {
           <Route path={NonAuthRoutes.LogIn} element={<LogIn />} />
           <Route path={NonAuthRoutes.VerifyEmail} element={<VerifyEmail />} />
           <Route path={AuthRoutes.Dashboard} element={<Dashboard />} />
+          <Route path={NonAuthRoutes.SignUpTwo} element={<SignUpTwo />} />
           <Route
             path={NonAuthRoutes.ForgotPassword}
             element={<ForgotPassword />}
