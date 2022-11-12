@@ -13,6 +13,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 Inter: ["Inter"],
+                Raleway: ["Raleway"],
             },
             spacing: {
                 mobileWidth: "26.75rem",

@@ -51,7 +51,7 @@ function SignUpTwo() {
 
   return (
     <>
-      <div className="hidden md:inline-flex lg: inline-flex flex w-full h-sreen bg-[#D7D7D7]">
+      <div className="hidden md:inline-flex lg: inline-flex flex w-full h-sreen">
         <div className="flex flex-col items-center justify-center w-[668px] h-screen bg-[#E7EFED]">
           <div className="mt-[20px] mx-[230px]">
             <img className="w-[208px] h-[56px] " src={logo} alt="" />
@@ -62,7 +62,7 @@ function SignUpTwo() {
           </div>
 
           <div className="flex flex-col items-center justify-center w-[457px] h-[217px] mx-[105px]">
-            <div className="text-[40px] text-[#077369] leading-[48px] text-center tracking-wide font-[700] mt-[9px]">
+            <div className="text-[40px] text-[#077369] leading-[48px] text-center tracking-wide font-[700] mt-[9px] font-Raleway">
               We’ve got something for everyone
             </div>
             <div className="text-center font-[500] text-[16px] leading-[24px] tracking-wide text-[#000000] mt-[5px] font-Raleway">
@@ -80,7 +80,10 @@ function SignUpTwo() {
                     <h1 className=" text-[32px] font-[700] leading-[40px] font-Raleway tracking-wide">
                       Create account
                     </h1>
-                    <p className="">Already have an account Log in</p>
+                    <p className="">
+                      Already have an account{" "}
+                      <span className="text-[#278178]"> Log in</span>
+                    </p>
                   </div>
                   {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
                   <div className="relative">
