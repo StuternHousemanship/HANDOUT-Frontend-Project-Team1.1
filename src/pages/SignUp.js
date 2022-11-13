@@ -16,7 +16,7 @@ import "react-phone-number-input/style.css";
 import { useNavigate } from "react-router-dom";
 // eslint-disable-next-line import/no-cycle
 import { SignUp as signUp } from "../api/onboarding";
-
+import "../App.css";
 import { NonAuthRoutes } from "../url";
 
 import logo from "../assets/svg/desktop.svg";
@@ -26,8 +26,11 @@ function SignUp() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-
+  const [validEmail, setValidEmail] = useState(false);
+  const [emailFocus, setEmailFocus] = useState(false);
   const [phoneNovalue, setPhoneNoValue] = useState();
+
+  const navigate = useNavigate();
 
   /** Function to validate password using thr Validator package */
 
@@ -41,9 +44,15 @@ function SignUp() {
     };
   }, []);
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    const emailRegex = /[*@!#%&()^~{}]+/.test(email);
+    setValidEmail(emailRegex);
+  })
 
-  /** Handle to Sign Up and route to the email verification  page */
+  // const emailRegex = /[ `!@#$%^&*()_+\-=\\[\]{};':"\\|,.<>\\/?~]/
+//  const emailRegex = /[*@!#%&()^~{}]+/.test(email);
+
+  /** Handle to navigate to next page to complete sign up */
   const handleSignUp = (e) => {
     e.preventDefault();
     // setButtonIsLoading(true);
@@ -61,8 +70,8 @@ function SignUp() {
   };
 
   return (
-    <div className="hidden md:inline-flex lg: inline-flex flex w-full h-sreen ">
-      <div className="flex flex-col items-center justify-center w-[668px] h-screen bg-[#E7EFED]">
+    <div className="hidden md:inline-flex lg: inline-flex flex w-full h-sreen font-Raleway ">
+      <div className="flex flex-col items-center justify-center w-[46%] h-screen bg-[#E7EFED]">
         <div className="mt-[20px] mx-[230px]">
           <img className="w-[208px] h-[56px] " src={logo} alt="" />
         </div>
@@ -80,7 +89,7 @@ function SignUp() {
           </div>
         </div>
       </div>
-      <div className="w-[772px] h- bg-[#FFFFFF]">
+      <div className="w-[54%] h- bg-[#FFFFFF]">
         <div className="form bg-[#FFFFFF]">
           <div className="bg-[FFFFFF] py-[20px] min-h-screen flex flex-col">
             <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
@@ -90,10 +99,10 @@ function SignUp() {
                     Create account
                   </h1>
 
-                  <div className="my-[15px]">
+                  <div className="my-[15px] font-Raleway">
                     <p>
                       Already have an account &nbsp;
-                      <Link to="/login" className="font-Raleway text-[#077369]">
+                      <Link to="/login" className="font-Raleway font-[700] text-[#077369]">
                         Log in
                       </Link>
                     </p>
@@ -106,24 +115,36 @@ function SignUp() {
                   type="text"
                   className="block border border-grey-light w-full p-3 rounded mb-4 "
                   name="firstname"
+                  value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
+                  required
                 />
                 <label htmlFor="lastName">Last Name</label>
                 <input
                   type="text"
                   className="block border border-grey-light w-full p-3 rounded mb-4"
                   name="lastname"
+                  value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
+                  required
                 />
 
                 <label htmlFor="email"> Email</label>
                 <input
                   type="email"
-                  className="block border border-grey-light w-full p-3 rounded mb-4"
+                  className="block border border-grey-light w-full p-3 rounded"
                   name="email"
+                  placeholder="example@mail.com"
+                  value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  onFocus={() => setEmailFocus(true)}
+                    onBlur={() => setEmailFocus(false)}
+                  required
                 />
-                <label htmlFor="mobile"> Mobile </label>
+                <span className={email && !validEmail && !emailFocus ? "flex" : "hidden"}>
+                  <p className="invalid">Please, enter a valid Email</p>
+                </span>
+                <label htmlFor="mobile" className="mt-4" > Mobile </label>
                 <PhoneInput
                   required
                   defaultCountry="NG"
@@ -136,7 +157,15 @@ function SignUp() {
                 />
                 <button
                   type="submit"
-                  className="w-full text-center py-3 rounded bg-[#077369] text-white hover:bg-green-dark focus:outline-none mt-5"
+                  // className="w-full text-center py-3 rounded bg-[#077369] text-white hover:bg-green-dark focus:outline-none mt-5"
+                  className="enabled"
+                    disabled={
+                      !firstName ||
+                        !lastName ||
+                        !email ||
+                        !phoneNovalue ||
+                        !validEmail
+                    }
                   onClick={handleSignUp}
                 >
                   Continue

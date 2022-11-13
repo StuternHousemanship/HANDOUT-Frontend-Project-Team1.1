@@ -89,3 +89,57 @@
   padding: 12px;
   border-radius: 4px;
 }
+
+.loginButtonEnabled {
+  width: 450px;
+  margin-top: 24px;
+  text-align: center;
+  border-radius: 4px;
+  background-color: #077369;
+  color: white;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-top: 24px;
+  margin-bottom: 4px;
+}
+
+#log button:disabled {
+  width: 450px;
+  margin-top: 24px;
+  text-align: center;
+  border-radius: 4px;
+  background-color: #9cc7c3;
+  color: white;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-top: 24px;
+  margin-bottom: 4px;
+}
+
+/* className=" xs:w-[348px] sm:w-[450px] h-[56px] rounded-[4px]  bg-[#077369] text-white text-[20px] leading-[23px] font-[400] " */
+
+.enabled {
+  width: 100%;
+  margin-top: 24px;
+  text-align: center;
+  border-radius: 4px;
+  background-color: #077369;
+  color: white;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-top: 24px;
+  margin-bottom: 4px;
+}
+
+button:disabled {
+  width: 100%;
+  margin-top: 24px;
+  text-align: center;
+  border-radius: 4px;
+  background-color: #9cc7c3;
+  color: white;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-top: 24px;
+  margin-bottom: 4px;
+}

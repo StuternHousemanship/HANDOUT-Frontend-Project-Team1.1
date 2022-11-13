@@ -3,17 +3,20 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 import ValidatePassword from "./ValidatePassword";
 import "../App.css";
-// import Cookies from "js-cookie";
-// import validator from "validator";
-
 import logo from "../assets/svg/desktop.svg";
 import frame16 from "../assets/svg/Frame 16.svg";
 import caution from "../assets/svg/caution.svg";
 import checkmark from "../assets/svg/checkmark.svg";
 import showPwd from "../assets/svg/show-password.svg";
 import hidePwd from "../assets/svg/hide-password.svg";
+// eslint-disable-next-line import/no-cycle
+import { SignUp as signUp } from "../api/onboarding";
+
+import { NonAuthRoutes } from "../url";
 
 function SignUpTwo() {
   const [password, setPassword] = useState("");
@@ -24,7 +27,8 @@ function SignUpTwo() {
   const [validPasswordConfirm, setValidPasswordConfirm] = useState(false);
   const [isRevealPwd, setIsRevealPwd] = useState(false);
   const [isRevealConfirmPwd, setIsRevealConfirmPwd] = useState(false);
-  // const [checkbox, setCheckbox] = useState(false);
+  const [checkbox, setCheckbox] = useState(false);
+  const navigate = useNavigate();
   const [checks, setChecks] = useState({
     upperCaseCheck: false,
     lowerCaseCheck: false,
@@ -45,10 +49,21 @@ function SignUpTwo() {
     setValidPasswordConfirm(match);
   }, [password, pwdConfirm]);
 
-  // function to handle sign up button
+  /** Handle to Sign Up and route to the email verification  page */
   const handleSignUp = (e) => {
     e.preventDefault();
     // setButtonIsLoading(true);
+
+    navigate(NonAuthRoutes.VerifyEmail);
+
+    signUp(password).then((response) => {
+      if (response.status === 201) {
+        const accessToken = response.access_token;
+        const refreshToken = response.refresh_token;
+        Cookies.set("accessToken", accessToken);
+        localStorage.setItem("token", refreshToken);
+      }
+    });
   };
 
   /** Function to validate password using thr Validator package */
@@ -86,14 +101,11 @@ function SignUpTwo() {
       numberCheck,
     });
   };
-  // const handleCheckBox = () => {
-  //   setCheckbox(true);
-  // };
 
   return (
     <>
-      <div className=" md:inline-flex lg: flex w-full h-sreen">
-        <div className="flex flex-col items-center justify-center w-[668px] h-screen bg-[#E7EFED]">
+      <div className=" xs:hidden md:inline-flex lg: flex w-full h-sreen">
+        <div className="flex flex-col items-center justify-center w-[46%] h-screen bg-[#E7EFED]">
           <div className="mt-[20px] mx-[230px]">
             <img className="w-[208px] h-[56px] " src={logo} alt="" />
           </div>
@@ -112,7 +124,7 @@ function SignUpTwo() {
           </div>
         </div>
 
-        <div className="w-[772px] h-screen bg-[#FFFFFF]">
+        <div className=" font-Raleway w-[54%] h-screen bg-[#FFFFFF]">
           <div className="form bg-[#FFFFFF]">
             <div className="bg-[FFFFFF] py-[72px] min-h-screen flex flex-col">
               <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
@@ -121,10 +133,16 @@ function SignUpTwo() {
                     <h1 className=" text-[32px] font-[700] leading-[40px] font-Raleway tracking-wide">
                       Create account
                     </h1>
-                    <p className="">
-                      Already have an account{" "}
-                      <span className="text-[#278178]"> Log in</span>
-                    </p>
+                    <span className="flex">
+                      Already have an account &nbsp;
+                      <p
+                        className=" cursor-pointer font-[700] text-[#278178]"
+                        onClick={() => navigate(NonAuthRoutes.LogIn)}
+                      >
+                        {" "}
+                        Log in
+                      </p>
+                    </span>
                   </div>
                   {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
                   <div className="relative">
@@ -170,6 +188,14 @@ function SignUpTwo() {
                       alt=""
                       onClick={() => setIsRevealPwd((prevState) => !prevState)}
                     />
+                    {!passwordFocus ? (
+                      <span>
+                        <p className="text-[11px] text-[#191919] ">
+                          Must include an Uppercase letter, lowercase letter,
+                          number and have at least 8 characters
+                        </p>
+                      </span>
+                    ) : null}
                     {validate ? (
                       <ValidatePassword
                         upperLowerCaseIcon={
@@ -194,13 +220,6 @@ function SignUpTwo() {
                         numberFlag={checks.numberCheck ? "valid" : "invalid"}
                       />
                     ) : null}
-                    {/* {passwordStrong ? null : (
-                      <p className="text-[#d42121] border border-[#d42121] text-center rounded">
-                        Must be more than 8 characters <br />
-                        Must include uppercase letters, lowercase letters and
-                        number from 0 - 9
-                      </p>
-                    )} */}
                   </div>
                   <div className="relative mt-4 ">
                     <label htmlFor="pwdConfirm"> Confirm password</label>
@@ -252,7 +271,15 @@ function SignUpTwo() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full mt-6 text-center py-3 rounded bg-[#077369] text-white hover:bg-green-dark focus:outline-none my-1"
+                    className="enabled"
+                    disabled={
+                      (!checks.upperCaseCheck &&
+                        !checks.lowerCaseCheck &&
+                        !checks.characterLengthCheck &&
+                        !checks.numberCheck) ||
+                      !validPasswordConfirm ||
+                      !checkbox
+                    }
                     onClick={handleSignUp}
                   >
                     Create account
@@ -261,12 +288,19 @@ function SignUpTwo() {
                     <input
                       className="mr-[5px] border-solid border-1 [#2F2F2A]"
                       type="checkbox"
-                      // onChange={handleCheckBox}
+                      onChange={() => setCheckbox(!checkbox)}
                     />
-                    <p>By signing up you agree to the term and condtions</p>
+                    <p className="text-[14px] ">
+                      By signing up you agree to the term and condtions
+                    </p>
                   </div>
-                  <div className="font-[700] text-[20px] leading-[24px] tracking-wide text-[#077369] mt-6 text-center">
-                    Cancel
+                  <div>
+                    <p
+                      className="font-[700] text-[20px] leading-[24px] tracking-wide text-[#077369] mt-6 text-center cursor-pointer font-Raleway"
+                      onClick={() => navigate(NonAuthRoutes.Home)}
+                    >
+                      Cancel
+                    </p>
                   </div>
                 </div>
               </div>
