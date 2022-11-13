@@ -36,3 +36,56 @@
     transform: rotate(360deg);
   }
 } */
+.valid {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+
+  color: #077369;
+}
+.invalid {
+  color: #a40d0d;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+}
+
+.input {
+  border: 1px solid black;
+  outline: none;
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+}
+.confirm input {
+  border: 1px solid black;
+  outline: none;
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+}
+
+.validInput {
+  border: 2px solid #077369;
+  outline: none;
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+}
+.inValidInput {
+  border: 2px solid #a40d0d;
+  outline: none;
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+}

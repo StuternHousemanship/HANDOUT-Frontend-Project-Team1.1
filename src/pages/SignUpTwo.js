@@ -1,57 +1,98 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useEffect } from "react";
+import ValidatePassword from "./ValidatePassword";
+import "../App.css";
 // import Cookies from "js-cookie";
-import validator from "validator";
+// import validator from "validator";
 
 import logo from "../assets/svg/desktop.svg";
 import frame16 from "../assets/svg/Frame 16.svg";
+import caution from "../assets/svg/caution.svg";
+import checkmark from "../assets/svg/checkmark.svg";
+import showPwd from "../assets/svg/show-password.svg";
+import hidePwd from "../assets/svg/hide-password.svg";
 
 function SignUpTwo() {
   const [password, setPassword] = useState("");
+  const [validate, setValidate] = useState(false);
   const [pwdConfirm, setPwdconfirm] = useState("");
+  const [passwordFocus, setPasswordFocus] = useState(false);
+  const [confirmPasswordFocus, setConfirmPasswordFocus] = useState(false);
+  const [validPasswordConfirm, setValidPasswordConfirm] = useState(false);
   const [isRevealPwd, setIsRevealPwd] = useState(false);
   const [isRevealConfirmPwd, setIsRevealConfirmPwd] = useState(false);
-  const [passwordStrong, setPasswordStrong] = useState(true);
-
-  // const [passwordStrong, setPasswordStrong] = useState(true);
-
-  /** Function to validate password using thr Validator package */
-  const handlePasswordOnChange = (value) => {
-    if (
-      validator.isStrongPassword(value, {
-        minLength: 8,
-        minLowercase: 1,
-        minUppercase: 1,
-        minNumbers: 1,
-      })
-    ) {
-      setPasswordStrong(true);
-    } else {
-      setPasswordStrong(false);
-    }
-    setPassword(value);
-  };
+  // const [checkbox, setCheckbox] = useState(false);
+  const [checks, setChecks] = useState({
+    upperCaseCheck: false,
+    lowerCaseCheck: false,
+    characterLengthCheck: false,
+    numberCheck: false,
+  });
 
   /** Function to take off warnings in console on app load */
   useEffect(() => {
     const ac = new AbortController();
-
     document.title = "Sign Up - Handout";
     return function cleanup() {
       ac.abort();
     };
   }, []);
+  useEffect(() => {
+    const match = pwdConfirm === password;
+    setValidPasswordConfirm(match);
+  }, [password, pwdConfirm]);
 
+  // function to handle sign up button
   const handleSignUp = (e) => {
     e.preventDefault();
     // setButtonIsLoading(true);
   };
 
+  /** Function to validate password using thr Validator package */
+  const handlePasswordOnChange = (e) => {
+    setPassword(e.target.value);
+  };
+  const handleConfirmPasswordOnChange = (e) => {
+    setPwdconfirm(e.target.value);
+  };
+
+  const handleOnFocus = () => {
+    setValidate(true);
+    setPasswordFocus(true);
+  };
+  const handleConfirmPasswordOnFocus = () => {
+    setConfirmPasswordFocus(true);
+  };
+  const handleOnBlur = () => {
+    setValidate(false);
+  };
+  const handleConfirmPasswordOnBlur = () => {
+    setConfirmPasswordFocus(false);
+  };
+  const handleOnKeyUp = (e) => {
+    const { value } = e.target;
+    const upperCaseCheck = /[A-Z]/.test(value);
+    const lowerCaseCheck = /[a-z]/.test(value);
+
+    const numberCheck = /[0-9]/.test(value);
+    const characterLengthCheck = e.target.value.length >= 8;
+    setChecks({
+      upperCaseCheck,
+      lowerCaseCheck,
+      characterLengthCheck,
+      numberCheck,
+    });
+  };
+  // const handleCheckBox = () => {
+  //   setCheckbox(true);
+  // };
+
   return (
     <>
-      <div className="hidden md:inline-flex lg: inline-flex flex w-full h-sreen">
+      <div className=" md:inline-flex lg: flex w-full h-sreen">
         <div className="flex flex-col items-center justify-center w-[668px] h-screen bg-[#E7EFED]">
           <div className="mt-[20px] mx-[230px]">
             <img className="w-[208px] h-[56px] " src={logo} alt="" />
@@ -75,8 +116,8 @@ function SignUpTwo() {
           <div className="form bg-[#FFFFFF]">
             <div className="bg-[FFFFFF] py-[72px] min-h-screen flex flex-col">
               <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
-                <div className="bg-white px-6 py-8 rounded  text-[#424242] w-full">
-                  <div className="flex flex-col items-start w-[306px] h-[80px] mb-[40px]">
+                <div className="bg-white px-6 rounded  text-[#424242] w-full">
+                  <div className="flex flex-col items-start w-[306px] h-[80px] mb-[20px]">
                     <h1 className=" text-[32px] font-[700] leading-[40px] font-Raleway tracking-wide">
                       Create account
                     </h1>
@@ -89,53 +130,129 @@ function SignUpTwo() {
                   <div className="relative">
                     <label htmlFor="password"> Password</label>
                     <input
-                      className="block border border-grey-light w-full p-3 rounded mb-4"
-                      name="pwd"
+                      className={
+                        checks.upperCaseCheck &&
+                        checks.lowerCaseCheck &&
+                        checks.characterLengthCheck &&
+                        checks.numberCheck &&
+                        passwordFocus
+                          ? "validInput"
+                          : !passwordFocus &&
+                            checks.upperCaseCheck &&
+                            checks.lowerCaseCheck &&
+                            checks.characterLengthCheck &&
+                            checks.numberCheck
+                          ? "input"
+                          : !checks.upperCaseCheck &&
+                            !checks.lowerCaseCheck &&
+                            !checks.characterLengthCheck &&
+                            !checks.numberCheck &&
+                            passwordFocus
+                          ? "inValidInput"
+                          : !passwordFocus && !password
+                          ? "input"
+                          : "inValidInput"
+                      }
+                      name="password"
                       type={isRevealPwd ? "text" : "password"}
                       value={password}
-                      onChange={(e) => handlePasswordOnChange(e.target.value)}
-                      // onChange={(e) => setPwd(e.target.value)}
+                      onChange={handlePasswordOnChange}
+                      onFocus={handleOnFocus}
+                      onBlur={handleOnBlur}
+                      onKeyUp={handleOnKeyUp}
+                      required="true"
                     />
                     {/* eslint-disable-next-line jsx-a11y/alt-text */}
                     <img
                       className="w-6 absolute top-10 right-2"
                       title={isRevealPwd ? "Hide password" : "Show password"}
-                      src=""
+                      src={isRevealPwd ? showPwd : hidePwd}
                       alt=""
                       onClick={() => setIsRevealPwd((prevState) => !prevState)}
                     />
-                    {passwordStrong ? null : (
+                    {validate ? (
+                      <ValidatePassword
+                        upperLowerCaseIcon={
+                          checks.upperCaseCheck && checks.lowerCaseCheck
+                            ? checkmark
+                            : caution
+                        }
+                        upperLowerCaseFlag={
+                          checks.upperCaseCheck && checks.lowerCaseCheck
+                            ? "valid"
+                            : "invalid"
+                        }
+                        characterLengthIcon={
+                          checks.characterLengthCheck ? checkmark : caution
+                        }
+                        characterLengthFlag={
+                          checks.characterLengthCheck ? "valid" : "invalid"
+                        }
+                        numberFlagIcon={
+                          checks.numberCheck ? checkmark : caution
+                        }
+                        numberFlag={checks.numberCheck ? "valid" : "invalid"}
+                      />
+                    ) : null}
+                    {/* {passwordStrong ? null : (
                       <p className="text-[#d42121] border border-[#d42121] text-center rounded">
                         Must be more than 8 characters <br />
                         Must include uppercase letters, lowercase letters and
                         number from 0 - 9
                       </p>
-                    )}
+                    )} */}
                   </div>
-                  <div className="relative">
-                    <label htmlFor="password"> Confirm password</label>
+                  <div className="relative mt-4 ">
+                    <label htmlFor="pwdConfirm"> Confirm password</label>
                     <input
-                      className="block border border-grey-light w-full p-3 rounded mb-4"
-                      name="pwd"
+                      className={
+                        confirmPasswordFocus && !validPasswordConfirm
+                          ? "inValidInput"
+                          : confirmPasswordFocus && validPasswordConfirm
+                          ? "validInput"
+                          : !confirmPasswordFocus && !pwdConfirm
+                          ? "input"
+                          : !confirmPasswordFocus && validPasswordConfirm
+                          ? "validInput"
+                          : confirmPasswordFocus && !pwdConfirm
+                          ? "input"
+                          : "inValidInput"
+                      }
+                      name="pwdConfirm"
                       type={isRevealConfirmPwd ? "text" : "password"}
                       value={pwdConfirm}
-                      onChange={(e) => setPwdconfirm(e.target.value)}
+                      onChange={handleConfirmPasswordOnChange}
+                      onFocus={handleConfirmPasswordOnFocus}
+                      onBlur={handleConfirmPasswordOnBlur}
+                      required="true"
                     />
                     <img
                       className="w-6 absolute top-10 right-2"
                       title={
                         isRevealConfirmPwd ? "Hide password" : "Show password"
                       }
-                      src=""
+                      src={isRevealConfirmPwd ? showPwd : hidePwd}
                       alt=""
                       onClick={() =>
                         setIsRevealConfirmPwd((prevState) => !prevState)
                       }
                     />
+                    <span
+                      className={
+                        confirmPasswordFocus && !validPasswordConfirm
+                          ? "flex"
+                          : "hidden"
+                      }
+                    >
+                      <img src={caution} className="mt-1" alt="" />
+                      <p className="invalid mt-1 ml-1">
+                        Password does not match
+                      </p>
+                    </span>
                   </div>
                   <button
                     type="submit"
-                    className="w-full text-center py-3 rounded bg-[#077369] text-white hover:bg-green-dark focus:outline-none my-1"
+                    className="w-full mt-6 text-center py-3 rounded bg-[#077369] text-white hover:bg-green-dark focus:outline-none my-1"
                     onClick={handleSignUp}
                   >
                     Create account
@@ -144,6 +261,7 @@ function SignUpTwo() {
                     <input
                       className="mr-[5px] border-solid border-1 [#2F2F2A]"
                       type="checkbox"
+                      // onChange={handleCheckBox}
                     />
                     <p>By signing up you agree to the term and condtions</p>
                   </div>
@@ -187,7 +305,7 @@ function SignUpTwo() {
                     name="pwd"
                     type={isRevealPwd ? "text" : "password"}
                     value={password}
-                    onChange={(e) => handlePasswordOnChange(e.target.value)}
+                    // onChange={(e) => handlePasswordOnChange(e.target.value)}
                     // onChange={(e) => setPwd(e.target.value)}
                   />
                   {/* eslint-disable-next-line jsx-a11y/alt-text */}
@@ -198,7 +316,7 @@ function SignUpTwo() {
                     alt=""
                     onClick={() => setIsRevealPwd((prevState) => !prevState)}
                   />
-                  {passwordStrong ? null : (
+                  {/* {passwordStrong ? null : (
                     <p className="text-[#d42121] border border-[#d42121] text-center rounded">
                       Must be more than 8 characters <br />
                       Must include uppercase letters, lowercase letters and
@@ -208,7 +326,7 @@ function SignUpTwo() {
                   <p className="text-[12px] leading-[20px] font-[400] mt-[-10px] mb-[10px]">
                     Must include an uppercase letter, lowercase letter, number
                     and have at least 8 characters.
-                  </p>
+                  </p> */}
                 </div>
                 <div className="relative">
                   <label htmlFor="password"> Confirm password</label>
