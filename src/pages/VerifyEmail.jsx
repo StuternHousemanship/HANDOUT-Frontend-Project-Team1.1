@@ -6,7 +6,7 @@ function VerifyEmail() {
     <div className="flex flex-col justify-center items-center w-full h-[100vh]">
       {/* laptop and ipad view */}
       <div className="xs: heddin flex flex-col justify-center items-center w-full h-[100vh] bg-white">
-        <div className="xs:hidden md:inline-flex lg:inline-flex w-full h-[80px] bg-white border-b-[3px] border-[#F1F7F7] ">
+        <div className="xs:hidden md:block w-full h-[80px] bg-white border-b-[3px] border-[#F1F7F7] ">
           <img
             className="w-[157px] h-[44] ml-[120px] my-[26px]"
             src={logo}
