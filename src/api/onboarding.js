@@ -2,23 +2,17 @@
 import { handoutOnboarding } from "../config";
 
 /** Send a POST request to Signup Users */
-export const SignUp = async (
-  firstName,
-  lastName,
-  email,
-  phoneNovalue,
-  password
-) => {
+export const SignUp = async (firstName, lastName, email, mobile, password) => {
   const data = {
     firstName,
     lastName,
     email,
-    phoneNovalue,
+    mobile,
     password,
   };
   const stringifiedData = JSON.stringify(data);
 
-  return handoutOnboarding.post("/users/signUp", stringifiedData);
+  return handoutOnboarding.post("/auth/signUp", stringifiedData);
 };
 /** Send a POST request to Login Users */
 export const Login = async (email, password) => {
