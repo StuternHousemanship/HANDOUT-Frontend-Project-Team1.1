@@ -14,7 +14,7 @@ import AccountRecovered from "./pages/AccountRecovered";
 import ResetPassword from "./pages/ResetPassword";
 import SignUpTwo from "./pages/SignUpTwo";
 import LoginSuccessPage from "./pages/LoginSuccessPage";
-import LoginFailure from "./pages/LoginFailure";
+import LoginFailurePage from "./pages/LoginFailurePage";
 
 function Routers() {
   return (
@@ -54,7 +54,10 @@ function Routers() {
             path={NonAuthRoutes.LoginSuccessPage}
             element={<LoginSuccessPage />}
           />
-          <Route path={NonAuthRoutes.LoginFailure} element={<LoginFailure />} />
+          <Route
+            path={NonAuthRoutes.LoginFailure}
+            element={<LoginFailurePage />}
+          />
         </Routes>
       </Suspense>
     </div>

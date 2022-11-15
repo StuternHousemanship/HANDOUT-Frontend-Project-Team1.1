@@ -16,7 +16,7 @@ const NonAuthRoutes = {
   AccountRecovered: "/accountrecovered",
   SignUpTwo: "/signuptwo",
   LoginSuccessPage: "/LoginSuccessPage",
-  LoginFailure: "/LoginFailure",
+  LoginFailure: "/LoginFailurePage",
 };
 
 export { AuthRoutes, NonAuthRoutes };

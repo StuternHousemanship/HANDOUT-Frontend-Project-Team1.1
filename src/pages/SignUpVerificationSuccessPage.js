@@ -1,14 +1,14 @@
 import React from "react";
-import LoginSuccess from "../components/LoginSuccess";
+import SignUpVerificationSuccess from "../components/SignUpVerificationSuccess";
 import Navbar from "../components/Navbar";
 
-function LoginSuccessPage() {
+function SignUpVerificationSuccessPage() {
   return (
     <div className="w-screen h-screen relative flex flex-col items-center justify-center">
       <Navbar />
-      <LoginSuccess />
+      <SignUpVerificationSuccess />
     </div>
   );
 }
 
-export default LoginSuccessPage;
+export default SignUpVerificationSuccessPage;
