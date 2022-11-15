@@ -63,6 +63,7 @@
   width: 100%;
   padding: 12px;
   border-radius: 4px;
+  height: 48px;
 }
 .confirm input {
   border: 1px solid black;
@@ -80,6 +81,7 @@
   width: 100%;
   padding: 12px;
   border-radius: 4px;
+  height: 48px;
 }
 .inValidInput {
   border: 2px solid #a40d0d;
@@ -88,6 +90,7 @@
   width: 100%;
   padding: 12px;
   border-radius: 4px;
+  height: 48px;
 }
 
 .loginButtonEnabled {

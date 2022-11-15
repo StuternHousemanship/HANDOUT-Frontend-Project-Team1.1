@@ -29,6 +29,7 @@ function LogIn() {
   /** Handle to Login */
   const handleLogin = (e) => {
     e.preventDefault();
+    navigate(NonAuthRoutes.LoginSuccess);
     // setButtonIsLoading(true);
     // setSuccess(true);
 

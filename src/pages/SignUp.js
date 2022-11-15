@@ -7,11 +7,8 @@
 import React, { useState, useEffect } from "react";
 // eslint-disable-next-line import/no-duplicates
 import { Link } from "react-router-dom";
-
-import Cookies from "js-cookie";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-
 // eslint-disable-next-line import/no-cycle
 // import onboarding from "../api/onboarding";
 // eslint-disable-next-line import/no-cycle, import/no-duplicates
@@ -25,9 +22,9 @@ import hidePwd from "../assets/svg/hide-password.svg";
 import { SignUp as signUp } from "../api/onboarding";
 import "../App.css";
 import { NonAuthRoutes } from "../url";
-
 import logo from "../assets/svg/desktop.svg";
-import frame16 from "../assets/svg/Frame 16.svg";
+import HandoutLogo from "../assets/img/HandoutLogo.png";
+
 
 function SignUp() {
   const [password, setPassword] = useState("");
@@ -62,6 +59,8 @@ function SignUp() {
       ac.abort();
     };
   }, []);
+
+  /** Function to set the valid confirm password inputed to the initial password entry */
   useEffect(() => {
     const match = pwdConfirm === password;
     setValidPasswordConfirm(match);
@@ -70,29 +69,28 @@ function SignUp() {
   /** Handle to Sign Up and route to the email verification  page */
   const handleSignUp2 = (e) => {
     e.preventDefault();
+    setPassword("");
+        setPwdconfirm("");
     // setButtonIsLoading(true);
 
     // navigate(NonAuthRoutes.VerifyEmail);
 
     signUp(firstName, lastName, email, phoneNovalue, password).then(
       (response) => {
-        console.log(response);
+        // console.log(response);
         if (response.status === 201) {
-          const accessToken = response.access_token;
-          const refreshToken = response.refresh_token;
-          Cookies.set("accessToken", accessToken);
-          localStorage.setItem("token", refreshToken);
-        }
+          navigate(NonAuthRoutes.VerifyEmail);
+          // const accessToken = response.access_token;
+          // const refreshToken = response.refresh_token;
+          // Cookies.set("accessToken", accessToken);
+          // localStorage.setItem("token", refreshToken);
+        } return (
+          <div>
+             <h1>ACCOUNT CREATION WAS NOT SUCCESSFUL</h1>
+          </div>
+        ) 
       }
     );
-  };
-
-  /** Function to validate password using thr Validator package */
-  const handlePasswordOnChange = (e) => {
-    setPassword(e.target.value);
-  };
-  const handleConfirmPasswordOnChange = (e) => {
-    setPwdconfirm(e.target.value);
   };
 
   const handleOnFocus = () => {
@@ -108,6 +106,8 @@ function SignUp() {
   const handleConfirmPasswordOnBlur = () => {
     setConfirmPasswordFocus(false);
   };
+
+  /** Function to validate the password */
   const handleOnKeyUp = (e) => {
     const { value } = e.target;
     const upperCaseCheck = /[A-Z]/.test(value);
@@ -123,55 +123,29 @@ function SignUp() {
     });
   };
 
-  // waer
-
-  /** Function to validate password using thr Validator package */
-
-  /** Function to take off warnings in console on app load */
-  useEffect(() => {
-    const ac = new AbortController();
-
-    document.title = "Sign Up - Handout";
-    return function cleanup() {
-      ac.abort();
-    };
-  }, []);
-
+  /** Function to ensure a special character is inputed for the email input */
   useEffect(() => {
     const emailRegex = /[*@!#%&()^~{}]+/.test(email);
     setValidEmail(emailRegex);
   });
 
-  // const emailRegex = /[ `!@#$%^&*()_+\-=\\[\]{};':"\\|,.<>\\/?~]/
-  //  const emailRegex = /[*@!#%&()^~{}]+/.test(email);
-
   /** Handle to navigate to next page to complete sign up */
   const handleSignUp = (e) => {
     e.preventDefault();
     setStep(2);
-    // setButtonIsLoading(true);
-
-    // navigate(NonAuthRoutes.SignUpTwo);
-
-    signUp(firstName, lastName, email, phoneNovalue).then((response) => {
-      if (response.status === 200) {
-        const accessToken = response.access_token;
-        const refreshToken = response.refresh_token;
-        Cookies.set("accessToken", accessToken);
-        localStorage.setItem("token", refreshToken);
-      }
-    });
   };
 
   return (
-    <div className="hidden md:inline-flex lg: inline-flex flex w-full h-sreen font-Raleway ">
-      <div className="flex flex-col items-center justify-center w-[46%] h-screen bg-[#E7EFED]">
+    <div className=" md:inline-flex w-full h-sreen font-Raleway ">
+
+      {/* Left hand side of the sign up page displaying the handout Logo */}
+      <div className=" xs:hidden md:flex flex-col items-center justify-center w-[46%] h-screen bg-[#E7EFED]">
         <div className="mt-[20px] mx-[230px]">
           <img className="w-[208px] h-[56px] " src={logo} alt="" />
         </div>
 
         <div className="w-[350px] h-[350px] mx-[120px] mt-[30px]">
-          <img className="" src={frame16} alt="" />
+          <img className="" src={HandoutLogo} alt="" />
         </div>
 
         <div className="flex flex-col items-center justify-center w-[457px] h-[217px] mx-[105px]">
@@ -183,7 +157,10 @@ function SignUp() {
           </div>
         </div>
       </div>
-      <div className="w-[54%] h- bg-[#FFFFFF]">
+
+      {/* Right hand side of the sign up page showing the form */}
+      {/* First sign up form page displaying user detail inputs */}
+      <div className="md:w-[54%] md:h-screen bg-[#FFFFFF] xs:justify-center xs:items-center ">
         {step === 1 ? (
           <div className="form bg-[#FFFFFF]">
             <div className="bg-[FFFFFF] py-[20px] min-h-screen flex flex-col">
@@ -280,18 +257,26 @@ function SignUp() {
             </div>
           </div>
         ) : (
-          <div className="form bg-[#FFFFFF]">
-            <div className="bg-[FFFFFF] py-[72px] min-h-screen flex flex-col">
+
+          // Second sign up form page displaying password inputs
+          <div className="form bg-[#FFFFFF] ">
+            <div className="bg-[FFFFFF]  min-h-screen flex flex-col">
               <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
                 <div className="bg-white px-6 rounded  text-[#424242] w-full">
-                  <div className="flex flex-col items-start w-[306px] h-[80px] mb-[20px]">
-                    <h1 className=" text-[32px] font-[700] leading-[40px] font-Raleway tracking-wide">
+                  <div className="xs:flex  md:hidden mx-[143px]">
+                    <img className="" src={logo} alt="" />
+                  </div>
+                  <div className="xs:flex md:hidden text-[24px] text-[#077369] leading-[34px] tracking-wider font-[700] mt-[22.5px]">
+                     We’ve got something for <br /> everyone
+                  </div>
+                  <div className="flex flex-col items-start w-[306px] md:h-[80px] mt-[30px] mb-[20px]">
+                    <h1 className="xs:text-[20px] xs:leading-[28px]  md:text-[32px] font-[700] md:leading-[40px] font-Raleway tracking-wide  ">
                       Create account
                     </h1>
-                    <span className="flex">
-                      Already have an account &nbsp;
+                    <span className="flex  ">
+                      <p className="xs:text-[14px] md:text-[16px] " >Already have an account? &nbsp;</p>
                       <p
-                        className=" cursor-pointer font-[700] text-[#278178]"
+                        className=" cursor-pointer font-[700] text-[#278178] xs:text-[14px] md:text-[16px] "
                         onClick={() => navigate(NonAuthRoutes.LogIn)}
                       >
                         {" "}
@@ -329,15 +314,15 @@ function SignUp() {
                       name="password"
                       type={isRevealPwd ? "text" : "password"}
                       value={password}
-                      onChange={handlePasswordOnChange}
+                      onChange={(e) => setPassword(e.target.value)}
                       onFocus={handleOnFocus}
                       onBlur={handleOnBlur}
                       onKeyUp={handleOnKeyUp}
-                      required="true"
+                      required
                     />
                     {/* eslint-disable-next-line jsx-a11y/alt-text */}
                     <img
-                      className="w-6 absolute top-10 right-2"
+                      className="w-6 absolute top-9 right-2"
                       title={isRevealPwd ? "Hide password" : "Show password"}
                       src={isRevealPwd ? showPwd : hidePwd}
                       alt=""
@@ -395,13 +380,13 @@ function SignUp() {
                       name="pwdConfirm"
                       type={isRevealConfirmPwd ? "text" : "password"}
                       value={pwdConfirm}
-                      onChange={handleConfirmPasswordOnChange}
+                      onChange={(e) => setPwdconfirm(e.target.value)}
                       onFocus={handleConfirmPasswordOnFocus}
                       onBlur={handleConfirmPasswordOnBlur}
-                      required="true"
+                      required
                     />
                     <img
-                      className="w-6 absolute top-10 right-2"
+                      className="w-6 absolute top-9 right-2"
                       title={
                         isRevealConfirmPwd ? "Hide password" : "Show password"
                       }
@@ -461,6 +446,7 @@ function SignUp() {
               </div>
             </div>
           </div>
+
         )}
       </div>
     </div>

@@ -13,6 +13,8 @@ import ForgotPassword2 from "./pages/ForgotPassword2";
 import AccountRecovered from "./pages/AccountRecovered";
 import ResetPassword from "./pages/ResetPassword";
 import SignUpTwo from "./pages/SignUpTwo";
+import LoginSuccessPage from "./pages/LoginSuccessPage";
+import LoginFailure from "./pages/LoginFailure";
 
 function Routers() {
   return (
@@ -48,6 +50,11 @@ function Routers() {
             path={NonAuthRoutes.ResetPassword}
             element={<ResetPassword />}
           />
+          <Route
+            path={NonAuthRoutes.LoginSuccessPage}
+            element={<LoginSuccessPage />}
+          />
+          <Route path={NonAuthRoutes.LoginFailure} element={<LoginFailure />} />
         </Routes>
       </Suspense>
     </div>
