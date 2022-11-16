@@ -21,6 +21,7 @@ export const Login = async (email, password) => {
     password,
   };
   const stringifiedData = JSON.stringify(data);
+  // console.log(stringifiedData);
 
-  return handoutOnboarding.get("/users/login", stringifiedData);
+  return handoutOnboarding.post("/auth/login", stringifiedData);
 };

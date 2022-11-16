@@ -23,8 +23,13 @@ function LogIn() {
   });
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+
   // const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
+  // const navigate = useNavigate();
+  const handleEmailChange = (value) => {
+    setEmail(value);
+  };
 
   /** Handle to Login */
   const handleLogin = (e) => {
@@ -35,7 +40,7 @@ function LogIn() {
 
     // eslint-disable-next-line no-undef
     Login(email, password).then((response) => {
-      if (response.status === 200) {
+      if (response.status === 201) {
         const accessToken = response.access_token;
         const refreshToken = response.refresh_token;
         Cookies.set("accessToken", accessToken);
@@ -108,13 +113,13 @@ function LogIn() {
                   Email
                 </p>
                 <input
-                  type="email"
                   value={email}
+                  onChange={(e) => handleEmailChange(e.target.value)}
+                  type="email"
                   placeholder="example@mail.com"
                   id="mail"
                   required
                   className=" xs:w-[348px] p-3 sm:w-[450px] h-[56px] rounded-[4px] border-[1px] border-[#717171] outline-0 "
-                  onChange={(e) => setEmail(e.target.value)}
                 />
               </label>
             </div>
