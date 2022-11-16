@@ -62,7 +62,7 @@ function Home() {
               Account Recovered
             </button>
           </Link>
-          <Link to="LoginSuccessPage">
+          <Link to="LoginOnSuccessfulSignUp">
             <button
               type="button"
               className="bg-green-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
@@ -70,7 +70,7 @@ function Home() {
               Success Page
             </button>
           </Link>
-          <Link to="LoginFailurePage">
+          <Link to="ErrorOnLogin">
             <button
               type="button"
               className="bg-orange-700 hover:bg-yellow-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"

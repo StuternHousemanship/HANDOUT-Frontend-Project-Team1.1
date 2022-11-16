@@ -10,7 +10,7 @@ function SignUpVerificationSuccess() {
         alt="Handout"
       />
       <h2 className="font-Raleway font-[700] text-[32px] leading-[40px] ">
-        Verfication!
+        Verification!
       </h2>
       <p className="text-[16px] text-center leading-[28px] font-Raleway ">
         A verification email has been sent to your <br /> email address

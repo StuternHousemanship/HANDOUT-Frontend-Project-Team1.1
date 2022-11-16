@@ -17,6 +17,10 @@ const NonAuthRoutes = {
   SignUpTwo: "/signuptwo",
   LoginSuccessPage: "/LoginSuccessPage",
   LoginFailure: "/LoginFailurePage",
+  SignUpVerify: "/SignUpVerificationSuccessPage",
+  LoginOnSuccessSignUp: "/LoginOnSuccessfulSignUp",
+  ErrorOnSignUp: "/ErrorOnSignUp",
+  ErrorOnLogin: "/ErrorOnLogin",
 };
 
 export { AuthRoutes, NonAuthRoutes };

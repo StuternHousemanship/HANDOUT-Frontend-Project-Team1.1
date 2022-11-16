@@ -15,6 +15,10 @@ import ResetPassword from "./pages/ResetPassword";
 import SignUpTwo from "./pages/SignUpTwo";
 import LoginSuccessPage from "./pages/LoginSuccessPage";
 import LoginFailurePage from "./pages/LoginFailurePage";
+import SignUpVerificationSuccessPage from "./pages/SignUpVerificationSuccessPage";
+import LoginOnSuccessfulSignUp from "./components/LoginOnSuccessfulSignUp";
+import ErrorOnSignUp from "./components/ErrorOnSignUp";
+import ErrorOnLogin from "./components/ErrorOnLogin";
 
 function Routers() {
   return (
@@ -55,9 +59,22 @@ function Routers() {
             element={<LoginSuccessPage />}
           />
           <Route
+            path={NonAuthRoutes.SignUpVerify}
+            element={<SignUpVerificationSuccessPage />}
+          />
+          <Route
             path={NonAuthRoutes.LoginFailure}
             element={<LoginFailurePage />}
           />
+          <Route
+            path={NonAuthRoutes.LoginOnSuccessSignUp}
+            element={<LoginOnSuccessfulSignUp />}
+          />
+          <Route
+            path={NonAuthRoutes.ErrorOnSignUp}
+            element={<ErrorOnSignUp />}
+          />
+          <Route path={NonAuthRoutes.ErrorOnLogin} element={<ErrorOnLogin />} />
         </Routes>
       </Suspense>
     </div>

@@ -28,7 +28,7 @@ function LoginFailure() {
           type="button"
           className="text-[#077369] font-[700] leading-[24px] font-[Raleway] text-[16px] xs:flex md:hidden text-center  "
         >
-          Help center
+          Help centre.
         </button>
       </p>
       <button
