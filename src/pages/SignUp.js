@@ -88,7 +88,7 @@ function SignUp() {
           <div>
              <h1>ACCOUNT CREATION WAS NOT SUCCESSFUL</h1>
           </div>
-        ) 
+        )
       }
     );
   };
@@ -136,12 +136,12 @@ function SignUp() {
   };
 
   return (
-    <div className=" md:inline-flex w-full h-sreen font-Raleway ">
+    <div className="md:flex w-full h-screen font-Raleway ">
 
       {/* Left hand side of the sign up page displaying the handout Logo */}
-      <div className=" xs:hidden md:flex flex-col items-center justify-center w-[46%] h-screen bg-[#E7EFED]">
-        <div className="mt-[20px] mx-[230px]">
-          <img className="w-[208px] h-[56px] " src={logo} alt="" />
+      <div className="xs:hidden md:flex flex-col items-center justify-center h-screen w-[46%] bg-[#E7EFED]">
+        <div className="flex items-center justify-center mt-[10px]">
+          <img className="w-[208px] h-[35px] " src={logo} alt="" />
         </div>
 
         <div className="w-[350px] h-[350px] mx-[120px] mt-[30px]">
@@ -149,7 +149,7 @@ function SignUp() {
         </div>
 
         <div className="flex flex-col items-center justify-center w-[457px] h-[217px] mx-[105px]">
-          <div className="text-[40px] text-[#077369] leading-[48px] font-Raleway text-center tracking-wide font-[700] mt-[9px]">
+          <div className="md:text-[30px] lg:text-[40px] text-[#077369] md:leading[30px] lg:leading-[48px] font-Raleway text-center tracking-wide font-[700] mt-[9px]">
             We’ve got something for everyone
           </div>
           <div className="text-center font-[500] text-[16px] leading-[24px] tracking-wide text-[#000000] mt-[5px] font-Raleway">
@@ -165,13 +165,21 @@ function SignUp() {
           <div className="form bg-[#FFFFFF]">
             <div className="bg-[FFFFFF] py-[20px] min-h-screen flex flex-col">
               <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
-                <div className="bg-white px-6 py-8 rounded  text-[#424242] w-full">
+                <div className="bg-white px-6  rounded  text-[#424242] w-full">
+                 <div className="xs:flex  md:hidden items-center justify-center ">
+                    <img className="h-[30px]" src={logo} alt="" />
+
+                  </div>
+                        <h1 className="xs:flex md:hidden text-[#077369] font-Raleway font-[700] my-[20px]">
+            We’ve got something <br/> for everyone
+          </h1>
                   <div className="flex flex-col items-start w-[306px] h-[80px] ">
-                    <h1 className=" text-[32px] font-[700] leading-[20px] font-Raleway tracking-wide">
+
+                    <h1 className=" xs:text-[20px] md:text-[32px] font-[700] leading-[20px] font-Raleway tracking-wide">
                       Create account
                     </h1>
 
-                    <div className="my-[15px] font-Raleway">
+                    <div className="my-[10px] font-Raleway xs:text-[14px] md:text-[16px]">
                       <p>
                         Already have an account &nbsp;
                         <Link
@@ -185,29 +193,29 @@ function SignUp() {
                   </div>
                   {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
 
-                  <label htmlFor="firstName"> First Name</label>
+                  <label htmlFor="firstName" className="xs:text-[14px] md:text-[16px]"> First Name</label>
                   <input
                     type="text"
-                    className="block border border-grey-light w-full p-3 rounded mb-4 "
+                    className="block border border-grey-light w-full p-3 rounded mb-2 xs:h-[45px] md:h-[56px]"
                     name="firstname"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                     required
                   />
-                  <label htmlFor="lastName">Last Name</label>
+                  <label htmlFor="lastName" className="xs:text-[14px] md:text-[16px]">Last Name</label>
                   <input
                     type="text"
-                    className="block border border-grey-light w-full p-3 rounded mb-4"
+                    className="block border border-grey-light w-full p-3 rounded mb-2 xs:h-[45px] md:h-[56px]"
                     name="lastname"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                     required
                   />
 
-                  <label htmlFor="email"> Email</label>
+                  <label htmlFor="email" className="xs:text-[14px] md:text-[16px]"> Email</label>
                   <input
                     type="email"
-                    className="block border border-grey-light w-full p-3 rounded"
+                    className="block border border-grey-light w-full p-3 mb-2 rounded xs:h-[45px] md:h-[56px]"
                     name="email"
                     placeholder="example@mail.com"
                     value={email}
@@ -223,7 +231,7 @@ function SignUp() {
                   >
                     <p className="invalid">Please, enter a valid Email</p>
                   </span>
-                  <label htmlFor="mobile" className="mt-4">
+                  <label htmlFor="mobile" className="mt-[10px] xs:text-[14px] md:text-[16px]">
                     {" "}
                     Mobile{" "}
                   </label>
@@ -235,12 +243,12 @@ function SignUp() {
                     value={phoneNovalue}
                     onChange={setPhoneNoValue}
                     id="mobile"
-                    className=" border border-grey-light w-full p-3 rounded mb-4 outline-0  "
+                    className=" border border-grey-light w-full p-3 rounded mb-2 outline-0  xs:text-[14px] md:text-[16px] xs:h-[45px] md:h-[56px] "
                   />
                   <button
                     type="submit"
                     // className="w-full text-center py-3 rounded bg-[#077369] text-white hover:bg-green-dark focus:outline-none mt-5"
-                    className="enabled"
+                    className="mb-4 enabled xs:text-[14px] md:text-[16px] xs:h-[45px] md:h-[56px]"
                     disabled={
                       !firstName ||
                       !lastName ||
@@ -266,11 +274,10 @@ function SignUp() {
                   <div className="xs:flex  md:hidden mx-[143px]">
                     <img className="" src={logo} alt="" />
                   </div>
-                  <div className="xs:flex md:hidden text-[24px] text-[#077369] leading-[34px] tracking-wider font-[700] mt-[22.5px]">
-                     We’ve got something for <br /> everyone
-                  </div>
+                   <h1 className="xs:flex md:hidden text-[#077369] font-Raleway font-[700] my-[20px]">
+            We’ve got something <br/> for everyone </h1>
                   <div className="flex flex-col items-start w-[306px] md:h-[80px] mt-[30px] mb-[20px]">
-                    <h1 className="xs:text-[20px] xs:leading-[28px]  md:text-[32px] font-[700] md:leading-[40px] font-Raleway tracking-wide  ">
+                    <h1 className="xs:text-[20px] xs:leading-[28px]  md:text-[32px] font-[700] md:leading-[40px] font-Raleway ">
                       Create account
                     </h1>
                     <span className="flex  ">
@@ -286,7 +293,7 @@ function SignUp() {
                   </div>
                   {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
                   <div className="relative">
-                    <label htmlFor="password"> Password</label>
+                    <label htmlFor="password" className="xs:text-[14px] md:text-[16px]"> Password</label>
                     <input
                       className={
                         checks.upperCaseCheck &&
@@ -362,7 +369,7 @@ function SignUp() {
                     ) : null}
                   </div>
                   <div className="relative mt-4 ">
-                    <label htmlFor="pwdConfirm"> Confirm password</label>
+                    <label htmlFor="pwdConfirm" className="xs:text-[14px] md:text-[16px]"> Confirm password</label>
                     <input
                       className={
                         confirmPasswordFocus && !validPasswordConfirm
