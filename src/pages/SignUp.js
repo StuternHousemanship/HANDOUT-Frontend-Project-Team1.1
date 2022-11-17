@@ -144,12 +144,12 @@ function SignUp() {
           <img className="w-[208px] h-[35px] " src={logo} alt="" />
         </div>
 
-        <div className="w-[350px] h-[350px] mx-[120px] mt-[30px]">
+        <div className="lg:w-[350px] lg:h-[350px] md:w-[300px] md:h-[280px] mx-[120px] mt-[30px]">
           <img className="" src={HandoutLogo} alt="" />
         </div>
 
         <div className="flex flex-col items-center justify-center w-[457px] h-[217px] mx-[105px]">
-          <div className="md:text-[30px] lg:text-[40px] text-[#077369] md:leading[30px] lg:leading-[48px] font-Raleway text-center tracking-wide font-[700] mt-[9px]">
+          <div className="md:text-[30px] lg:text-[40px] text-[#077369] md:leading[20px] lg:leading-[48px] font-Raleway text-center lg:tracking-wide font-[700] mt-[9px]">
             We’ve got something for everyone
           </div>
           <div className="text-center font-[500] text-[16px] leading-[24px] tracking-wide text-[#000000] mt-[5px] font-Raleway">
@@ -432,14 +432,25 @@ function SignUp() {
                     Create account
                   </button>
                   <div className="flex w-full">
+                    <label className="text-[14px] ">
+
                     <input
-                      className="mr-[5px] border-solid border-1 [#2F2F2A]"
+                      // className="mr-[5px] border-solid border-1 [#2F2F2A]"
                       type="checkbox"
                       onChange={() => setCheckbox(!checkbox)}
                     />
-                    <p className="text-[14px] ">
+                    <svg
+                    className={`checkbox ${checkbox ? "checkbox--active" : ""}`}
+                    aria-hidden="true"
+                    viewBox="0 0 15 11"
+                    fill="none">
+                      <path
+                      d="M1 4.5L5 9L14 1"
+                      strokeWidth="2"
+                      stroke={checkbox ? "#fff" : "none"} />
+                    </svg>
                       By signing up you agree to the term and condtions
-                    </p>
+                    </label>
                   </div>
                   <div>
                     <p
