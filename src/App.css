@@ -95,6 +95,7 @@
 
 .loginButtonEnabled {
   width: 450px;
+  height: 56px;
   margin-top: 24px;
   text-align: center;
   border-radius: 4px;
@@ -106,20 +107,94 @@
   margin-bottom: 4px;
 }
 
-#log button:disabled {
-  width: 450px;
-  margin-top: 24px;
-  text-align: center;
-  border-radius: 4px;
-  background-color: #9cc7c3;
-  color: white;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  margin-top: 24px;
-  margin-bottom: 4px;
+@media screen and (min-width: 300px) {
+  #log button:disabled {
+    width: 348px;
+    margin-top: 24px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: #9cc7c3;
+    color: white;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 24px;
+    margin-bottom: 4px;
+  }
 }
 
-/* className=" xs:w-[348px] sm:w-[450px] h-[56px] rounded-[4px]  bg-[#077369] text-white text-[20px] leading-[23px] font-[400] " */
+@media screen and (min-width: 768px) {
+  #log button:disabled {
+    width: 370px;
+    margin-top: 24px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: #9cc7c3;
+    color: white;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 24px;
+    margin-bottom: 4px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  #log button:disabled {
+    width: 450px;
+    margin-top: 24px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: #9cc7c3;
+    color: white;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 24px;
+    margin-bottom: 4px;
+  }
+}
+
+/* enabled button responsiveness */
+@media screen and (min-width: 300px) {
+  #log button {
+    width: 348px;
+    margin-top: 24px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: #077369;
+    color: white;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 24px;
+    margin-bottom: 4px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #log button {
+    width: 370px;
+    margin-top: 24px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: #077369;
+    color: white;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 24px;
+    margin-bottom: 4px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  #log button {
+    width: 450px;
+    margin-top: 24px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: #077369;
+    color: white;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 24px;
+    margin-bottom: 4px;
+  }
+}
 
 .enabled {
   width: 100%;
@@ -169,4 +244,27 @@ input[type="checkbox"] {
 .checkbox--active {
   border-color: #077369;
   background: #077369;
+}
+
+.enab {
+  width: 388px;
+  height: 52px;
+  margin-top: 24px;
+  text-align: center;
+  border-radius: 4px;
+  background-color: #077369;
+  color: white;
+  font-family: "Raleway";
+  font-size: 16px;
+}
+.enabdiv button:disabled {
+  width: 388px;
+  height: 52px;
+  margin-top: 24px;
+  text-align: center;
+  border-radius: 4px;
+  background-color: #9cc7c3;
+  color: white;
+  font-family: "Raleway";
+  font-size: 16px;
 }

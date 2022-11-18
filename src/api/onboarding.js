@@ -12,7 +12,7 @@ export const SignUp = async (firstName, lastName, email, mobile, password) => {
   };
   const stringifiedData = JSON.stringify(data);
 
-  return handoutOnboarding.post("/auth/signUp", stringifiedData);
+  return handoutOnboarding.post("/auth/signup", stringifiedData);
 };
 /** Send a POST request to Login Users */
 export const Login = async (email, password) => {

@@ -132,7 +132,8 @@ function SignUp() {
 
   /** Function to ensure a special character is inputed for the email input */
   useEffect(() => {
-    const emailRegex = /[*@!#%&()^~{}]+/.test(email);
+    const emailRegex=/^[a-zA-Z.!#$%&'+/=?^_{|}~-][a-zA-Z0-9.!#$%&'+/=?^_{|}~-]*@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email);
+    // const emailRegex = /[*@!#%&()^~{}]+/.test(email);
     setValidEmail(emailRegex);
   });
 
@@ -497,9 +498,9 @@ function SignUp() {
                       </span>
                     </label>
                   </div>
-                  <div>
+                  <div className="flex items-center justify-center" >
                     <p
-                      className="font-[700] text-[20px] leading-[24px] tracking-wide text-[#077369] mt-6 text-center cursor-pointer font-Raleway"
+                      className="  font-[700] text-[20px] leading-[24px] tracking-wide text-[#077369] mt-6 text-center cursor-pointer font-Raleway"
                       onClick={() => navigate(NonAuthRoutes.Home)}
                     >
                       Cancel

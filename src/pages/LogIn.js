@@ -66,13 +66,13 @@ function LogIn() {
             <img className="w-[208px] h-[35px] " src={logo} alt="" />
           </div>
 
-          <div className="w-[350px] h-[350px] mx-[120px] mt-[30px]">
+          <div className="lg:w-[350px] lg:h-[350px] md:w-[300px] md:h-[280px] mx-[120px] mt-[30px]">
             <img className="" src={frame16} alt="" />
           </div>
 
-          <div className="flex flex-col items-center justify-center w-[457px] h-[217px] mx-[105px]">
-            <div className="md:text-[30px] lg:text-[40px] text-[#077369] md:leading[20px] lg:leading-[48px] font-Raleway text-center lg:tracking-wide font-[700] mt-[9px]">
-              We help you connect and share.
+          <div className="flex flex-col items-center justify-center lg:w-[457px] md:w-[385px] h-[217px] lg:mx-[105px] md:mx-[130px] ">
+            <div className="md:text-[30px] lg:text-[40px] text-[#077369] lg:leading-[48px] font-Raleway text-center lg:tracking-wide font-[700] mt-[9px]">
+              We help you connect <br /> and share.
             </div>
             <div className="text-center font-[500] text-[16px] leading-[24px] tracking-wide text-[#000000] mt-[5px] font-Raleway">
               Buy, sell do it all over
@@ -82,7 +82,7 @@ function LogIn() {
 
         <div className="sm:h-screen w-[54%] sm:bg-[#FFFFFF] flex flex-col justify-center items-center ">
           <form className="bg-white flex justify-center items-center flex-col ">
-            <div className=" w-[450px] flex flex-col flex-start">
+            <div className=" lg:w-[450px] md:w-[370px] flex flex-col flex-start">
               <h1 className="w-[253px] h-[40px] text-[32px] font-[700] leading-[40px] font-Raleway tracking-wide">
                 Welcome Back!
               </h1>
@@ -92,7 +92,7 @@ function LogIn() {
               </p>
             </div>
 
-            <div className="w-[450px] flex flex-col flex-start  h-[44px] mt-[30px]">
+            <div className="lg:w-[450px] md:w-[370px] flex flex-col flex-start  h-[44px] mt-[30px]">
               <h2 className="text-[#2F2F2A] font-Raleway font-[700] text-[32px] leading-[40px] tracking-wide">
                 Log in
               </h2>
@@ -108,7 +108,7 @@ function LogIn() {
               </span>
             </div>
 
-            <div className="mt-[50px] ">
+            <div className="lg:w-[450px] md:w-[370px] mt-[50px] ">
               <label htmlFor="mail">
                 <p className="text-[#424242] text-[16px] sm:font-[400] leading-[18px] mb-[8px] ">
                   Email
@@ -120,17 +120,17 @@ function LogIn() {
                   placeholder="example@mail.com"
                   id="mail"
                   required
-                  className=" xs:w-[348px] p-3 sm:w-[450px] h-[56px] rounded-[4px] border-[1px] border-[#717171] outline-0 "
+                  className=" xs:w-[348px] md:w-[370px] p-3 lg:w-[450px] h-[56px] rounded-[4px] border-[1px] border-[#717171] outline-0  "
                 />
               </label>
             </div>
-            <div className="mt-[15px]">
+            <div className="lg:w-[450px] md:w-[370px] mt-[15px]">
               <label htmlFor="password">
                 {/* <p className="text-[#424242] text-[16px] font-[400] leading-[18px] mb-[8px]"> */}
                 <p>Password</p>
                 <Input
                   type={values.showPassword ? "text" : "password"}
-                  className="xs:w-[348px] p-3 sm:w-[450px] h-[56px] rounded-[4px] border-[1px] border-[#717171] relative"
+                  className=" xs:w-[348px] md:w-[370px] p-3 lg:w-[450px] h-[56px] rounded-[4px] border-[1px] border-[#717171] outline-0 relative"
                   disableUnderline
                   required
                   value={password}
@@ -152,8 +152,8 @@ function LogIn() {
                 />
               </label>
             </div>
-            <div id="log">
-              <div className=" text-right mb-[10px]">
+            <div className="lg:w-[450px] md:w-[370px]" id="log">
+              <div className="w-full text-right mb-[10px]">
                 <Link
                   to="/forgotPassword"
                   className=" text-[#2F2F2A] leading-[28px] tracking-wide my-[16px] font-[700] text-[16px] font-Raleway"
@@ -171,12 +171,13 @@ function LogIn() {
               </button>
             </div>
             <div>
-              <p
+              <button
+                type="button"
                 className="font-[700] text-[16px] leading-[24px]  tracking-wide text-[#2F2F2A] mt-6 text-center cursor-pointer font-Raleway"
                 onClick={() => navigate(NonAuthRoutes.Home)}
               >
                 Cancel
-              </p>
+              </button>
             </div>
           </form>
         </div>
@@ -220,7 +221,8 @@ function LogIn() {
               </p>
               <input
                 type="email"
-                id="mail"
+                value={email}
+                onChange={(e) => handleEmailChange(e.target.value)}
                 required
                 className="p-3 w-[387px] h-[48px] rounded-[4px] border-[1px] border-[#717171] outline-0  "
               />
@@ -233,10 +235,11 @@ function LogIn() {
               {/* </p> */}
               <Input
                 type={values.showPassword ? "text" : "password"}
-                className="p-3 sm:w-[387px] h-[48px] rounded-[4px] border-[1px] border-[#717171] relative"
+                className="p-3 w-[387px] h-[48px] rounded-[4px] border-[1px] border-[#717171] outline-0  "
                 disableUnderline
                 required
                 value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 // onChange={(e) => handlePasswordOnChange(e.target.value)}
                 endAdornment={
                   <InputAdornment position="end">
@@ -265,12 +268,19 @@ function LogIn() {
             </p>
           </div> */}
             <div className=" text-right mb-[10px]">
-              <Link
+              <button
+                type="button"
+                className="font-[700] text-[15px] leading-[24px]  tracking-wide text-[#2F2F2A] text-center cursor-pointer font-Raleway"
+                onClick={() => navigate(NonAuthRoutes.ForgotPassword)}
+              >
+                Forgot Password?
+              </button>
+              {/* <Link
                 to="/forgotPassword"
                 className=" text-[#278178] leading-[22px] tracking-wide my-[16px] font-[700] text-[14px] font-Raleway"
               >
                 Forgot Password
-              </Link>
+              </Link> */}
             </div>
             {/* <p
             className="text-[#424242] text-right underline my-[16px] "
@@ -278,15 +288,24 @@ function LogIn() {
           >
             Forgot Password
           </p> */}
-            <button
-              onClick={handleLogin}
-              type="submit"
-              className="w-[388px] h-[52px] rounded-[4px] border-[1px] border-[#717171] outline-0 bg-[#077369] text-[#FEFEFE] font-Raleway text-[16px] leading-[23px] font-[400] "
-            >
-              Continue
-            </button>{" "}
-            <div className="font-[700] text-[16px] leading-[19px] font-Raleway tracking-wide text-[#278178] mt-6 text-center">
-              Cancel
+            <div className="enabdiv">
+              <button
+                onClick={handleLogin}
+                type="submit"
+                className="enab"
+                disabled={!password || !email}
+              >
+                Continue
+              </button>
+            </div>
+            <div className="flex items-center justify-center ">
+              <button
+                type="button"
+                className="font-[700] text-[16px] leading-[24px]  tracking-wide text-[#2F2F2A] mt-6 text-center cursor-pointer font-Raleway"
+                onClick={() => navigate(NonAuthRoutes.Home)}
+              >
+                Cancel
+              </button>
             </div>
           </div>
         </form>
