@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable prettier/prettier */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
@@ -18,13 +19,14 @@ import caution from "../assets/svg/caution.svg";
 import checkmark from "../assets/svg/checkmark.svg";
 import showPwd from "../assets/svg/show-password.svg";
 import hidePwd from "../assets/svg/hide-password.svg";
+// import ErrorOnSignUp from "../components/ErrorOnSignUp";
+// import SignUpVerificationSuccessPage from "./SignUpVerificationSuccessPage";
 // eslint-disable-next-line import/no-cycle
-import { SignUp as signUp } from "../api/onboarding";
+// import { SignUp as signUp } from "../api/onboarding";
 import "../App.css";
 import { NonAuthRoutes } from "../url";
 import logo from "../assets/svg/desktop.svg";
 import HandoutLogo from "../assets/img/HandoutLogo.png";
-
 
 function SignUp() {
   const [password, setPassword] = useState("");
@@ -43,7 +45,11 @@ function SignUp() {
   const [emailFocus, setEmailFocus] = useState(false);
   const [phoneNovalue, setPhoneNoValue] = useState();
   const [step, setStep] = useState(1);
+  // const [success, setSuccess] = useState(false);
+  // const [error, setError] = useState(false);
+
   const navigate = useNavigate();
+
   const [checks, setChecks] = useState({
     upperCaseCheck: false,
     lowerCaseCheck: false,
@@ -70,28 +76,29 @@ function SignUp() {
   const handleSignUp2 = (e) => {
     e.preventDefault();
     setPassword("");
-        setPwdconfirm("");
-    // setButtonIsLoading(true);
-
-    // navigate(NonAuthRoutes.VerifyEmail);
-
-    signUp(firstName, lastName, email, phoneNovalue, password).then(
-      (response) => {
-        // console.log(response);
-        if (response.status === 201) {
-          navigate(NonAuthRoutes.VerifyEmail);
-          // const accessToken = response.access_token;
-          // const refreshToken = response.refresh_token;
-          // Cookies.set("accessToken", accessToken);
-          // localStorage.setItem("token", refreshToken);
-        } return (
-          <div>
-             <h1>ACCOUNT CREATION WAS NOT SUCCESSFUL</h1>
-          </div>
-        )
-      }
-    );
+    setPwdconfirm("");
+    setCheckbox(!checkbox);
+    navigate(NonAuthRoutes.SignUpVerify);
+    // navigate(NonAuthRoutes.ErrorOnSignUp);
+    // signUp(firstName, lastName, email, phoneNovalue, password).then(
+    //   (response) => {
+    //     // console.log(response);
+    //     if (response.status === 201) {
+    //       setSuccess(true);
+    //     }
+    // navigate(NonAuthRoutes.SignUpVerify);
+    //     else if (response.message === "Network Error") {
+    //       setError(true);
+    //     }
+    //   }
+    // );
   };
+
+  // navigate(NonAuthRoutes.SignUpVerificationSuccessPage);
+  // const accessToken = response.access_token;
+  // const refreshToken = response.refresh_token;
+  // Cookies.set("accessToken", accessToken);
+  // localStorage.setItem("token", refreshToken);
 
   const handleOnFocus = () => {
     setValidate(true);
@@ -136,8 +143,8 @@ function SignUp() {
   };
 
   return (
+    //
     <div className="md:flex w-full h-screen font-Raleway ">
-
       {/* Left hand side of the sign up page displaying the handout Logo */}
       <div className="xs:hidden md:flex flex-col items-center justify-center h-screen w-[46%] bg-[#E7EFED]">
         <div className="flex items-center justify-center mt-[10px]">
@@ -166,15 +173,13 @@ function SignUp() {
             <div className="bg-[FFFFFF] py-[20px] min-h-screen flex flex-col">
               <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
                 <div className="bg-white px-6  rounded  text-[#424242] w-full">
-                 <div className="xs:flex  md:hidden items-center justify-center ">
+                  <div className="xs:flex  md:hidden items-center justify-center ">
                     <img className="h-[30px]" src={logo} alt="" />
-
                   </div>
-                        <h1 className="xs:flex md:hidden text-[#077369] font-Raleway font-[700] my-[20px]">
-            We’ve got something <br/> for everyone
-          </h1>
+                  <h1 className="xs:flex md:hidden text-[#077369] font-Raleway font-[700] my-[20px]">
+                    We’ve got something <br /> for everyone
+                  </h1>
                   <div className="flex flex-col items-start w-[306px] h-[80px] ">
-
                     <h1 className=" xs:text-[20px] md:text-[32px] font-[700] leading-[20px] font-Raleway tracking-wide">
                       Create account
                     </h1>
@@ -193,7 +198,13 @@ function SignUp() {
                   </div>
                   {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
 
-                  <label htmlFor="firstName" className="xs:text-[14px] md:text-[16px]"> First Name</label>
+                  <label
+                    htmlFor="firstName"
+                    className="xs:text-[14px] md:text-[16px]"
+                  >
+                    {" "}
+                    First Name
+                  </label>
                   <input
                     type="text"
                     className="block border border-grey-light w-full p-3 rounded mb-2 xs:h-[45px] md:h-[56px]"
@@ -202,7 +213,12 @@ function SignUp() {
                     onChange={(e) => setFirstName(e.target.value)}
                     required
                   />
-                  <label htmlFor="lastName" className="xs:text-[14px] md:text-[16px]">Last Name</label>
+                  <label
+                    htmlFor="lastName"
+                    className="xs:text-[14px] md:text-[16px]"
+                  >
+                    Last Name
+                  </label>
                   <input
                     type="text"
                     className="block border border-grey-light w-full p-3 rounded mb-2 xs:h-[45px] md:h-[56px]"
@@ -212,7 +228,13 @@ function SignUp() {
                     required
                   />
 
-                  <label htmlFor="email" className="xs:text-[14px] md:text-[16px]"> Email</label>
+                  <label
+                    htmlFor="email"
+                    className="xs:text-[14px] md:text-[16px]"
+                  >
+                    {" "}
+                    Email
+                  </label>
                   <input
                     type="email"
                     className="block border border-grey-light w-full p-3 mb-2 rounded xs:h-[45px] md:h-[56px]"
@@ -231,7 +253,10 @@ function SignUp() {
                   >
                     <p className="invalid">Please, enter a valid Email</p>
                   </span>
-                  <label htmlFor="mobile" className="mt-[10px] xs:text-[14px] md:text-[16px]">
+                  <label
+                    htmlFor="mobile"
+                    className="mt-[10px] xs:text-[14px] md:text-[16px]"
+                  >
                     {" "}
                     Mobile{" "}
                   </label>
@@ -265,7 +290,6 @@ function SignUp() {
             </div>
           </div>
         ) : (
-
           // Second sign up form page displaying password inputs
           <div className="form bg-[#FFFFFF] ">
             <div className="bg-[FFFFFF]  min-h-screen flex flex-col">
@@ -274,14 +298,17 @@ function SignUp() {
                   <div className="xs:flex  md:hidden mx-[143px]">
                     <img className="" src={logo} alt="" />
                   </div>
-                   <h1 className="xs:flex md:hidden text-[#077369] font-Raleway font-[700] my-[20px]">
-            We’ve got something <br/> for everyone </h1>
+                  <h1 className="xs:flex md:hidden text-[#077369] font-Raleway font-[700] my-[20px]">
+                    We’ve got something <br /> for everyone{" "}
+                  </h1>
                   <div className="flex flex-col items-start w-[306px] md:h-[80px] mt-[30px] mb-[20px]">
                     <h1 className="xs:text-[20px] xs:leading-[28px]  md:text-[32px] font-[700] md:leading-[40px] font-Raleway ">
                       Create account
                     </h1>
                     <span className="flex  ">
-                      <p className="xs:text-[14px] md:text-[16px] " >Already have an account? &nbsp;</p>
+                      <p className="xs:text-[14px] md:text-[16px] ">
+                        Already have an account? &nbsp;
+                      </p>
                       <p
                         className=" cursor-pointer font-[700] text-[#278178] xs:text-[14px] md:text-[16px] "
                         onClick={() => navigate(NonAuthRoutes.LogIn)}
@@ -293,7 +320,13 @@ function SignUp() {
                   </div>
                   {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
                   <div className="relative">
-                    <label htmlFor="password" className="xs:text-[14px] md:text-[16px]"> Password</label>
+                    <label
+                      htmlFor="password"
+                      className="xs:text-[14px] md:text-[16px]"
+                    >
+                      {" "}
+                      Password
+                    </label>
                     <input
                       className={
                         checks.upperCaseCheck &&
@@ -369,7 +402,13 @@ function SignUp() {
                     ) : null}
                   </div>
                   <div className="relative mt-4 ">
-                    <label htmlFor="pwdConfirm" className="xs:text-[14px] md:text-[16px]"> Confirm password</label>
+                    <label
+                      htmlFor="pwdConfirm"
+                      className="xs:text-[14px] md:text-[16px]"
+                    >
+                      {" "}
+                      Confirm password
+                    </label>
                     <input
                       className={
                         confirmPasswordFocus && !validPasswordConfirm
@@ -433,23 +472,29 @@ function SignUp() {
                   </button>
                   <div className="flex w-full">
                     <label className="text-[14px] ">
-
-                    <input
-                      // className="mr-[5px] border-solid border-1 [#2F2F2A]"
-                      type="checkbox"
-                      onChange={() => setCheckbox(!checkbox)}
-                    />
-                    <svg
-                    className={`checkbox ${checkbox ? "checkbox--active" : ""}`}
-                    aria-hidden="true"
-                    viewBox="0 0 15 11"
-                    fill="none">
-                      <path
-                      d="M1 4.5L5 9L14 1"
-                      strokeWidth="2"
-                      stroke={checkbox ? "#fff" : "none"} />
-                    </svg>
-                      By signing up you agree to the term and condtions
+                      <input
+                        // className="mr-[5px] border-solid border-1 [#2F2F2A]"
+                        type="checkbox"
+                        onChange={() => setCheckbox(!checkbox)}
+                      />
+                      <svg
+                        className={`checkbox ${
+                          checkbox ? "checkbox--active" : ""
+                        }`}
+                        aria-hidden="true"
+                        viewBox="0 0 15 11"
+                        fill="none"
+                      >
+                        <path
+                          d="M1 4.5L5 9L14 1"
+                          strokeWidth="2"
+                          stroke={checkbox ? "#fff" : "none"}
+                        />
+                      </svg>
+                      By signing up you agree to the&nbsp;
+                      <span className=" cursor-pointer font-[700] text-[#278178] xs:text-[14px] md:text-[14px]">
+                        term and condtions
+                      </span>
                     </label>
                   </div>
                   <div>
@@ -464,7 +509,6 @@ function SignUp() {
               </div>
             </div>
           </div>
-
         )}
       </div>
     </div>

@@ -1,8 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { NonAuthRoutes } from "../url";
+
 import logo from "../assets/svg/desktop.svg";
 import Navbar from "../components/Navbar";
 
 function VerifyEmail() {
+  const navigate = useNavigate();
   return (
     <div className="relative flex flex-col justify-center items-center w-full h-[100vh]">
       {/* laptop and ipad view */}
@@ -24,6 +28,7 @@ function VerifyEmail() {
               {/* button to route to Login */}
               <button
                 type="button"
+                onClick={() => navigate(NonAuthRoutes.LoginOnSuccessSignUp)}
                 className="w-[502px] h-[59px] font-[700]  rounded bg-[#077369]  mt-20 text-[#FEFEFE] text-[20px]"
               >
                 Continue
@@ -54,6 +59,7 @@ function VerifyEmail() {
               </div>
               <button
                 type="button"
+                onClick={() => navigate(NonAuthRoutes.LoginOnSuccessSignUp)}
                 className="w-[388px] h-[53px] bg-[#077369] font-[700] mt-14 text-[#FEFEFE] text-[16px] tracking-wide font-Raleway "
               >
                 Verify

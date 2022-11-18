@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import successrobot from "../assets/svg/successrobot.svg";
+import { NonAuthRoutes } from "../url";
 
 function SignUpVerificationSuccess() {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col items-center justify-center  ">
       <img
@@ -17,6 +20,7 @@ function SignUpVerificationSuccess() {
       </p>
       <button
         type="button"
+        onClick={() => navigate(NonAuthRoutes.VerifyEmail)}
         className="xs:hidden md:block w-[480px] h-[60px] mt-[50px] rounded-[4px] bg-[#077369] text-white text-[16px] font-[700] font-Raleway "
       >
         Let&apos;s go

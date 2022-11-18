@@ -25,3 +25,13 @@ export const Login = async (email, password) => {
 
   return handoutOnboarding.post("/auth/login", stringifiedData);
 };
+/** Send a POST request to Reset password Users */
+export const ResetPassword = async (oldPassword, newPassword) => {
+  const data = {
+    oldPassword,
+    newPassword,
+  };
+  const stringifiedData = JSON.stringify(data);
+
+  return handoutOnboarding.patch("/updateUserPassword", stringifiedData);
+};

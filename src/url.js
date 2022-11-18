@@ -13,6 +13,8 @@ const NonAuthRoutes = {
   ForgotPassword: "/forgotPassword",
   ForgotPassword2: "/forgotPassword2",
   ResetPassword: "/resetpassword",
+  ResetPasswordSuccessful: "/resetpasswordsuccessful",
+  ResetPasswordError: "/resetpasswordError",
   AccountRecovered: "/accountrecovered",
   SignUpTwo: "/signuptwo",
   LoginSuccessPage: "/LoginSuccessPage",

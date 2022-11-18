@@ -1,56 +1,104 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import { React, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { NonAuthRoutes } from "../url";
+import "../App.css";
+
+import Navbar from "../components/Navbar";
+import ForgotPasswordSuccessful from "../components/ForgotPasswordSuccessful";
+// import ForgotPasswordError from "../components/ForgotPasswordError";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
-  const navigate = useNavigate();
+  const [validEmail, setValidEmail] = useState(false);
+  const [emailFocus, setEmailFocus] = useState(false);
+  const [page, setPage] = useState(1);
+  useEffect(() => {
+    const emailRegex = /[*@!#%&()^~{}]+/.test(email);
+    setValidEmail(emailRegex);
+  });
 
-  /** Handle to switch to forgot password page2 */
-  const handleClick = () => {
-    navigate(NonAuthRoutes.ForgotPassword2);
+  const handleForgotPassword = (e) => {
+    e.preventDefault();
+    setPage(2);
   };
 
+  const navigate = useNavigate();
   return (
-    <div className="sm:h-[100vh] sm:w-screen sm:bg-[#E5E5E5] flex justify-center items-center xs:w-[428px] xs:h-[900px] xs:bg-white  ">
-      <form className="bg-white sm:w-[609px] sm:h-[438px] xs:w-full xs:h-full flex justify-center  relative">
-        <div className="absolute sm:top-[48px] sm:left-[80px] xs:top-[316px] xs:left-[40px] mb-[40px] ">
-          <h1 className="text-[#424242] font-Inter font-[700] text-[36px] leading-[44px] ">
-            Forgot password
-          </h1>
-        </div>
+    <div className="flex flex-col w-full h-screen  bg-white relative">
+      <Navbar />
+      {page === 1 ? (
+        <div className="bg-white mt-[0] items-center relative justify-center  ">
+          <div className="bg-[#FFFFFF]  min-h-screen flex flex-col items-center justify-center  ">
+            <div className="container max-w-[430px]  flex-1 flex flex-col items-center relative justify-center px-8">
+              <form className="md:bg-[#F1F7F7] px-10 py-8 rounded absolute top-[18%] text-[#424242] w-full  md:shadow-6xl md:border-[1px]">
+                <div className="flex flex-col items-start w-[306px] h-[50px] ">
+                  <h1 className="xs:text-[20px] xs:leading-[28px] mt-[5px] mb-2 md:text-[22px] font-[700] md:leading-[40px] font-Raleway tracking-wide ">
+                    Forgot your password?
+                  </h1>
+                </div>
+                <hr className="md:block xs:hidden" />
 
-        <label
-          htmlFor="mail"
-          className="absolute sm:top-[132px] sm:left-[80px] xs:top-[406px] xs:left-[40px]"
-        >
-          <p className="text-[#424242] text-[16px] sm:font-[400] leading-[18px] mb-[8px] ">
-            Email
-          </p>
-          <input
-            type="email"
-            id="mail"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className=" p-3 sm:w-[450px] xs:w-[348px] h-[56px] rounded-[4px] border-[1px] border-[#717171] outline-0  "
-          />
-        </label>
-        <button
-          type="submit"
-          className=" xs:w-[348px] sm:w-[450px]  h-[56px] rounded-[4px] border-[1px] border-[#717171] outline-0 bg-[#424242] text-white font-sans text-[20px] leading-[23px] font-[400] absolute sm:top-[238px] sm:left-[80px] xs:top-[512px] xs:left-[40px] "
-          onClick={handleClick}
-        >
-          Continue
-        </button>
-        <Link
-          to="/login"
-          className="text-[#424242] flex justify-center items-center text-center underline absolute sm:top-[318px] xs:top-[592px] "
-        >
-          {" "}
-          Back to Login
-        </Link>
-      </form>
+                <p className="text-[13px] font-400 mt-8 font-Raleway mb-[12px] text-[#191919]">
+                  Enter your email address and we will send you a link <br /> to
+                  reset your pawssword
+                </p>
+
+                {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
+                <label htmlFor="email">
+                  <p className="font-Raleway font-400 text-[13px] text-[#191919] ">
+                    Email
+                  </p>
+                </label>
+
+                <input
+                  type="email"
+                  className="block border  outline-1 w-full p-3 rounded"
+                  name="email"
+                  placeholder="example@mail.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  onFocus={() => setEmailFocus(true)}
+                  onBlur={() => setEmailFocus(false)}
+                  required
+                />
+                <span
+                  className={
+                    email && !validEmail && !emailFocus ? "flex" : "hidden"
+                  }
+                >
+                  <p className="invalid  mb-2 mt-1">
+                    Please, enter a valid Email
+                  </p>
+                </span>
+                <div className="mt-2">
+                  <button
+                    type="submit"
+                    // className="w-full text-center py-3 rounded bg-[#077369] text-white hover:bg-green-dark focus:outline-none mt-5"
+                    className="enabled"
+                    disabled={!validEmail}
+                    onClick={handleForgotPassword}
+                  >
+                    <p className="font-Raleway">Continue</p>
+                  </button>
+                </div>
+
+                <div className="text-center text-[14px] mb-8 mt-4 font-[700] font-Raleway text-[#278178]">
+                  <button
+                    type="button"
+                    onClick={() => navigate(NonAuthRoutes.LogIn)}
+                  >
+                    <p>Back to Log-in</p>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      ) : (
+        // <ForgotPasswordError />
+        <ForgotPasswordSuccessful />
+      )}
     </div>
   );
 }

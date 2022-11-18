@@ -7,11 +7,11 @@ import Input from "@mui/material/Input";
 import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 import logo from "../assets/svg/desktop.svg";
 import frame16 from "../assets/svg/Frame 16.svg";
 // eslint-disable-next-line import/no-cycle
-import { Login } from "../api/onboarding";
+// import { Login } from "../api/onboarding";
 // import LoginFailure from "./LoginFailure";
 // import LoginSuccess from "./LoginSuccess";
 import { NonAuthRoutes } from "../url";
@@ -34,19 +34,20 @@ function LogIn() {
   /** Handle to Login */
   const handleLogin = (e) => {
     e.preventDefault();
-    navigate(NonAuthRoutes.LoginSuccess);
+    // navigate(NonAuthRoutes.LoginSuccessPage);
+    navigate(NonAuthRoutes.ErrorOnLogin);
     // setButtonIsLoading(true);
     // setSuccess(true);
 
     // eslint-disable-next-line no-undef
-    Login(email, password).then((response) => {
-      if (response.status === 201) {
-        const accessToken = response.access_token;
-        const refreshToken = response.refresh_token;
-        Cookies.set("accessToken", accessToken);
-        localStorage.setItem("token", refreshToken);
-      }
-    });
+    // Login(email, password).then((response) => {
+    //   if (response.status === 201) {
+    //     const accessToken = response.access_token;
+    //     const refreshToken = response.refresh_token;
+    //     Cookies.set("accessToken", accessToken);
+    //     localStorage.setItem("token", refreshToken);
+    //   }
+    // });
   };
   /** Function to toggle the state of show password */
   const handleClickShowPassword = () => {
@@ -61,8 +62,8 @@ function LogIn() {
       {/* {success ? <LoginSuccess /> : <LoginFailure />} */}
       <div className="xs:hidden md:inline-flex flex w-full h-sreen font-Raleway ">
         <div className="flex flex-col items-center justify-center w-[46%] h-screen bg-[#E7EFED]">
-          <div className="mt-[20px] mx-[230px]">
-            <img className="w-[208px] h-[56px] " src={logo} alt="" />
+          <div className="flex items-center justify-center mt-[10px]">
+            <img className="w-[208px] h-[35px] " src={logo} alt="" />
           </div>
 
           <div className="w-[350px] h-[350px] mx-[120px] mt-[30px]">
@@ -70,7 +71,7 @@ function LogIn() {
           </div>
 
           <div className="flex flex-col items-center justify-center w-[457px] h-[217px] mx-[105px]">
-            <div className="text-[40px] text-[#077369] leading-[48px] text-center tracking-wide font-[700] mt-[9px] font-Raleway">
+            <div className="md:text-[30px] lg:text-[40px] text-[#077369] md:leading[20px] lg:leading-[48px] font-Raleway text-center lg:tracking-wide font-[700] mt-[9px]">
               We help you connect and share.
             </div>
             <div className="text-center font-[500] text-[16px] leading-[24px] tracking-wide text-[#000000] mt-[5px] font-Raleway">

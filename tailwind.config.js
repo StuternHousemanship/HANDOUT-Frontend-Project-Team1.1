@@ -27,7 +27,8 @@ module.exports = {
         buttonColor: "#424242",
       },
       boxShadow: {
-        "3xl": "0px 4px 4px rgba(0, 0, 0, 0.1)",
+        "3xl": "0px 2px 2px rgba(0, 0, 0, 0.05)",
+        "6xl": "0.5px 2px 3px rgba(0, 0, 0, 0.1)",
       },
     },
   },
