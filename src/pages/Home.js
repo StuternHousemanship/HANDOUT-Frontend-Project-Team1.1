@@ -1,9 +1,22 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../logo.svg";
 import "../App.css";
+import { NonAuthRoutes } from "../url";
 
 function Home() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const ac = new AbortController();
+
+    navigate(NonAuthRoutes.LogIn);
+
+    return function cleanup() {
+      ac.abort();
+    };
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
