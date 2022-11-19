@@ -46,6 +46,8 @@ const ResetPasswordError = React.lazy(() =>
   import("./components/ResetPasswordError")
 );
 const ErrorOnLogin = React.lazy(() => import("./components/ErrorOnLogin"));
+const Navbar = React.lazy(() => import("./components/Navbar"));
+
 function Routers() {
   return (
     <div>
@@ -108,6 +110,7 @@ function Routers() {
             path={NonAuthRoutes.ResetPasswordError}
             element={<ResetPasswordError />}
           />
+          <Route path={NonAuthRoutes.Navbar} element={<Navbar />} />
         </Routes>
       </Suspense>
     </div>

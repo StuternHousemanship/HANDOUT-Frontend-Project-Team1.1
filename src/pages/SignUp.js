@@ -7,7 +7,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from "react";
 // eslint-disable-next-line import/no-duplicates
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 // eslint-disable-next-line import/no-cycle
@@ -22,7 +22,7 @@ import hidePwd from "../assets/svg/hide-password.svg";
 // import ErrorOnSignUp from "../components/ErrorOnSignUp";
 // import SignUpVerificationSuccessPage from "./SignUpVerificationSuccessPage";
 // eslint-disable-next-line import/no-cycle
-// import { SignUp as signUp } from "../api/onboarding";
+import { SignUp as signUp } from "../api/onboarding";
 import "../App.css";
 import { NonAuthRoutes } from "../url";
 import logo from "../assets/svg/desktop.svg";
@@ -78,27 +78,17 @@ function SignUp() {
     setPassword("");
     setPwdconfirm("");
     setCheckbox(!checkbox);
-    navigate(NonAuthRoutes.SignUpVerify);
-    // navigate(NonAuthRoutes.ErrorOnSignUp);
-    // signUp(firstName, lastName, email, phoneNovalue, password).then(
-    //   (response) => {
-    //     // console.log(response);
-    //     if (response.status === 201) {
-    //       setSuccess(true);
-    //     }
-    // navigate(NonAuthRoutes.SignUpVerify);
-    //     else if (response.message === "Network Error") {
-    //       setError(true);
-    //     }
-    //   }
-    // );
+    signUp(firstName, lastName, email, phoneNovalue, password).then(
+      (response) => {
+        // console.log(response);
+        if (response.status === 201) {
+          navigate(NonAuthRoutes.SignUpVerify);
+          // setSuccess(true);
+        } navigate(NonAuthRoutes.ErrorOnSignUp);
+          // setError(true);
+        }
+    );
   };
-
-  // navigate(NonAuthRoutes.SignUpVerificationSuccessPage);
-  // const accessToken = response.access_token;
-  // const refreshToken = response.refresh_token;
-  // Cookies.set("accessToken", accessToken);
-  // localStorage.setItem("token", refreshToken);
 
   const handleOnFocus = () => {
     setValidate(true);
@@ -149,7 +139,7 @@ function SignUp() {
       {/* Left hand side of the sign up page displaying the handout Logo */}
       <div className="xs:hidden md:flex flex-col items-center justify-center h-screen w-[46%] bg-[#E7EFED]">
         <div className="flex items-center justify-center mt-[10px]">
-          <img className="w-[208px] h-[35px] " src={logo} alt="" />
+          <img className="cursor-pointer w-[208px] h-[35px] " src={logo} alt="" onClick={() => navigate(NonAuthRoutes.Home)} />
         </div>
 
         <div className="lg:w-[350px] lg:h-[350px] md:w-[300px] md:h-[280px] mx-[120px] mt-[30px]">
@@ -175,7 +165,7 @@ function SignUp() {
               <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
                 <div className="bg-white px-6  rounded  text-[#424242] w-full">
                   <div className="xs:flex  md:hidden items-center justify-center ">
-                    <img className="h-[30px]" src={logo} alt="" />
+                    <img className="cursor-pointer h-[30px]" src={logo} alt="" onClick={() => navigate(NonAuthRoutes.Home)}/>
                   </div>
                   <h1 className="xs:flex md:hidden text-[#077369] font-Raleway font-[700] my-[20px]">
                     We’ve got something <br /> for everyone
@@ -187,13 +177,14 @@ function SignUp() {
 
                     <div className="my-[10px] font-Raleway xs:text-[14px] md:text-[16px]">
                       <p>
-                        Already have an account &nbsp;
-                        <Link
-                          to="/login"
+                        Already have an account? &nbsp;
+                        <button
+                          type="button"
                           className="font-Raleway font-[700] text-[#077369]"
+                          onClick={() => navigate(NonAuthRoutes.LogIn)}
                         >
                           Log in
-                        </Link>
+                        </button>
                       </p>
                     </div>
                   </div>
@@ -297,7 +288,7 @@ function SignUp() {
               <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
                 <div className="bg-white px-6 rounded  text-[#424242] w-full">
                   <div className="xs:flex  md:hidden mx-[143px]">
-                    <img className="" src={logo} alt="" />
+                    <img className="cursor-pointer" src={logo} alt="" onClick={() => navigate(NonAuthRoutes.Home)}/>
                   </div>
                   <h1 className="xs:flex md:hidden text-[#077369] font-Raleway font-[700] my-[20px]">
                     We’ve got something <br /> for everyone{" "}
@@ -310,13 +301,14 @@ function SignUp() {
                       <p className="xs:text-[14px] md:text-[16px] ">
                         Already have an account? &nbsp;
                       </p>
-                      <p
+                      <button
+                        type="button"
                         className=" cursor-pointer font-[700] text-[#278178] xs:text-[14px] md:text-[16px] "
                         onClick={() => navigate(NonAuthRoutes.LogIn)}
                       >
                         {" "}
                         Log in
-                      </p>
+                      </button>
                     </span>
                   </div>
                   {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}

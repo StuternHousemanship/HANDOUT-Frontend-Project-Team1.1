@@ -23,6 +23,7 @@ const NonAuthRoutes = {
   LoginOnSuccessSignUp: "/LoginOnSuccessfulSignUp",
   ErrorOnSignUp: "/ErrorOnSignUp",
   ErrorOnLogin: "/ErrorOnLogin",
+  Navbar: "/Navbar",
 };
 
 export { AuthRoutes, NonAuthRoutes };

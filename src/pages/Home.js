@@ -10,7 +10,7 @@ function Home() {
   useEffect(() => {
     const ac = new AbortController();
 
-    navigate(NonAuthRoutes.SignUp);
+    navigate(NonAuthRoutes.Navbar);
 
     return function cleanup() {
       ac.abort();

@@ -63,7 +63,12 @@ function LogIn() {
       <div className="xs:hidden md:inline-flex flex w-full h-sreen font-Raleway ">
         <div className="flex flex-col items-center justify-center w-[46%] h-screen bg-[#E7EFED]">
           <div className="flex items-center justify-center mt-[10px]">
-            <img className="w-[208px] h-[35px] " src={logo} alt="" />
+            <img
+              className=" cursor-pointer w-[208px] h-[35px] "
+              src={logo}
+              alt=""
+              onClick={() => navigate(NonAuthRoutes.Home)}
+            />
           </div>
 
           <div className="lg:w-[350px] lg:h-[350px] md:w-[300px] md:h-[280px] mx-[120px] mt-[30px]">
@@ -97,7 +102,7 @@ function LogIn() {
                 Log in
               </h2>
               <span className="flex">
-                Don’t have an account &nbsp;
+                Don’t have an account? &nbsp;
                 <p
                   className="font-[700] cursor-pointer text-[#278178] text-[16px] leading-[24px] tracking-wide"
                   onClick={() => navigate(NonAuthRoutes.SignUp)}
@@ -203,7 +208,7 @@ function LogIn() {
               Log in
             </h2>
             <span className="flex">
-              Don’t have an account &nbsp;
+              Don’t have an account? &nbsp;
               <p
                 className=" cursor-pointer text-[#278178] font-[400] text-[16px] leading-[24px] tracking-wide"
                 onClick={() => navigate(NonAuthRoutes.SignUp)}
@@ -240,7 +245,6 @@ function LogIn() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                // onChange={(e) => handlePasswordOnChange(e.target.value)}
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
@@ -252,21 +256,9 @@ function LogIn() {
                   </InputAdornment>
                 }
               />
-
-              {/* <IconButton>
-              <VisibilityOffOutlinedIcon className="absolute top-0 left-0" />{" "}
-            </IconButton> */}
             </label>
           </div>
           <div className="">
-            {/* <div
-            className=" text-right my-4"
-            onClick={() => navigate(NonAuthRoutes.ForgotPassword)}
-          >
-            <p className="cursor-pointer text-[#424242] underline my-[16px] ">
-              Forgot Password
-            </p>
-          </div> */}
             <div className=" text-right mb-[10px]">
               <button
                 type="button"
@@ -275,19 +267,7 @@ function LogIn() {
               >
                 Forgot Password?
               </button>
-              {/* <Link
-                to="/forgotPassword"
-                className=" text-[#278178] leading-[22px] tracking-wide my-[16px] font-[700] text-[14px] font-Raleway"
-              >
-                Forgot Password
-              </Link> */}
             </div>
-            {/* <p
-            className="text-[#424242] text-right underline my-[16px] "
-            onClick={handleSwitchPage}
-          >
-            Forgot Password
-          </p> */}
             <div className="enabdiv">
               <button
                 onClick={handleLogin}
