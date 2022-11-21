@@ -1,29 +1,18 @@
-/* eslint-disable react/jsx-no-useless-fragment */
-/* eslint-disable no-nested-ternary */
-/* eslint-disable prettier/prettier */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable import/no-cycle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable no-nested-ternary */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState, useEffect } from "react";
-// eslint-disable-next-line import/no-duplicates
-// import { Link } from "react-router-dom";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-// eslint-disable-next-line import/no-cycle
-// import onboarding from "../api/onboarding";
-// eslint-disable-next-line import/no-cycle, import/no-duplicates
 import { useNavigate } from "react-router-dom";
 import ValidatePassword from "./ValidatePassword";
 import caution from "../assets/svg/caution.svg";
 import checkmark from "../assets/svg/checkmark.svg";
 import showPwd from "../assets/svg/show-password.svg";
 import hidePwd from "../assets/svg/hide-password.svg";
-// import ErrorOnSignUp from "../components/ErrorOnSignUp";
-// import SignUpVerificationSuccessPage from "./SignUpVerificationSuccessPage";
-// eslint-disable-next-line import/no-cycle
-import { SignUp as signUp } from "../api/onboarding";
-import "../App.css";
+import onboarding from "../api/onboarding";
 import { NonAuthRoutes } from "../url";
 import logo from "../assets/svg/desktop.svg";
 import HandoutLogo from "../assets/img/HandoutLogo.png";
@@ -78,16 +67,17 @@ function SignUp() {
     setPassword("");
     setPwdconfirm("");
     setCheckbox(!checkbox);
-    signUp(firstName, lastName, email, phoneNovalue, password).then(
-      (response) => {
+    onboarding
+      .SignUp(firstName, lastName, email, phoneNovalue, password)
+      .then((response) => {
         // console.log(response);
         if (response.status === 201) {
           navigate(NonAuthRoutes.SignUpVerify);
           // setSuccess(true);
-        } navigate(NonAuthRoutes.ErrorOnSignUp);
-          // setError(true);
         }
-    );
+        navigate(NonAuthRoutes.ErrorOnSignUp);
+        // setError(true);
+      });
   };
 
   const handleOnFocus = () => {
@@ -122,7 +112,10 @@ function SignUp() {
 
   /** Function to ensure a special character is inputed for the email input */
   useEffect(() => {
-    const emailRegex=/^[a-zA-Z.!#$%&'+/=?^_{|}~-][a-zA-Z0-9.!#$%&'+/=?^_{|}~-]*@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email);
+    const emailRegex =
+      /^[a-zA-Z.!#$%&'+/=?^_{|}~-][a-zA-Z0-9.!#$%&'+/=?^_{|}~-]*@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+        email
+      );
     // const emailRegex = /[*@!#%&()^~{}]+/.test(email);
     setValidEmail(emailRegex);
   });
@@ -139,7 +132,12 @@ function SignUp() {
       {/* Left hand side of the sign up page displaying the handout Logo */}
       <div className="xs:hidden md:flex flex-col items-center justify-center h-screen w-[46%] bg-[#E7EFED]">
         <div className="flex items-center justify-center mt-[10px]">
-          <img className="cursor-pointer w-[208px] h-[35px] " src={logo} alt="" onClick={() => navigate(NonAuthRoutes.Home)} />
+          <img
+            className="cursor-pointer w-[208px] h-[35px] "
+            src={logo}
+            alt=""
+            onClick={() => navigate(NonAuthRoutes.Home)}
+          />
         </div>
 
         <div className="lg:w-[350px] lg:h-[350px] md:w-[300px] md:h-[280px] mx-[120px] mt-[30px]">
@@ -165,10 +163,15 @@ function SignUp() {
               <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
                 <div className="bg-white px-6  rounded  text-[#424242] w-full">
                   <div className="xs:flex  md:hidden items-center justify-center ">
-                    <img className="cursor-pointer h-[30px]" src={logo} alt="" onClick={() => navigate(NonAuthRoutes.Home)}/>
+                    <img
+                      className="cursor-pointer h-[30px]"
+                      src={logo}
+                      alt=""
+                      onClick={() => navigate(NonAuthRoutes.Home)}
+                    />
                   </div>
                   <h1 className="xs:flex md:hidden text-[#077369] font-Raleway font-[700] my-[20px]">
-                    We’ve got something <br /> for everyone
+                    We’ve got something for everyone
                   </h1>
                   <div className="flex flex-col items-start w-[306px] h-[80px] ">
                     <h1 className=" xs:text-[20px] md:text-[32px] font-[700] leading-[20px] font-Raleway tracking-wide">
@@ -177,7 +180,7 @@ function SignUp() {
 
                     <div className="my-[10px] font-Raleway xs:text-[14px] md:text-[16px]">
                       <p>
-                        Already have an account? &nbsp;
+                        Already have an account?{" "}
                         <button
                           type="button"
                           className="font-Raleway font-[700] text-[#077369]"
@@ -188,95 +191,97 @@ function SignUp() {
                       </p>
                     </div>
                   </div>
-                  {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
 
-                  <label
-                    htmlFor="firstName"
-                    className="xs:text-[14px] md:text-[16px]"
-                  >
-                    {" "}
-                    First Name
-                  </label>
-                  <input
-                    type="text"
-                    className="block border border-grey-light w-full p-3 rounded mb-2 xs:h-[45px] md:h-[56px]"
-                    name="firstname"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    required
-                  />
-                  <label
-                    htmlFor="lastName"
-                    className="xs:text-[14px] md:text-[16px]"
-                  >
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    className="block border border-grey-light w-full p-3 rounded mb-2 xs:h-[45px] md:h-[56px]"
-                    name="lastname"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    required
-                  />
+                  <form onSubmit={() => handleSignUp()}>
+                    <label
+                      htmlFor="firstName"
+                      className="xs:text-[14px] md:text-[16px]"
+                    >
+                      {" "}
+                      First Name
+                    </label>
+                    <input
+                      type="text"
+                      className="block border border-grey-light w-full p-3 rounded mb-2 xs:h-[45px] md:h-[56px]"
+                      name="firstname"
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      required
+                    />
+                    <label
+                      htmlFor="lastName"
+                      className="xs:text-[14px] md:text-[16px]"
+                    >
+                      {" "}
+                      Last Name
+                    </label>
+                    <input
+                      type="text"
+                      className="block border border-grey-light w-full p-3 rounded mb-2 xs:h-[45px] md:h-[56px]"
+                      name="lastname"
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
+                      required
+                    />
 
-                  <label
-                    htmlFor="email"
-                    className="xs:text-[14px] md:text-[16px]"
-                  >
-                    {" "}
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    className="block border border-grey-light w-full p-3 mb-2 rounded xs:h-[45px] md:h-[56px]"
-                    name="email"
-                    placeholder="example@mail.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    onFocus={() => setEmailFocus(true)}
-                    onBlur={() => setEmailFocus(false)}
-                    required
-                  />
-                  <span
-                    className={
-                      email && !validEmail && !emailFocus ? "flex" : "hidden"
-                    }
-                  >
-                    <p className="invalid">Please, enter a valid Email</p>
-                  </span>
-                  <label
-                    htmlFor="mobile"
-                    className="mt-[10px] xs:text-[14px] md:text-[16px]"
-                  >
-                    {" "}
-                    Mobile{" "}
-                  </label>
-                  <PhoneInput
-                    required
-                    defaultCountry="NG"
-                    international
-                    countryCallingCodeEditable={false}
-                    value={phoneNovalue}
-                    onChange={setPhoneNoValue}
-                    id="mobile"
-                    className=" border border-grey-light w-full p-3 rounded mb-2 outline-0  xs:text-[14px] md:text-[16px] xs:h-[45px] md:h-[56px] "
-                  />
-                  <button
-                    type="submit"
-                    // className="w-full text-center py-3 rounded bg-[#077369] text-white hover:bg-green-dark focus:outline-none mt-5"
-                    className="mb-4 enabled xs:text-[14px] md:text-[16px] xs:h-[45px] md:h-[56px]"
-                    disabled={
-                      !firstName ||
-                      !lastName ||
-                      !email ||
-                      !phoneNovalue ||
-                      !validEmail
-                    }
-                    onClick={handleSignUp}
-                  >
-                    Continue
-                  </button>
+                    <label
+                      htmlFor="email"
+                      className="xs:text-[14px] md:text-[16px]"
+                    >
+                      {" "}
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      className="block border border-grey-light w-full p-3 mb-2 rounded xs:h-[45px] md:h-[56px]"
+                      name="email"
+                      placeholder="example@mail.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      onFocus={() => setEmailFocus(true)}
+                      onBlur={() => setEmailFocus(false)}
+                      required
+                    />
+                    <span
+                      className={
+                        email && !validEmail && !emailFocus ? "flex" : "hidden"
+                      }
+                    >
+                      <p className="invalid">Please, enter a valid Email</p>
+                    </span>
+                    <label
+                      htmlFor="mobile"
+                      className="mt-[10px] xs:text-[14px] md:text-[16px]"
+                    >
+                      {" "}
+                      Mobile{" "}
+                    </label>
+                    <PhoneInput
+                      required
+                      defaultCountry="NG"
+                      international
+                      countryCallingCodeEditable={false}
+                      value={phoneNovalue}
+                      onChange={setPhoneNoValue}
+                      id="mobile"
+                      className=" border border-grey-light w-full p-3 rounded mb-2 outline-0  xs:text-[14px] md:text-[16px] xs:h-[45px] md:h-[56px] "
+                    />
+                    <button
+                      type="submit"
+                      // className="w-full text-center py-3 rounded bg-[#077369] text-white hover:bg-green-dark focus:outline-none mt-5"
+                      className="mb-4 enabled xs:text-[14px] md:text-[16px] xs:h-[45px] md:h-[56px]"
+                      disabled={
+                        !firstName ||
+                        !lastName ||
+                        !email ||
+                        !phoneNovalue ||
+                        !validEmail
+                      }
+                      onClick={handleSignUp}
+                    >
+                      Continue
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
@@ -288,10 +293,15 @@ function SignUp() {
               <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
                 <div className="bg-white px-6 rounded  text-[#424242] w-full">
                   <div className="xs:flex  md:hidden mx-[143px]">
-                    <img className="cursor-pointer" src={logo} alt="" onClick={() => navigate(NonAuthRoutes.Home)}/>
+                    <img
+                      className="cursor-pointer"
+                      src={logo}
+                      alt=""
+                      onClick={() => navigate(NonAuthRoutes.Home)}
+                    />
                   </div>
                   <h1 className="xs:flex md:hidden text-[#077369] font-Raleway font-[700] my-[20px]">
-                    We’ve got something <br /> for everyone{" "}
+                    We’ve got something for everyone
                   </h1>
                   <div className="flex flex-col items-start w-[306px] md:h-[80px] mt-[30px] mb-[20px]">
                     <h1 className="xs:text-[20px] xs:leading-[28px]  md:text-[32px] font-[700] md:leading-[40px] font-Raleway ">
@@ -299,7 +309,7 @@ function SignUp() {
                     </h1>
                     <span className="flex  ">
                       <p className="xs:text-[14px] md:text-[16px] ">
-                        Already have an account? &nbsp;
+                        Already have an account?{" "}
                       </p>
                       <button
                         type="button"
@@ -464,7 +474,7 @@ function SignUp() {
                     Create account
                   </button>
                   <div className="flex w-full">
-                    <label className="text-[14px] ">
+                    <label className="text-[14px]">
                       <input
                         // className="mr-[5px] border-solid border-1 [#2F2F2A]"
                         type="checkbox"
@@ -490,7 +500,7 @@ function SignUp() {
                       </span>
                     </label>
                   </div>
-                  <div className="flex items-center justify-center" >
+                  <div className="flex items-center justify-center">
                     <p
                       className="  font-[700] text-[20px] leading-[24px] tracking-wide text-[#077369] mt-6 text-center cursor-pointer font-Raleway"
                       onClick={() => navigate(NonAuthRoutes.Home)}

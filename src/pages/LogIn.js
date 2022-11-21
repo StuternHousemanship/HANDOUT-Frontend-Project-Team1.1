@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
@@ -7,13 +5,8 @@ import Input from "@mui/material/Input";
 import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-// import Cookies from "js-cookie";
 import logo from "../assets/svg/desktop.svg";
 import frame16 from "../assets/svg/Frame 16.svg";
-// eslint-disable-next-line import/no-cycle
-// import { Login } from "../api/onboarding";
-// import LoginFailure from "./LoginFailure";
-// import LoginSuccess from "./LoginSuccess";
 import { NonAuthRoutes } from "../url";
 import "../App.css";
 
@@ -63,18 +56,17 @@ function LogIn() {
       <div className="xs:hidden md:inline-flex flex w-full h-sreen font-Raleway ">
         <div className="flex flex-col items-center justify-center w-[46%] h-screen bg-[#E7EFED]">
           <div className="flex items-center justify-center mt-[10px]">
-            <img
-              className=" cursor-pointer w-[208px] h-[35px] "
-              src={logo}
-              alt=""
-              onClick={() => navigate(NonAuthRoutes.Home)}
-            />
+            <button type="button" onClick={() => navigate(NonAuthRoutes.Home)}>
+              <img
+                className=" cursor-pointer w-[208px] h-[35px] "
+                src={logo}
+                alt="Hnadout Logo"
+              />
+            </button>
           </div>
-
           <div className="lg:w-[350px] lg:h-[350px] md:w-[300px] md:h-[280px] mx-[120px] mt-[30px]">
             <img className="" src={frame16} alt="" />
           </div>
-
           <div className="flex flex-col items-center justify-center lg:w-[457px] md:w-[385px] h-[217px] lg:mx-[105px] md:mx-[130px] ">
             <div className="md:text-[30px] lg:text-[40px] text-[#077369] lg:leading-[48px] font-Raleway text-center lg:tracking-wide font-[700] mt-[9px]">
               We help you connect <br /> and share.
@@ -92,7 +84,7 @@ function LogIn() {
                 Welcome Back!
               </h1>
 
-              <p className="w-[264px] h-[56px] leading-[28px] tracking-wide font-Raleway text-[20px] font-[700] text-[#278178] mt-[17px]">
+              <p className="w-full h-[56px] leading-[28px] tracking-wide font-Raleway text-[20px] font-[700] text-[#278178] mt-[17px]">
                 We’ve got something for everyone!
               </p>
             </div>
@@ -102,14 +94,15 @@ function LogIn() {
                 Log in
               </h2>
               <span className="flex">
-                Don’t have an account? &nbsp;
-                <p
-                  className="font-[700] cursor-pointer text-[#278178] text-[16px] leading-[24px] tracking-wide"
+                Don’t have an account?
+                <button
+                  type="button"
                   onClick={() => navigate(NonAuthRoutes.SignUp)}
                 >
-                  {" "}
-                  Sign Up
-                </p>
+                  <p className="ml-1 font-[700] cursor-pointer text-[#278178] text-[16px] leading-[24px] tracking-wide">
+                    Sign Up
+                  </p>
+                </button>
               </span>
             </div>
 
@@ -198,7 +191,7 @@ function LogIn() {
             </h1>
           </div>
           <div className="w-[387px] flex flex-col flex-start">
-            <p className="w-[264px] h-[56px] leading-[28px] tracking-wide font-Raleway text-[20px] font-[700] text-[#278178] mt-[17px]">
+            <p className="w-full h-[56px] leading-[28px] tracking-wide font-Raleway text-[20px] font-[700] text-[#278178] mt-[17px]">
               We’ve got something for everyone!
             </p>
           </div>
@@ -208,14 +201,15 @@ function LogIn() {
               Log in
             </h2>
             <span className="flex">
-              Don’t have an account? &nbsp;
-              <p
-                className=" cursor-pointer text-[#278178] font-[400] text-[16px] leading-[24px] tracking-wide"
+              Don’t have an account?
+              <button
+                type="button"
                 onClick={() => navigate(NonAuthRoutes.SignUp)}
               >
-                {" "}
-                Sign Up
-              </p>
+                <p className="ml-1 cursor-pointer text-[#278178] font-[400] text-[16px] leading-[24px] tracking-wide">
+                  Sign Up
+                </p>
+              </button>
             </span>
           </div>
 

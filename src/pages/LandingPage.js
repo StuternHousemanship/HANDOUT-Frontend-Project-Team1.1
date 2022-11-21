@@ -4,13 +4,13 @@ import logo from "../logo.svg";
 import "../App.css";
 import { NonAuthRoutes } from "../url";
 
-function Home() {
+function LandingPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
     const ac = new AbortController();
 
-    navigate(NonAuthRoutes.Navbar);
+    navigate(NonAuthRoutes.LogIn);
 
     return function cleanup() {
       ac.abort();
@@ -97,4 +97,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default LandingPage;

@@ -5,7 +5,7 @@ const AuthRoutes = {
 
 /** Non Authenticated URL Routes */
 const NonAuthRoutes = {
-  Home: "/",
+  LandingPage: "/",
   LogIn: "/login",
   SignUp: "/signup",
   Logout: "/logout",
@@ -16,7 +16,6 @@ const NonAuthRoutes = {
   ResetPasswordSuccessful: "/resetpasswordsuccessful",
   ResetPasswordError: "/resetpasswordError",
   AccountRecovered: "/accountrecovered",
-  SignUpTwo: "/signuptwo",
   LoginSuccessPage: "/LoginSuccessPage",
   LoginFailure: "/LoginFailurePage",
   SignUpVerify: "/SignUpVerificationSuccessPage",

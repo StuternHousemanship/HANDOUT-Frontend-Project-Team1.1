@@ -9,14 +9,12 @@ import TokenValidate from "./tokenvalidate";
 // const imageBaseUrl = "https://deliverycog.beargaze.com/";
 
 /** Base Url for Images STAGING */
-// const apiUrl = "https://handout.beargaze.com";
-const apiUrl =
-  "https://cors-anywhere.herokuapp.com/https://handout.beargaze.com";
-// const megalectricsImageUrl = "https://deliverycog.beargaze.com/";
+const handoutApiUrl = "https://handout.beargaze.com";
+const handoutImageUrl = "https://handout.beargaze.com/";
 
 /** creating an Axios Base Url for all Onboarding Request */
-const handoutOnboarding = axios.create({
-  baseURL: apiUrl,
+const handoutOnboardingApi = axios.create({
+  baseURL: handoutApiUrl,
   headers: {
     "Content-Type": "application/json",
   },
@@ -24,7 +22,7 @@ const handoutOnboarding = axios.create({
 
 // JWT DECODE SETUP and Onboarding Request Interceptor
 const handoutApi = axios.create({
-  baseURL: apiUrl,
+  baseURL: handoutApiUrl,
 });
 handoutApi.interceptors.request.use(
   async (config) => {
@@ -41,4 +39,4 @@ handoutApi.interceptors.request.use(
   }
 );
 
-export { handoutOnboarding, handoutApi };
+export { handoutOnboardingApi, handoutApi, handoutImageUrl };

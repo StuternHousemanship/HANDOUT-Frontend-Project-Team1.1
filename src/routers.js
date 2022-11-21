@@ -4,23 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import { NonAuthRoutes, AuthRoutes } from "./url";
 import { ReactComponent as LoadingIcon } from "./assets/svg/loading-icon.svg";
 
-// import SignUp from "./pages/SignUp";
-// import LogIn from "./pages/LogIn";
-// import VerifyEmail from "./pages/VerifyEmail";
-// import Dashboard from "./pages/Dashboard";
-// import ForgotPassword from "./pages/ForgotPassword";
-// import ForgotPassword2 from "./pages/ForgotPassword2";
-// import AccountRecovered from "./pages/AccountRecovered";
-// import ResetPassword from "./pages/ResetPassword";
-// import SignUpTwo from "./pages/SignUpTwo";
-// import LoginSuccessPage from "./pages/LoginSuccessPage";
-// import LoginFailurePage from "./pages/LoginFailurePage";
-// import SignUpVerificationSuccessPage from "./pages/SignUpVerificationSuccessPage";
-// import LoginOnSuccessfulSignUp from "./components/LoginOnSuccessfulSignUp";
-// import ErrorOnSignUp from "./components/ErrorOnSignUp";
-// import ErrorOnLogin from "./components/ErrorOnLogin";
-
-const Home = React.lazy(() => import("./pages/Home"));
+const LandingPage = React.lazy(() => import("./pages/LandingPage"));
 const SignUp = React.lazy(() => import("./pages/SignUp"));
 const LogIn = React.lazy(() => import("./pages/LogIn"));
 const VerifyEmail = React.lazy(() => import("./pages/VerifyEmail"));
@@ -32,7 +16,6 @@ const ResetPasswordSuccessful = React.lazy(() =>
   import("./components/ResetPasswordSuccessful")
 );
 const AccountRecovered = React.lazy(() => import("./pages/AccountRecovered"));
-const SignUpTwo = React.lazy(() => import("./pages/SignUpTwo"));
 const LoginSuccessPage = React.lazy(() => import("./pages/LoginSuccessPage"));
 const LoginFailurePage = React.lazy(() => import("./pages/LoginFailurePage"));
 const SignUpVerificationSuccessPage = React.lazy(() =>
@@ -59,12 +42,11 @@ function Routers() {
         }
       >
         <Routes>
-          <Route path={NonAuthRoutes.Home} element={<Home />} />
+          <Route path={NonAuthRoutes.LandingPage} element={<LandingPage />} />
           <Route path={NonAuthRoutes.SignUp} element={<SignUp />} />
           <Route path={NonAuthRoutes.LogIn} element={<LogIn />} />
           <Route path={NonAuthRoutes.VerifyEmail} element={<VerifyEmail />} />
           <Route path={AuthRoutes.Dashboard} element={<Dashboard />} />
-          <Route path={NonAuthRoutes.SignUpTwo} element={<SignUpTwo />} />
           <Route
             path={NonAuthRoutes.ForgotPassword}
             element={<ForgotPassword />}
