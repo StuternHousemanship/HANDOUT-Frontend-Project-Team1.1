@@ -153,7 +153,7 @@ function LogIn() {
             <div className="lg:w-[450px] md:w-[370px]" id="log">
               <div className="w-full text-right mb-[10px]">
                 <Link
-                  to="/forgotPassword"
+                  to="/forgot-Password"
                   className=" text-[#2F2F2A] leading-[28px] tracking-wide my-[16px] font-[700] text-[16px] font-Raleway"
                 >
                   Forgot Password?
@@ -172,7 +172,7 @@ function LogIn() {
               <button
                 type="button"
                 className="font-[700] text-[16px] leading-[24px]  tracking-wide text-[#2F2F2A] mt-6 text-center cursor-pointer font-Raleway"
-                onClick={() => navigate(NonAuthRoutes.Home)}
+                onClick={() => navigate(NonAuthRoutes.LandingPage)}
               >
                 Cancel
               </button>
