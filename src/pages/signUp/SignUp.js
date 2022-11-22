@@ -63,14 +63,19 @@ function SignUp() {
     setPassword("");
     setPwdconfirm("");
     setCheckbox(!checkbox);
-    onboarding
-      .SignUp(firstName, lastName, email, phoneNovalue, password)
-      .then((response) => {
-        if (response.status === 201) {
-          navigate(NonAuthRoutes.SignUpVerify);
-        }
+    try {
+      onboarding
+        .SignUp(firstName, lastName, email, phoneNovalue, password)
+        .then((response) => {
+          if (response.status === 201) {
+            navigate(NonAuthRoutes.SignUpVerify);
+          }
+        });
+    } catch (error) {
+      if (error.response.status === 400) {
         navigate(NonAuthRoutes.ErrorOnSignUp);
-      });
+      }
+    }
   };
 
   const handleOnFocus = () => {
@@ -103,7 +108,7 @@ function SignUp() {
     });
   };
 
-  /** Function to ensure a special character is inputed for the email input */
+  /** Function to validate the email input */
   useEffect(() => {
     const emailRegex =
       /^[a-zA-Z.!#$%&'+/=?^_{|}~-][a-zA-Z0-9.!#$%&'+/=?^_{|}~-]*@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(

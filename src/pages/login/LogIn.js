@@ -29,15 +29,21 @@ function LogIn() {
   const handleLogin = (e) => {
     e.preventDefault();
     // setButtonIsLoading(true);
-    onboarding.Login(email, password).then((response) => {
-      if (response.status === 201) {
-        const accessToken = response.access_token;
-        const refreshToken = response.refresh_token;
-        Cookies.set("accessToken", accessToken);
-        localStorage.setItem("token", refreshToken);
-        navigate(NonAuthRoutes.LoginSuccessPage);
-      } else navigate(NonAuthRoutes.ErrorOnLogin);
-    });
+    try {
+      onboarding.Login(email, password).then((response) => {
+        if (response.status === 200) {
+          const accessToken = response.access_token;
+          const refreshToken = response.refresh_token;
+          Cookies.set("accessToken", accessToken);
+          localStorage.setItem("token", refreshToken);
+          navigate(NonAuthRoutes.LoginSuccessPage);
+        }
+      });
+    } catch (error) {
+      if (error.response.status === 400) {
+        navigate(NonAuthRoutes.ErrorOnLogin);
+      }
+    }
   };
 
   /** Function to toggle the state of show password */
