@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
@@ -5,10 +6,12 @@ import Input from "@mui/material/Input";
 import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import logo from "../assets/svg/desktop.svg";
-import frame16 from "../assets/svg/Frame 16.svg";
-import { NonAuthRoutes } from "../url";
-import "../App.css";
+import Cookies from "js-cookie";
+import logo from "../../assets/svg/desktop.svg";
+import frame16 from "../../assets/svg/Frame 16.svg";
+import onboarding from "../../api/onboarding";
+import { NonAuthRoutes } from "../../url";
+import "./LogIn.css";
 
 function LogIn() {
   const [values, setValues] = useState({
@@ -17,9 +20,7 @@ function LogIn() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
-  // const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
-  // const navigate = useNavigate();
   const handleEmailChange = (value) => {
     setEmail(value);
   };
@@ -27,21 +28,18 @@ function LogIn() {
   /** Handle to Login */
   const handleLogin = (e) => {
     e.preventDefault();
-    // navigate(NonAuthRoutes.LoginSuccessPage);
-    navigate(NonAuthRoutes.ErrorOnLogin);
     // setButtonIsLoading(true);
-    // setSuccess(true);
-
-    // eslint-disable-next-line no-undef
-    // Login(email, password).then((response) => {
-    //   if (response.status === 201) {
-    //     const accessToken = response.access_token;
-    //     const refreshToken = response.refresh_token;
-    //     Cookies.set("accessToken", accessToken);
-    //     localStorage.setItem("token", refreshToken);
-    //   }
-    // });
+    onboarding.Login(email, password).then((response) => {
+      if (response.status === 201) {
+        const accessToken = response.access_token;
+        const refreshToken = response.refresh_token;
+        Cookies.set("accessToken", accessToken);
+        localStorage.setItem("token", refreshToken);
+        navigate(NonAuthRoutes.LoginSuccessPage);
+      } else navigate(NonAuthRoutes.ErrorOnLogin);
+    });
   };
+
   /** Function to toggle the state of show password */
   const handleClickShowPassword = () => {
     setValues({
@@ -52,11 +50,13 @@ function LogIn() {
 
   return (
     <>
-      {/* {success ? <LoginSuccess /> : <LoginFailure />} */}
       <div className="xs:hidden md:inline-flex flex w-full h-sreen font-Raleway ">
         <div className="flex flex-col items-center justify-center w-[46%] h-screen bg-[#E7EFED]">
           <div className="flex items-center justify-center mt-[10px]">
-            <button type="button" onClick={() => navigate(NonAuthRoutes.Home)}>
+            <button
+              type="button"
+              onClick={() => navigate(NonAuthRoutes.LandingPage)}
+            >
               <img
                 className=" cursor-pointer w-[208px] h-[35px] "
                 src={logo}
@@ -65,7 +65,7 @@ function LogIn() {
             </button>
           </div>
           <div className="lg:w-[350px] lg:h-[350px] md:w-[300px] md:h-[280px] mx-[120px] mt-[30px]">
-            <img className="" src={frame16} alt="" />
+            <img className="" src={frame16} alt="Handout" />
           </div>
           <div className="flex flex-col items-center justify-center lg:w-[457px] md:w-[385px] h-[217px] lg:mx-[105px] md:mx-[130px] ">
             <div className="md:text-[30px] lg:text-[40px] text-[#077369] lg:leading-[48px] font-Raleway text-center lg:tracking-wide font-[700] mt-[9px]">
@@ -231,7 +231,6 @@ function LogIn() {
             <label htmlFor="password">
               {/* <p className="text-[#424242] text-[16px] font-[400] leading-[18px] mb-[8px]"> */}
               <p>Password</p>
-              {/* </p> */}
               <Input
                 type={values.showPassword ? "text" : "password"}
                 className="p-3 w-[387px] h-[48px] rounded-[4px] border-[1px] border-[#717171] outline-0  "

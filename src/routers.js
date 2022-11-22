@@ -5,8 +5,8 @@ import { NonAuthRoutes, AuthRoutes } from "./url";
 import { ReactComponent as LoadingIcon } from "./assets/svg/loading-icon.svg";
 
 const LandingPage = React.lazy(() => import("./pages/LandingPage"));
-const SignUp = React.lazy(() => import("./pages/SignUp"));
-const LogIn = React.lazy(() => import("./pages/LogIn"));
+const SignUp = React.lazy(() => import("./pages/signUp/SignUp"));
+const LogIn = React.lazy(() => import("./pages/login/LogIn"));
 const VerifyEmail = React.lazy(() => import("./pages/VerifyEmail"));
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 const ForgotPassword = React.lazy(() => import("./pages/ForgotPassword"));

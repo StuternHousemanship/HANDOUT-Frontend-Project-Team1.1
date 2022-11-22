@@ -1,23 +1,15 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-nested-ternary */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import { React, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// eslint-disable-next-line import/no-unresolved
-import Navbar from "src/components/Navbar";
+import Navbar from "../components/Navbar";
 import ValidatePassword from "./ValidatePassword";
 import caution from "../assets/svg/caution.svg";
 import checkmark from "../assets/svg/checkmark.svg";
 import showPwd from "../assets/svg/show-password.svg";
 import hidePwd from "../assets/svg/hide-password.svg";
-// import { ResetPassword as resetpassword } from "../api/onboarding";
-// eslint-disable-next-line import/no-cycle
-
 import "../App.css";
 import { NonAuthRoutes } from "../url";
 import ResetPasswordSuccessful from "../components/ResetPasswordSuccessful";
-// import ResetPasswordError from "../components/ResetPasswordError";
 
 function ResetPassword() {
   const [oldPassword, setOldPassword] = useState("");
@@ -87,18 +79,6 @@ function ResetPassword() {
     setOldPassword("");
     setNewPassword("");
     setPage(2);
-
-    // resetpassword(oldPassword, newPassword).then((response) => {
-    //   // console.log(response);
-    //   if (response.status === 201) {
-    //     setSuccess(true);
-    //   }
-    //   // navigate(NonAuthRoutes.SignUpVerify);
-    //   else if (response.message === "Network Error") {
-    //     setError(true);
-    //   }
-    // });
-    // setStep(2);
   };
 
   return (
@@ -112,11 +92,10 @@ function ResetPassword() {
               <form className="md:bg-[#F1F7F7]  px-10 rounded min-h-[450px]  top-[18%] text-[#424242] w-full md:shadow-6xl md:border-[1px]">
                 <div className="flex flex-col items-start w-[306px] md:h-[60px] mt-4 mb-0">
                   <h1 className="xs:text-[20px] xs:leading-[28px]  md:text-[22px] font-[700] md:leading-[40px] font-Raleway tracking-wide ">
-                    Password reset
+                    Password Reset
                   </h1>
                 </div>
                 <hr className="mt-[0px] md:block xs:hidden" />
-                {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
                 <span>
                   <p className="text-[14px] mt-[16px] mb-[12px] text-[#191919] ">
                     Must include an uppercase letter, lowercase letter, number
@@ -124,48 +103,55 @@ function ResetPassword() {
                   </p>
                 </span>
                 <div className="relative">
-                  <label htmlFor="password"> Password</label>
-                  <input
-                    className={
-                      checks.upperCaseCheck &&
-                      checks.lowerCaseCheck &&
-                      checks.characterLengthCheck &&
-                      checks.numberCheck &&
-                      passwordFocus
-                        ? "validInput"
-                        : !passwordFocus &&
-                          checks.upperCaseCheck &&
-                          checks.lowerCaseCheck &&
-                          checks.characterLengthCheck &&
-                          checks.numberCheck
-                        ? "input"
-                        : !checks.upperCaseCheck &&
-                          !checks.lowerCaseCheck &&
-                          !checks.characterLengthCheck &&
-                          !checks.numberCheck &&
-                          passwordFocus
-                        ? "inValidInput"
-                        : !passwordFocus && !oldPassword
-                        ? "input"
-                        : "inValidInput"
-                    }
-                    name="password"
-                    type={isRevealPwd ? "text" : "password"}
-                    value={oldPassword}
-                    onChange={(e) => setOldPassword(e.target.value)}
-                    onFocus={handleOnFocus}
-                    onBlur={handleOnBlur}
-                    onKeyUp={handleOnKeyUp}
-                    required
-                  />
-                  {/* eslint-disable-next-line jsx-a11y/alt-text */}
-                  <img
-                    className="w-6 absolute top-9 right-2"
-                    title={isRevealPwd ? "Hide password" : "Show password"}
-                    src={isRevealPwd ? showPwd : hidePwd}
-                    alt=""
+                  <label htmlFor="password">
+                    {" "}
+                    Password
+                    <input
+                      id="password"
+                      className={
+                        checks.upperCaseCheck &&
+                        checks.lowerCaseCheck &&
+                        checks.characterLengthCheck &&
+                        checks.numberCheck &&
+                        passwordFocus
+                          ? "validInput"
+                          : !passwordFocus &&
+                            checks.upperCaseCheck &&
+                            checks.lowerCaseCheck &&
+                            checks.characterLengthCheck &&
+                            checks.numberCheck
+                          ? "input"
+                          : !checks.upperCaseCheck &&
+                            !checks.lowerCaseCheck &&
+                            !checks.characterLengthCheck &&
+                            !checks.numberCheck &&
+                            passwordFocus
+                          ? "inValidInput"
+                          : !passwordFocus && !oldPassword
+                          ? "input"
+                          : "inValidInput"
+                      }
+                      name="password"
+                      type={isRevealPwd ? "text" : "password"}
+                      value={oldPassword}
+                      onChange={(e) => setOldPassword(e.target.value)}
+                      onFocus={handleOnFocus}
+                      onBlur={handleOnBlur}
+                      onKeyUp={handleOnKeyUp}
+                      required
+                    />
+                  </label>
+                  <button
+                    type="button"
                     onClick={() => setIsRevealPwd((prevState) => !prevState)}
-                  />
+                  >
+                    <img
+                      className="w-6 absolute top-9 right-2"
+                      title={isRevealPwd ? "Hide password" : "Show password"}
+                      src={isRevealPwd ? showPwd : hidePwd}
+                      alt="password eye"
+                    />
+                  </button>
 
                   {validate ? (
                     <ValidatePassword
@@ -191,40 +177,48 @@ function ResetPassword() {
                   ) : null}
                 </div>
                 <div className="relative mt-4 ">
-                  <label htmlFor="pwdConfirm"> Re-enter password</label>
-                  <input
-                    className={
-                      confirmPasswordFocus && !validPasswordConfirm
-                        ? "inValidInput"
-                        : confirmPasswordFocus && validPasswordConfirm
-                        ? "validInput"
-                        : !confirmPasswordFocus && !newPassword
-                        ? "input"
-                        : !confirmPasswordFocus && validPasswordConfirm
-                        ? "validInput"
-                        : confirmPasswordFocus && !newPassword
-                        ? "input"
-                        : "inValidInput"
-                    }
-                    name="pwdConfirm"
-                    type={isRevealConfirmPwd ? "text" : "password"}
-                    value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
-                    onFocus={handleConfirmPasswordOnFocus}
-                    onBlur={handleConfirmPasswordOnBlur}
-                    required
-                  />
-                  <img
-                    className="w-6 absolute top-9 right-2"
-                    title={
-                      isRevealConfirmPwd ? "Hide password" : "Show password"
-                    }
-                    src={isRevealConfirmPwd ? showPwd : hidePwd}
-                    alt=""
+                  <label htmlFor="pwdConfirm">
+                    {" "}
+                    Re-enter password
+                    <input
+                      id="pwdConfirm"
+                      className={
+                        confirmPasswordFocus && !validPasswordConfirm
+                          ? "inValidInput"
+                          : confirmPasswordFocus && validPasswordConfirm
+                          ? "validInput"
+                          : !confirmPasswordFocus && !newPassword
+                          ? "input"
+                          : !confirmPasswordFocus && validPasswordConfirm
+                          ? "validInput"
+                          : confirmPasswordFocus && !newPassword
+                          ? "input"
+                          : "inValidInput"
+                      }
+                      name="pwdConfirm"
+                      type={isRevealConfirmPwd ? "text" : "password"}
+                      value={newPassword}
+                      onChange={(e) => setNewPassword(e.target.value)}
+                      onFocus={handleConfirmPasswordOnFocus}
+                      onBlur={handleConfirmPasswordOnBlur}
+                      required
+                    />
+                  </label>
+                  <button
+                    type="button"
                     onClick={() =>
                       setIsRevealConfirmPwd((prevState) => !prevState)
                     }
-                  />
+                  >
+                    <img
+                      className="w-6 absolute top-9 right-2"
+                      title={
+                        isRevealConfirmPwd ? "Hide password" : "Show password"
+                      }
+                      src={isRevealConfirmPwd ? showPwd : hidePwd}
+                      alt=""
+                    />
+                  </button>
                   <span
                     className={
                       confirmPasswordFocus && !validPasswordConfirm
@@ -263,15 +257,7 @@ function ResetPassword() {
           </div>
         </div>
       ) : (
-        // <ResetPasswordSuccessful />
         <ResetPasswordSuccessful />
-        //
-        // <div className="fixed top-[10%] bg-pink-300">
-        //   <p>Account Recovered</p>
-        //   <button type="button" onClick={() => setPage(1)}>
-        //     click
-        //   </button>
-        // </div>
       )}
     </div>
   );

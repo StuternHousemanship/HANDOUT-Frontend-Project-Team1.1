@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { NonAuthRoutes } from "../url";
-// eslint-disable-next-line import/no-unresolved
 
 function AccountRecovered() {
   const navigate = useNavigate();

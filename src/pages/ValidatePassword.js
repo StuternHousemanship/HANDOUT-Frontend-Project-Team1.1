@@ -1,6 +1,5 @@
 import React from "react";
-// eslint-disable-next-line import/newline-after-import
-// eslint-disable-next-line import/newline-after-import
+
 function ValidatePassword({
   numberFlag,
   upperLowerCaseFlag,
@@ -16,12 +15,7 @@ function ValidatePassword({
         <p className={characterLengthFlag}>At least 8 characters</p>
       </span>
       <span className="whitespace-nowrap flex ">
-        <img
-          src={upperLowerCaseIcon}
-          className=" mr-1 "
-          // src={caution}
-          alt="caution"
-        />
+        <img src={upperLowerCaseIcon} className=" mr-1 " alt="caution" />
         <p className={upperLowerCaseFlag}>
           Contains Uppercase letters (A-Z), lowercase (a-z)
         </p>

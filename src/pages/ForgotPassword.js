@@ -6,7 +6,6 @@ import "../App.css";
 
 import Navbar from "../components/Navbar";
 import ForgotPasswordSuccessful from "../components/ForgotPasswordSuccessful";
-// import ForgotPasswordError from "../components/ForgotPasswordError";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -44,7 +43,6 @@ function ForgotPassword() {
                   reset your pawssword
                 </p>
 
-                {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
                 <label htmlFor="email">
                   <p className="font-Raleway font-400 text-[13px] text-[#191919] ">
                     Email
@@ -52,6 +50,7 @@ function ForgotPassword() {
                 </label>
 
                 <input
+                  id="email"
                   type="email"
                   className="block border  outline-1 w-full p-3 rounded"
                   name="email"
@@ -74,7 +73,6 @@ function ForgotPassword() {
                 <div className="mt-2">
                   <button
                     type="submit"
-                    // className="w-full text-center py-3 rounded bg-[#077369] text-white hover:bg-green-dark focus:outline-none mt-5"
                     className="enabled"
                     disabled={!validEmail}
                     onClick={handleForgotPassword}

@@ -1,21 +1,19 @@
-/* eslint-disable import/no-cycle */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-nested-ternary */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable import/no-cycle */
 import React, { useState, useEffect } from "react";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { useNavigate } from "react-router-dom";
-import ValidatePassword from "./ValidatePassword";
-import caution from "../assets/svg/caution.svg";
-import checkmark from "../assets/svg/checkmark.svg";
-import showPwd from "../assets/svg/show-password.svg";
-import hidePwd from "../assets/svg/hide-password.svg";
-import onboarding from "../api/onboarding";
-import { NonAuthRoutes } from "../url";
-import logo from "../assets/svg/desktop.svg";
-import HandoutLogo from "../assets/img/HandoutLogo.png";
+import "./SignUp.css";
+import ValidatePassword from "../ValidatePassword";
+import caution from "../../assets/svg/caution.svg";
+import checkmark from "../../assets/svg/checkmark.svg";
+import showPwd from "../../assets/svg/show-password.svg";
+import hidePwd from "../../assets/svg/hide-password.svg";
+import onboarding from "../../api/onboarding";
+import { NonAuthRoutes } from "../../url";
+import logo from "../../assets/svg/desktop.svg";
+import HandoutLogo from "../../assets/img/HandoutLogo.png";
 
 function SignUp() {
   const [password, setPassword] = useState("");
@@ -34,8 +32,6 @@ function SignUp() {
   const [emailFocus, setEmailFocus] = useState(false);
   const [phoneNovalue, setPhoneNoValue] = useState();
   const [step, setStep] = useState(1);
-  // const [success, setSuccess] = useState(false);
-  // const [error, setError] = useState(false);
 
   const navigate = useNavigate();
 
@@ -70,13 +66,10 @@ function SignUp() {
     onboarding
       .SignUp(firstName, lastName, email, phoneNovalue, password)
       .then((response) => {
-        // console.log(response);
         if (response.status === 201) {
           navigate(NonAuthRoutes.SignUpVerify);
-          // setSuccess(true);
         }
         navigate(NonAuthRoutes.ErrorOnSignUp);
-        // setError(true);
       });
   };
 
@@ -116,7 +109,6 @@ function SignUp() {
       /^[a-zA-Z.!#$%&'+/=?^_{|}~-][a-zA-Z0-9.!#$%&'+/=?^_{|}~-]*@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
         email
       );
-    // const emailRegex = /[*@!#%&()^~{}]+/.test(email);
     setValidEmail(emailRegex);
   });
 
@@ -127,21 +119,24 @@ function SignUp() {
   };
 
   return (
-    //
     <div className="md:flex w-full h-screen font-Raleway ">
       {/* Left hand side of the sign up page displaying the handout Logo */}
       <div className="xs:hidden md:flex flex-col items-center justify-center h-screen w-[46%] bg-[#E7EFED]">
         <div className="flex items-center justify-center mt-[10px]">
-          <img
-            className="cursor-pointer w-[208px] h-[35px] "
-            src={logo}
-            alt=""
-            onClick={() => navigate(NonAuthRoutes.Home)}
-          />
+          <button
+            type="button"
+            onClick={() => navigate(NonAuthRoutes.LandingPage)}
+          >
+            <img
+              className="cursor-pointer w-[208px] h-[35px] "
+              src={logo}
+              alt="Handout Logo"
+            />
+          </button>
         </div>
 
         <div className="lg:w-[350px] lg:h-[350px] md:w-[300px] md:h-[280px] mx-[120px] mt-[30px]">
-          <img className="" src={HandoutLogo} alt="" />
+          <img className="" src={HandoutLogo} alt="Handout" />
         </div>
 
         <div className="flex flex-col items-center justify-center w-[457px] h-[217px] mx-[105px]">
@@ -158,17 +153,21 @@ function SignUp() {
       {/* First sign up form page displaying user detail inputs */}
       <div className="md:w-[54%] md:h-screen bg-[#FFFFFF] xs:justify-center xs:items-center ">
         {step === 1 ? (
-          <div className="form bg-[#FFFFFF]">
+          <form className="form bg-[#FFFFFF]">
             <div className="bg-[FFFFFF] py-[20px] min-h-screen flex flex-col">
               <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
                 <div className="bg-white px-6  rounded  text-[#424242] w-full">
                   <div className="xs:flex  md:hidden items-center justify-center ">
-                    <img
-                      className="cursor-pointer h-[30px]"
-                      src={logo}
-                      alt=""
-                      onClick={() => navigate(NonAuthRoutes.Home)}
-                    />
+                    <button
+                      type="button"
+                      onClick={() => navigate(NonAuthRoutes.LandingPage)}
+                    >
+                      <img
+                        className="cursor-pointer h-[30px]"
+                        src={logo}
+                        alt="Handout Logo"
+                      />
+                    </button>
                   </div>
                   <h1 className="xs:flex md:hidden text-[#077369] font-Raleway font-[700] my-[20px]">
                     We’ve got something for everyone
@@ -268,7 +267,6 @@ function SignUp() {
                     />
                     <button
                       type="submit"
-                      // className="w-full text-center py-3 rounded bg-[#077369] text-white hover:bg-green-dark focus:outline-none mt-5"
                       className="mb-4 enabled xs:text-[14px] md:text-[16px] xs:h-[45px] md:h-[56px]"
                       disabled={
                         !firstName ||
@@ -285,20 +283,24 @@ function SignUp() {
                 </div>
               </div>
             </div>
-          </div>
+          </form>
         ) : (
           // Second sign up form page displaying password inputs
-          <div className="form bg-[#FFFFFF] ">
+          <form className="form bg-[#FFFFFF] ">
             <div className="bg-[FFFFFF]  min-h-screen flex flex-col">
               <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
                 <div className="bg-white px-6 rounded  text-[#424242] w-full">
                   <div className="xs:flex  md:hidden mx-[143px]">
-                    <img
-                      className="cursor-pointer"
-                      src={logo}
-                      alt=""
-                      onClick={() => navigate(NonAuthRoutes.Home)}
-                    />
+                    <button
+                      type="button"
+                      onClick={() => navigate(NonAuthRoutes.LandingPage)}
+                    >
+                      <img
+                        className="cursor-pointer"
+                        src={logo}
+                        alt="Handout Logo"
+                      />
+                    </button>
                   </div>
                   <h1 className="xs:flex md:hidden text-[#077369] font-Raleway font-[700] my-[20px]">
                     We’ve got something for everyone
@@ -309,7 +311,7 @@ function SignUp() {
                     </h1>
                     <span className="flex  ">
                       <p className="xs:text-[14px] md:text-[16px] ">
-                        Already have an account?{" "}
+                        Already have an account?&nbsp;
                       </p>
                       <button
                         type="button"
@@ -321,8 +323,7 @@ function SignUp() {
                       </button>
                     </span>
                   </div>
-                  {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-                  <div className="relative">
+                  <div className="relative ">
                     <label
                       htmlFor="password"
                       className="xs:text-[14px] md:text-[16px]"
@@ -363,17 +364,20 @@ function SignUp() {
                       onKeyUp={handleOnKeyUp}
                       required
                     />
-                    {/* eslint-disable-next-line jsx-a11y/alt-text */}
-                    <img
-                      className="w-6 absolute top-9 right-2"
-                      title={isRevealPwd ? "Hide password" : "Show password"}
-                      src={isRevealPwd ? showPwd : hidePwd}
-                      alt=""
+                    <button
+                      type="button"
                       onClick={() => setIsRevealPwd((prevState) => !prevState)}
-                    />
+                    >
+                      <img
+                        className="w-6 absolute top-9 right-2"
+                        title={isRevealPwd ? "Hide password" : "Show password"}
+                        src={isRevealPwd ? showPwd : hidePwd}
+                        alt="password eye icons"
+                      />
+                    </button>
                     {!passwordFocus ? (
                       <span>
-                        <p className="text-[11px] text-[#191919] ">
+                        <p className="text-[11px] mt-2 text-[#191919] ">
                           Must include an Uppercase letter, lowercase letter,
                           number and have at least 8 characters
                         </p>
@@ -434,17 +438,21 @@ function SignUp() {
                       onBlur={handleConfirmPasswordOnBlur}
                       required
                     />
-                    <img
-                      className="w-6 absolute top-9 right-2"
-                      title={
-                        isRevealConfirmPwd ? "Hide password" : "Show password"
-                      }
-                      src={isRevealConfirmPwd ? showPwd : hidePwd}
-                      alt=""
+                    <button
+                      type="button"
                       onClick={() =>
                         setIsRevealConfirmPwd((prevState) => !prevState)
                       }
-                    />
+                    >
+                      <img
+                        className="w-6 absolute top-9 right-2"
+                        title={
+                          isRevealConfirmPwd ? "Hide password" : "Show password"
+                        }
+                        src={isRevealConfirmPwd ? showPwd : hidePwd}
+                        alt="password eye icon"
+                      />
+                    </button>
                     <span
                       className={
                         confirmPasswordFocus && !validPasswordConfirm
@@ -452,7 +460,7 @@ function SignUp() {
                           : "hidden"
                       }
                     >
-                      <img src={caution} className="mt-1" alt="" />
+                      <img src={caution} className="mt-1" alt="caution icon" />
                       <p className="invalid mt-1 ml-1">
                         Password does not match
                       </p>
@@ -474,10 +482,10 @@ function SignUp() {
                     Create account
                   </button>
                   <div className="flex w-full">
-                    <label className="text-[14px]">
+                    <label className="text-[14px]" htmlFor="check">
                       <input
-                        // className="mr-[5px] border-solid border-1 [#2F2F2A]"
                         type="checkbox"
+                        id="check"
                         onChange={() => setCheckbox(!checkbox)}
                       />
                       <svg
@@ -501,17 +509,19 @@ function SignUp() {
                     </label>
                   </div>
                   <div className="flex items-center justify-center">
-                    <p
-                      className="  font-[700] text-[20px] leading-[24px] tracking-wide text-[#077369] mt-6 text-center cursor-pointer font-Raleway"
-                      onClick={() => navigate(NonAuthRoutes.Home)}
+                    <button
+                      type="button"
+                      onClick={() => navigate(NonAuthRoutes.LandingPage)}
                     >
-                      Cancel
-                    </p>
+                      <p className="  font-[700] text-[20px] leading-[24px] tracking-wide text-[#077369] mt-6 text-center cursor-pointer font-Raleway">
+                        Cancel
+                      </p>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </form>
         )}
       </div>
     </div>
