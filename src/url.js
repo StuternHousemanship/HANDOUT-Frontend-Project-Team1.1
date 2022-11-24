@@ -22,7 +22,7 @@ const NonAuthRoutes = {
   LoginOnSuccessSignUp: "/Login-OnSuccessful-SignUp",
   ErrorOnSignUp: "/Error-OnSignUp",
   ErrorOnLogin: "/Error-OnLogin",
-  Navbar: "/Navbar",
+  OnboardingHeader: "/Onboarding-Header",
 };
 
 export { AuthRoutes, NonAuthRoutes };

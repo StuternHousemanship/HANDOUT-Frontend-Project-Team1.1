@@ -26,23 +26,20 @@ function LogIn() {
   };
 
   /** Handle to Login */
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     // setButtonIsLoading(true);
     try {
-      onboarding.Login(email, password).then((response) => {
-        if (response.status === 200) {
-          const accessToken = response.access_token;
-          const refreshToken = response.refresh_token;
-          Cookies.set("accessToken", accessToken);
-          localStorage.setItem("token", refreshToken);
-          navigate(NonAuthRoutes.LoginSuccessPage);
-        }
-      });
-    } catch (error) {
-      if (error.response.status === 400) {
-        navigate(NonAuthRoutes.ErrorOnLogin);
+      const response = await onboarding.Login(email, password);
+      if (response.status === 200) {
+        const accessToken = response.access_token;
+        const refreshToken = response.refresh_token;
+        Cookies.set("accessToken", accessToken);
+        localStorage.setItem("token", refreshToken);
+        navigate(NonAuthRoutes.LoginSuccessPage);
       }
+    } catch (error) {
+      navigate(NonAuthRoutes.ErrorOnLogin);
     }
   };
 
@@ -281,7 +278,7 @@ function LogIn() {
               <button
                 type="button"
                 className="font-[700] text-[16px] leading-[24px]  tracking-wide text-[#2F2F2A] mt-6 text-center cursor-pointer font-Raleway"
-                onClick={() => navigate(NonAuthRoutes.Home)}
+                onClick={() => navigate(NonAuthRoutes.LandingPage)}
               >
                 Cancel
               </button>

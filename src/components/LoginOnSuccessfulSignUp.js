@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { NonAuthRoutes } from "../url";
 import successrobot from "../assets/svg/successrobot.svg";
-import Navbar from "./Navbar";
+import Onboardingheader from "./header/OnboardingHeader";
 
 function LoginOnSuccessfulSignUp() {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ function LoginOnSuccessfulSignUp() {
 
   return (
     <div className="w-screen h-screen relative flex flex-col items-center justify-center">
-      <Navbar />
+      <Onboardingheader />
       <div className="flex flex-col items-center justify-center  ">
         <img
           src={successrobot}

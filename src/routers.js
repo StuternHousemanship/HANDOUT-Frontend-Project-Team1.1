@@ -11,7 +11,9 @@ const VerifyEmail = React.lazy(() => import("./pages/VerifyEmail"));
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 const ForgotPassword = React.lazy(() => import("./pages/ForgotPassword"));
 const ForgotPassword2 = React.lazy(() => import("./pages/ForgotPassword2"));
-const ResetPassword = React.lazy(() => import("./pages/ResetPassword"));
+const ResetPassword = React.lazy(() =>
+  import("./pages/resetPassword/ResetPassword")
+);
 const ResetPasswordSuccessful = React.lazy(() =>
   import("./components/ResetPasswordSuccessful")
 );
@@ -29,7 +31,9 @@ const ResetPasswordError = React.lazy(() =>
   import("./components/ResetPasswordError")
 );
 const ErrorOnLogin = React.lazy(() => import("./components/ErrorOnLogin"));
-const Navbar = React.lazy(() => import("./components/Navbar"));
+const OnboardingHeader = React.lazy(() =>
+  import("./components/header/OnboardingHeader")
+);
 
 function Routers() {
   return (
@@ -92,7 +96,10 @@ function Routers() {
             path={NonAuthRoutes.ResetPasswordError}
             element={<ResetPasswordError />}
           />
-          <Route path={NonAuthRoutes.Navbar} element={<Navbar />} />
+          <Route
+            path={NonAuthRoutes.OnboardingHeader}
+            element={<OnboardingHeader />}
+          />
         </Routes>
       </Suspense>
     </div>

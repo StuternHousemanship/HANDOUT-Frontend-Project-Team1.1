@@ -1,11 +1,11 @@
+/* eslint-disable no-useless-escape */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { React, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { NonAuthRoutes } from "../url";
 import "../App.css";
-
-import Navbar from "../components/Navbar";
 import ForgotPasswordSuccessful from "../components/ForgotPasswordSuccessful";
+import Onboardingheader from "../components/header/OnboardingHeader";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -13,7 +13,10 @@ function ForgotPassword() {
   const [emailFocus, setEmailFocus] = useState(false);
   const [page, setPage] = useState(1);
   useEffect(() => {
-    const emailRegex = /[*@!#%&()^~{}]+/.test(email);
+    const emailRegex =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+        email
+      );
     setValidEmail(emailRegex);
   });
 
@@ -25,7 +28,7 @@ function ForgotPassword() {
   const navigate = useNavigate();
   return (
     <div className="flex flex-col w-full h-screen  bg-white relative">
-      <Navbar />
+      <Onboardingheader />
       {page === 1 ? (
         <div className="bg-white mt-[0] items-center relative justify-center  ">
           <div className="bg-[#FFFFFF]  min-h-screen flex flex-col items-center justify-center  ">

@@ -1,18 +1,17 @@
-/* eslint-disable react/function-component-definition */
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "./Navbar";
 import { NonAuthRoutes } from "../url";
 import successrobot from "../assets/svg/successrobot.svg";
+import Onboardingheader from "./header/OnboardingHeader";
 
-const ResetPasswordSuccessful = () => {
+function ResetPasswordSuccessful() {
   const navigate = useNavigate();
   const handleLogin = () => {
     navigate(NonAuthRoutes.LogIn);
   };
   return (
     <div className="w-screen h-screen relative flex flex-col items-center justify-center">
-      <Navbar />
+      <Onboardingheader />
       <div className="flex  flex-col items-center justify-center  ">
         <img
           src={successrobot}
@@ -35,6 +34,6 @@ const ResetPasswordSuccessful = () => {
       </div>
     </div>
   );
-};
+}
 
 export default ResetPasswordSuccessful;

@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable import/no-cycle */
 import React, { useState, useEffect } from "react";
@@ -58,23 +59,24 @@ function SignUp() {
   }, [password, pwdConfirm]);
 
   /** Handle to Sign Up and route to the email verification  page */
-  const handleSignUp2 = (e) => {
+  const handleSignUp2 = async (e) => {
     e.preventDefault();
     setPassword("");
     setPwdconfirm("");
     setCheckbox(!checkbox);
     try {
-      onboarding
-        .SignUp(firstName, lastName, email, phoneNovalue, password)
-        .then((response) => {
-          if (response.status === 201) {
-            navigate(NonAuthRoutes.SignUpVerify);
-          }
-        });
-    } catch (error) {
-      if (error.response.status === 400) {
-        navigate(NonAuthRoutes.ErrorOnSignUp);
+      const response = await onboarding.SignUp(
+        firstName,
+        lastName,
+        email,
+        phoneNovalue,
+        password
+      );
+      if (response.status === 201) {
+        navigate(NonAuthRoutes.SignUpVerify);
       }
+    } catch (error) {
+      navigate(NonAuthRoutes.ErrorOnSignUp);
     }
   };
 
@@ -111,7 +113,7 @@ function SignUp() {
   /** Function to validate the email input */
   useEffect(() => {
     const emailRegex =
-      /^[a-zA-Z.!#$%&'+/=?^_{|}~-][a-zA-Z0-9.!#$%&'+/=?^_{|}~-]*@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
         email
       );
     setValidEmail(emailRegex);
@@ -248,7 +250,7 @@ function SignUp() {
                     />
                     <span
                       className={
-                        email && !validEmail && !emailFocus ? "flex" : "hidden"
+                        email && !validEmail && emailFocus ? "flex" : "hidden"
                       }
                     >
                       <p className="invalid">Please, enter a valid Email</p>
@@ -382,7 +384,7 @@ function SignUp() {
                     </button>
                     {!passwordFocus ? (
                       <span>
-                        <p className="text-[11px] mt-2 text-[#191919] ">
+                        <p className="text-[11px] text-[#191919] ">
                           Must include an Uppercase letter, lowercase letter,
                           number and have at least 8 characters
                         </p>

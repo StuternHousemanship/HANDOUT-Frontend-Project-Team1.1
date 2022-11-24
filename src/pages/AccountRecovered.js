@@ -19,7 +19,7 @@ function AccountRecovered() {
         </p>
         <button
           type="button"
-          onClick={goToLogIn}
+          onClick={() => goToLogIn}
           className=" absolute   sm:top-[274px] xs:top-[505px] sm:left-[80px]   xs:left-[45px] text-center rounded text-[1.25rem] bg-[#424242] text-white font-[700] sm:w-[450px] xs:w-[338px] sm:h-[56px] xs:h-[42.06px] "
         >
           Login

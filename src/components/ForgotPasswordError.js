@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "./Navbar";
+import OnboardingHeader from "./header/OnboardingHeader";
 import { NonAuthRoutes } from "../url";
 import successrobot from "../assets/svg/successrobot.svg";
 
@@ -8,7 +8,7 @@ function ForgotPasswordError() {
   const navigate = useNavigate();
   return (
     <div className="w-screen h-screen relative flex flex-col items-center justify-center">
-      <Navbar />
+      <OnboardingHeader />
       <div className="flex flex-col items-center justify-center  ">
         <img
           src={successrobot}

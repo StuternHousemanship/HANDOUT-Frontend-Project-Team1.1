@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { NonAuthRoutes } from "../url";
 import dizzyrobot from "../assets/svg/dizzyrobot.svg";
-import Navbar from "./Navbar";
+import Onboardingheader from "./header/OnboardingHeader";
 
 function ErrorOnSignUp() {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ function ErrorOnSignUp() {
 
   return (
     <div className="w-screen h-screen relative flex flex-col items-center justify-center">
-      <Navbar />
+      <Onboardingheader />
       <div className="flex flex-col items-center justify-center  ">
         <img src={dizzyrobot} className="w-[120px] h-[120px] " alt="Handout" />
         <h2 className="font-Raleway mt-[10px] font-[700] text-[32px] leading-[40px] text-[#000000] ">

@@ -1,20 +1,15 @@
-/* eslint-disable react/function-component-definition */
 import React from "react";
-// import { useNavigate } from "react-router-dom";
-import Navbar from "./Navbar";
-// import { NonAuthRoutes } from "../url";
 import successrobot from "../assets/svg/successrobot.svg";
+import Onboardingheader from "./header/OnboardingHeader";
 
-const ResetPasswordError = () => {
-  // const navigate = useNavigate();
-
+function ResetPasswordError() {
   function refreshPage() {
     window.location.reload(false);
   }
 
   return (
     <div className="w-screen h-screen relative flex flex-col items-center justify-center">
-      <Navbar />
+      <Onboardingheader />
       <div className="flex  flex-col items-center justify-center  ">
         <img
           src={successrobot}
@@ -37,6 +32,6 @@ const ResetPasswordError = () => {
       </div>
     </div>
   );
-};
+}
 
 export default ResetPasswordError;

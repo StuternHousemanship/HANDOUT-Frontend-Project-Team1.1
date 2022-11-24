@@ -1,15 +1,15 @@
 /* eslint-disable no-nested-ternary */
 import { React, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import ValidatePassword from "./ValidatePassword";
-import caution from "../assets/svg/caution.svg";
-import checkmark from "../assets/svg/checkmark.svg";
-import showPwd from "../assets/svg/show-password.svg";
-import hidePwd from "../assets/svg/hide-password.svg";
-import "../App.css";
-import { NonAuthRoutes } from "../url";
-import ResetPasswordSuccessful from "../components/ResetPasswordSuccessful";
+import ValidatePassword from "../ValidatePassword";
+import "./ResetPassword.css";
+import caution from "../../assets/svg/caution.svg";
+import checkmark from "../../assets/svg/checkmark.svg";
+import showPwd from "../../assets/svg/show-password.svg";
+import hidePwd from "../../assets/svg/hide-password.svg";
+import { NonAuthRoutes } from "../../url";
+import ResetPasswordSuccessful from "../../components/ResetPasswordSuccessful";
+import Onboardingheader from "../../components/header/OnboardingHeader";
 
 function ResetPassword() {
   const [oldPassword, setOldPassword] = useState("");
@@ -83,7 +83,7 @@ function ResetPassword() {
 
   return (
     <div className=" flex flex-col w-full h-screen justify-center items-center bg-[#FFFFFF] relative ">
-      <Navbar />
+      <Onboardingheader />
       {/* body */}
       {page === 1 ? (
         <div className="  bg-[#FFFFFF] fixed top-[6%] justify-center items-center">

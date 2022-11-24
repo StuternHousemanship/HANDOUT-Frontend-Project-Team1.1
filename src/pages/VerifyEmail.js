@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { NonAuthRoutes } from "../url";
 
 import logo from "../assets/svg/desktop.svg";
-import Navbar from "../components/Navbar";
+import Onboardingheader from "../components/header/OnboardingHeader";
 
 function VerifyEmail() {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ function VerifyEmail() {
     <div className="relative flex flex-col justify-center items-center w-full h-[100vh]">
       {/* laptop and ipad view */}
       <div className="xs: heddin flex flex-col justify-center items-center w-full h-[100vh] bg-white">
-        <Navbar />
+        <Onboardingheader />
         <div className="xs:hidden md:inline-flex lg:inline-flex flex flex-col justify-center items-center w-full h-[100vh]">
           <div className="w-[600px] absolute h-[400px] bg-[#F1F7F7]">
             <div className="flex flex-col justify-center items-center">
