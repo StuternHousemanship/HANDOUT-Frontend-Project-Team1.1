@@ -31,8 +31,13 @@ const ResetPasswordError = React.lazy(() =>
   import("./components/ResetPasswordError")
 );
 const ErrorOnLogin = React.lazy(() => import("./components/ErrorOnLogin"));
+
 const OnboardingHeader = React.lazy(() =>
   import("./components/header/OnboardingHeader")
+);
+
+const DashboardOnboarding = React.lazy(() =>
+  import("./pages/DashboardOnboarding")
 );
 
 function Routers() {
@@ -99,6 +104,10 @@ function Routers() {
           <Route
             path={NonAuthRoutes.OnboardingHeader}
             element={<OnboardingHeader />}
+          />
+          <Route
+            path={NonAuthRoutes.DashboardOnboarding}
+            element={<DashboardOnboarding />}
           />
         </Routes>
       </Suspense>
