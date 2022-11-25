@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import React from "react";
 import sellIcon from "../assets/svg/sell.svg";
 import frame1844 from "../assets/svg/Frame 1000001844.svg";
@@ -32,7 +31,10 @@ function DashboardOnboarding() {
                 Have an item you want to give out? You can list it on Hangout
                 from anywhere, with ease.{" "}
               </div>
-              <button className="sm:w-[250px] md:w-[250px] lg:flex flex-col justify-center items-center bg-[#077369] w-[320px] h-[60px] rounded-[4px] py-[12px] px-[50px] text-[#FEFEFE] font-Raleway text-[20px] text-[700] leading-[24px] mt-[50px] ">
+              <button
+                type="button"
+                className="sm:w-[250px] md:w-[250px] lg:flex flex-col justify-center items-center bg-[#077369] w-[320px] h-[60px] rounded-[4px] py-[12px] px-[50px] text-[#FEFEFE] font-Raleway text-[20px] text-[700] leading-[24px] mt-[50px] "
+              >
                 List Items
               </button>
             </div>
@@ -40,7 +42,7 @@ function DashboardOnboarding() {
               <img
                 className="w-[39px] h-[39px] mt-[40px] "
                 src={exploreIcon}
-                alt=""
+                alt="explore icon"
               />
               <div className="w-[220px] h-[32px] my-[15px] text-[24px] mt-[] text-[700] font-Raleway leading-32 text-[#191919]">
                 Something for you{" "}
@@ -50,7 +52,10 @@ function DashboardOnboarding() {
                 Discover items that you didn’t know you need. Whatever you are
                 into, find it on Hangout.
               </div>
-              <button className="sm:w-[250px] md:w-[250px] lg:flex flex-col justify-center items-center bg-[#077369] w-[320px] h-[60px] rounded-[4px] py-[12px] px-[50px] text-[#FEFEFE] font-Raleway text-[20px] text-[700] leading-[24px] mt-[50px] ">
+              <button
+                type="button"
+                className="sm:w-[250px] md:w-[250px] lg:flex flex-col justify-center items-center bg-[#077369] w-[320px] h-[60px] rounded-[4px] py-[12px] px-[50px] text-[#FEFEFE] font-Raleway text-[20px] text-[700] leading-[24px] mt-[50px] "
+              >
                 Browse all
               </button>
             </div>
@@ -82,7 +87,10 @@ function DashboardOnboarding() {
                 Have an item you want to give out? You can list it on Hangout
                 from anywhere, with ease.{" "}
               </div>
-              <button className="flex flex-col justify-center items-center bg-[#077369] w-[220px] h-[48px] rounded-[4px] py-[12px] px-[50px] text-[#FEFEFE] font-Raleway text-[20px] text-[700] leading-[24px] mt-[30px] ">
+              <button
+                type="button"
+                className="flex flex-col justify-center items-center bg-[#077369] w-[220px] h-[48px] rounded-[4px] py-[12px] px-[50px] text-[#FEFEFE] font-Raleway text-[20px] text-[700] leading-[24px] mt-[30px] "
+              >
                 List Items
               </button>
             </div>
@@ -100,7 +108,10 @@ function DashboardOnboarding() {
                 Discover items that you didn’t know you need. Whatever you are
                 into, find it on Hangout.
               </div>
-              <button className="flex flex-col justify-center items-center bg-[#077369] w-[220px] h-[48px] rounded-[4px] py-[12px] px-[50px] text-[#FEFEFE] font-Raleway text-[20px] text-[700] leading-[24px] mt-[30px] ">
+              <button
+                type="button"
+                className="flex flex-col justify-center items-center bg-[#077369] w-[220px] h-[48px] rounded-[4px] py-[12px] px-[50px] text-[#FEFEFE] font-Raleway text-[20px] text-[700] leading-[24px] mt-[30px] "
+              >
                 Browse all
               </button>
             </div>

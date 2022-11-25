@@ -1,7 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { NonAuthRoutes } from "../url";
 import successrobot from "../assets/svg/successrobot.svg";
 
 function LoginSuccess() {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col items-center justify-center  ">
       <img
@@ -13,8 +17,13 @@ function LoginSuccess() {
         Success
       </h2>
       <p className="text-[16px] text-center leading-[28px] font-Raleway ">
-        That was a successfull login let&apos;s proceed <br /> to your
-        dashboard...{" "}
+        That was a successfull login let&apos;s proceed <br /> to your dashboard{" "}
+        <button
+          type="button"
+          onClick={() => navigate(NonAuthRoutes.DashboardOnboarding)}
+        >
+          here
+        </button>
       </p>
     </div>
   );
