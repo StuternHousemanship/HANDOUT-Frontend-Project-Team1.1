@@ -1,20 +1,9 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+// eslint-disable-next-line import/no-cycle
+import Routers from "./routers";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>A platform for unwanted personal items</p>
-        <p>
-          This platform allows people to give out useful but unwanted items to
-          others who may need them.
-        </p>
-      </header>
-    </div>
-  );
+  return <Routers />;
 }
 
 export default App;
