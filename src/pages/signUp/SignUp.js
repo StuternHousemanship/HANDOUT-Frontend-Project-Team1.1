@@ -330,7 +330,7 @@ function SignUp() {
                       </button>
                     </span>
                   </div>
-                  <div className="relative ">
+                  <div className="relative  ">
                     <label
                       htmlFor="password"
                       className="xs:text-[14px] md:text-[16px]"
@@ -384,7 +384,7 @@ function SignUp() {
                     </button>
                     {!passwordFocus ? (
                       <span>
-                        <p className="text-[11px] text-[#191919] ">
+                        <p className="text-[11px] text-[#191919] mt-[-16px]">
                           Must include an Uppercase letter, lowercase letter,
                           number and have at least 8 characters
                         </p>
@@ -467,8 +467,12 @@ function SignUp() {
                           : "hidden"
                       }
                     >
-                      <img src={caution} className="mt-1" alt="caution icon" />
-                      <p className="invalid mt-1 ml-1">
+                      <img
+                        src={caution}
+                        className="mt-[-16px]"
+                        alt="caution icon"
+                      />
+                      <p className="invalid mt-[-16px] ml-1">
                         Password does not match
                       </p>
                     </span>
