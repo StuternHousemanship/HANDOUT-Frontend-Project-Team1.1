@@ -13,7 +13,7 @@ import Onboardingheader from "../../components/header/OnboardingHeader";
 
 function ResetPassword() {
   const { userId } = useParams();
-  console.log("URL parameter User Id", userId);
+  console.log("URL parameter User Id is", userId);
   const [oldPassword, setOldPassword] = useState("");
   const [validate, setValidate] = useState(false);
   const [newPassword, setNewPassword] = useState("");
