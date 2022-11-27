@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import { React, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ValidatePassword from "../ValidatePassword";
 import "./ResetPassword.css";
 import caution from "../../assets/svg/caution.svg";
@@ -12,6 +12,8 @@ import ResetPasswordSuccessful from "../../components/ResetPasswordSuccessful";
 import Onboardingheader from "../../components/header/OnboardingHeader";
 
 function ResetPassword() {
+  const { userId } = useParams();
+  console.log("URL parameter User Id", userId);
   const [oldPassword, setOldPassword] = useState("");
   const [validate, setValidate] = useState(false);
   const [newPassword, setNewPassword] = useState("");

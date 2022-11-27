@@ -54,7 +54,10 @@ function Routers() {
           <Route path={NonAuthRoutes.LandingPage} element={<LandingPage />} />
           <Route path={NonAuthRoutes.SignUp} element={<SignUp />} />
           <Route path={NonAuthRoutes.LogIn} element={<LogIn />} />
-          <Route path={NonAuthRoutes.VerifyEmail} element={<VerifyEmail />} />
+          <Route
+            path={`${NonAuthRoutes.VerifyEmail}/:userId`}
+            element={<VerifyEmail />}
+          />
           <Route path={AuthRoutes.Dashboard} element={<Dashboard />} />
           <Route
             path={NonAuthRoutes.ForgotPassword}
@@ -69,7 +72,7 @@ function Routers() {
             element={<AccountRecovered />}
           />
           <Route
-            path={NonAuthRoutes.ResetPassword}
+            path={`${NonAuthRoutes.ResetPassword}/:userId`}
             element={<ResetPassword />}
           />
           <Route
