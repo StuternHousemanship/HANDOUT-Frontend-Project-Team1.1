@@ -16,23 +16,27 @@ import ErrorOnLogin from "../../components/ErrorOnLogin";
 import "./LogIn.css";
 
 function LogIn() {
+  const navigate = useNavigate();
   const [buttonIsLoading, setButtonIsLoading] = useState(false);
-  const [errorLogin, setErrorLogin] = useState(null);
   const [errorExists, setErrorExists] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const [values, setValues] = useState({
     showPassword: false,
   });
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    const ac = new AbortController();
+    document.title = "Login - Handout";
+    return function cleanup() {
+      ac.abort();
+    };
+  }, []);
+
   const handleEmailChange = (value) => {
     setEmail(value);
   };
-
-  useEffect(() => {
-    setErrorLogin(null);
-  }, []);
 
   /** Handle to Login */
   const handleLogin = async (e) => {
@@ -49,12 +53,9 @@ function LogIn() {
         navigate(NonAuthRoutes.LoginSuccessPage);
       }
     } catch (error) {
-      console.log({
-        error,
-      });
+      console.error("This is your Log In error", error.response.data.error);
       setErrorExists(true);
-      setErrorLogin(() => <ErrorOnLogin errors={error} />);
-      // navigate(NonAuthRoutes.ErrorOnLogin);
+      setErrorMessage(error.response.data.error);
     }
   };
 
@@ -67,10 +68,11 @@ function LogIn() {
   };
 
   return (
-    <>
-      {errorLogin}
-      {!errorExists ? (
-        <>
+    <div>
+      {errorExists ? (
+        <ErrorOnLogin errorMessage={errorMessage} />
+      ) : (
+        <div>
           <div className="xs:hidden md:inline-flex flex w-full h-sreen font-Raleway ">
             <div className="flex flex-col items-center justify-center w-[46%] h-screen bg-[#E7EFED]">
               <div className="flex items-center justify-center mt-[10px]">
@@ -314,9 +316,9 @@ function LogIn() {
               </div>
             </form>
           </div>
-        </>
-      ) : null}
-    </>
+        </div>
+      )}
+    </div>
   );
 }
 

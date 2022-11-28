@@ -19,6 +19,7 @@ import HandoutLogo from "../../assets/img/HandoutLogo.png";
 import ErrorOnSignUp from "../../components/ErrorOnSignUp";
 
 function SignUp() {
+  const navigate = useNavigate();
   const [buttonIsLoading, setButtonIsLoading] = useState(false);
   const [password, setPassword] = useState("");
   const [validate, setValidate] = useState(false);
@@ -38,9 +39,6 @@ function SignUp() {
   const [step, setStep] = useState(1);
   const [errorSignUp, setErrorSignUp] = useState(null);
   const [errorExists, setErrorExists] = useState(false);
-
-  const navigate = useNavigate();
-
   const [checks, setChecks] = useState({
     upperCaseCheck: false,
     lowerCaseCheck: false,
@@ -48,7 +46,6 @@ function SignUp() {
     numberCheck: false,
   });
 
-  /** Function to take off warnings in console on app load */
   useEffect(() => {
     const ac = new AbortController();
     document.title = "Sign Up - Handout";
