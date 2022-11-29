@@ -17,6 +17,7 @@ const ResetPassword = React.lazy(() =>
 const ResetPasswordSuccessful = React.lazy(() =>
   import("./components/ResetPasswordSuccessful")
 );
+const AccountOverview = React.lazy(() => import("./pages/AccountOverview"));
 const AccountRecovered = React.lazy(() => import("./pages/AccountRecovered"));
 const LoginSuccessPage = React.lazy(() => import("./pages/LoginSuccessPage"));
 const LoginFailurePage = React.lazy(() => import("./pages/LoginFailurePage"));
@@ -111,6 +112,10 @@ function Routers() {
           <Route
             path={NonAuthRoutes.DashboardOnboarding}
             element={<DashboardOnboarding />}
+          />
+          <Route
+            path={AuthRoutes.AccountOverview}
+            element={<AccountOverview />}
           />
         </Routes>
       </Suspense>

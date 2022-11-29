@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-useless-escape */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable import/no-cycle */
