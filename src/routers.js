@@ -41,6 +41,8 @@ const DashboardOnboarding = React.lazy(() =>
   import("./pages/DashboardOnboarding")
 );
 
+const BrowseItems = React.lazy(() => import("./pages/BrowseItems"));
+
 function Routers() {
   return (
     <div>
@@ -117,6 +119,7 @@ function Routers() {
             path={AuthRoutes.AccountOverview}
             element={<AccountOverview />}
           />
+          <Route path={AuthRoutes.BrowseItems} element={<BrowseItems />} />
         </Routes>
       </Suspense>
     </div>

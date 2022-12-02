@@ -53,7 +53,10 @@ function LogIn() {
         navigate(NonAuthRoutes.LoginSuccessPage);
       }
     } catch (error) {
-      console.error("This is your Log In error", error.response.data.error);
+      // console.error("This is your Log In error", error.response.data.error);
+      console.log({
+        error,
+      });
       setErrorExists(true);
       setErrorMessage(error.response.data.error);
     }

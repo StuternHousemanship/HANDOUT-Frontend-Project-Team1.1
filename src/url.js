@@ -1,7 +1,9 @@
 /* eslint-disable prettier/prettier */
+/** Authenticated URL Routes */
 const AuthRoutes = {
   Dashboard: "/dashboard",
   AccountOverview: "/account-overview",
+  BrowseItems: "/browse-items",
 };
 
 /** Non Authenticated URL Routes */
@@ -21,8 +23,8 @@ const NonAuthRoutes = {
   LoginFailure: "/Login-Failure-Page",
   SignUpVerify: "/SignUp-Verification-SuccessPage",
   LoginOnSuccessSignUp: "/Login-OnSuccessful-SignUp",
-  ErrorOnSignUp: "/Error-OnSignUp",
-  ErrorOnLogin: "/Error-OnLogin",
+  ErrorOnSignUp: "/sign-up-error",
+  ErrorOnLogin: "/login-error",
   OnboardingHeader: "/Onboarding-Header",
   DashboardOnboarding: "/dashboard-Onboarding",
 };
