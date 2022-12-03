@@ -4,6 +4,7 @@ const AuthRoutes = {
   Dashboard: "/dashboard",
   AccountOverview: "/account-overview",
   BrowseItems: "/browse-items",
+  Home: "/home",
 };
 
 /** Non Authenticated URL Routes */

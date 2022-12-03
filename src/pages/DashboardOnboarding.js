@@ -17,10 +17,10 @@ function DashboardOnboarding() {
           </div>
 
           <div className="flex justify-center items-center w-[100%] h-auto ">
-            <div className="sm:w-[100%] md:w-[100%] flex justify-end lg:w-[100%] flex justify-end xl:flex justify-end w-[100%] h-[250px] rounded-[10px] bg-gradient-to-r from-[#077369] to-[#ccfbf1] ">
+            <div className="sm:w-[100%] md:w-[100%] flex justify-end lg:w-[100%] xl:flex w-[100%] h-[250px] rounded-[10px] bg-gradient-to-r from-[#077369] to-[#ccfbf1] ">
               <div className="sm:w-[80%] md:w-[80%] lg:w-[80%] xl:w-[80%] h-full flex justify-between items-center ">
                 <div className="flex flex-col justify-center text-left text-[28px] font-Raleway text-[#f3eeee] ">
-                  <h3 className="md: text-[16px] lg:text-[25px] xl: text-[32px] ">
+                  <h3 className="md: text-[16px] lg:text-[25px] xl:text-[32px] ">
                     Welcome to a
                   </h3>
                   <h3 className="md:text-[24px] lg:text-[28px] xl:text-[38px] font-[700] text-[#FEFEFE] ">
@@ -33,7 +33,7 @@ function DashboardOnboarding() {
 
                 <div>
                   <img
-                    className="min-w-[250px] max-h-[250px]"
+                    className="min-w-[250px] max-h-[250px] rounded-[10px]"
                     src={onboarding}
                     alt="handout"
                   />
@@ -43,28 +43,27 @@ function DashboardOnboarding() {
           </div>
 
           <div className="sm:w-[100%] md:w-[100%] lg:w-[100%] xl:w-[100%] h-auto flex flex-row justify-around items-center ">
-            <div className="sm:w-[400px]mt-[2px] md:w-[400px]mt-[2px] lg:w-[400px] h-[300] flex flex-col justify-center items-center px-[24px] py-[32px]">
+            <div className="sm:w-[400px]mt-[2px] md:w-[40%] h-[200px] mt-[2px] lg:w-[40%] flex flex-col justify-center items-center px-[24px] py-[32px]">
               <div className="w-[44px] h-[44px] bg-[#EEF7F7] rounded-[50%] mb-[10px] flex justify-center items-center text-[#077369] ">
-                <img className="w-[20px] h-[20px] " src={sellIcon} alt="" />
+                <img
+                  className="md:w-[12px]h-[12px] lg:w-[20px] h-[20px] "
+                  src={sellIcon}
+                  alt=""
+                />
               </div>
               <p className="text-[16px] mb-[10px] font-[700] font-Raleway leading-32 text-[#191919] ">
                 Sell to real people{" "}
               </p>
-              <p className="sm:text-[16px] md:text-[16px] lg:w-[440px] h-[48px] font-Raleway text-[500] text-[20px] leading-24 text-[#2F2F2A] text-center">
+              <p className="sm:text-[16px] md:text-[16px] lg:font-Raleway text-[500] leading-24 text-[#2F2F2A] text-center">
                 Have an item you want to give out? You can list it on Hangout
                 from anywhere, with ease.{" "}
               </p>
-              <button
-                type="button"
-                className="sm:w-[250px] md:w-[250px] mt-[35px] lg:w-[320px] flex flex-col justify-center items-center bg-[#077369] w-[320px] h-[40px] rounded-[4px] py-[10px] px-[50px] text-[#FEFEFE] font-Raleway text-[] font-[700] leading-[24px] mt-[20px] "
-              >
-                List Items
-              </button>
             </div>
-            <div className="sm:w-[400px] md:w-[400px] lg:w-[488px] h-[364] flex flex-col justify-center items-center px-[24px] py-[32px] ">
+
+            <div className="sm:w-[400px] md:w-[40%] h-[200px] lg:w-[40%] flex flex-col justify-center items-center px-[24px] py-[32px] ">
               <div className="w-[44px] h-[44px] bg-[#EEF7F7] rounded-[50%] mb-[10px] flex justify-center items-center text-[#077369]">
                 <img
-                  className="w-[20px] h-[20px] "
+                  className="md:w-[1px]h-[12px] lg:w-[20px] h-[20px] "
                   src={exploreIcon}
                   alt="explore icon"
                 />
@@ -73,17 +72,25 @@ function DashboardOnboarding() {
                 Something for you{" "}
               </p>
 
-              <p className="sm:text-[16px] md:text-[16px] lg:font-Raleway text-[500] text-[] leading-24 text-[#2F2F2A] text-center ">
+              <p className="sm:text-[16px] md:text-[16px] lg:font-Raleway text-[500] leading-24 text-[#2F2F2A] text-center ">
                 Discover items that you didn’t know you need. Whatever you are
                 into, find it on Hangout.
               </p>
-              <button
-                type="button"
-                className="sm:w-[250px] md:w-[250px] mt-[] lg:w-[320px] flex flex-col justify-center items-center bg-[#077369] w-[320px] h-[40px] rounded-[4px] py-[10px] px-[50px] text-[#FEFEFE] font-Raleway text-[] font-[700] leading-[24px] mt-[20px] "
-              >
-                Browse all
-              </button>
             </div>
+          </div>
+          <div className="w-[100%] h-auto flex flex-row justify-around items-center ">
+            <button
+              type="button"
+              className="sm:w-[250px] md:w-[250px] lg:w-[320px] flex flex-col justify-center items-center bg-[#077369] w-[320px] h-[40px] rounded-[4px] py-[10px] px-[50px] text-[#FEFEFE] font-Raleway text-[] font-[700] leading-[24px] mt-[] "
+            >
+              List Items
+            </button>
+            <button
+              type="button"
+              className="sm:w-[250px] md:w-[250px] lg:w-[320px] flex flex-col justify-center items-center bg-[#077369] w-[320px] h-[40px] rounded-[4px] py-[10px] px-[50px] text-[#FEFEFE] font-Raleway text-[] font-[700] leading-[24px] mt-[] "
+            >
+              Browse all
+            </button>
           </div>
         </div>
       </div>
