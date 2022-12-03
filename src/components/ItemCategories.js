@@ -97,10 +97,10 @@ function ItemCategories() {
     <div className=" overflow-x-scroll scroll-smooth scrollbar-hide shadow-md whitespace-nowrap">
       <ul className="">
         {categories.map((items) => (
-          <div className="inline-block bg-[#EAEDF2] rounded-[12px] px-[8px] py-[6px] ml-[12px] my-[12px]">
+          <div className=" hover:text-white font-[500]  text-[#141414] inline-block cursor-pointer bg-[#EAEDF2]  hover:bg-[#077369] rounded-[12px] px-[8px] py-[6px] ml-[12px] my-[12px]">
             <button
               type="button"
-              className="font-Raleway text-[10px] font-[500] text-[#141414] "
+              className="font-Raleway text-[10px] font-[500]"
             >
               <div className="flex">
                 <div>

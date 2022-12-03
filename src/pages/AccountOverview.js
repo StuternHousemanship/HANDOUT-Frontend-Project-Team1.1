@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import OnboardingHeader from "../components/header/OnboardingHeader";
+import UserHeader from "../components/header/UserHeader";
 import avatar from "../assets/svg/Avatar.svg";
 import { ReactComponent as Icon } from "../assets/svg/deleteIcon.svg";
 import { ReactComponent as Addbtn } from "../assets/svg/Union.svg";
@@ -137,7 +137,7 @@ const AccountOverview = () => {
 
   return (
     <div>
-      <OnboardingHeader />
+      <UserHeader />
 
       <div className="md:inline-flex lg:inline-flex flex  justify-center items-center w-[100%] h-auto">
         <div className="flex flex-col align-center justify-center mt-[100px] w-[80%] h-auto ">

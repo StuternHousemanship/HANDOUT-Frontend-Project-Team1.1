@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
@@ -22,7 +23,7 @@ function ProductItem() {
   const [allItems, setAllItems] = useState([]);
   const [visible, setVisible] = useState(8);
   const [buttonIsLoading, setButtonIsLoading] = useState(false);
-  const [readMoreShown, setReadMoreShown] = useState(false);
+  const [textTooLong, setTextTooLong] = useState(true);
   const products = [
     {
       id: 1,
@@ -170,9 +171,18 @@ function ProductItem() {
           </button>
         </div>
         <div className="flex font-Raleway sm:text-[12px] xs:text-[10px]">
-          <p>
-            `Showing 1-{visible} of {allItems.length} results`
-          </p>
+          <div className={allItems ? "flex" : "hidden"}>
+            <p>
+              {allItems.length > visible
+                ? `Showing 1-${visible} of ${allItems.length}
+              results`
+                : `Showing 1-${allItems.length} of ${allItems.length}
+              results`}
+            </p>
+          </div>
+          <div className={!allItems ? "flex" : "hidden"}>
+            <p>No items to display</p>
+          </div>
           <select className="bg-[#EAEDF2] cursor-pointer rounded-[12px] text-[#141414] sm:ml-[30px] xs:ml-[15px] ">
             <option className="bg-[#EAEDF2] cursor-pointer rounded-[12px] text-[#141414] sm:ml-[30px] xs:ml-[15px] ">
               Date Added
@@ -231,15 +241,30 @@ function ProductItem() {
                       marginTop: "10px",
                     }}
                   >
-                    {readMoreShown ? product.text : product.text.substr(0, 200)}
-                    <button
-                      type="button"
-                      key={product.id}
-                      className="text-[10px] font-[600] font-Raleway text-[#077369]"
-                      onClick={() => setReadMoreShown(!readMoreShown)}
-                    >
-                      View more
-                    </button>
+                    <div>
+                      {textTooLong
+                        ? `${product.text.substr(0, 70)} ...`
+                        : product.text}
+                      {textTooLong ? (
+                        <button
+                          type="button"
+                          key={product.id}
+                          className="text-[10px] font-[600] font-Raleway text-[#077369] ml-1"
+                          onClick={() => setTextTooLong(!textTooLong)}
+                        >
+                          View More
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          key={product.id}
+                          className="text-[10px] font-[600] font-Raleway text-[#077369] ml-1"
+                          onClick={() => setTextTooLong(!textTooLong)}
+                        >
+                          View less
+                        </button>
+                      )}
+                    </div>
                   </Typography>
                   <div className="mt-[10px] flex justify-between ">
                     <div>

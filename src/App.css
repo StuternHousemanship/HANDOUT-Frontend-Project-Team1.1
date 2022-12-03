@@ -268,3 +268,13 @@ input[type="checkbox"] {
   font-family: "Raleway";
   font-size: 16px;
 }
+
+/* .search {
+  background: url(assets/svg/search.svg);
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-position: center;
+  object-fit: contain;
+} */
