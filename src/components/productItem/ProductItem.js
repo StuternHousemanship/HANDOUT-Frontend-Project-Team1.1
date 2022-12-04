@@ -1,29 +1,38 @@
 /* eslint-disable no-nested-ternary */
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "./ProductItem.css";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import { CardMedia } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { ReactComponent as LoadingIcon } from "../assets/svg/loading-light-icon.svg";
-import product1 from "../assets/img/Products/product1.png";
-import product2 from "../assets/img/Products/product2.png";
-import product3 from "../assets/img/Products/product3.png";
-import product4 from "../assets/img/Products/product4.png";
-import product5 from "../assets/img/Products/product5.png";
-import product6 from "../assets/img/Products/product6.png";
-import product7 from "../assets/img/Products/product7.png";
-import product8 from "../assets/img/Products/product8.png";
-import product9 from "../assets/img/Products/product9.png";
-import product10 from "../assets/img/Products/product10.png";
-import product11 from "../assets/img/Products/product11.png";
-import product12 from "../assets/img/Products/product12.png";
+import { AuthRoutes } from "../../url";
+import { ReactComponent as LoadingIcon } from "../../assets/svg/loading-light-icon.svg";
+import product1 from "../../assets/img/Products/product1.png";
+import product2 from "../../assets/img/Products/product2.png";
+import product3 from "../../assets/img/Products/product3.png";
+import product4 from "../../assets/img/Products/product4.png";
+import product5 from "../../assets/img/Products/product5.png";
+import product6 from "../../assets/img/Products/product6.png";
+import product7 from "../../assets/img/Products/product7.png";
+import product8 from "../../assets/img/Products/product8.png";
+import product9 from "../../assets/img/Products/product9.png";
+import product10 from "../../assets/img/Products/product10.png";
+import product11 from "../../assets/img/Products/product11.png";
+import product12 from "../../assets/img/Products/product12.png";
 
 function ProductItem() {
   const [allItems, setAllItems] = useState([]);
-  const [visible, setVisible] = useState(8);
+  const [visible, setVisible] = useState(3);
   const [buttonIsLoading, setButtonIsLoading] = useState(false);
   const [textTooLong, setTextTooLong] = useState(true);
+  const [toggleTab, setToggleTab] = useState(1);
+  const navigate = useNavigate();
+
+  const toggleView = (tab) => {
+    setToggleTab(tab);
+  };
   const products = [
     {
       id: 1,
@@ -146,32 +155,59 @@ function ProductItem() {
 
   return (
     <div>
-      <div className="shadow-sm flex justify-between font-[500] font-Raleway sm:text-[12px] xs:text-[10px] text-[#141414] align-center w-[100%] h-auto py-[12px] ">
+      <div className="shadow-sm flex justify-between font-[500] font-Raleway sm:text-[12px] xs:text-[10px]  text-[#141414] align-center w-[100%] h-auto py-[12px] ">
         <div className=" pl-[20px] ">
           <button
             type="button"
-            className="lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] "
+            onClick={() => toggleView(1)}
+            className={
+              toggleTab === 1
+                ? "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] active-tab "
+                : "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] text-[#949292] "
+            }
           >
             All Products
           </button>
           <button
             type="button"
-            className="lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px]"
+            onClick={() => toggleView(2)}
+            className={
+              toggleTab === 2
+                ? "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] active-tab"
+                : "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] text-[#949292]"
+            }
           >
             Free
           </button>
           <button
             type="button"
-            className="lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px]"
+            onClick={() => toggleView(3)}
+            className={
+              toggleTab === 3
+                ? "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] active-tab"
+                : "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] text-[#949292]"
+            }
           >
             New In
           </button>
-          <button type="button" className="">
+          <button
+            type="button"
+            onClick={() => toggleView(4)}
+            className={
+              toggleTab === 4
+                ? "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] active-tab"
+                : "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] text-[#949292]"
+            }
+          >
             Sales
           </button>
         </div>
         <div className="flex font-Raleway sm:text-[12px] xs:text-[10px]">
-          <div className={allItems ? "flex" : "hidden"}>
+          <div
+            className={
+              allItems.length >= 1 && toggleTab === 1 ? "flex" : "hidden"
+            }
+          >
             <p>
               {allItems.length > visible
                 ? `Showing 1-${visible} of ${allItems.length}
@@ -180,7 +216,7 @@ function ProductItem() {
               results`}
             </p>
           </div>
-          <div className={!allItems ? "flex" : "hidden"}>
+          <div className={allItems.length === 0 ? "flex" : "hidden"}>
             <p>No items to display</p>
           </div>
           <select className="bg-[#EAEDF2] cursor-pointer rounded-[12px] text-[#141414] sm:ml-[30px] xs:ml-[15px] ">
@@ -194,17 +230,25 @@ function ProductItem() {
           </select>
         </div>
       </div>
-      <div className="mt-[20px]">
-        <Grid container justify="center" rowSpacing={5} columnSpacing={3}>
+      <div className={toggleTab === 1 ? "mt-[20px] block" : "hidden"}>
+        <Grid
+          container
+          justify="center"
+          rowSpacing={5}
+          columnSpacing={3}
+          className="flex justify-center items-center"
+        >
           {allItems.slice(0, visible).map((product) => (
             <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
               <Card className="relative">
                 <CardMedia
                   component="img"
+                  onClick={() => navigate(AuthRoutes.AccountOverview)}
                   image={product.imageSrc}
                   title={product.name}
                   sx={{
                     position: "relative",
+                    cursor: "pointer",
                   }}
                 />
                 <p className="rounded-[12px] bg-[#F1F7F7] absolute top-[12px] left-[12px] font-[500] font-Raleway text-[10px] text-[#141414] py-[6px] px-[12px] ">
@@ -376,29 +420,40 @@ function ProductItem() {
           ))}
           ;
         </Grid>
+        {visible < allItems.length ? (
+          <div className="flex items-center justify-center">
+            <button
+              type="button"
+              className="mt-[24px] font-Raleway text-[18px] font-[700] w-[220px] h-[50px] rounded-[4px] text-center bg-[#077369] text-white "
+              onClick={loadMore}
+            >
+              {buttonIsLoading ? (
+                <span className="flex items-center justify-center">
+                  <LoadingIcon className="suspense-loading-icon mr-4" />
+                  Load more
+                </span>
+              ) : (
+                <p>Load more</p>
+              )}
+            </button>
+          </div>
+        ) : (
+          <p className="mt-[24px] font-Raleway text-[14px] font-[500]  rounded-[4px] text-center bg-[#F1F7F7]  flex items-center justify-center">
+            No more items...
+          </p>
+        )}
       </div>
-      {visible < allItems.length ? (
-        <div className="flex items-center justify-center">
-          <button
-            type="button"
-            className="mt-[24px] font-Raleway text-[18px] font-[700] w-[220px] h-[50px] rounded-[4px] text-center bg-[#077369] text-white "
-            onClick={loadMore}
-          >
-            {buttonIsLoading ? (
-              <span className="flex items-center justify-center">
-                <LoadingIcon className="suspense-loading-icon mr-4" />
-                Load more
-              </span>
-            ) : (
-              <p>Load more</p>
-            )}
-          </button>
-        </div>
-      ) : (
-        <p className="mt-[24px] font-Raleway text-[14px] font-[500]  rounded-[4px] text-center bg-[#F1F7F7]  flex items-center justify-center ">
-          No more items...
+      <div
+        className={
+          toggleTab !== 1
+            ? "mt-[20px] flex items-center justify-center"
+            : "hidden"
+        }
+      >
+        <p className="font-Raleway text-[14px] font-[500] ">
+          No items added yet
         </p>
-      )}
+      </div>
     </div>
   );
 }

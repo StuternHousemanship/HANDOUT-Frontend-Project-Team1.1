@@ -81,7 +81,7 @@ function LogIn() {
               <div className="flex items-center justify-center mt-[10px]">
                 <button
                   type="button"
-                  onClick={() => navigate(NonAuthRoutes.LandingPage)}
+                  onClick={() => navigate(NonAuthRoutes.Home)}
                 >
                   <img
                     className=" cursor-pointer w-[208px] h-[35px] "
@@ -203,7 +203,7 @@ function LogIn() {
                   <button
                     type="button"
                     className="font-[700] text-[16px] leading-[24px]  tracking-wide text-[#2F2F2A] mt-6 text-center cursor-pointer font-Raleway"
-                    onClick={() => navigate(NonAuthRoutes.LandingPage)}
+                    onClick={() => navigate(NonAuthRoutes.Home)}
                   >
                     Cancel
                   </button>
@@ -311,7 +311,7 @@ function LogIn() {
                   <button
                     type="button"
                     className="font-[700] text-[16px] leading-[24px]  tracking-wide text-[#2F2F2A] mt-6 text-center cursor-pointer font-Raleway"
-                    onClick={() => navigate(NonAuthRoutes.LandingPage)}
+                    onClick={() => navigate(NonAuthRoutes.Home)}
                   >
                     Cancel
                   </button>

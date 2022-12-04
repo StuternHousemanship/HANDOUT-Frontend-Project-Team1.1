@@ -1,10 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthRoutes } from "../url";
 import sellIcon from "../assets/svg/sell (1).svg";
 import onboarding from "../assets/svg/onboarding.png";
 import exploreIcon from "../assets/svg/explore.svg";
 import OnboardingHeader from "../components/header/OnboardingHeader";
 
 function DashboardOnboarding() {
+  const navigate = useNavigate();
   return (
     <>
       <OnboardingHeader />
@@ -87,6 +90,7 @@ function DashboardOnboarding() {
             </button>
             <button
               type="button"
+              onClick={() => navigate(AuthRoutes.BrowseItems)}
               className="sm:w-[250px] md:w-[250px] lg:w-[320px] flex flex-col justify-center items-center bg-[#077369] w-[320px] h-[40px] rounded-[4px] py-[10px] px-[50px] text-[#FEFEFE] font-Raleway text-[] font-[700] leading-[24px] mt-[] "
             >
               Browse all

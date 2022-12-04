@@ -178,7 +178,7 @@ function ResetPassword() {
                     />
                   ) : null}
                 </div>
-                <div className="relative mt-4 ">
+                <div className="relative">
                   <label htmlFor="pwdConfirm">
                     {" "}
                     Re-enter password
@@ -224,12 +224,14 @@ function ResetPassword() {
                   <span
                     className={
                       confirmPasswordFocus && !validPasswordConfirm
-                        ? "flex"
+                        ? "flex "
                         : "hidden"
                     }
                   >
-                    <img src={caution} className="mt-1" alt="" />
-                    <p className="invalid mt-1 ml-1">Password does not match</p>
+                    <img src={caution} className="mt-[-15px] " alt="" />
+                    <p className="invalid mt-[-15px] ml-1">
+                      Password does not match
+                    </p>
                   </span>
                 </div>
                 <button

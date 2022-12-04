@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import { NonAuthRoutes, AuthRoutes } from "./url";
 import { ReactComponent as LoadingIcon } from "./assets/svg/loading-icon.svg";
 
-const LandingPage = React.lazy(() => import("./pages/LandingPage"));
+const Home = React.lazy(() => import("./pages/Home"));
 const SignUp = React.lazy(() => import("./pages/signUp/SignUp"));
 const LogIn = React.lazy(() => import("./pages/login/LogIn"));
 const VerifyEmail = React.lazy(() => import("./pages/VerifyEmail"));
@@ -42,7 +42,6 @@ const DashboardOnboarding = React.lazy(() =>
 );
 
 const BrowseItems = React.lazy(() => import("./pages/BrowseItems"));
-const Home = React.lazy(() => import("./pages/Home"));
 
 function Routers() {
   return (
@@ -55,7 +54,7 @@ function Routers() {
         }
       >
         <Routes>
-          <Route path={NonAuthRoutes.LandingPage} element={<LandingPage />} />
+          <Route path={NonAuthRoutes.Home} element={<Home />} />
           <Route path={NonAuthRoutes.SignUp} element={<SignUp />} />
           <Route path={NonAuthRoutes.LogIn} element={<LogIn />} />
           <Route

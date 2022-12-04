@@ -149,7 +149,7 @@ function SignUp() {
             <div className="flex items-center justify-center mt-[10px]">
               <button
                 type="button"
-                onClick={() => navigate(NonAuthRoutes.LandingPage)}
+                onClick={() => navigate(NonAuthRoutes.Home)}
               >
                 <img
                   className="cursor-pointer w-[208px] h-[35px] "
@@ -184,7 +184,7 @@ function SignUp() {
                       <div className="xs:flex  md:hidden items-center justify-center ">
                         <button
                           type="button"
-                          onClick={() => navigate(NonAuthRoutes.LandingPage)}
+                          onClick={() => navigate(NonAuthRoutes.Home)}
                         >
                           <img
                             className="cursor-pointer h-[30px]"
@@ -319,7 +319,7 @@ function SignUp() {
                       <div className="xs:flex  md:hidden mx-[143px]">
                         <button
                           type="button"
-                          onClick={() => navigate(NonAuthRoutes.LandingPage)}
+                          onClick={() => navigate(NonAuthRoutes.Home)}
                         >
                           <img
                             className="cursor-pointer"
@@ -496,33 +496,14 @@ function SignUp() {
                         >
                           <img
                             src={caution}
-                            className="mt-[-16px]"
+                            className="mt-[-16px] mb-4"
                             alt="caution icon"
                           />
-                          <p className="invalid mt-[-16px] ml-1">
+                          <p className="invalid mt-[-16px] mb-4 ml-1">
                             Password does not match
                           </p>
                         </span>
                       </div>
-                      <button
-                        type="submit"
-                        className="enabled"
-                        disabled={
-                          (!checks.upperCaseCheck &&
-                            !checks.lowerCaseCheck &&
-                            !checks.characterLengthCheck &&
-                            !checks.numberCheck) ||
-                          !validPasswordConfirm ||
-                          !checkbox
-                        }
-                        onClick={handleSignUp2}
-                      >
-                        {buttonIsLoading ? (
-                          <LoadingIcon className="suspense-loading-icon" />
-                        ) : (
-                          <p>Create account</p>
-                        )}
-                      </button>
                       <div className="flex w-full">
                         <label className="text-[14px]" htmlFor="check">
                           <input
@@ -550,10 +531,29 @@ function SignUp() {
                           </span>
                         </label>
                       </div>
+                      <button
+                        type="submit"
+                        className="enabled"
+                        disabled={
+                          (!checks.upperCaseCheck &&
+                            !checks.lowerCaseCheck &&
+                            !checks.characterLengthCheck &&
+                            !checks.numberCheck) ||
+                          !validPasswordConfirm ||
+                          !checkbox
+                        }
+                        onClick={handleSignUp2}
+                      >
+                        {buttonIsLoading ? (
+                          <LoadingIcon className="suspense-loading-icon" />
+                        ) : (
+                          <p>Create account</p>
+                        )}
+                      </button>
                       <div className="flex items-center justify-center">
                         <button
                           type="button"
-                          onClick={() => navigate(NonAuthRoutes.LandingPage)}
+                          onClick={() => navigate(NonAuthRoutes.Home)}
                         >
                           <p className="  font-[700] text-[20px] leading-[24px] tracking-wide text-[#077369] mt-6 text-center cursor-pointer font-Raleway">
                             Cancel

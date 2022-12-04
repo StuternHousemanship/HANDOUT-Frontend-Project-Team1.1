@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/svg/desktop.svg";
 import { NonAuthRoutes } from "../url";
@@ -12,13 +12,21 @@ import twiterIcon from "../assets/svg/Icon color_2.png";
 
 function Home() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const ac = new AbortController();
+    return function cleanup() {
+      ac.abort();
+    };
+  }, []);
+
   return (
     <>
       <div>
         <nav className="bg-white flex items-center justify-between shadow-3xl w-full h-[10%] z-[100] fixed top-0 left-0">
           <button
             type="button"
-            onClick={() => navigate(NonAuthRoutes.LandingPage)}
+            onClick={() => navigate(NonAuthRoutes.Home)}
             className="cursor-pointer md:ml-[50px] md:h-[30px] xs:h-[25px] xs:ml-[20px]"
           >
             <img
@@ -38,12 +46,14 @@ function Home() {
             <div className="w-[30%] flex justify-center items-center">
               <button
                 type="button"
+                onClick={() => navigate(NonAuthRoutes.SignUp)}
                 className="m-[15px] w-[120px] h-[48px] bg-[#077369] rounded-[5px] flex justify-center items-center text-[#FFFFFF] font-[500] text-[15px] font-Raleway "
               >
                 Sign Up
               </button>
               <button
                 type="button"
+                onClick={() => navigate(NonAuthRoutes.LogIn)}
                 className="m-[15px] w-[120px] h-[48px] bg-[#FFFFFF] rounded-[5px] flex justify-center items-center text-[#077369] font-[500] text-[15px] font-Raleway border-[1px] border-[#077369]"
               >
                 Log In
@@ -134,7 +144,7 @@ function Home() {
           <nav className="flex flex-col items-start justify-center w-[80%] h-[20%] ">
             <button
               type="button"
-              onClick={() => navigate(NonAuthRoutes.LandingPage)}
+              onClick={() => navigate(NonAuthRoutes.Home)}
               className="cursor-pointer md:ml-[] md:h-[30px] xs:h-[25px] xs:ml-[]"
             >
               <img

@@ -9,7 +9,7 @@ function ValidatePassword({
   numberFlagIcon,
 }) {
   return (
-    <div className="mt-[-16px]">
+    <div className="mt-[-16px] mb-[8px] ">
       <span className="whitespace-nowrap flex ">
         <img src={characterLengthIcon} className=" mr-1 " alt="caution" />
         <p className={characterLengthFlag}>At least 8 characters</p>

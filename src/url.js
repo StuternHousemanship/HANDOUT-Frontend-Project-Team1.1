@@ -4,12 +4,11 @@ const AuthRoutes = {
   Dashboard: "/dashboard",
   AccountOverview: "/account-overview",
   BrowseItems: "/browse-items",
-  Home: "/home",
 };
 
 /** Non Authenticated URL Routes */
 const NonAuthRoutes = {
-  LandingPage: "/",
+  Home: "/",
   LogIn: "/login",
   SignUp: "/signup",
   Logout: "/logout",
