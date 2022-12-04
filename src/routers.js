@@ -18,6 +18,10 @@ const ResetPasswordSuccessful = React.lazy(() =>
   import("./components/ResetPasswordSuccessful")
 );
 const AccountOverview = React.lazy(() => import("./pages/AccountOverview"));
+const DeleteAccountSuccessfully = React.lazy(() =>
+  import("./pages/DeleteAccountSucessfully")
+);
+const EditProfile = React.lazy(() => import("./pages/EditProfile"));
 const AccountRecovered = React.lazy(() => import("./pages/AccountRecovered"));
 const LoginSuccessPage = React.lazy(() => import("./pages/LoginSuccessPage"));
 const LoginFailurePage = React.lazy(() => import("./pages/LoginFailurePage"));
@@ -117,6 +121,11 @@ function Routers() {
             path={AuthRoutes.AccountOverview}
             element={<AccountOverview />}
           />
+          <Route
+            path={NonAuthRoutes.DeleteAccountSuccessfully}
+            element={<DeleteAccountSuccessfully />}
+          />
+          <Route path={NonAuthRoutes.EditProfile} element={<EditProfile />} />
         </Routes>
       </Suspense>
     </div>

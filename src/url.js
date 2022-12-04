@@ -25,6 +25,8 @@ const NonAuthRoutes = {
   ErrorOnLogin: "/Error-OnLogin",
   OnboardingHeader: "/Onboarding-Header",
   DashboardOnboarding: "/dashboard-Onboarding",
+  DeleteAccountSuccessfully: "/account-successfully-deleted",
+  EditProfile: "/edit-profile",
 };
 
 export { AuthRoutes, NonAuthRoutes };

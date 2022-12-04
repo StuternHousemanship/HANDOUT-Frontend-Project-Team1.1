@@ -1,9 +1,14 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import OnboardingHeader from "../components/header/OnboardingHeader";
 import avatar from "../assets/svg/Avatar.svg";
 import { ReactComponent as Icon } from "../assets/svg/deleteIcon.svg";
 import { ReactComponent as Addbtn } from "../assets/svg/Union.svg";
+import { ReactComponent as BackArrow } from "../assets/svg/backArrow.svg";
+import { ReactComponent as NextArrow } from "../assets/svg/nextArrow.svg";
+import { NonAuthRoutes } from "../url";
 import product1 from "../assets/img/Products/product1.png";
 import product2 from "../assets/img/Products/product2.png";
 import product3 from "../assets/img/Products/product3.png";
@@ -19,6 +24,7 @@ import product12 from "../assets/img/Products/product12.png";
 
 // eslint-disable-next-line react/function-component-definition
 const AccountOverview = () => {
+  const navigate = useNavigate();
   const Profile = {
     name: "Jane Doe",
     email: "Janedoe@gmail.com",
@@ -139,12 +145,12 @@ const AccountOverview = () => {
     <div>
       <OnboardingHeader />
 
-      <div className="md:inline-flex lg:inline-flex flex  justify-center items-center w-[100%] h-auto">
-        <div className="flex flex-col align-center justify-center mt-[100px] w-[80%] h-auto ">
-          <h3 className="w-[220px] h-[32px] mt-[6px] text-[24px] font-[700] font-Raleway leading-20 text-[#191919]">
+      <div className=" flex md:inline-flex lg:inline-flex justify-center items-center w-[100%] h-auto">
+        <div className="flex flex-col align-center justify-center mt-[100px] w-[full] h-auto mx-[15px]  ">
+          <h3 className="w-[220px] h-[32px] mt-[6px] text-[18px] md:text-[24px]  font-[700] font-Raleway leading-20 text-[#191919]">
             Account Overview
           </h3>
-          <p className=" mt-[2px] text-[14px] font-[400] font-Raleway text-[#191919]">
+          <p className=" mt-[2px] text-[14px] md:text-[14px] font-[400] font-Raleway text-[#191919]">
             This account was created on date and time{" "}
           </p>
           <div className="sm:w-[100%] md:w-[100%] lg:w-[100%] xl:w-[1030px] h-[300px] rounded-[10px] bg-[#FAFBFB]">
@@ -152,6 +158,7 @@ const AccountOverview = () => {
               <button
                 type="button"
                 className="flex items-center justify-center w-[100px] h-[30px] leading-[15px]  px-[10px] bg-transparent hover:bg-[#077369] text-[#077369] font-Raleway font-[600] text-[10px] hover:text-white py-2 border-[1.5px] border-[#5da39c]  rounded"
+                onClick={() => navigate(NonAuthRoutes.EditProfile)}
               >
                 Edit Profile
               </button>
@@ -160,24 +167,30 @@ const AccountOverview = () => {
               <img
                 alt="avatar"
                 src={avatar}
-                className="ml-[72px] w-[100px] h-[100px] my-[6px]"
+                className=" ml-[24px] md:ml-[72px] w-[100px] h-[100px] my-[6px]"
               />
-              <p className="font-Raleway font-[600] text-[32px] leading-[22px] text-[#09120D] my-[6px] ml-[72px] ">
+              <p className="font-Raleway font-[600] text-[20px] md:text-[32px] leading-[22px] text-[#09120D] my[2px] md:my-[6px] ml-[24px]  md:ml-[72px] ">
                 {Profile.name}
               </p>
-              <p className="text-[14px] my-[2px] font-Raleway font-[500]  leading-[22px] text-[#09120D] ml-[72px]  ">
+              <p className=" text-[12px] md:text-[14px] my-[0.5px] md:my-[2px] font-Raleway font-[500]  leading-[22px] text-[#09120D] ml-[24px]  md:ml-[72px]  ">
                 {Profile.email}
               </p>
               <div className="flex justify-between">
-                <p className="text-[14px] my-[2px] font-Raleway font-[500]  leading-[22px] text-[#09120D] ml-[72px]">
+                <p className=" text-[12px] md:text-[14px] my-[0.5px] md:my-[2px] font-Raleway font-[500]  leading-[22px] text-[#09120D] ml-[24px] md:ml-[72px]">
                   {Profile.phone}
                 </p>
                 <button
                   type="button"
-                  className="flex flex-row mx-[20px] text-[16px] font-Raleway font-[700]  leading-[22px] text-[#A40D0D]  "
+                  className="flex flex-row mx-[10px] md:mx-[20px]   "
+                  onClick={() =>
+                    navigate(NonAuthRoutes.DeleteAccountSuccessfully)
+                  }
                 >
-                  <Icon className="mx-[10px]" />
-                  <span> DELETE ACCOUNT </span>
+                  <Icon className="mx-[2px]md:mx-[10px]" />
+                  <span className="text-[11px] font-[500] text-[#A40D0D] md:text-[16px] font-Raleway md:font-[700]  ml-[2px] md:ml-[10px]  leading-[22px] md:uppercase">
+                    {" "}
+                    Delete Account{" "}
+                  </span>
                 </button>
               </div>
             </div>
@@ -197,14 +210,14 @@ const AccountOverview = () => {
                 </button>
               </div>
             </div>
-            <div className="mt-6 grid grid-cols-1 gap-y-[30px] gap-x-[24px] sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+            <div className="mt-6 grid grid-cols-1 gap-y-[30px] gap-x-[24px] xs:grid-cols-2 md:grid-cols-3 xl:gap-x-8 mx-[15px] ">
               {products.map((product) => (
-                <div key={product.id} className="group relative">
-                  <div className="min-h-[200px] w-full overflow-hidden rounded-t-lg bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
+                <div key={product.id} className="group relative ">
+                  <div className="h-[200px] w-full overflow-hidden rounded-t-lg bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                     <img
                       src={product.imageSrc}
                       alt={product.imageAlt}
-                      className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                      className="md:h-[150px] w-full object-cover object-center xs:h-full lg:h-full lg:w-full"
                     />
                   </div>
                   <div className="flex justify-between min-h-[87px]  w-full rounded-b-lg bg-[#F1F6F6] ">
@@ -218,14 +231,14 @@ const AccountOverview = () => {
                           {product.name}
                         </a>
                       </h3>
-                      <p className=" mt-[5px] ml-[10px] text-[10px] font-[500] font-Raleway text-[#141414]">
+                      <p className=" mt-[5px] text-left ml-[10px] text-[10px] font-[500] font-Raleway text-[#141414]">
                         {product.text}{" "}
                         <a
                           href="#"
                           className="text-[10px] font-[600] font-Raleway text-[#077369] underline"
                         >
                           View more ...
-                        </a>{" "}
+                        </a>
                       </p>
                     </div>
                     <p className=" mt-[5px] mx-[10px] text-[14px] font-[700] font-Raleway text-[#141414]">
@@ -234,6 +247,21 @@ const AccountOverview = () => {
                   </div>
                 </div>
               ))}
+            </div>
+            <div className="flex  items-center justify-center my-[20px] text-center text-[20px]">
+              <button
+                type="button"
+                className="flex items-center justify-center w-[200px] h-[30px] leading-[15px] mx-[20px] px-[10px] bg-transparent hover:bg-[#077369] text-[#077369] uppercase font-Raleway font-[600] text-[10px] hover:text-white py-2 border-[1.5px] border-[#5da39c]  rounded"
+              >
+                <BackArrow className="w-[10px] h-[10px] mx-[5px]" /> Previous
+                Page
+              </button>
+              <button
+                type="button"
+                className="flex items-center justify-center w-[200px] h-[30px] leading-[15px] mx-[20px]   px-[10px] bg-[#077369] hover:bg-[#077369] text-[#FFFFFF] font-Raleway uppercase font-[600] text-[10px] hover:text-white py-2 border-[1.5px] border-[#5da39c]  rounded"
+              >
+                Next Page <NextArrow className="w-[10px] h-[10px] mx-[5px] " />
+              </button>
             </div>
           </div>
         </div>
