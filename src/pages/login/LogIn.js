@@ -53,7 +53,10 @@ function LogIn() {
         navigate(NonAuthRoutes.LoginSuccessPage);
       }
     } catch (error) {
-      console.error("This is your Log In error", error.response.data.error);
+      // console.error("This is your Log In error", error.response.data.error);
+      console.log({
+        error,
+      });
       setErrorExists(true);
       setErrorMessage(error.response.data.error);
     }
@@ -78,7 +81,7 @@ function LogIn() {
               <div className="flex items-center justify-center mt-[10px]">
                 <button
                   type="button"
-                  onClick={() => navigate(NonAuthRoutes.LandingPage)}
+                  onClick={() => navigate(NonAuthRoutes.Home)}
                 >
                   <img
                     className=" cursor-pointer w-[208px] h-[35px] "
@@ -102,8 +105,8 @@ function LogIn() {
 
             <div className="sm:h-screen w-[54%] sm:bg-[#FFFFFF] flex flex-col justify-center items-center ">
               <form className="bg-white flex justify-center items-center flex-col ">
-                <div className=" lg:w-[450px] md:w-[370px] flex flex-col flex-start">
-                  <h1 className="w-[253px] h-[40px] text-[32px] font-[700] leading-[40px] font-Raleway tracking-wide">
+                <div className="lg:w-[450px] md:w-[370px] flex flex-col flex-start">
+                  <h1 className="text-[32px] font-[700] leading-[40px] font-Raleway tracking-wide">
                     Welcome Back!
                   </h1>
 
@@ -200,7 +203,7 @@ function LogIn() {
                   <button
                     type="button"
                     className="font-[700] text-[16px] leading-[24px]  tracking-wide text-[#2F2F2A] mt-6 text-center cursor-pointer font-Raleway"
-                    onClick={() => navigate(NonAuthRoutes.LandingPage)}
+                    onClick={() => navigate(NonAuthRoutes.Home)}
                   >
                     Cancel
                   </button>
@@ -208,21 +211,21 @@ function LogIn() {
               </form>
             </div>
           </div>
-          <div className="md:hidden lg:hidden h-screen  bg-[#FFFFFF] flex flex-col justify-center items-center ">
-            <form className="bg-white flex  justify-center items-center flex-col w-full h-screen">
-              <div className=" w-[387px] flex flex-row items-center justify-center">
-                <h1 className="w-[253px] h-[40px] text-[#2F2F2A] text-[24px] font-[700] leading-[40px] font-Raleway tracking-wide">
+          <div className="md:hidden lg:hidden h-screen w-screen  bg-[#FFFFFF] flex flex-col justify-center items-center px-[7px]  ">
+            <form className="bg-white flex  justify-center items-center flex-col w-[85%] h-screen ">
+              <div className=" w-[100%] flex flex-row items-center justify-center">
+                <h1 className="text-[#2F2F2A] text-[24px] font-[700] leading-[40px] font-Raleway tracking-wide">
                   Welcome Back!
                 </h1>
               </div>
-              <div className="w-[387px] flex flex-col flex-start">
-                <p className="w-full h-[56px] leading-[28px] tracking-wide font-Raleway text-[20px] font-[700] text-[#278178] mt-[17px]">
+              <div className="w-[100%] flex flex-col flex-start">
+                <p className="w-full h-[56px] leading-[28px] tracking-wide font-Raleway text-[18px] font-[700] text-[#278178] mt-[17px]">
                   We’ve got something for everyone!
                 </p>
               </div>
 
-              <div className=" w-[387px] flex flex-col flex-start  h-[44px] mt-[30px]">
-                <h2 className="text-[#2F2F2A] font-Raleway font-[700] text-[20px] leading-[28px] tracking-wide">
+              <div className=" w-[100%] flex flex-col flex-start  h-[44px] mt-[30px]">
+                <h2 className="text-[#2F2F2A] font-Raleway font-[700] text-[24px] leading-[28px] tracking-wide">
                   Log in
                 </h2>
                 <span className="flex">
@@ -238,7 +241,7 @@ function LogIn() {
                 </span>
               </div>
 
-              <div className="mt-[50px] ">
+              <div className="mt-[50px] w-[100%] ">
                 <label htmlFor="mail">
                   <p className="text-[#424242] text-[16px] sm:font-[400] leading-[18px] mb-[8px] ">
                     Email
@@ -248,17 +251,17 @@ function LogIn() {
                     value={email}
                     onChange={(e) => handleEmailChange(e.target.value)}
                     required
-                    className="p-3 w-[387px] h-[48px] rounded-[4px] border-[1px] border-[#717171] outline-0  "
+                    className="p-3 w-[100%] h-[48px] rounded-[4px] border-[1px] border-[#717171] outline-0  "
                   />
                 </label>
               </div>
-              <div className="mt-[15px]">
+              <div className="mt-[15px] w-[100%]">
                 <label htmlFor="password">
                   {/* <p className="text-[#424242] text-[16px] font-[400] leading-[18px] mb-[8px]"> */}
                   <p>Password</p>
                   <Input
                     type={values.showPassword ? "text" : "password"}
-                    className="p-3 w-[387px] h-[48px] rounded-[4px] border-[1px] border-[#717171] outline-0  "
+                    className="p-3 w-[100%] h-[48px] rounded-[4px] border-[1px] border-[#717171] outline-0  "
                     disableUnderline
                     required
                     value={password}
@@ -280,7 +283,7 @@ function LogIn() {
                   />
                 </label>
               </div>
-              <div className="">
+              <div className="w-[100%]">
                 <div className=" text-right mb-[10px]">
                   <button
                     type="button"
@@ -290,7 +293,7 @@ function LogIn() {
                     Forgot Password?
                   </button>
                 </div>
-                <div className="enabdiv">
+                <div className="enabdiv w-[100%]">
                   <button
                     onClick={handleLogin}
                     type="submit"
@@ -304,11 +307,11 @@ function LogIn() {
                     )}
                   </button>
                 </div>
-                <div className="flex items-center justify-center ">
+                <div className="flex items-center justify-center w-[100] ">
                   <button
                     type="button"
                     className="font-[700] text-[16px] leading-[24px]  tracking-wide text-[#2F2F2A] mt-6 text-center cursor-pointer font-Raleway"
-                    onClick={() => navigate(NonAuthRoutes.LandingPage)}
+                    onClick={() => navigate(NonAuthRoutes.Home)}
                   >
                     Cancel
                   </button>

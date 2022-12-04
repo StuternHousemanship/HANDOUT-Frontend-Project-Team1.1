@@ -1,8 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
 import OnboardingHeader from "../components/header/OnboardingHeader";
+=======
+import UserHeader from "../components/header/UserHeader";
+>>>>>>> b06666c06c6c83b29fe941b1ef006a67b51df6d7
 import avatar from "../assets/svg/Avatar.svg";
 import { ReactComponent as Icon } from "../assets/svg/deleteIcon.svg";
 import { ReactComponent as Addbtn } from "../assets/svg/Union.svg";
@@ -143,7 +147,7 @@ const AccountOverview = () => {
 
   return (
     <div>
-      <OnboardingHeader />
+      <UserHeader />
 
       <div className=" flex md:inline-flex lg:inline-flex justify-center items-center w-[100%] h-auto">
         <div className="flex flex-col align-center justify-center mt-[100px] w-[full] h-auto mx-[15px]  ">
