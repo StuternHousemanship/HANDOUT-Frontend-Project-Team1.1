@@ -123,16 +123,13 @@ function Routers() {
             path={AuthRoutes.AccountOverview}
             element={<AccountOverview />}
           />
-<<<<<<< HEAD
           <Route
             path={NonAuthRoutes.DeleteAccountSuccessfully}
             element={<DeleteAccountSuccessfully />}
           />
           <Route path={NonAuthRoutes.EditProfile} element={<EditProfile />} />
-=======
           <Route path={AuthRoutes.BrowseItems} element={<BrowseItems />} />
-          <Route path={AuthRoutes.Home} element={<Home />} />
->>>>>>> b06666c06c6c83b29fe941b1ef006a67b51df6d7
+          <Route path={NonAuthRoutes.Home} element={<Home />} />
         </Routes>
       </Suspense>
     </div>
