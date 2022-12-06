@@ -87,14 +87,14 @@ function Home() {
             <div className="flex w-[90%] h-[30%] ">
               <div className="">
                 <img
-                  className="w-[511px] h-[600px] "
+                  className="sm:w-[300px] sm:h-[400px] md:w-[400px] md:h-[500px] lg:w-[511px] lg:h-[600px] "
                   src={beautifulEleganceBag}
                   alt="bag"
                 />
               </div>
               <div className="">
                 <img
-                  className="relative top-[100px] right-[100px] "
+                  className="sm:relative sm:right-[30px] md:relative md:right-[50px] lg:relative top-[100px] lg:right-[100px] "
                   src={frame12}
                   alt="shoe"
                 />
@@ -103,17 +103,21 @@ function Home() {
 
             <div className="flex w-[100%] h-[70%] ml-[-70px] mt-[100px]">
               <div className="w-[80%] h-[100%]  ">
-                <img className="w-[100%] h-[100%]" src={p2p} alt="speaker" />
+                <img
+                  className="sm:h-[50%] md:-h-[90%] lg:h-[100%] w-[100%]"
+                  src={p2p}
+                  alt="speaker"
+                />
               </div>
 
-              <div className="relative top-[180px] right-[100px]">
-                <img className="w-[146px] h-[146px]" src={frame1924} alt="" />
+              <div className="sm:relative sm:right-[40px] sm:top-[40px]  md:relative md:right-[50px] md:top-[130px] lg:relative lg:top-[200px] lg:right-[90px]">
+                <img className="" src={frame1924} alt="" />
               </div>
             </div>
           </div>
         </aside>
       </section>
-      <section className="bg-[#077369] w-[100%] h-[150px] flex flex-col justify-center items-center ">
+      <section className="bg-[#284441] w-[100%] h-[150px] flex flex-col justify-center items-center ">
         <div className="flex flex-col justify-center items-start w-[40%] h-full ">
           <p className="font-[700] text-[12px] leading-[24px] text-[#FFFFFF] ">
             New to HANDOUT?
@@ -122,8 +126,12 @@ function Home() {
             Join our mailing list to get updates on our latest features and best
             deals per time!
           </p>
-          <div className="flex mt-[10px]">
-            <input type="text" placeholder="Enter email address" />
+          <div className="flex mt-[10px]  ">
+            <input
+              type="text"
+              className="border-[1px] border-[#717171] outline-0 pl-[5px] rounded-[4px] h-[30px]"
+              placeholder="Enter email address "
+            />
             <button
               type="button"
               className="ml-[10px] w-[60px] h-[30px] bg-[#077369] rounded-[4px] flex justify-center items-center text-[#FFFFFF] font-[400] text-[15px] font-Roboto border-[1px] border-[#0FFFFFF]"
