@@ -47,6 +47,8 @@ const DashboardOnboarding = React.lazy(() =>
 
 const BrowseItems = React.lazy(() => import("./pages/BrowseItems"));
 const AddItem = React.lazy(() => import("./pages/addItem"));
+const AddItemError = React.lazy(() => import("./components/AddItemError"));
+const AddItemSuccess = React.lazy(() => import("./components/AddItemSuccess"));
 
 function Routers() {
   return (
@@ -132,6 +134,11 @@ function Routers() {
           <Route path={AuthRoutes.BrowseItems} element={<BrowseItems />} />
           <Route path={NonAuthRoutes.Home} element={<Home />} />
           <Route path={AuthRoutes.AddItem} element={<AddItem />} />
+          <Route path={AuthRoutes.AddItemError} element={<AddItemError />} />
+          <Route
+            path={AuthRoutes.AddItemSuccess}
+            element={<AddItemSuccess />}
+          />
         </Routes>
       </Suspense>
     </div>

@@ -5,6 +5,8 @@ const AuthRoutes = {
   AccountOverview: "/account-overview",
   BrowseItems: "/browse-items",
   AddItem: "/add-Item",
+  AddItemError: "/add-item-error",
+  AddItemSuccess: "/add-item-success",
 };
 
 /** Non Authenticated URL Routes */

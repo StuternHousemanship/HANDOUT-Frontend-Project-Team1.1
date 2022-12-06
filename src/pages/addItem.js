@@ -8,7 +8,7 @@ import Condition from "../components/Condition";
 import Color from "../components/Color";
 import ShippingOptions from "../components/ShippingOptions";
 import Country from "../components/Country";
-import { NonAuthRoutes } from "../url";
+import { NonAuthRoutes, AuthRoutes } from "../url";
 
 const addItem = () => {
   const navigate = useNavigate();
@@ -162,7 +162,7 @@ const addItem = () => {
           <button
             className="h-[45px] w-[95%]   font-Raleway font-[700] leading-[20px] tracking-wide rounded text-[15px] text-[#077369] bg-white border-[1px] border-[#077369]"
             type="button"
-            onClick={() => navigate(NonAuthRoutes.LogIn)}
+            onClick={() => navigate(NonAuthRoutes.DashboardOnboarding)}
           >
             <p>Cancel</p>
           </button>
@@ -171,6 +171,7 @@ const addItem = () => {
           <button
             className="h-[45px] w-[95%] font-Raleway text-[15px] font-[700] leading-[20px] tracking-wide rounded text-white bg-[#077369]"
             type="button"
+            onClick={() => navigate(AuthRoutes.AddItemSuccess)}
           >
             <p>Add item</p>
           </button>
