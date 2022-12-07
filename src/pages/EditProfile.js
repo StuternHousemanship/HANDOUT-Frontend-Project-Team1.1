@@ -3,15 +3,17 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/no-unknown-property */
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-
+import { AuthRoutes } from "../url";
 import OnboardingHeader from "../components/header/OnboardingHeader";
 import avatar from "../assets/svg/Avatar.svg";
 // import showPwd from "../assets/svg/show-password.svg";
 // import hidePwd from "../assets/svg/hide-password.svg";
 
 function EditProfile() {
+  const navigate = useNavigate();
   const [phoneNovalue, setPhoneNoValue] = useState();
   // const [pwd, setPwd] = useState("");
   // const [isRevealPwd, setIsRevealPwd] = useState(false);
@@ -132,7 +134,7 @@ function EditProfile() {
                 <button
                   type="button"
                   className="font-Raleway font-[600] bg-transparent border border-[#077369] text-[14px] text-[#077369] w-[200px] h-[40px] rounded  "
-                  // onClick={() => navigate(NonAuthRoutes.LogIn)}
+                  onClick={() => navigate(AuthRoutes.AccountOverview)}
                 >
                   Cancel
                 </button>

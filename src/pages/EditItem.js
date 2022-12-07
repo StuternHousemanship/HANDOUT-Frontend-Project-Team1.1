@@ -1,6 +1,6 @@
 /* eslint-disable react/button-has-type */
 import React from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import main from "../assets/img/main.png";
 import small1 from "../assets/img/small1.png";
 import small2 from "../assets/img/small2.png";
@@ -10,12 +10,12 @@ import Categories from "../components/Categories";
 import Color from "../components/Color";
 import ShippingOptions from "../components/ShippingOptions";
 import Country from "../components/Country";
-// import { NonAuthRoutes, AuthRoutes } from "../url";
+import { AuthRoutes } from "../url";
 // import Vector from "../assets/svg/Vector.svg";
 import UserHeader from "../components/header/UserHeader";
 
 function ViewAllItems() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <>
       <UserHeader />
@@ -62,7 +62,7 @@ function ViewAllItems() {
           </section>
         </div>
 
-        <div className=" sm:flex sx:flex-col md:w-[65%] h-[700px] xs:mt-[100px] md:mt-[25px] ">
+        <div className=" sm:flex sx:flex-col md:w-[65%] xs:mt-[100px] md:mt-[25px] ">
           {/* Left-side */}
           <div className=" flex-col md:w-[68%]">
             {/* Item Name */}
@@ -78,7 +78,7 @@ function ViewAllItems() {
               />
             </div> */}
             {/* Item Description */}
-            <div className="h-[240px] md:w-[96%] bg-white rounded-lg flex-col mt-[25px] pt-[20px] pl-[20px] justify-center items-center">
+            <div className=" md:w-[96%] bg-white rounded-lg flex-col mt-[25px] pt-[20px] pl-[20px] justify-center items-center">
               <div className="h-[30px] w-[full] mb-[0px]">
                 <p className="font-Raleway font-[500] mb-[20px]">
                   Item Description
@@ -91,6 +91,26 @@ function ViewAllItems() {
                 placeholder="Casio Watch Series 3 38mm Gray Case Black Aluminium Smartwatch - MTF02LLA"
                 className="  p-3 w-[95%]  font-Raleway text-[16px] rounded-[8px] border-[1px] border-[#717171] outline-0 text-[#2F2F2A] "
               />
+              <div className="pb-[20px] pt-[30px] w-full ">
+                <div className="flex w-full justify-end pr-[20px] ">
+                  <div>
+                    <button
+                      type="button"
+                      className="font-Raleway font-[600] text-[#A40D0D] text-[14px] h-[40px] rounded  "
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                  <div>
+                    <button
+                      type="button"
+                      className="font-Raleway ml-[20px] font-[600] bg-transparent border border-[#077369] text-[14px]  text-[#077369] w-[100px] rounded h-[40px]  "
+                    >
+                      Save
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
             {/* Location */}
             <div className=" xs:hidden sm:block h-[120px] md:w-[96%] bg-white rounded-lg flex-col mt-[25px] pt-[20px] pl-[20px] justify-center items-center">
@@ -174,6 +194,28 @@ function ViewAllItems() {
               <div className=" xs:hidden sm:block mt-[10px]  mb-[10px] ml-[45px] h-[32px]">
                 <Condition />
               </div>
+            </div>
+          </div>
+        </div>
+        <div className="w-[65%] mb-[40px] flex items-center justify-center mt-[55px] ">
+          <div className="flex justify-between w-full ">
+            <div>
+              <button
+                type="button"
+                className="font-Raleway font-[600] bg-transparent border border-[#077369] text-[14px] text-[#077369] w-[420px] h-[40px] rounded  "
+                onClick={() => navigate(AuthRoutes.AccountOverview)}
+              >
+                Cancel
+              </button>
+            </div>
+            <div>
+              <button
+                type="button"
+                className="font-Raleway font-[600] bg-[#077369] text-[14px]  text-[#FFFFFF] rounded w-[420px] h-[40px]  "
+                // onClick={() => navigate(NonAuthRoutes.LogIn)}
+              >
+                Save
+              </button>
             </div>
           </div>
         </div>
