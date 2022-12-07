@@ -8,7 +8,7 @@ import { ReactComponent as Icon } from "../assets/svg/deleteIcon.svg";
 import { ReactComponent as Addbtn } from "../assets/svg/Union.svg";
 import { ReactComponent as BackArrow } from "../assets/svg/backArrow.svg";
 import { ReactComponent as NextArrow } from "../assets/svg/nextArrow.svg";
-import { NonAuthRoutes } from "../url";
+import { NonAuthRoutes, AuthRoutes } from "../url";
 import product1 from "../assets/img/Products/product1.png";
 import product2 from "../assets/img/Products/product2.png";
 import product3 from "../assets/img/Products/product3.png";
@@ -203,6 +203,7 @@ const AccountOverview = () => {
               <div>
                 <button
                   type="button"
+                  onClick={() => navigate(AuthRoutes.AddItem)}
                   className="flex flex-row items-center justify-center w-[120px] h-[45px] leading-[15px]  px-[10px] bg-transparent text-[#333333] font-Raleway font-[600] text-[12px]  py-2 border-[1.5px] border-[#333333]  rounded"
                 >
                   <Addbtn className="w-[15px] h-[15px]" />{" "}
@@ -222,15 +223,20 @@ const AccountOverview = () => {
                   </div>
                   <div className="flex justify-between min-h-[87px]  w-full rounded-b-lg bg-[#F1F6F6] ">
                     <div>
-                      <h3 className="mt-[5px]  mx-[10px] text-[14px] font-[500] font-Raleway text-[#141414]">
-                        <a href={product.href}>
-                          <span
-                            aria-hidden="true"
-                            className="absolute inset-0"
-                          />
-                          {product.name}
-                        </a>
-                      </h3>
+                      <button
+                        type="button"
+                        onClick={() => navigate(AuthRoutes.ItemDetails)}
+                      >
+                        <h3 className="mt-[5px]  mx-[10px] text-[14px] font-[500] font-Raleway text-[#141414]">
+                          <a href={product.href}>
+                            <span
+                              aria-hidden="true"
+                              className="absolute inset-0"
+                            />
+                            {product.name}
+                          </a>
+                        </h3>
+                      </button>
                       <p className=" mt-[5px] text-left ml-[10px] text-[10px] font-[500] font-Raleway text-[#141414]">
                         {product.text}{" "}
                         <a

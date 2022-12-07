@@ -1,12 +1,12 @@
 import React from "react";
 import successrobot from "../assets/svg/successrobot.svg";
-import Onboardingheader from "./header/OnboardingHeader";
+import UserHeader from "./header/UserHeader";
 
 function DeleteAccount() {
   return (
     <div className="w-screen h-screen relative flex flex-col items-center justify-center ">
       <div className="xs:hidden md:flex ">
-        <Onboardingheader />
+        <UserHeader />
       </div>
       <div className="flex flex-col items-center justify-center ">
         <img

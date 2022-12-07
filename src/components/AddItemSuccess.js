@@ -1,6 +1,6 @@
 import React from "react";
 // import { useNavigate } from "react-router-dom";
-import OnboardingHeader from "./header/OnboardingHeader";
+import UserHeader from "./header/UserHeader";
 // import { NonAuthRoutes } from "../url";
 import successrobot from "../assets/svg/successrobot.svg";
 
@@ -8,7 +8,7 @@ function AddItemSuccess() {
   // const navigate = useNavigate();
   return (
     <div className="w-screen h-screen relative flex flex-col items-center justify-center">
-      <OnboardingHeader />
+      <UserHeader />
       <div className="flex flex-col items-center justify-center  ">
         <img
           src={successrobot}

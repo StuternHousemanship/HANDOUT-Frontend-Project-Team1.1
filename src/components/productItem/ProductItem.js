@@ -243,7 +243,7 @@ function ProductItem() {
               <Card className="relative">
                 <CardMedia
                   component="img"
-                  onClick={() => navigate(AuthRoutes.AccountOverview)}
+                  onClick={() => navigate(AuthRoutes.EditItem)}
                   image={product.imageSrc}
                   title={product.name}
                   sx={{

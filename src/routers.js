@@ -152,7 +152,7 @@ function Routers() {
             element={<DeleteItemError />}
           />
           <Route
-            path={NonAuthRoutes.DeleteItemSuccess}
+            path={AuthRoutes.DeleteItemSuccess}
             element={<DeleteItemSuccess />}
           />
           <Route path={AuthRoutes.ItemDetails} element={<ItemDetails />} />

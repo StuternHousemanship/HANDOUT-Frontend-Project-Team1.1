@@ -4,13 +4,13 @@ import { AuthRoutes } from "../url";
 import sellIcon from "../assets/svg/sell (1).svg";
 import onboarding from "../assets/svg/onboarding.png";
 import exploreIcon from "../assets/svg/explore.svg";
-import OnboardingHeader from "../components/header/OnboardingHeader";
+import DashboardHeader from "../components/header/DashboardHeader";
 
 function DashboardOnboarding() {
   const navigate = useNavigate();
   return (
     <>
-      <OnboardingHeader />
+      <DashboardHeader />
       <div className="xs:hidden md:inline-flex lg:inline-flex flex flex-col justify-center items-center w-screen h-screen mt-[] ">
         <div className="flex flex-col justify-center items-center w-[80%] h-auto mt-[40px] ">
           <div className="flex flex-col justify-start items-start w-[100%] h-[30px] mb-[10px] ">
@@ -84,6 +84,7 @@ function DashboardOnboarding() {
           <div className="w-[100%] h-auto flex flex-row justify-around items-center ">
             <button
               type="button"
+              onClick={() => navigate(AuthRoutes.AddItem)}
               className="sm:w-[250px] md:w-[250px] lg:w-[320px] flex flex-col justify-center items-center bg-[#077369] w-[320px] h-[40px] rounded-[4px] py-[10px] px-[50px] text-[#FEFEFE] font-Raleway text-[] font-[700] leading-[24px] mt-[] "
             >
               List Items

@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Categories from "../components/Categories";
 import AddBigImage from "../components/AddBigImage";
-import OnboardingHeader from "../components/header/OnboardingHeader";
+import UserHeader from "../components/header/UserHeader";
 import AddImage from "./AddImage";
 import Condition from "../components/Condition";
 import Color from "../components/Color";
@@ -14,7 +14,7 @@ const addItem = () => {
   const navigate = useNavigate();
   return (
     <div className=" flex flex-col w-full h-full  md:items-center md:bg-[#f5f5f5f5]  ">
-      <OnboardingHeader />
+      <UserHeader />
       <div className=" flex flex-col sm: w-[58%] md:w-[65%] md:h-[50px] xs:text-start md:border-b-[0.25px] xs:ml-[21px] mt-[85px] border-[#BDBDBD]">
         <p className="font-[700] font-Raleway md:text-[24px]  xs:text-[18px]  ">
           My Listings

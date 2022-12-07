@@ -1,16 +1,17 @@
-/* eslint-disable react/button-has-type */
-import React from "react";
+import React, { useNavigate } from "react-router-dom";
+import { AuthRoutes } from "../url";
+import UserHeader from "../components/header/UserHeader";
 import main from "../assets/img/main.png";
 import small1 from "../assets/img/small1.png";
 import small2 from "../assets/img/small2.png";
 import green from "../assets/svg/green.svg";
 import Vector from "../assets/svg/vector.svg";
-import OnboardingHeader from "../components/header/OnboardingHeader";
 
 function ViewAllItems() {
+  const navigate = useNavigate();
   return (
     <>
-      {OnboardingHeader()}
+      <UserHeader />
       <main className="flex item-center justify-center w-full min-h-screen bg-[#FAFBFB]">
         <div className="mt-[100px] flex flex-col">
           <section className="flex flex-col gap-y-6">
@@ -18,7 +19,10 @@ function ViewAllItems() {
               <h3 className="font-bold text-[32px] leading-[32px]  font-raleway">
                 Casio Watch
               </h3>
-              <button className="bg-[#E6F1F0] border w-20 h-6 text-xs rounded-md text-[#077369] leading-6 font-raleway font-semibold">
+              <button
+                type="button"
+                className="bg-[#E6F1F0] border w-20 h-6 text-xs rounded-md text-[#077369] leading-6 font-raleway font-semibold"
+              >
                 Available
               </button>
               <img src={green} alt="green dot" className="w-[12px] h-[12px] " />
@@ -60,12 +64,7 @@ function ViewAllItems() {
                 </h4>
                 <p className="text-[16px] w-[100%] leading-5">
                   Casio Watch Series 3 38mm Gray Case Black Aluminium Smartwatch
-                  - MTF02LLA Temz!When “You” hit the radio I was not convinced
-                  till I stumbled on “Bad Influence” – you put me for
-                  ambulance…see what you did to me… God save me please… these
-                  well-structured bad boy lyrics has got a thing to it. Come in
-                  “Get Layd” and the rest they say is history. omah lay is
-                  definitely one for the future. Read more....
+                  - MTF02LLA
                 </p>
               </div>
               <section className="h-[128px] w-full mt-[32px]">
@@ -104,10 +103,17 @@ function ViewAllItems() {
                 </div>
               </section>
               <div className="flex gap-x-4">
-                <button className="border bg-[#ff9999] w-1/2 h-[60px] my-[18px]  rounded-[4px] text-[#A40D0D] text-center font-bold leading-[24px] text-[16px]">
+                <button
+                  type="button"
+                  onClick={() => navigate(AuthRoutes.DeleteItemSuccess)}
+                  className="border bg-[#ff9999] w-1/2 h-[60px] my-[18px]  rounded-[4px] text-[#A40D0D] text-center font-bold leading-[24px] text-[16px]"
+                >
                   Delete this item
                 </button>
-                <button className="border bg-[#E6F1F0] w-1/2 h-[60px] my-[18px]  rounded-[4px] text-[#077369] text-center font-bold leading-[24px] text-[16px]">
+                <button
+                  type="button"
+                  className="border bg-[#E6F1F0] w-1/2 h-[60px] my-[18px]  rounded-[4px] text-[#077369] text-center font-bold leading-[24px] text-[16px]"
+                >
                   Edit this item
                 </button>
               </div>

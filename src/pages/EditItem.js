@@ -12,19 +12,14 @@ import ShippingOptions from "../components/ShippingOptions";
 import Country from "../components/Country";
 // import { NonAuthRoutes, AuthRoutes } from "../url";
 // import Vector from "../assets/svg/Vector.svg";
-import OnboardingHeader from "../components/header/OnboardingHeader";
+import UserHeader from "../components/header/UserHeader";
 
 function ViewAllItems() {
   // const navigate = useNavigate();
   return (
     <>
-      {OnboardingHeader()}
+      <UserHeader />
       <main className=" flex flex-col w-full h-full  md:items-center md:bg-[#f5f5f5f5]  ">
-        <div className=" flex flex-col sm: w-[58%] md:w-[65%] md:h-[50px] xs:text-start md:border-b-[0.25px] xs:ml-[21px] mt-[85px] border-[#BDBDBD]">
-          <p className="font-[700] font-Raleway md:text-[24px]  xs:text-[18px]  ">
-            My Listings
-          </p>
-        </div>
         <div className="mt-[100px] flex flex-col">
           <section className="flex flex-col gap-y-6">
             <div className="flex flex-row gap-x-4 items-center justify-start pl-[250px]">
@@ -93,11 +88,7 @@ function ViewAllItems() {
               <textarea
                 type="text-area"
                 rows="6"
-                placeholder="Casio Watch Series 3 38mm Gray Case Black Aluminium Smartwatch - MTF02LLA
-                you put me for ambulance…see what you did to me… God save me please…
-                these well-structured bad boy lyrics has got a thing to it. Come in “Get Layd” and
-                the rest they say is history. omah lay is definitely one for the future.
-                Read more...."
+                placeholder="Casio Watch Series 3 38mm Gray Case Black Aluminium Smartwatch - MTF02LLA"
                 className="  p-3 w-[95%]  font-Raleway text-[16px] rounded-[8px] border-[1px] border-[#717171] outline-0 text-[#2F2F2A] "
               />
             </div>
