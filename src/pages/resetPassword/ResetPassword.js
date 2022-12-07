@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import { React, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ValidatePassword from "../ValidatePassword";
 import "./ResetPassword.css";
 import caution from "../../assets/svg/caution.svg";
@@ -12,6 +12,8 @@ import ResetPasswordSuccessful from "../../components/ResetPasswordSuccessful";
 import Onboardingheader from "../../components/header/OnboardingHeader";
 
 function ResetPassword() {
+  const { userId } = useParams();
+  console.log("URL parameter User Id is", userId);
   const [oldPassword, setOldPassword] = useState("");
   const [validate, setValidate] = useState(false);
   const [newPassword, setNewPassword] = useState("");
@@ -176,7 +178,7 @@ function ResetPassword() {
                     />
                   ) : null}
                 </div>
-                <div className="relative mt-4 ">
+                <div className="relative">
                   <label htmlFor="pwdConfirm">
                     {" "}
                     Re-enter password
@@ -222,12 +224,14 @@ function ResetPassword() {
                   <span
                     className={
                       confirmPasswordFocus && !validPasswordConfirm
-                        ? "flex"
+                        ? "flex "
                         : "hidden"
                     }
                   >
-                    <img src={caution} className="mt-1" alt="" />
-                    <p className="invalid mt-1 ml-1">Password does not match</p>
+                    <img src={caution} className="mt-[-15px] " alt="" />
+                    <p className="invalid mt-[-15px] ml-1">
+                      Password does not match
+                    </p>
                   </span>
                 </div>
                 <button

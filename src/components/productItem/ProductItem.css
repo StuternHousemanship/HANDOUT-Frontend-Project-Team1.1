@@ -1,0 +1,14 @@
+.active-tab {
+  position: relative;
+}
+
+.active-tab::after {
+  content: "";
+  position: absolute;
+  left: -25%;
+  bottom: -12px;
+  transition: 0.5s;
+  width: 150%;
+  height: 2px;
+  background: #077369;
+}

@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import { NonAuthRoutes, AuthRoutes } from "./url";
 import { ReactComponent as LoadingIcon } from "./assets/svg/loading-icon.svg";
 
-const LandingPage = React.lazy(() => import("./pages/LandingPage"));
+const Home = React.lazy(() => import("./pages/Home"));
 const SignUp = React.lazy(() => import("./pages/signUp/SignUp"));
 const LogIn = React.lazy(() => import("./pages/login/LogIn"));
 const VerifyEmail = React.lazy(() => import("./pages/VerifyEmail"));
@@ -17,6 +17,11 @@ const ResetPassword = React.lazy(() =>
 const ResetPasswordSuccessful = React.lazy(() =>
   import("./components/ResetPasswordSuccessful")
 );
+const AccountOverview = React.lazy(() => import("./pages/AccountOverview"));
+const DeleteAccountSuccessfully = React.lazy(() =>
+  import("./pages/DeleteAccountSucessfully")
+);
+const EditProfile = React.lazy(() => import("./pages/EditProfile"));
 const AccountRecovered = React.lazy(() => import("./pages/AccountRecovered"));
 const LoginSuccessPage = React.lazy(() => import("./pages/LoginSuccessPage"));
 const LoginFailurePage = React.lazy(() => import("./pages/LoginFailurePage"));
@@ -39,6 +44,19 @@ const OnboardingHeader = React.lazy(() =>
 const DashboardOnboarding = React.lazy(() =>
   import("./pages/DashboardOnboarding")
 );
+const DeleteItemError = React.lazy(() =>
+  import("./components/DeleteItemError")
+);
+const ItemDetails = React.lazy(() => import("./pages/ItemDetails"));
+const ViewAllItems = React.lazy(() => import("./pages/ViewAllItems"));
+const EditItem = React.lazy(() => import("./pages/EditItem"));
+const DeleteItemSuccess = React.lazy(() =>
+  import("./components/DeleteItemSuccess")
+);
+const BrowseItems = React.lazy(() => import("./pages/BrowseItems"));
+const AddItem = React.lazy(() => import("./pages/addItem"));
+const AddItemError = React.lazy(() => import("./components/AddItemError"));
+const AddItemSuccess = React.lazy(() => import("./components/AddItemSuccess"));
 
 function Routers() {
   return (
@@ -51,10 +69,13 @@ function Routers() {
         }
       >
         <Routes>
-          <Route path={NonAuthRoutes.LandingPage} element={<LandingPage />} />
+          <Route path={NonAuthRoutes.Home} element={<Home />} />
           <Route path={NonAuthRoutes.SignUp} element={<SignUp />} />
           <Route path={NonAuthRoutes.LogIn} element={<LogIn />} />
-          <Route path={NonAuthRoutes.VerifyEmail} element={<VerifyEmail />} />
+          <Route
+            path={`${NonAuthRoutes.VerifyEmail}/:userId`}
+            element={<VerifyEmail />}
+          />
           <Route path={AuthRoutes.Dashboard} element={<Dashboard />} />
           <Route
             path={NonAuthRoutes.ForgotPassword}
@@ -69,7 +90,7 @@ function Routers() {
             element={<AccountRecovered />}
           />
           <Route
-            path={NonAuthRoutes.ResetPassword}
+            path={`${NonAuthRoutes.ResetPassword}/:userId`}
             element={<ResetPassword />}
           />
           <Route
@@ -109,6 +130,34 @@ function Routers() {
             path={NonAuthRoutes.DashboardOnboarding}
             element={<DashboardOnboarding />}
           />
+          <Route
+            path={AuthRoutes.AccountOverview}
+            element={<AccountOverview />}
+          />
+          <Route
+            path={NonAuthRoutes.DeleteAccountSuccessfully}
+            element={<DeleteAccountSuccessfully />}
+          />
+          <Route path={NonAuthRoutes.EditProfile} element={<EditProfile />} />
+          <Route path={AuthRoutes.BrowseItems} element={<BrowseItems />} />
+          <Route path={NonAuthRoutes.Home} element={<Home />} />
+          <Route path={AuthRoutes.AddItem} element={<AddItem />} />
+          <Route path={AuthRoutes.AddItemError} element={<AddItemError />} />
+          <Route
+            path={AuthRoutes.AddItemSuccess}
+            element={<AddItemSuccess />}
+          />
+          <Route
+            path={NonAuthRoutes.DeleteItemError}
+            element={<DeleteItemError />}
+          />
+          <Route
+            path={AuthRoutes.DeleteItemSuccess}
+            element={<DeleteItemSuccess />}
+          />
+          <Route path={AuthRoutes.ItemDetails} element={<ItemDetails />} />
+          <Route path={AuthRoutes.EditItem} element={<EditItem />} />
+          <Route path={AuthRoutes.ViewAllItems} element={<ViewAllItems />} />
         </Routes>
       </Suspense>
     </div>

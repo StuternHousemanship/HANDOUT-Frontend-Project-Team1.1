@@ -1,14 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { NonAuthRoutes } from "../url";
 import dizzyrobot from "../assets/svg/dizzyrobot.svg";
 import Onboardingheader from "./header/OnboardingHeader";
 
-function ErrorOnSignUp() {
-  const navigate = useNavigate();
+function ErrorOnSignUp({ errors }) {
   /** Fuction to navigate back to sign up page after encountering an error on signing up */
   const handleSignUp = () => {
-    navigate(NonAuthRoutes.SignUp);
+    window.location.reload();
   };
 
   return (
@@ -20,8 +17,7 @@ function ErrorOnSignUp() {
           Uh-Oh!
         </h2>
         <p className="text-[16px] mt-[10px] text-center leading-[28px] font-Raleway ">
-          Looks like something went wrong while verifying <br />
-          your email. Don&apos;t worry, you can try again.
+          {errors.response.data}
         </p>
         <button
           type="button"

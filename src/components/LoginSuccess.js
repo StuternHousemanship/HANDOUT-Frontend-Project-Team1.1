@@ -21,6 +21,7 @@ function LoginSuccess() {
         <button
           type="button"
           onClick={() => navigate(NonAuthRoutes.DashboardOnboarding)}
+          className="text-[#278178] font-[700] "
         >
           here
         </button>

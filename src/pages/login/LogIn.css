@@ -5,9 +5,9 @@
   font-size: 12px;
   line-height: 20px;
   letter-spacing: 0.01em;
-
   color: #077369;
 }
+
 .invalid {
   color: #a40d0d;
   font-family: "Raleway";
@@ -27,6 +27,7 @@
   border-radius: 4px;
   height: 48px;
 }
+
 .confirm input {
   border: 1px solid black;
   outline: none;
@@ -45,6 +46,7 @@
   border-radius: 4px;
   height: 48px;
 }
+
 .inValidInput {
   border: 2px solid #a40d0d;
   outline: none;
@@ -67,6 +69,9 @@
   padding-bottom: 12px;
   margin-top: 24px;
   margin-bottom: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (min-width: 300px) {
@@ -98,6 +103,7 @@
     margin-bottom: 4px;
   }
 }
+
 @media screen and (min-width: 1024px) {
   #log button:disabled {
     width: 450px;
@@ -114,6 +120,7 @@
 }
 
 /* enabled button responsiveness */
+
 @media screen and (min-width: 300px) {
   #log button {
     width: 348px;
@@ -143,6 +150,7 @@
     margin-bottom: 4px;
   }
 }
+
 @media screen and (min-width: 1024px) {
   #log button {
     width: 450px;
@@ -208,24 +216,25 @@ input[type="checkbox"] {
   background: #077369;
 }
 
-.enab {
-  width: 388px;
-  height: 52px;
-  margin-top: 24px;
-  text-align: center;
-  border-radius: 4px;
-  background-color: #077369;
-  color: white;
-  font-family: "Raleway";
-  font-size: 16px;
-}
 .enabdiv button:disabled {
-  width: 388px;
+  width: 100%;
   height: 52px;
   margin-top: 24px;
   text-align: center;
   border-radius: 4px;
   background-color: #9cc7c3;
+  color: white;
+  font-family: "Raleway";
+  font-size: 16px;
+}
+
+.enab {
+  width: 100%;
+  height: 52px;
+  margin-top: 24px;
+  text-align: center;
+  border-radius: 4px;
+  background-color: #077369;
   color: white;
   font-family: "Raleway";
   font-size: 16px;
