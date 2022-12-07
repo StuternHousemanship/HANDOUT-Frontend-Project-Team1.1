@@ -7,6 +7,9 @@ const AuthRoutes = {
   AddItem: "/add-Item",
   AddItemError: "/add-item-error",
   AddItemSuccess: "/add-item-success",
+  EditItem: "/edit-item",
+  ViewAllItems: "/view-all-items"
+
 };
 
 /** Non Authenticated URL Routes */
@@ -32,6 +35,7 @@ const NonAuthRoutes = {
   DashboardOnboarding: "/dashboard-Onboarding",
   DeleteAccountSuccessfully: "/account-successfully-deleted",
   EditProfile: "/edit-profile",
+  EditItem: "/edit-item",
 };
 
 export { AuthRoutes, NonAuthRoutes };
