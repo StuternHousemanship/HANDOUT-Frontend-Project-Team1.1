@@ -9,6 +9,10 @@ import p2p from "../assets/svg/P2PDWD0-removebg-preview 1.png";
 import facebookIcon from "../assets/svg/Icon color.png";
 import InstagramIcon from "../assets/svg/Icon color_1.png";
 import twiterIcon from "../assets/svg/Icon color_2.png";
+import prettyAfrican from "../assets/svg/full-length-photo-pretty-african-retro-stylish-woman-dress-high-heels-posing-with-big-red-lips 1.png";
+import rectangle from "../assets/svg/Rectangle 19480.png";
+import rectangle481 from "../assets/svg/Rectangle 19481.png";
+import rectangle450 from "../assets/svg/Rectangle 19450.png";
 
 function Home() {
   const navigate = useNavigate();
@@ -117,13 +121,174 @@ function Home() {
                 />
               </div>
 
-              <div className="sm:relative sm:right-[40px] sm:top-[40px]  md:relative md:right-[50px] md:top-[130px] lg:relative lg:top-[200px] lg:right-[90px]">
+              <div className="sm:relative sm:right-[40px] sm:top-[40px]  md:relative md:right-[50px] md:top-[130px] lg:relative lg:top-[190px] lg:right-[100px]">
                 <img className="" src={frame1924} alt="" />
               </div>
             </div>
           </div>
         </aside>
       </section>
+
+      <section className="w-[100%] h-[850px] flex flex-col justify-around items-center mt-[100px]">
+        <div className="w-[100%] h-[90%] flex flex-row justify-around items-center">
+          <div className="w-[40%] h-[100%] flex flex-col justify-center items-center">
+            <img className="w-[80%] h-[100%] " src={prettyAfrican} alt="" />
+          </div>
+
+          <div className="w-[60%] h-[100%] flex flex-col justify-center items-center">
+            <div className="w-[85%] flex flex-col justify-center items-end">
+              <p className="text-[40px] font-[700] text-[#07484A] font-Raleway ">
+                Product Category
+              </p>
+            </div>
+            <div className="w-[85%] flex flex-col justify-center items-end mt-[20px]">
+              <p className="text-[14px] font-[400] text-[#75757A] font-Raleway">
+                25 products found
+              </p>
+            </div>
+
+            <div className="w-[90%] h-[85%] flex flex-row justify-around items-center ">
+              <div className="flex flex-col justify-around items-center ">
+                <div className="w-[300px] h-[180px] bg-[#EEF6F6] flex flex-col justify-around items-center rounded-[10px] mx-[5px] my-[10px]  ">
+                  <p className="text-[48px] text-[#077369] font-Raleway ">
+                    Tshirt
+                  </p>
+                  <div className="w-[80%] flex flex-col justify-center items-end ">
+                    {" "}
+                    <button
+                      type="button"
+                      className="w-[112px] h-[53px] bg-[#077369] font-Raleway rounded-[6px] text-[18px] text-[#FFFFFF] font-[400] "
+                    >
+                      Explore
+                    </button>{" "}
+                  </div>{" "}
+                </div>
+                <div className="w-[300px] h-[180px] bg-[#FFF5EE] flex flex-col justify-around items-center rounded-[10px] mx-[5px] my-[10px]    ">
+                  <p className="text-[48px] text-[#077369] font-Raleway ">
+                    Bags
+                  </p>
+                  <div className="w-[80%] flex flex-col justify-center items-end ">
+                    {" "}
+                    <button
+                      type="button"
+                      className="w-[112px] h-[53px] bg-[#077369] font-Raleway rounded-[6px] text-[18px] text-[#FFFFFF] font-[400] "
+                    >
+                      Explore
+                    </button>{" "}
+                  </div>{" "}
+                </div>
+                <div className="w-[300px] h-[180px] bg-[#EEF6F6] flex flex-col justify-around items-center rounded-[10px] mx-[5px] my-[10px]    ">
+                  <p className="text-[48px] text-[#077369] font-Raleway ">
+                    Swim Wear
+                  </p>
+                  <div className="w-[80%] flex flex-col justify-center items-end ">
+                    {" "}
+                    <button
+                      type="button"
+                      className="w-[112px] h-[53px] bg-[#077369] font-Raleway rounded-[6px] text-[18px] text-[#FFFFFF] font-[400] "
+                    >
+                      Explore
+                    </button>{" "}
+                  </div>{" "}
+                </div>
+              </div>
+              <div className="flex flex-col justify-around items-center">
+                <div className="w-[300px] h-[180px] bg-[#FFF5EE] flex flex-col justify-around items-center rounded-[10px] mx-[5px] my-[10px]    ">
+                  <p className="text-[48px] text-[#077369] font-Raleway ">
+                    Wristwatch
+                  </p>
+                  <div className="w-[80%] flex flex-col justify-center items-end ">
+                    {" "}
+                    <button
+                      type="button"
+                      className="w-[112px] h-[53px] bg-[#077369] font-Raleway rounded-[6px] text-[18px] text-[#FFFFFF] font-[400] "
+                    >
+                      Explore
+                    </button>{" "}
+                  </div>{" "}
+                </div>
+                <div className="w-[300px] h-[180px] bg-[#EEF6F6] flex flex-col justify-around items-center rounded-[10px] mx-[5px] my-[10px]    ">
+                  <p className="text-[48px] text-[#077369] font-Raleway ">
+                    Shoes
+                  </p>
+                  <div className="w-[80%] flex flex-col justify-center items-end ">
+                    {" "}
+                    <button
+                      type="button"
+                      className="w-[112px] h-[53px] bg-[#077369] font-Raleway rounded-[6px] text-[18px] text-[#FFFFFF] font-[400] "
+                    >
+                      Explore
+                    </button>{" "}
+                  </div>{" "}
+                </div>
+                <div className="w-[300px] h-[180px] bg-[#FFF5EE] flex flex-col justify-around items-center rounded-[10px] mx-[5px] my-[10px]    ">
+                  <p className="text-[48px] text-[#077369] font-Raleway ">
+                    Camera
+                  </p>
+                  <div className="w-[80%] flex flex-col justify-center items-end ">
+                    {" "}
+                    <button
+                      type="button"
+                      className="w-[112px] h-[53px] bg-[#077369] font-Raleway rounded-[6px] text-[18px] text-[#FFFFFF] font-[400] "
+                    >
+                      Explore
+                    </button>{" "}
+                  </div>{" "}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="w-[100%] h-[10%] flex flex-col justify-center items-center">
+          <button
+            type="button"
+            className="w-[345px] h-[60px] rounded-[4px] bg-[#077369] text-[#FFFFFF] font-[400] font-Raleway "
+          >
+            View all categories
+          </button>
+        </div>
+      </section>
+
+      <section className="bg-[#FFFFFF] w-[100%] h-[500px] flex flex-col justify-around items-center mt-[100px]">
+        <div className="w-[90%] h-[10%] flex flex-col justify-around items-start">
+          <p className="text-[#07484A] font-[700] font-Raleway text-[45px] ">
+            Testimonials
+          </p>
+        </div>
+        <div className="w-[90%] h-[80%] flex flex-row justify-between items-center">
+          <div className="w-[50%] h-[100%] flex flex-col justify-around items-center">
+            <div>
+              <p className="text-[#07484A] text-[24px] font-Raleway font-[700] ">
+                happy customers review.
+              </p>
+              <p className="text-[#07484A] text-[24px] font-Raleway font-[400] mt-[15px] ">
+                “My experience with Mark is a complete success, from customer
+                service, wide range of products, clean store, purchasing
+                experience, the newsletter. Thank you.”
+              </p>
+            </div>
+            <div className="w-[100%] flex flex-col justify-center items-start">
+              <p className="text-[#07484A] font-[700] text-[24px] font-Raleway ">
+                Thami Stutern
+              </p>
+              <p className="text-[#07484A] font-[300] text-[24px] font-Raleway">
+                Lead Product Designer Google
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-row justify-center items-end relative top-[150px] ">
+              <img src={rectangle481} alt="" />
+              <img className="h-[154px] " src={rectangle450} alt="" />
+            </div>
+            <div className="relative bottom-[140px]">
+              <img src={rectangle} alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-[#284441] w-[100%] h-[150px] flex flex-col justify-center items-center ">
         <div className="flex flex-col justify-center items-start w-[40%] h-full ">
           <p className="font-[700] text-[12px] leading-[24px] text-[#FFFFFF] ">
