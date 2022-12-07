@@ -8,7 +8,10 @@ const AuthRoutes = {
   AddItemError: "/add-item-error",
   AddItemSuccess: "/add-item-success",
   EditItem: "/edit-item",
-  ViewAllItems: "/view-all-items"
+  ViewAllItems: "/view-all-items",
+  ItemDetails: "/item-details",
+  DeleteItemError: "/Delete-Item-Error",
+  DeleteItemSuccess: "/Delete-Item-Success",
 
 };
 

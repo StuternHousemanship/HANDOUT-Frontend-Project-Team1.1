@@ -44,9 +44,15 @@ const OnboardingHeader = React.lazy(() =>
 const DashboardOnboarding = React.lazy(() =>
   import("./pages/DashboardOnboarding")
 );
+const DeleteItemError = React.lazy(() =>
+  import("./components/DeleteItemError")
+);
+const ItemDetails = React.lazy(() => import("./pages/ItemDetails"));
 const ViewAllItems = React.lazy(() => import("./pages/ViewAllItems"));
 const EditItem = React.lazy(() => import("./pages/EditItem"));
-
+const DeleteItemSuccess = React.lazy(() =>
+  import("./components/DeleteItemSuccess")
+);
 const BrowseItems = React.lazy(() => import("./pages/BrowseItems"));
 const AddItem = React.lazy(() => import("./pages/addItem"));
 const AddItemError = React.lazy(() => import("./components/AddItemError"));
@@ -141,6 +147,15 @@ function Routers() {
             path={AuthRoutes.AddItemSuccess}
             element={<AddItemSuccess />}
           />
+          <Route
+            path={NonAuthRoutes.DeleteItemError}
+            element={<DeleteItemError />}
+          />
+          <Route
+            path={NonAuthRoutes.DeleteItemSuccess}
+            element={<DeleteItemSuccess />}
+          />
+          <Route path={AuthRoutes.ItemDetails} element={<ItemDetails />} />
           <Route path={AuthRoutes.EditItem} element={<EditItem />} />
           <Route path={AuthRoutes.ViewAllItems} element={<ViewAllItems />} />
         </Routes>
