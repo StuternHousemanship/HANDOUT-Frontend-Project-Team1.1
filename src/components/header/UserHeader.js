@@ -37,6 +37,9 @@ function UserHeader() {
       name: "Notifications",
     },
   ];
+  // const handleNavigate = () => {
+  //   navigate(`AuthRoutes.${navbarMenus.link}`);
+  // };
   return (
     <div>
       <nav className="bg-white flex items-center justify-between shadow-3xl w-full sm:h-[10%] xs:h-[8%] xl:h-[8%] z-[100] fixed top-0 left-0">
@@ -74,7 +77,7 @@ function UserHeader() {
         <ul className="flex xs:hidden md:flex ">
           {navbarMenus.map((items) => (
             <div className="flex items-center flex-col w-auto mr-[56px]">
-              <div className=" ">
+              <div>
                 <img
                   alt={items.name}
                   src={items.image}
@@ -82,7 +85,7 @@ function UserHeader() {
                 />{" "}
               </div>
               <div className="">
-                <button type="button" className="font-Raleway text-[12px] ">
+                <button type="button" className="font-Raleway text-[12px]">
                   {items.name}{" "}
                 </button>
               </div>

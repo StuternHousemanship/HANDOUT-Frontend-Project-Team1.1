@@ -38,9 +38,15 @@ function Home() {
 
           <div className="w-[80%] h-full flex flex-row justify-center items-center ">
             <ul className="w-[60%] h-full flex flex-row justify-center items-center font-Raleway text-[500] leading-24 text-[#2F2F2A] text-center ">
-              <li className="m-[15px]">Home</li>
-              <li className="m-[15px]">Product Category</li>
-              <li className="m-[15px]">Contact Us</li>
+              <button type="button" className="m-[15px]">
+                <p>Home</p>
+              </button>
+              <button type="button" className="m-[15px]">
+                <p>Product Category</p>
+              </button>
+              <button type="button" className="m-[15px]">
+                <p>Contact Us</p>
+              </button>
             </ul>
 
             <div className="w-[30%] flex justify-center items-center">
@@ -75,6 +81,7 @@ function Home() {
             </p>
             <button
               type="button"
+              onClick={() => navigate(NonAuthRoutes.SignUp)}
               className="mt-[75px] w-[282px] h-[60px] bg-[#077369] rounded-[4px] flex justify-center items-center text-[#FFFFFF] font-[700] text-[20px] font-Raleway leading-[24px] "
             >
               Get Started
