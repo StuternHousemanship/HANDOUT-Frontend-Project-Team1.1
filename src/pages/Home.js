@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 import logo from "../assets/svg/desktop.svg";
 import { NonAuthRoutes } from "../url";
 import frame12 from "../assets/svg/Frame 12.png";
-import beautifulEleganceBag from "../assets/svg/beautiful-elegance-luxury-fashion-green-handbag-removebg-preview 1.png";
+import handbag from "../assets/svg/handbag.png";
 import frame1924 from "../assets/svg/Frame 1000001924.png";
 import p2p from "../assets/svg/P2PDWD0-removebg-preview 1.png";
 import facebookIcon from "../assets/svg/Icon color.png";
 import InstagramIcon from "../assets/svg/Icon color_1.png";
 import twiterIcon from "../assets/svg/Icon color_2.png";
-import prettyAfrican from "../assets/svg/full-length-photo-pretty-african-retro-stylish-woman-dress-high-heels-posing-with-big-red-lips 1.png";
+import lady from "../assets/svg/lady.png";
 import rectangle from "../assets/svg/Rectangle 19480.png";
 import rectangle481 from "../assets/svg/Rectangle 19481.png";
 import rectangle450 from "../assets/svg/Rectangle 19450.png";
@@ -99,7 +99,7 @@ function Home() {
               <div className="">
                 <img
                   className="sm:w-[300px] sm:h-[400px] md:w-[400px] md:h-[500px] lg:w-[511px] lg:h-[600px] "
-                  src={beautifulEleganceBag}
+                  src={handbag}
                   alt="bag"
                 />
               </div>
@@ -132,7 +132,7 @@ function Home() {
       <section className="w-[100%] h-[850px] flex flex-col justify-around items-center mt-[100px]">
         <div className="w-[100%] h-[90%] flex flex-row justify-around items-center">
           <div className="w-[40%] h-[100%] flex flex-col justify-center items-center">
-            <img className="w-[80%] h-[100%] " src={prettyAfrican} alt="" />
+            <img className="w-[80%] h-[100%] " src={lady} alt="" />
           </div>
 
           <div className="w-[60%] h-[100%] flex flex-col justify-center items-center">
