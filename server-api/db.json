@@ -1,0 +1,770 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "Nike freerun",
+      "description": "Red nike shoes with with swoosh",
+      "color": "Red",
+      "category": "Fashion",
+      "price": 500,
+      "country": "Nigeria",
+      "state": "Lagos",
+      "shipping": "Delivery"
+    },
+    {
+      "id": 2,
+      "name": "Casio watch",
+      "description": "silver casio watch, unisex",
+      "color": "other",
+      "category": "baby",
+      "price": 20,
+      "country": "Ghana",
+      "state": "Accra",
+      "shipping": "Pickup"
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 10
+    },
+    {
+      "id": 11
+    },
+    {
+      "id": 12
+    },
+    {
+      "id": 13
+    },
+    {
+      "id": 14
+    },
+    {
+      "id": "55bce290-1f88-0652-2c06-2d50c1506178",
+      "name": "shoe",
+      "description": "ttttttt",
+      "price": "2000",
+      "customerState": "hhhhhhhhh"
+    },
+    {
+      "id": "59360e2d-83f2-60a4-9083-ec4744c17f58",
+      "name": "tool",
+      "description": "tttttttttt",
+      "price": "522",
+      "customerState": "lagos",
+      "itemColour": ""
+    },
+    {
+      "id": "e95bc67c-6631-e5c1-ddbf-446eee76fcac",
+      "name": "eee",
+      "description": "eeee",
+      "price": "2000",
+      "customerState": "eeee",
+      "itemColour": ""
+    },
+    {
+      "id": "077e8cee-b02c-b80a-6f2e-2ab7d46b6897",
+      "name": "Tools",
+      "description": "more btimes",
+      "price": "20000",
+      "customerState": "lagos",
+      "itemColour": "Orange"
+    },
+    {
+      "id": "8ef50b05-f01f-d512-7f03-1dfc6024fd88",
+      "name": "Volka mouse",
+      "description": "a black mouse",
+      "price": "50",
+      "customerState": "Lagos",
+      "itemColour": "Black"
+    },
+    {
+      "id": "6af19ca0-e8a2-5912-35f5-3fe932143493",
+      "name": "mouse",
+      "description": "brand new mouse",
+      "price": "2000",
+      "customerState": "Lagos",
+      "itemColour": "Red"
+    },
+    {
+      "id": "2998c3b4-ab6c-31e0-2bbe-bf3e10443978",
+      "name": "book",
+      "description": "how to be ",
+      "price": "2000",
+      "customerState": "kogi",
+      "itemColour": "Red",
+      "shipping": "Pickup",
+      "itemCondition": "Old",
+      "itemCategory": "Film, Tv & Music",
+      "region": "AF"
+    },
+    {
+      "id": "c54258a2-fc38-3164-9bf9-da798882d5f2",
+      "name": "ggg",
+      "description": "gggg",
+      "price": "2000",
+      "customerState": "lagos",
+      "itemColour": "Red",
+      "shipping": "Delivery",
+      "itemCondition": "Brand New",
+      "itemCategory": "Books",
+      "region": "AF"
+    },
+    {
+      "id": "215fc6c4-aa8f-2e80-7cdd-740830f4d4fa",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": ""
+    },
+    {
+      "id": 15
+    },
+    {
+      "id": 16
+    },
+    {
+      "id": "b9515d8e-d14d-ba9d-2a63-9b5d83edd657",
+      "name": "shoe and watch",
+      "description": "shoe and big watch",
+      "price": "2000",
+      "customerState": "lagos",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "Used less than 5 times",
+      "itemCategory": "",
+      "region": ""
+    },
+    {
+      "id": 17
+    },
+    {
+      "id": 18
+    },
+    {
+      "id": 19
+    },
+    {
+      "id": 20
+    },
+    {
+      "id": 21
+    },
+    {
+      "id": 22
+    },
+    {
+      "id": 23
+    },
+    {
+      "id": "b7c209a7-7097-cdd6-9f6b-e188ac60660e",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": ""
+    },
+    {
+      "id": 24
+    },
+    {
+      "id": "99fe9a1a-a5b0-20a1-b4c2-ec4bc0e47b1b",
+      "name": "gggg",
+      "description": "hhhhh",
+      "price": "2000",
+      "customerState": "",
+      "itemColour": "Red",
+      "shipping": "Pickup",
+      "itemCondition": "",
+      "itemCategory": "Games",
+      "region": "AX"
+    },
+    {
+      "id": 25
+    },
+    {
+      "id": 26
+    },
+    {
+      "id": 27
+    },
+    {
+      "id": 28
+    },
+    {
+      "id": "c0106822-d5df-a979-f519-9f2432a32dbc",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": ""
+    },
+    {
+      "id": 29
+    },
+    {
+      "id": "4caa1bab-bfec-7ab4-2411-f53fbba759c8",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": ""
+    },
+    {
+      "id": 30
+    },
+    {
+      "id": 31
+    },
+    {
+      "id": "2eac9f7a-f761-8e05-8b2d-ae2c90e80dc4",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": ""
+    },
+    {
+      "id": "e5de1cd0-87f4-5d0b-2b1e-73e16956dfa7",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "smallImage": ""
+    },
+    {
+      "id": "75481068-2f61-3e1b-e08a-d4f038961ad8",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "smallImage": ""
+    },
+    {
+      "id": "08ffcd9c-f69c-39fd-9cef-922db7aa2187",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "smallImage": ""
+    },
+    {
+      "id": 32
+    },
+    {
+      "id": "d61b52c2-a5ea-f0e4-fc2d-f8f4419223ae",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": ""
+    },
+    {
+      "id": "07a81c71-967b-ff33-0006-800a2920adcf",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "smallImage": []
+    },
+    {
+      "id": "355b0ee8-4aef-8e9d-e709-07c2ed017d08",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "smallImage": []
+    },
+    {
+      "id": "f9b6b8d1-3463-4397-f5b9-9487d494c4e5",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "smallImage": []
+    },
+    {
+      "id": "4e1a0a89-ca6f-1cd7-3ece-5800bc2da16b",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "smallImage": []
+    },
+    {
+      "id": "45cfc5a2-4ce6-b345-28ff-72f53c677032",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "smallImage": []
+    },
+    {
+      "id": 33
+    },
+    {
+      "id": 34
+    },
+    {
+      "id": "8d065678-76af-35a8-65ec-6ee09f0c36d4",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": ""
+    },
+    {
+      "id": "cee98460-2922-6460-a74d-dac8ce3b2605",
+      "name": "",
+      "description": "gggggg",
+      "price": "",
+      "customerState": "gggg",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "smallImage": []
+    },
+    {
+      "id": "65f311e9-ce08-a2a6-131e-72c5e6e23f92",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "lagos",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "smallImage": []
+    },
+    {
+      "id": 35
+    },
+    {
+      "id": 36
+    },
+    {
+      "id": "6161b119-4b61-748d-a6fa-267b07b93d46",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": ""
+    },
+    {
+      "id": 37
+    },
+    {
+      "id": 38
+    },
+    {
+      "id": "95ca9f86-680d-bc19-6491-f69603264ec0",
+      "name": "shoe",
+      "description": "",
+      "price": "2000",
+      "customerState": "lagos",
+      "itemColour": "Orange",
+      "shipping": "Pickup",
+      "itemCondition": "Brand New",
+      "itemCategory": "Electronics & Computers",
+      "region": "AF"
+    },
+    {
+      "id": 39
+    },
+    {
+      "id": "19609e55-cf21-2ed3-a903-4c02f41e3169",
+      "name": "",
+      "description": "",
+      "price": "2000",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": ""
+    },
+    {
+      "id": 40
+    },
+    {
+      "id": "f875a531-117b-270f-c332-6681a3d1cf16",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "smallImage": []
+    },
+    {
+      "id": 41
+    },
+    {
+      "id": "93218f92-94d4-497d-e421-39339fe0a316",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "smallImage": ""
+    },
+    {
+      "id": 42
+    },
+    {
+      "id": "fc626a21-0c47-ca4e-dcc3-cfdc0d834571",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": ""
+    },
+    {
+      "id": 43
+    },
+    {
+      "id": "cb5f160e-acd4-ce25-2252-1bc4c4c506a6",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "smallImage": ""
+    },
+    {
+      "id": "32a850a0-03f6-e4dc-0343-a61cf7540a71",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "smallImage": []
+    },
+    {
+      "id": "9087870b-fe26-6f2a-57e1-3c46957e7442",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "smallImage": []
+    },
+    {
+      "id": "681ffd90-b4dc-a46d-e082-dac4ac4fdd1e",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "smallImage": []
+    },
+    {
+      "id": 44
+    },
+    {
+      "id": "6328c7de-cc65-bf98-9241-1a6cc445c879",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "image": ""
+    },
+    {
+      "id": 45
+    },
+    {
+      "id": "7550e8e2-c74a-8597-da79-837280e6e60d",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": ""
+    },
+    {
+      "id": 46
+    },
+    {
+      "id": 47
+    },
+    {
+      "id": 48
+    },
+    {
+      "id": "e04b5d08-64ae-b877-1e2e-fd31ddbf1b06",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "image": {}
+    },
+    {
+      "id": 49
+    },
+    {
+      "id": "b96d769f-dde0-badc-1584-60683723f41e",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "image": {}
+    },
+    {
+      "id": 50
+    },
+    {
+      "id": "d73b6636-1605-f56e-f4aa-f0172d5c5e20",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "image": {}
+    },
+    {
+      "id": 51
+    },
+    {
+      "id": "c0322bdd-6136-f5bc-ffbd-b92111081188",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": ""
+    },
+    {
+      "id": 52
+    },
+    {
+      "id": "ade89048-598a-d21d-d1d1-be7a53d7910b",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "image": ""
+    },
+    {
+      "id": 53
+    },
+    {
+      "id": "3bd4cb9d-0d01-53a4-b50f-bbe6a2104eb3",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": ""
+    },
+    {
+      "id": "4669d224-e4e4-f1da-2f5b-8b222a3d5f7a",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": "",
+      "image": ""
+    },
+    {
+      "id": 54
+    },
+    {
+      "id": "ad4e9296-139d-e555-d1b3-caa5e32267f3",
+      "name": "",
+      "description": "",
+      "price": "",
+      "customerState": "",
+      "itemColour": "",
+      "shipping": "",
+      "itemCondition": "",
+      "itemCategory": "",
+      "region": ""
+    },
+    {
+      "id": 55
+    },
+    {
+      "id": 56
+    },
+    {
+      "id": 57
+    },
+    {
+      "id": "88ba42a4-97be-a3a0-13f4-23415b273b32",
+      "name": "shoe",
+      "description": "a nice shoe",
+      "price": "522",
+      "customerState": "Lagos",
+      "itemColour": "Orange",
+      "shipping": "Delivery",
+      "itemCondition": "Old",
+      "itemCategory": "Electronics & Computers",
+      "region": "NG"
+    },
+    {
+      "id": 58
+    },
+    {
+      "id": 59
+    }
+  ]
+}
