@@ -1,11 +1,6 @@
 {
     "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-        "$libs": ["src/libs"],
-        "$libs/*": ["src/libs/*"]
-        }
+     "baseUrl": "src"
     },
-    "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.svelte", "src/pages/Dashboard.jsx"],
-    "exclude": ["node_modules", "**/node_modules", "dist"]
+    "include": ["src"]
 }
