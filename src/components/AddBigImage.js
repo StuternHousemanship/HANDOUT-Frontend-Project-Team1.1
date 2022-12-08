@@ -75,7 +75,7 @@ function AddBigImage() {
       listType="picture-card"
       className="avatars"
       showUploadList={false}
-      action="https://cors-anywhere.herokuapp.com///jsonplaceholder.typicode.com/posts/"
+      action="http://localhost:3004/items/"
       beforeUpload={beforeUpload}
       onChange={handleChange}
     >
