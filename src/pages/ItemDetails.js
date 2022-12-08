@@ -112,6 +112,7 @@ function ViewAllItems() {
                 </button>
                 <button
                   type="button"
+                  onClick={() => navigate(AuthRoutes.EditItem)}
                   className="border bg-[#E6F1F0] w-1/2 h-[60px] my-[18px]  rounded-[4px] text-[#077369] text-center font-bold leading-[24px] text-[16px]"
                 >
                   Edit this item

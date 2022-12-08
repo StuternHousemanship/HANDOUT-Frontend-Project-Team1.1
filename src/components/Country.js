@@ -3,15 +3,17 @@ import React, { useState, useMemo } from "react";
 import countryList from "react-select-country-list";
 import { Select } from "antd";
 
-const Country = () => {
+const Country = ({ setCountry }) => {
   const [value, setValue] = useState("Select Country");
   const options = useMemo(() => countryList().getData(), []);
   // eslint-disable-next-line no-shadow
   const onSearch = (value) => {
-    console.log(`selected ${value}`);
+    setCountry(value);
+    // console.log(`selected ${value}`);
   };
   // eslint-disable-next-line no-shadow
   const changeHandler = (value) => {
+    setCountry(value);
     setValue(value);
   };
   return (

@@ -12,7 +12,7 @@ function AddItemSuccess() {
       <div className="flex flex-col items-center justify-center  ">
         <img
           src={successrobot}
-          className="w-[120px] h-[120px] xs:hidden md:flex "
+          className="w-[120px] h-[120px] xs:hidden md:flex"
           alt="Handout"
         />
         <h2 className="font-Raleway font-[700] text-[32px] mt-2 leading-[40px] text-black ">
@@ -23,7 +23,7 @@ function AddItemSuccess() {
         </p>
 
         <p className="md:text-[14px] xs:text-[12px] mt-[5px] text-center md:leading-[24px] xs:leading-[18px] font-Raleway ">
-          Redirecting to the lsted item page in 8s...
+          Redirecting to the listed item page in 8s...
         </p>
       </div>
     </div>
