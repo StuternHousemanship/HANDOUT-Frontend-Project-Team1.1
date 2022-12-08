@@ -39,7 +39,7 @@ function AddImage({ setAddSmallImage }) {
       getBase64(info.file.originFileObj, (url) => {
         setLoading(false);
         setImageUrl(url);
-        setAddSmallImage(imageUrl);
+        setAddSmallImage(url);
       });
     }
   };

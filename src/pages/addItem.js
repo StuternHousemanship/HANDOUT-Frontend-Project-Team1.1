@@ -25,7 +25,7 @@ const addItem = () => {
   const [shippingOption, setShippingOption] = useState("");
   const [category, setCategory] = useState("");
   const [condition, setCondition] = useState("");
-  const [addSmallImage, setAddSmallImage] = useState("");
+  const [addSmallImage, setAddSmallImage] = useState([]);
 
   console.log(colour);
   console.log(addSmallImage);
@@ -82,7 +82,11 @@ const addItem = () => {
         </div>
 
         <div className="flex flex-col items-center justify-center xs:h-[200px] md:h-[400px]  xs:w-[95%]  md:w-[100%] md:ml-[40px] xs:ml-[20px] xs:mb-[230px] md:mt-[15px] xs:mt-[20px]">
-          <AddBigImage />
+          <AddBigImage
+            setAddSmallImage={(img) =>
+              setAddSmallImage([...addSmallImage, img])
+            }
+          />
         </div>
       </form>
 
@@ -90,12 +94,29 @@ const addItem = () => {
         className="
      md:flex sm:flex xs:hidden md:min-w-[80%] md:h-[80%] flex items-center justify-center px-[280px] mt-[20px] "
       >
+        <AddImage
+          setAddSmallImage={(img) => setAddSmallImage([...addSmallImage, img])}
+        />
+        <AddImage
+          setAddSmallImage={(img) => setAddSmallImage([...addSmallImage, img])}
+        />
+        <AddImage
+          setAddSmallImage={(img) => setAddSmallImage([...addSmallImage, img])}
+        />
+        <AddImage
+          setAddSmallImage={(img) => setAddSmallImage([...addSmallImage, img])}
+        />
+        <AddImage
+          setAddSmallImage={(img) => setAddSmallImage([...addSmallImage, img])}
+        />
+        <AddImage
+          setAddSmallImage={(img) => setAddSmallImage([...addSmallImage, img])}
+        />
+        {/* <AddImage setAddSmallImage={setAddSmallImage} />
         <AddImage setAddSmallImage={setAddSmallImage} />
         <AddImage setAddSmallImage={setAddSmallImage} />
         <AddImage setAddSmallImage={setAddSmallImage} />
-        <AddImage setAddSmallImage={setAddSmallImage} />
-        <AddImage setAddSmallImage={setAddSmallImage} />
-        <AddImage setAddSmallImage={setAddSmallImage} />
+        <AddImage setAddSmallImage={setAddSmallImage} /> */}
       </div>
       <div className=" sm:flex sx:flex-col md:w-[65%] h-[700px] xs:mt-[100px] md:mt-[25px] ">
         {/* Left-side */}
