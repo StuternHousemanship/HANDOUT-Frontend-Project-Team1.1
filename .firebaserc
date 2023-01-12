@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "stutern-handout"
-  }
+    "default": "handout-stutern",
+    "build": "handout-stutern"
+  },
+  "targets": {},
+  "etags": {}
 }

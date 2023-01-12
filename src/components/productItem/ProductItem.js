@@ -418,7 +418,6 @@ function ProductItem() {
               </Card>
             </Grid>
           ))}
-          ;
         </Grid>
         {visible < allItems.length ? (
           <div className="flex items-center justify-center">

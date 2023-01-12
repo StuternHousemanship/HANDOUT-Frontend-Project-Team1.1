@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import DeleteModal from "./DeleteModal";
 import UserHeader from "../components/header/UserHeader";
 import avatar from "../assets/svg/Avatar.svg";
 import { ReactComponent as Icon } from "../assets/svg/deleteIcon.svg";
@@ -24,6 +25,8 @@ import product12 from "../assets/img/Products/product12.png";
 
 // eslint-disable-next-line react/function-component-definition
 const AccountOverview = () => {
+  const [showModal, setShowModal] = useState(false);
+
   const navigate = useNavigate();
   const Profile = {
     name: "Jane Doe",
@@ -163,6 +166,7 @@ const AccountOverview = () => {
                 Edit Profile
               </button>
             </div>
+
             <div className="flex flex-col ">
               <img
                 alt="avatar"
@@ -182,9 +186,7 @@ const AccountOverview = () => {
                 <button
                   type="button"
                   className="flex flex-row mx-[10px] md:mx-[20px]   "
-                  onClick={() =>
-                    navigate(NonAuthRoutes.DeleteAccountSuccessfully)
-                  }
+                  onClick={() => setShowModal(true)}
                 >
                   <Icon className="mx-[2px]md:mx-[10px]" />
                   <span className="text-[11px] font-[500] text-[#A40D0D] md:text-[16px] font-Raleway md:font-[700]  ml-[2px] md:ml-[10px]  leading-[22px] md:uppercase">
@@ -192,9 +194,11 @@ const AccountOverview = () => {
                     Delete Account{" "}
                   </span>
                 </button>
+                {showModal ? <DeleteModal closeModal={setShowModal} /> : null}
               </div>
             </div>
-          </div>{" "}
+          </div>
+
           <div className="sm:w-[100%] md:w-[100%] lg:w-[100%] xl:w-[1030px] h-[360px]  my-[64px] ">
             <div className=" flex justify-between">
               <h2 className="text-[30px] font-[600] font-Raleway tracking-tight text-gray-900">
