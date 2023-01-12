@@ -9,25 +9,31 @@
   "description": "Handout is a platform for unwanted personal items. This platform allows people to give out useful but unwanted items to others who may need them",
   "icons": [
     {
-      "src": "/icon/icon-192-maskable.png",
+      "src": "/icons/handout-icon-maskable-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/icon/icon-192.png",
+      "src": "/icons/handout-icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/icon/icon-512-maskable.png",
-      "sizes": "512x512",
+      "src": "/icons/handout-icon-256x256.png",
+      "sizes": "256x256",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/icon/icon-512.png",
+      "src": "/icons/handout-icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/handout-icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
