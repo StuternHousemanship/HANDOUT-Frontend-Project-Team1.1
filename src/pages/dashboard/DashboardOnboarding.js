@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthRoutes } from "../url";
-import sellIcon from "../assets/svg/sell (1).svg";
-import onboarding from "../assets/svg/onboarding.png";
-import exploreIcon from "../assets/svg/explore.svg";
-import DashboardHeader from "../components/header/DashboardHeader";
+import { AuthRoutes } from "../../url";
+import sellIcon from "../../assets/svg/sell (1).svg";
+import onboarding from "../../assets/svg/onboarding.png";
+import exploreIcon from "../../assets/svg/explore.svg";
+import DashboardHeader from "../../components/header/DashboardHeader";
 
 function DashboardOnboarding() {
   const navigate = useNavigate();

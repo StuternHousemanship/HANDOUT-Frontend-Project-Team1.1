@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/svg/desktop.svg";
-import { NonAuthRoutes } from "../url";
-import frame12 from "../assets/svg/Frame 12.png";
-import handbag from "../assets/svg/handbag.png";
-import frame1924 from "../assets/svg/Frame 1000001924.png";
-import p2p from "../assets/svg/P2PDWD0-removebg-preview 1.png";
-import facebookIcon from "../assets/svg/Icon color.png";
-import InstagramIcon from "../assets/svg/Icon color_1.png";
-import twiterIcon from "../assets/svg/Icon color_2.png";
-import lady from "../assets/svg/lady.png";
-import rectangle from "../assets/svg/Rectangle 19480.png";
-import rectangle481 from "../assets/svg/Rectangle 19481.png";
-import rectangle450 from "../assets/svg/Rectangle 19450.png";
+import logo from "../../assets/svg/desktop.svg";
+import { NonAuthRoutes } from "../../url";
+import frame12 from "../../assets/svg/Frame 12.png";
+import handbag from "../../assets/svg/handbag.png";
+import frame1924 from "../../assets/svg/Frame 1000001924.png";
+import p2p from "../../assets/svg/P2PDWD0-removebg-preview 1.png";
+import facebookIcon from "../../assets/svg/Icon color.png";
+import InstagramIcon from "../../assets/svg/Icon color_1.png";
+import twiterIcon from "../../assets/svg/Icon color_2.png";
+import lady from "../../assets/svg/lady.png";
+import rectangle from "../../assets/svg/Rectangle 19480.png";
+import rectangle481 from "../../assets/svg/Rectangle 19481.png";
+import rectangle450 from "../../assets/svg/Rectangle 19450.png";
 
 function Home() {
   const navigate = useNavigate();

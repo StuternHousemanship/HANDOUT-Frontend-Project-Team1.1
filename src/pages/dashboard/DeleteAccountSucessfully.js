@@ -1,6 +1,6 @@
 import React from "react";
-import dizzyrobot from "../assets/svg/robotDel.svg";
-import Onboardingheader from "../components/header/OnboardingHeader";
+import dizzyrobot from "../../assets/svg/robotDel.svg";
+import Onboardingheader from "../../components/header/OnboardingHeader";
 
 function DeleteAccount() {
   return (

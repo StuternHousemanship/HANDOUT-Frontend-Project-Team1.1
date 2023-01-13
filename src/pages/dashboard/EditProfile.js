@@ -6,9 +6,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { AuthRoutes } from "../url";
-import OnboardingHeader from "../components/header/OnboardingHeader";
-import avatar from "../assets/svg/Avatar.svg";
+import { AuthRoutes } from "../../url";
+import OnboardingHeader from "../../components/header/OnboardingHeader";
+import avatar from "../../assets/svg/Avatar.svg";
 // import showPwd from "../assets/svg/show-password.svg";
 // import hidePwd from "../assets/svg/hide-password.svg";
 

@@ -2,10 +2,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { React, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { NonAuthRoutes } from "../url";
-import "../App.css";
-import ForgotPasswordSuccessful from "../components/ForgotPasswordSuccessful";
-import Onboardingheader from "../components/header/OnboardingHeader";
+import { NonAuthRoutes } from "../../url";
+import "../../App.css";
+import ForgotPasswordSuccessful from "../../components/ForgotPasswordSuccessful";
+import Onboardingheader from "../../components/header/OnboardingHeader";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");

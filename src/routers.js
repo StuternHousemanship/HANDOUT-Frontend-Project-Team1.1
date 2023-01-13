@@ -4,29 +4,41 @@ import { Routes, Route } from "react-router-dom";
 import { NonAuthRoutes, AuthRoutes } from "./url";
 import { ReactComponent as LoadingIcon } from "./assets/svg/loading-icon.svg";
 
-const Home = React.lazy(() => import("./pages/Home"));
-const SignUp = React.lazy(() => import("./pages/signUp/SignUp"));
-const LogIn = React.lazy(() => import("./pages/login/LogIn"));
-const VerifyEmail = React.lazy(() => import("./pages/VerifyEmail"));
-const Dashboard = React.lazy(() => import("./pages/Dashboard"));
-const ForgotPassword = React.lazy(() => import("./pages/ForgotPassword"));
-const ForgotPassword2 = React.lazy(() => import("./pages/ForgotPassword2"));
+const Home = React.lazy(() => import("./pages/dashboard/Home"));
+const SignUp = React.lazy(() => import("./pages/onboarding/signUp/SignUp"));
+const LogIn = React.lazy(() => import("./pages/onboarding/login/LogIn"));
+const VerifyEmail = React.lazy(() => import("./pages/onboarding/VerifyEmail"));
+const Dashboard = React.lazy(() => import("./pages/dashboard/Dashboard"));
+const ForgotPassword = React.lazy(() =>
+  import("./pages/onboarding/ForgotPassword")
+);
+const ForgotPassword2 = React.lazy(() =>
+  import("./pages/onboarding/ForgotPassword2")
+);
 const ResetPassword = React.lazy(() =>
-  import("./pages/resetPassword/ResetPassword")
+  import("./pages/onboarding/resetPassword/ResetPassword")
 );
 const ResetPasswordSuccessful = React.lazy(() =>
   import("./components/ResetPasswordSuccessful")
 );
-const AccountOverview = React.lazy(() => import("./pages/AccountOverview"));
-const DeleteAccountSuccessfully = React.lazy(() =>
-  import("./pages/DeleteAccountSucessfully")
+const AccountOverview = React.lazy(() =>
+  import("./pages/dashboard/AccountOverview")
 );
-const EditProfile = React.lazy(() => import("./pages/EditProfile"));
-const AccountRecovered = React.lazy(() => import("./pages/AccountRecovered"));
-const LoginSuccessPage = React.lazy(() => import("./pages/LoginSuccessPage"));
-const LoginFailurePage = React.lazy(() => import("./pages/LoginFailurePage"));
+const DeleteAccountSuccessfully = React.lazy(() =>
+  import("./pages/dashboard/DeleteAccountSucessfully")
+);
+const EditProfile = React.lazy(() => import("./pages/dashboard/EditProfile"));
+const AccountRecovered = React.lazy(() =>
+  import("./pages/dashboard/AccountRecovered")
+);
+const LoginSuccessPage = React.lazy(() =>
+  import("./pages/onboarding/LoginSuccessPage")
+);
+const LoginFailurePage = React.lazy(() =>
+  import("./pages/onboarding/LoginFailurePage")
+);
 const SignUpVerificationSuccessPage = React.lazy(() =>
-  import("./pages/SignUpVerificationSuccessPage")
+  import("./pages/onboarding/SignUpVerificationSuccessPage")
 );
 const LoginOnSuccessfulSignUp = React.lazy(() =>
   import("./components/LoginOnSuccessfulSignUp")
@@ -42,19 +54,19 @@ const OnboardingHeader = React.lazy(() =>
 );
 
 const DashboardOnboarding = React.lazy(() =>
-  import("./pages/DashboardOnboarding")
+  import("./pages/dashboard/DashboardOnboarding")
 );
 const DeleteItemError = React.lazy(() =>
   import("./components/DeleteItemError")
 );
-const ItemDetails = React.lazy(() => import("./pages/ItemDetails"));
-const ViewAllItems = React.lazy(() => import("./pages/ViewAllItems"));
-const EditItem = React.lazy(() => import("./pages/EditItem"));
+const ItemDetails = React.lazy(() => import("./pages/dashboard/ItemDetails"));
+const ViewAllItems = React.lazy(() => import("./pages/dashboard/ViewAllItems"));
+const EditItem = React.lazy(() => import("./pages/dashboard/EditItem"));
 const DeleteItemSuccess = React.lazy(() =>
   import("./components/DeleteItemSuccess")
 );
-const BrowseItems = React.lazy(() => import("./pages/BrowseItems"));
-const AddItem = React.lazy(() => import("./pages/addItem"));
+const BrowseItems = React.lazy(() => import("./pages/dashboard/BrowseItems"));
+const AddItem = React.lazy(() => import("./pages/dashboard/addItem"));
 const AddItemError = React.lazy(() => import("./components/AddItemError"));
 const AddItemSuccess = React.lazy(() => import("./components/AddItemSuccess"));
 

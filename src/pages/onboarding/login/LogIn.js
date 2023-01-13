@@ -7,12 +7,12 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Cookies from "js-cookie";
-import logo from "../../assets/svg/desktop.svg";
-import frame16 from "../../assets/svg/Frame 16.svg";
-import onboarding from "../../api/onboarding";
-import { NonAuthRoutes } from "../../url";
-import { ReactComponent as LoadingIcon } from "../../assets/svg/loading-light-icon.svg";
-import ErrorOnLogin from "../../components/ErrorOnLogin";
+import logo from "../../../assets/svg/desktop.svg";
+import frame16 from "../../../assets/svg/Frame 16.svg";
+import onboarding from "../../../api/onboarding";
+import { NonAuthRoutes } from "../../../url";
+import { ReactComponent as LoadingIcon } from "../../../assets/svg/loading-light-icon.svg";
+import ErrorOnLogin from "../../../components/ErrorOnLogin";
 import "./LogIn.css";
 
 function LogIn() {
