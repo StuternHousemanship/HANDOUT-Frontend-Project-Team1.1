@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { LoadingOutlined } from "@ant-design/icons";
 import { message, Upload } from "antd";
 // import ImgCrop from "antd-img-crop";
-import addimageicon from "../assets/svg/addimageicon.svg";
+import addimageicon from "../../../assets/svg/addimageicon.svg";
 import "./AddImage.css";
 
 function AddImage({ setAddSmallImage }) {

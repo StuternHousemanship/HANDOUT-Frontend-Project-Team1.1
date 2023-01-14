@@ -1,6 +1,6 @@
 import React from "react";
-import SignUpVerificationSuccess from "../components/SignUpVerificationSuccess";
-import Onboardingheader from "../components/header/OnboardingHeader";
+import SignUpVerificationSuccess from "../../components/SignUpVerificationSuccess";
+import Onboardingheader from "../../components/header/OnboardingHeader";
 
 function SignUpVerificationSuccessPage() {
   return (

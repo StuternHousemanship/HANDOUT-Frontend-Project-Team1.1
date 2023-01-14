@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { NonAuthRoutes } from "../url";
+import { NonAuthRoutes } from "../../url";
 
 function ForgotPassword() {
   const navigate = useNavigate();

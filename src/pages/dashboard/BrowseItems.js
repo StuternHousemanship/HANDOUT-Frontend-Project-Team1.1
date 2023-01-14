@@ -1,7 +1,7 @@
 import React from "react";
-import ProductItem from "../components/productItem/ProductItem";
-import ItemCategories from "../components/ItemCategories";
-import UserHeader from "../components/header/UserHeader";
+import ProductItem from "../../components/productItem/ProductItem";
+import ItemCategories from "../../components/ItemCategories";
+import UserHeader from "../../components/header/UserHeader";
 
 function BrowseItems() {
   return (

@@ -2,26 +2,26 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import DeleteModal from "./DeleteModal";
-import UserHeader from "../components/header/UserHeader";
-import avatar from "../assets/svg/Avatar.svg";
-import { ReactComponent as Icon } from "../assets/svg/deleteIcon.svg";
-import { ReactComponent as Addbtn } from "../assets/svg/Union.svg";
-import { ReactComponent as BackArrow } from "../assets/svg/backArrow.svg";
-import { ReactComponent as NextArrow } from "../assets/svg/nextArrow.svg";
-import { NonAuthRoutes, AuthRoutes } from "../url";
-import product1 from "../assets/img/Products/product1.png";
-import product2 from "../assets/img/Products/product2.png";
-import product3 from "../assets/img/Products/product3.png";
-import product4 from "../assets/img/Products/product4.png";
-import product5 from "../assets/img/Products/product5.png";
-import product6 from "../assets/img/Products/product6.png";
-import product7 from "../assets/img/Products/product7.png";
-import product8 from "../assets/img/Products/product8.png";
-import product9 from "../assets/img/Products/product9.png";
-import product10 from "../assets/img/Products/product10.png";
-import product11 from "../assets/img/Products/product11.png";
-import product12 from "../assets/img/Products/product12.png";
+import DeleteModal from "../../components/DeleteModal";
+import UserHeader from "../../components/header/UserHeader";
+import avatar from "../../assets/svg/Avatar.svg";
+import { ReactComponent as Icon } from "../../assets/svg/deleteIcon.svg";
+import { ReactComponent as Addbtn } from "../../assets/svg/Union.svg";
+import { ReactComponent as BackArrow } from "../../assets/svg/backArrow.svg";
+import { ReactComponent as NextArrow } from "../../assets/svg/nextArrow.svg";
+import { NonAuthRoutes, AuthRoutes } from "../../url";
+import product1 from "../../assets/img/Products/product1.png";
+import product2 from "../../assets/img/Products/product2.png";
+import product3 from "../../assets/img/Products/product3.png";
+import product4 from "../../assets/img/Products/product4.png";
+import product5 from "../../assets/img/Products/product5.png";
+import product6 from "../../assets/img/Products/product6.png";
+import product7 from "../../assets/img/Products/product7.png";
+import product8 from "../../assets/img/Products/product8.png";
+import product9 from "../../assets/img/Products/product9.png";
+import product10 from "../../assets/img/Products/product10.png";
+import product11 from "../../assets/img/Products/product11.png";
+import product12 from "../../assets/img/Products/product12.png";
 
 // eslint-disable-next-line react/function-component-definition
 const AccountOverview = () => {

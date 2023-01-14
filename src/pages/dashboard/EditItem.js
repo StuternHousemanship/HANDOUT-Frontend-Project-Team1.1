@@ -1,18 +1,18 @@
 /* eslint-disable react/button-has-type */
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import main from "../assets/img/main.png";
-import small1 from "../assets/img/small1.png";
-import small2 from "../assets/img/small2.png";
-import green from "../assets/svg/green.svg";
-import Condition from "../components/Condition";
-import Categories from "../components/Categories";
-import Color from "../components/Color";
-import ShippingOptions from "../components/ShippingOptions";
-import Country from "../components/Country";
-import { AuthRoutes } from "../url";
+import main from "../../assets/img/main.png";
+import small1 from "../../assets/img/small1.png";
+import small2 from "../../assets/img/small2.png";
+import green from "../../assets/svg/green.svg";
+import Condition from "../../components/Condition";
+import Categories from "../../components/Categories";
+import Color from "../../components/Color";
+import ShippingOptions from "../../components/ShippingOptions";
+import Country from "../../components/Country";
+import { AuthRoutes } from "../../url";
 // import Vector from "../assets/svg/Vector.svg";
-import UserHeader from "../components/header/UserHeader";
+import UserHeader from "../../components/header/UserHeader";
 
 function ViewAllItems() {
   const navigate = useNavigate();

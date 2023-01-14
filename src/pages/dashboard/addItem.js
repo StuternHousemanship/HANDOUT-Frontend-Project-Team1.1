@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import uuid from "react-uuid";
-import Api from "../apii/items";
-import Categories from "../components/Categories";
-import AddBigImage from "../components/AddBigImage";
-import UserHeader from "../components/header/UserHeader";
-import AddImage from "./AddImage";
-import Condition from "../components/Condition";
+import Api from "../../apii/items";
+import Categories from "../../components/Categories";
+import AddBigImage from "../../components/AddBigImage";
+import UserHeader from "../../components/header/UserHeader";
+import AddImage from "./addImage/AddImage";
+import Condition from "../../components/Condition";
 // import Color from "../components/Color";
-import ShippingOptions from "../components/ShippingOptions";
-import Country from "../components/Country";
-import { NonAuthRoutes } from "../url";
-import Color from "../components/Color";
+import ShippingOptions from "../../components/ShippingOptions";
+import Country from "../../components/Country";
+import { NonAuthRoutes } from "../../url";
+import Color from "../../components/Color";
 
 const addItem = () => {
   const navigate = useNavigate();

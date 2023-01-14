@@ -3,13 +3,13 @@ import { React, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ValidatePassword from "../ValidatePassword";
 import "./ResetPassword.css";
-import caution from "../../assets/svg/caution.svg";
-import checkmark from "../../assets/svg/checkmark.svg";
-import showPwd from "../../assets/svg/show-password.svg";
-import hidePwd from "../../assets/svg/hide-password.svg";
-import { NonAuthRoutes } from "../../url";
-import ResetPasswordSuccessful from "../../components/ResetPasswordSuccessful";
-import Onboardingheader from "../../components/header/OnboardingHeader";
+import caution from "../../../assets/svg/caution.svg";
+import checkmark from "../../../assets/svg/checkmark.svg";
+import showPwd from "../../../assets/svg/show-password.svg";
+import hidePwd from "../../../assets/svg/hide-password.svg";
+import { NonAuthRoutes } from "../../../url";
+import ResetPasswordSuccessful from "../../../components/ResetPasswordSuccessful";
+import Onboardingheader from "../../../components/header/OnboardingHeader";
 
 function ResetPassword() {
   const { userId } = useParams();

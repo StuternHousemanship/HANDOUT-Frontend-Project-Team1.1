@@ -1,6 +1,6 @@
 import React from "react";
-import Onboardingheader from "../components/header/OnboardingHeader";
-import LoginSuccess from "../components/LoginSuccess";
+import Onboardingheader from "../../components/header/OnboardingHeader";
+import LoginSuccess from "../../components/LoginSuccess";
 
 function LoginSuccessPage() {
   return (

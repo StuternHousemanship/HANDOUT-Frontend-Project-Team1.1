@@ -6,18 +6,19 @@ import React, { useState, useEffect } from "react";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { useNavigate } from "react-router-dom";
+import { ReactComponent as BackArrow } from "../../../assets/svg/backArrow.svg";
 import "./SignUp.css";
 import ValidatePassword from "../ValidatePassword";
-import caution from "../../assets/svg/caution.svg";
-import checkmark from "../../assets/svg/checkmark.svg";
-import showPwd from "../../assets/svg/show-password.svg";
-import hidePwd from "../../assets/svg/hide-password.svg";
-import onboarding from "../../api/onboarding";
-import { NonAuthRoutes } from "../../url";
-import { ReactComponent as LoadingIcon } from "../../assets/svg/loading-light-icon.svg";
-import logo from "../../assets/svg/desktop.svg";
-import HandoutLogo from "../../assets/img/HandoutLogo.png";
-import ErrorOnSignUp from "../../components/ErrorOnSignUp";
+import caution from "../../../assets/svg/caution.svg";
+import checkmark from "../../../assets/svg/checkmark.svg";
+import showPwd from "../../../assets/svg/show-password.svg";
+import hidePwd from "../../../assets/svg/hide-password.svg";
+import onboarding from "../../../api/onboarding";
+import { NonAuthRoutes } from "../../../url";
+import { ReactComponent as LoadingIcon } from "../../../assets/svg/loading-light-icon.svg";
+import logo from "../../../assets/svg/desktop.svg";
+import HandoutLogo from "../../../assets/img/HandoutLogo.png";
+import ErrorOnSignUp from "../../../components/ErrorOnSignUp";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -181,6 +182,13 @@ function SignUp() {
                 <div className="bg-[FFFFFF] py-[20px] min-h-screen flex flex-col">
                   <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
                     <div className="bg-white px-6  rounded  text-[#424242] w-full">
+                      <button
+                        type="button"
+                        onClick={() => navigate(-1)}
+                        className="xs:flex md:hidden"
+                      >
+                        <BackArrow className="w-[20px] h-[20px] mx-[5px]" />
+                      </button>
                       <div className="xs:flex  md:hidden items-center justify-center ">
                         <button
                           type="button"

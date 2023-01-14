@@ -1,11 +1,11 @@
 import React, { useNavigate } from "react-router-dom";
-import { AuthRoutes } from "../url";
-import UserHeader from "../components/header/UserHeader";
-import main from "../assets/img/main.png";
-import small1 from "../assets/img/small1.png";
-import small2 from "../assets/img/small2.png";
-import green from "../assets/svg/green.svg";
-import Vector from "../assets/svg/vector.svg";
+import { AuthRoutes } from "../../url";
+import UserHeader from "../../components/header/UserHeader";
+import main from "../../assets/img/main.png";
+import small1 from "../../assets/img/small1.png";
+import small2 from "../../assets/img/small2.png";
+import green from "../../assets/svg/green.svg";
+import Vector from "../../assets/svg/vector.svg";
 
 function ViewAllItems() {
   const navigate = useNavigate();
