@@ -75,7 +75,7 @@ function Routers() {
     <div>
       <Suspense
         fallback={
-          <div className="flex justify-center mt-60">
+          <div className="flex justify-center mt-60 z-50">
             <LoadingIcon className="suspense-loading-icon" />
           </div>
         }
