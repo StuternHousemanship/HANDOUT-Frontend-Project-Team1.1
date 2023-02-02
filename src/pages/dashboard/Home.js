@@ -13,6 +13,7 @@ import lady from "../../assets/svg/lady.png";
 import rectangle from "../../assets/svg/Rectangle 19480.png";
 import rectangle481 from "../../assets/svg/Rectangle 19481.png";
 import rectangle450 from "../../assets/svg/Rectangle 19450.png";
+import BestSellingProducts from "../../components/BestSellingProducts";
 
 function Home() {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ function Home() {
 
   return (
     <>
-      <div>
+      <div className="flex flex-col justify-center items-center bg-pink-500">
         <nav className="bg-white flex items-center justify-between shadow-3xl w-full h-[10%] z-[100] fixed top-0 left-0">
           <button
             type="button"
@@ -247,6 +248,18 @@ function Home() {
           >
             View all categories
           </button>
+        </div>
+      </section>
+      <section className="flex flex-col justify-center items-center h-screen w-full bg-white">
+        <div className="w-[85%] flex flex-col justify-center items-start">
+          <header className="h-[100px] w-full">
+            <h1 className="font-Raleway font-700 text-[40px] text-[#07484A]">
+              Best Selling Products
+            </h1>
+            <hr className="w-[10%] h-[5px] bg-[#077369] mb-5" />
+          </header>
+
+          <BestSellingProducts />
         </div>
       </section>
 

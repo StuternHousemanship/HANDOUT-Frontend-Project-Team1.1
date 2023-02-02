@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/svg/desktop.svg";
 import { NonAuthRoutes } from "../../url";
-import avatar from "../../assets/svg/Avatar.svg";
+// import avatar from "../../assets/svg/Avatar.svg";
 
 function OnboardingHeader() {
   const navigate = useNavigate();
@@ -15,13 +15,6 @@ function OnboardingHeader() {
           className="cursor-pointer md:ml-[128px] md:h-[30px] xs:h-[25px] xs:ml-[20px]"
         >
           <img src={logo} className=" md:h-[30px] xs:h-[25px]" alt="Handout" />
-        </button>
-        <button type="button">
-          <img
-            alt="avatar"
-            src={avatar}
-            className="mr-[56px] w-[30px] h-[30px]"
-          />
         </button>
       </nav>
     </div>

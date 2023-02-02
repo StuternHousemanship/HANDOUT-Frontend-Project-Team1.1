@@ -17,7 +17,7 @@ function ErrorOnSignUp({ errors }) {
           Uh-Oh!
         </h2>
         <p className="text-[16px] mt-[10px] text-center leading-[28px] font-Raleway ">
-          {errors.response.data}
+          {errors.message}
         </p>
         <button
           type="button"
