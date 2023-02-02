@@ -58,7 +58,7 @@ function LogIn() {
         error,
       });
       setErrorExists(true);
-      setErrorMessage(error.response.data.error);
+      setErrorMessage(error.message);
     }
   };
 
