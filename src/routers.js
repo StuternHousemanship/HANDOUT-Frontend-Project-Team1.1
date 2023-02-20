@@ -81,97 +81,97 @@ function Routers() {
         }
       >
         <Routes>
-          <Route path={NonAuthRoutes.Home} element={<Home />} />
-          <Route path={NonAuthRoutes.SignUp} element={<SignUp />} />
-          <Route path={NonAuthRoutes.LogIn} element={<LogIn />} />
+          <Route path={NonAuthRoutes.Home} element={<Home />} />{" "}
+          <Route path={NonAuthRoutes.SignUp} element={<SignUp />} />{" "}
+          <Route path={NonAuthRoutes.LogIn} element={<LogIn />} />{" "}
           <Route
             path={`${NonAuthRoutes.VerifyEmail}/:userId`}
             element={<VerifyEmail />}
-          />
-          <Route path={AuthRoutes.Dashboard} element={<Dashboard />} />
+          />{" "}
+          <Route path={AuthRoutes.Dashboard} element={<Dashboard />} />{" "}
           <Route
             path={NonAuthRoutes.ForgotPassword}
             element={<ForgotPassword />}
-          />
+          />{" "}
           <Route
             path={NonAuthRoutes.ForgotPassword2}
             element={<ForgotPassword2 />}
-          />
+          />{" "}
           <Route
             path={NonAuthRoutes.AccountRecovered}
             element={<AccountRecovered />}
-          />
+          />{" "}
           <Route
             path={`${NonAuthRoutes.ResetPassword}/:userId`}
             element={<ResetPassword />}
-          />
+          />{" "}
           <Route
             path={NonAuthRoutes.LoginSuccessPage}
             element={<LoginSuccessPage />}
-          />
+          />{" "}
           <Route
             path={NonAuthRoutes.SignUpVerify}
             element={<SignUpVerificationSuccessPage />}
-          />
+          />{" "}
           <Route
             path={NonAuthRoutes.LoginFailure}
             element={<LoginFailurePage />}
-          />
+          />{" "}
           <Route
             path={NonAuthRoutes.LoginOnSuccessSignUp}
             element={<LoginOnSuccessfulSignUp />}
-          />
+          />{" "}
           <Route
             path={NonAuthRoutes.ErrorOnSignUp}
             element={<ErrorOnSignUp />}
-          />
-          <Route path={NonAuthRoutes.ErrorOnLogin} element={<ErrorOnLogin />} />
+          />{" "}
+          <Route path={NonAuthRoutes.ErrorOnLogin} element={<ErrorOnLogin />} />{" "}
           <Route
             path={NonAuthRoutes.ResetPasswordSuccessful}
             element={<ResetPasswordSuccessful />}
-          />
+          />{" "}
           <Route
             path={NonAuthRoutes.ResetPasswordError}
             element={<ResetPasswordError />}
-          />
+          />{" "}
           <Route
             path={NonAuthRoutes.OnboardingHeader}
             element={<OnboardingHeader />}
-          />
+          />{" "}
           <Route
             path={NonAuthRoutes.DashboardOnboarding}
             element={<DashboardOnboarding />}
-          />
+          />{" "}
           <Route
             path={AuthRoutes.AccountOverview}
             element={<AccountOverview />}
-          />
+          />{" "}
           <Route
             path={NonAuthRoutes.DeleteAccountSuccessfully}
             element={<DeleteAccountSuccessfully />}
-          />
-          <Route path={NonAuthRoutes.EditProfile} element={<EditProfile />} />
-          <Route path={AuthRoutes.BrowseItems} element={<BrowseItems />} />
-          <Route path={NonAuthRoutes.Home} element={<Home />} />
-          <Route path={AuthRoutes.AddItem} element={<AddItem />} />
-          <Route path={AuthRoutes.AddItemError} element={<AddItemError />} />
+          />{" "}
+          <Route path={NonAuthRoutes.EditProfile} element={<EditProfile />} />{" "}
+          <Route path={AuthRoutes.BrowseItems} element={<BrowseItems />} />{" "}
+          <Route path={NonAuthRoutes.Home} element={<Home />} />{" "}
+          <Route path={AuthRoutes.AddItem} element={<AddItem />} />{" "}
+          <Route path={AuthRoutes.AddItemError} element={<AddItemError />} />{" "}
           <Route
             path={AuthRoutes.AddItemSuccess}
             element={<AddItemSuccess />}
-          />
+          />{" "}
           <Route
             path={NonAuthRoutes.DeleteItemError}
             element={<DeleteItemError />}
-          />
+          />{" "}
           <Route
             path={AuthRoutes.DeleteItemSuccess}
             element={<DeleteItemSuccess />}
-          />
-          <Route path={AuthRoutes.ItemDetails} element={<ItemDetails />} />
-          <Route path={AuthRoutes.EditItem} element={<EditItem />} />
-          <Route path={AuthRoutes.ViewAllItems} element={<ViewAllItems />} />
-        </Routes>
-      </Suspense>
+          />{" "}
+          <Route path={AuthRoutes.ItemDetails} element={<ItemDetails />} />{" "}
+          <Route path={AuthRoutes.EditItem} element={<EditItem />} />{" "}
+          <Route path={AuthRoutes.ViewAllItems} element={<ViewAllItems />} />{" "}
+        </Routes>{" "}
+      </Suspense>{" "}
     </div>
   );
 }
