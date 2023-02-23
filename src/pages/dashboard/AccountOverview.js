@@ -161,7 +161,7 @@ const AccountOverview = () => {
               <button
                 type="button"
                 className="flex items-center justify-center w-[100px] h-[30px] leading-[15px]  px-[10px] bg-transparent hover:bg-[#077369] text-[#077369] font-Raleway font-[600] text-[10px] hover:text-white py-2 border-[1.5px] border-[#5da39c]  rounded"
-                onClick={() => navigate(NonAuthRoutes.EditProfile)}
+                onClick={() => navigate(AuthRoutes.EditProfile)}
               >
                 Edit Profile
               </button>

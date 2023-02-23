@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import logo from "../../assets/svg/desktop.svg";
 import burgaIcon from "../../assets/svg/burga-icon.svg";
 import earpodBag from "../../assets/svg/earpod-bag.svg";
@@ -31,26 +32,28 @@ function Home() {
     <>
       <div className="xs:hidden md:inline-flex lg:inline-flex flex flex-col justify-center items-center bg-pink-500">
         <nav className="bg-white flex items-center justify-between shadow-3xl w-full h-[10%] z-[100] fixed top-0 left-0">
-          <button
-            type="button"
-            onClick={() => navigate(NonAuthRoutes.Home)}
-            className="cursor-pointer md:ml-[50px] md:h-[30px] xs:h-[25px] xs:ml-[20px]"
+          <Link
+            to="#home"
+            smooth
+            // type="button"
+            // onClick={() => navigate(NonAuthRoutes.Home)}
+            // className="cursor-pointer md:ml-[50px] md:h-[30px] xs:h-[25px] xs:ml-[20px]"
           >
             <img
               src={logo}
               className=" md:h-[30px] xs:h-[25px]"
               alt="Handout"
             />
-          </button>
+          </Link>
 
           <div className="w-[80%] h-full flex flex-row justify-center items-center ">
             <ul className="w-[60%] h-full flex flex-row justify-center items-center font-Raleway text-[500] leading-24 text-[#2F2F2A] text-center ">
-              <button type="button" className="m-[15px]">
+              <Link to="#home" smooth className="m-[15px]">
                 <p>Home</p>
-              </button>
-              <button type="button" className="m-[15px]">
+              </Link>
+              <Link to="#productCategory" smooth className="m-[15px]">
                 <p>Product Category</p>
-              </button>
+              </Link>
               <button type="button" className="m-[15px]">
                 <p>Contact Us</p>
               </button>
@@ -75,7 +78,10 @@ function Home() {
           </div>
         </nav>
       </div>
-      <section className="xs:hidden md:inline-flex lg:inline-flex w-[100%] h-[748px] flex flex-row justify-center items-center bg-[#FFFFFF] ">
+      <section
+        id="home"
+        className="w-[100%] h-[748px] flex flex-row justify-center items-center bg-[#FFFFFF] "
+      >
         <aside className="w-[50%] h-full flex flex-col justify-start items-end ">
           <div className="w-[90%] h-[100%] flex flex-col justify-center items-start ">
             <p className="sm:text-[40px] md:text-[45px] lg:text-[64px] font-Raleway font-[700] text-[#077369] leading-[75px] ">
@@ -130,8 +136,11 @@ function Home() {
           </div>
         </aside>
       </section>
-      <section className="xs:hidden md:inline-flex mb-[50px] lg:mb-[0px] lg:inline-flex w-[100%] h-[850px] flex flex-col justify-around items-center mt-[100px]">
-        <div className="w-[100%] h-[90%] flex flex-row justify-around items-center">
+      <section
+        id="productCategory"
+        className="w-[100%] h-[850px] flex flex-col justify-around items-center mt-[100px]"
+      >
+        <div className="w-[100%] h-[90%] flex flex-row justify-around items-center pt-[60px]">
           <div className="w-[40%] h-[100%] flex flex-col justify-center items-center">
             <img className="w-[80%] h-[100%] " src={lady} alt="" />
           </div>

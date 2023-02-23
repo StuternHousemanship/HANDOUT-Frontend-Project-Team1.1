@@ -3,6 +3,7 @@ import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { NonAuthRoutes, AuthRoutes } from "./url";
 import { ReactComponent as LoadingIcon } from "./assets/svg/loading-icon.svg";
+import ProtectedRoutes from "./components/ProtectedRoutes";
 
 const Home = React.lazy(() => import("./pages/dashboard/Home"));
 const SignUp = React.lazy(() => import("./pages/onboarding/signUp/SignUp"));
@@ -85,10 +86,14 @@ function Routers() {
           <Route path={NonAuthRoutes.SignUp} element={<SignUp />} />{" "}
           <Route path={NonAuthRoutes.LogIn} element={<LogIn />} />{" "}
           <Route
-            path={`${NonAuthRoutes.VerifyEmail}/:userId`}
+            // path={`${NonAuthRoutes.VerifyEmail}/:userId`}
+            path={NonAuthRoutes.VerifyEmail}
             element={<VerifyEmail />}
-          />{" "}
-          <Route path={AuthRoutes.Dashboard} element={<Dashboard />} />{" "}
+          />
+          <Route
+            path={NonAuthRoutes.LoginOnSuccessSignUp}
+            element={<LoginOnSuccessfulSignUp />}
+          />
           <Route
             path={NonAuthRoutes.ForgotPassword}
             element={<ForgotPassword />}
@@ -104,11 +109,7 @@ function Routers() {
           <Route
             path={`${NonAuthRoutes.ResetPassword}/:userId`}
             element={<ResetPassword />}
-          />{" "}
-          <Route
-            path={NonAuthRoutes.LoginSuccessPage}
-            element={<LoginSuccessPage />}
-          />{" "}
+          />
           <Route
             path={NonAuthRoutes.SignUpVerify}
             element={<SignUpVerificationSuccessPage />}
@@ -116,11 +117,7 @@ function Routers() {
           <Route
             path={NonAuthRoutes.LoginFailure}
             element={<LoginFailurePage />}
-          />{" "}
-          <Route
-            path={NonAuthRoutes.LoginOnSuccessSignUp}
-            element={<LoginOnSuccessfulSignUp />}
-          />{" "}
+          />
           <Route
             path={NonAuthRoutes.ErrorOnSignUp}
             element={<ErrorOnSignUp />}
@@ -137,41 +134,49 @@ function Routers() {
           <Route
             path={NonAuthRoutes.OnboardingHeader}
             element={<OnboardingHeader />}
-          />{" "}
-          <Route
-            path={NonAuthRoutes.DashboardOnboarding}
-            element={<DashboardOnboarding />}
-          />{" "}
-          <Route
-            path={AuthRoutes.AccountOverview}
-            element={<AccountOverview />}
-          />{" "}
-          <Route
-            path={NonAuthRoutes.DeleteAccountSuccessfully}
-            element={<DeleteAccountSuccessfully />}
-          />{" "}
-          <Route path={NonAuthRoutes.EditProfile} element={<EditProfile />} />{" "}
-          <Route path={AuthRoutes.BrowseItems} element={<BrowseItems />} />{" "}
-          <Route path={NonAuthRoutes.Home} element={<Home />} />{" "}
-          <Route path={AuthRoutes.AddItem} element={<AddItem />} />{" "}
-          <Route path={AuthRoutes.AddItemError} element={<AddItemError />} />{" "}
-          <Route
-            path={AuthRoutes.AddItemSuccess}
-            element={<AddItemSuccess />}
-          />{" "}
+          />
+          {/* Protected Routes */}
+          <Route element={<ProtectedRoutes />}>
+            <Route path={AuthRoutes.EditProfile} element={<EditProfile />} />
+            <Route
+              path={AuthRoutes.DeleteAccountSuccessfully}
+              element={<DeleteAccountSuccessfully />}
+            />
+            <Route
+              path={AuthRoutes.LoginSuccessPage}
+              element={<LoginSuccessPage />}
+            />
+            <Route
+              path={AuthRoutes.DashboardOnboarding}
+              element={<DashboardOnboarding />}
+            />
+            <Route path={AuthRoutes.Dashboard} element={<Dashboard />} />
+            <Route
+              path={AuthRoutes.AccountOverview}
+              element={<AccountOverview />}
+            />
+            <Route path={AuthRoutes.BrowseItems} element={<BrowseItems />} />
+            <Route path={AuthRoutes.AddItem} element={<AddItem />} />
+            <Route path={AuthRoutes.AddItemError} element={<AddItemError />} />
+            <Route
+              path={AuthRoutes.AddItemSuccess}
+              element={<AddItemSuccess />}
+            />
+            <Route
+              path={AuthRoutes.DeleteItemSuccess}
+              element={<DeleteItemSuccess />}
+            />
+            <Route path={AuthRoutes.ItemDetails} element={<ItemDetails />} />
+            <Route path={AuthRoutes.EditItem} element={<EditItem />} />
+            <Route path={AuthRoutes.ViewAllItems} element={<ViewAllItems />} />
+          </Route>
+          <Route path={NonAuthRoutes.Home} element={<Home />} />
           <Route
             path={NonAuthRoutes.DeleteItemError}
             element={<DeleteItemError />}
-          />{" "}
-          <Route
-            path={AuthRoutes.DeleteItemSuccess}
-            element={<DeleteItemSuccess />}
-          />{" "}
-          <Route path={AuthRoutes.ItemDetails} element={<ItemDetails />} />{" "}
-          <Route path={AuthRoutes.EditItem} element={<EditItem />} />{" "}
-          <Route path={AuthRoutes.ViewAllItems} element={<ViewAllItems />} />{" "}
-        </Routes>{" "}
-      </Suspense>{" "}
+          />
+        </Routes>
+      </Suspense>
     </div>
   );
 }

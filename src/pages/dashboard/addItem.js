@@ -15,7 +15,6 @@ import Color from "../../components/Color";
 
 const addItem = () => {
   const navigate = useNavigate();
-  // const { uuid } = require("uuidv4");
   const [itemName, setItemName] = useState("");
   const [itemDescription, setItemDescription] = useState("");
   const [itemPrice, setItemPrice] = useState("");
@@ -33,9 +32,6 @@ const addItem = () => {
   console.log(shippingOption);
   console.log(category);
   console.log(condition);
-  // const [condition, setCondition] = useState("");
-  // const [customerCountry, setCustomerCountry] = useState("");
-  // const [shippingOption, setShippingOption] = useState("");
 
   const handleAddItem = async () => {
     const itemDetails = {

@@ -7,6 +7,7 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
+import { AuthProvider } from "./components/context/AuthProvider";
 
 // eslint-disable-next-line import/prefer-default-export
 export const history = createBrowserHistory();
@@ -15,7 +16,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <React.StrictMode>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </React.StrictMode>
   </BrowserRouter>
 );

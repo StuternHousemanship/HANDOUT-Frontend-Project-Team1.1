@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { NonAuthRoutes } from "../../url";
 
 import logo from "../../assets/svg/desktop.svg";
@@ -7,8 +7,8 @@ import Onboardingheader from "../../components/header/OnboardingHeader";
 
 function VerifyEmail() {
   const navigate = useNavigate();
-  const { userId } = useParams();
-  console.log("URL parameter User Id", userId);
+  // const { userId } = useParams();
+  // console.log("URL parameter User Id", userId);
 
   return (
     <div className="relative flex flex-col justify-center items-center w-full h-[100vh]">

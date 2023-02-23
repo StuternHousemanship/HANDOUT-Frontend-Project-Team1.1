@@ -12,7 +12,10 @@ const AuthRoutes = {
   ItemDetails: "/item-details",
   DeleteItemError: "/Delete-Item-Error",
   DeleteItemSuccess: "/Delete-Item-Success",
-
+  DashboardOnboarding: "/dashboard-Onboarding",
+  DeleteAccountSuccessfully: "/account-successfully-deleted",
+  EditProfile: "/edit-profile",
+  LoginSuccessPage: "/Login-Success-Page",
 };
 
 /** Non Authenticated URL Routes */
@@ -28,17 +31,12 @@ const NonAuthRoutes = {
   ResetPasswordSuccessful: "/reset-password-successful",
   ResetPasswordError: "/reset-password-Error",
   AccountRecovered: "/account-recovered",
-  LoginSuccessPage: "/Login-Success-Page",
   LoginFailure: "/Login-Failure-Page",
   SignUpVerify: "/SignUp-Verification-SuccessPage",
   LoginOnSuccessSignUp: "/Login-OnSuccessful-SignUp",
   ErrorOnSignUp: "/sign-up-error",
   ErrorOnLogin: "/login-error",
   OnboardingHeader: "/Onboarding-Header",
-  DashboardOnboarding: "/dashboard-Onboarding",
-  DeleteAccountSuccessfully: "/account-successfully-deleted",
-  EditProfile: "/edit-profile",
-  EditItem: "/edit-item",
 };
 
 export { AuthRoutes, NonAuthRoutes };
