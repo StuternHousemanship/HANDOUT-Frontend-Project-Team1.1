@@ -37,7 +37,7 @@ function Home() {
             smooth
             // type="button"
             // onClick={() => navigate(NonAuthRoutes.Home)}
-            // className="cursor-pointer md:ml-[50px] md:h-[30px] xs:h-[25px] xs:ml-[20px]"
+            className="cursor-pointer md:ml-[50px] md:h-[30px] xs:h-[25px] xs:ml-[20px]"
           >
             <img
               src={logo}
@@ -80,7 +80,7 @@ function Home() {
       </div>
       <section
         id="home"
-        className="w-[100%] h-[748px] flex flex-row justify-center items-center bg-[#FFFFFF] "
+        className="xs:hidden md:inline-flex lg:inline-flex w-[100%] h-[748px] flex flex-row justify-center items-center bg-[#FFFFFF] "
       >
         <aside className="w-[50%] h-full flex flex-col justify-start items-end ">
           <div className="w-[90%] h-[100%] flex flex-col justify-center items-start ">
@@ -138,7 +138,7 @@ function Home() {
       </section>
       <section
         id="productCategory"
-        className="w-[100%] h-[850px] flex flex-col justify-around items-center mt-[100px]"
+        className="xs:hidden md:inline-flex mb-[50px] lg:mb-[0px] lg:inline-flex w-[100%] h-[850px] flex flex-col justify-around items-center "
       >
         <div className="w-[100%] h-[90%] flex flex-row justify-around items-center pt-[60px]">
           <div className="w-[40%] h-[100%] flex flex-col justify-center items-center">
@@ -168,6 +168,7 @@ function Home() {
                     <button
                       type="button"
                       className="w-[112px] h-[53px] bg-[#077369] font-Raleway rounded-[6px] text-[18px] text-[#FFFFFF] font-[400] "
+                      onClick={() => navigate(NonAuthRoutes.Unauthorized)}
                     >
                       Explore
                     </button>{" "}
@@ -182,6 +183,7 @@ function Home() {
                     <button
                       type="button"
                       className="w-[112px] h-[53px] bg-[#077369] font-Raleway rounded-[6px] text-[18px] text-[#FFFFFF] font-[400] "
+                      onClick={() => navigate(NonAuthRoutes.Unauthorized)}
                     >
                       Explore
                     </button>{" "}
@@ -196,6 +198,7 @@ function Home() {
                     <button
                       type="button"
                       className="w-[112px] h-[53px] bg-[#077369] font-Raleway rounded-[6px] text-[18px] text-[#FFFFFF] font-[400] "
+                      onClick={() => navigate(NonAuthRoutes.Unauthorized)}
                     >
                       Explore
                     </button>{" "}
@@ -212,6 +215,7 @@ function Home() {
                     <button
                       type="button"
                       className="w-[112px] h-[53px] bg-[#077369] font-Raleway rounded-[6px] text-[18px] text-[#FFFFFF] font-[400] "
+                      onClick={() => navigate(NonAuthRoutes.Unauthorized)}
                     >
                       Explore
                     </button>{" "}
@@ -226,6 +230,7 @@ function Home() {
                     <button
                       type="button"
                       className="w-[112px] h-[53px] bg-[#077369] font-Raleway rounded-[6px] text-[18px] text-[#FFFFFF] font-[400] "
+                      onClick={() => navigate(NonAuthRoutes.Unauthorized)}
                     >
                       Explore
                     </button>{" "}
@@ -240,6 +245,7 @@ function Home() {
                     <button
                       type="button"
                       className="w-[112px] h-[53px] bg-[#077369] font-Raleway rounded-[6px] text-[18px] text-[#FFFFFF] font-[400] "
+                      onClick={() => navigate(NonAuthRoutes.Unauthorized)}
                     >
                       Explore
                     </button>{" "}
@@ -253,6 +259,7 @@ function Home() {
         <div className="w-[100%] h-[10%] flex flex-col justify-center items-center">
           <button
             type="button"
+            onClick={() => navigate(NonAuthRoutes.Unauthorized)}
             className="w-[345px] h-[60px] rounded-[4px] bg-[#077369] text-[#FFFFFF] font-[400] font-Raleway "
           >
             View all categories
@@ -455,11 +462,14 @@ function Home() {
                 <p> On The Go</p>
               </div>
               <div className="flex flex-col justify-center items-center">
-                <p className="text-[#191919] font-[400] text-[16px] font-Raleway leading-[28px] mt-[20px] ">
+                <p className="text-[#191919] font-[500] text-[15px] font-Raleway leading-[28px] mt-[20px] ">
                   We have something for everyone.
                 </p>
-                <p>Get the best deals</p>
-                <p> when you shop with us today.</p>
+                <p className="font-Raleway text-[15px] ">Get the best deals</p>
+                <p className="font-Raleway text-[15px]">
+                  {" "}
+                  when you shop with us today.
+                </p>
               </div>
               <div>
                 <button
@@ -471,7 +481,7 @@ function Home() {
                 </button>
                 <button
                   type="button"
-                  onClick={() => navigate(NonAuthRoutes.SignUp)}
+                  onClick={() => navigate(NonAuthRoutes.LogIn)}
                   className="mt-[20px] w-[182px] h-[43px] bg-[#ffffff] rounded-[4px] flex justify-center items-center text-[#077369] font-[700] text-[20px] font-Raleway leading-[24px] border-[1px] border-[#077369] "
                 >
                   Login
@@ -500,6 +510,7 @@ function Home() {
                 {" "}
                 <button
                   type="button"
+                  onClick={() => navigate(NonAuthRoutes.Unauthorized)}
                   className="w-[112px] h-[39px] bg-[#077369] font-Raleway rounded-[6px] text-[18px] text-[#FFFFFF] font-[400] "
                 >
                   Explore
@@ -512,6 +523,7 @@ function Home() {
                 {" "}
                 <button
                   type="button"
+                  onClick={() => navigate(NonAuthRoutes.Unauthorized)}
                   className="w-[112px] h-[39px] bg-[#077369] font-Raleway rounded-[6px] text-[18px] text-[#FFFFFF] font-[400] "
                 >
                   Explore
@@ -526,6 +538,7 @@ function Home() {
                 {" "}
                 <button
                   type="button"
+                  onClick={() => navigate(NonAuthRoutes.Unauthorized)}
                   className="w-[112px] h-[39px] bg-[#077369] font-Raleway rounded-[6px] text-[18px] text-[#FFFFFF] font-[400] "
                 >
                   Explore
@@ -538,6 +551,7 @@ function Home() {
                 {" "}
                 <button
                   type="button"
+                  onClick={() => navigate(NonAuthRoutes.Unauthorized)}
                   className="w-[112px] h-[39px] bg-[#077369] font-Raleway rounded-[6px] text-[18px] text-[#FFFFFF] font-[400] "
                 >
                   Explore
@@ -548,6 +562,7 @@ function Home() {
           <div className="w-[100%] h-[10%] flex flex-col justify-center items-center">
             <button
               type="button"
+              onClick={() => navigate(NonAuthRoutes.Unauthorized)}
               className="w-[345px] h-[60px] rounded-[4px] bg-[#077369] text-[#FFFFFF] font-[400] font-Raleway "
             >
               View all categories

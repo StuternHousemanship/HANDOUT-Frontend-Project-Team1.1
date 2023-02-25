@@ -23,6 +23,7 @@ const NonAuthRoutes = {
   Home: "/",
   LogIn: "/login",
   SignUp: "/signup",
+  Unauthorized:"/unauthorized",
   Logout: "/logout",
   VerifyEmail: "/verify-email",
   ForgotPassword: "/forgot-Password",

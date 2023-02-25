@@ -8,6 +8,7 @@ import ProtectedRoutes from "./components/ProtectedRoutes";
 const Home = React.lazy(() => import("./pages/dashboard/Home"));
 const SignUp = React.lazy(() => import("./pages/onboarding/signUp/SignUp"));
 const LogIn = React.lazy(() => import("./pages/onboarding/login/LogIn"));
+const Unauthorized = React.lazy(() => import("./components/Unauthorized"));
 const VerifyEmail = React.lazy(() => import("./pages/onboarding/VerifyEmail"));
 const Dashboard = React.lazy(() => import("./pages/dashboard/Dashboard"));
 const ForgotPassword = React.lazy(() =>
@@ -85,6 +86,7 @@ function Routers() {
           <Route path={NonAuthRoutes.Home} element={<Home />} />{" "}
           <Route path={NonAuthRoutes.SignUp} element={<SignUp />} />{" "}
           <Route path={NonAuthRoutes.LogIn} element={<LogIn />} />{" "}
+          <Route path={NonAuthRoutes.Unauthorized} element={<Unauthorized />} />
           <Route
             // path={`${NonAuthRoutes.VerifyEmail}/:userId`}
             path={NonAuthRoutes.VerifyEmail}
