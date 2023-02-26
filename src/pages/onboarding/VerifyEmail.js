@@ -63,9 +63,9 @@ function VerifyEmail() {
               <button
                 type="button"
                 onClick={() => navigate(NonAuthRoutes.LoginOnSuccessSignUp)}
-                className="w-[388px] h-[53px] bg-[#077369] font-[700] mt-14 text-[#FEFEFE] text-[16px] tracking-wide font-Raleway "
+                className="w-[200px] rounded-[4px] h-[53px] bg-[#077369] font-[700] mt-14 text-[#FEFEFE] text-[16px] tracking-wide font-Raleway "
               >
-                Verify
+                Continue
               </button>
             </div>
           </div>

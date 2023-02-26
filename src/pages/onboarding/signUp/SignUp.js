@@ -338,13 +338,13 @@ function SignUp() {
                 <div className="bg-[FFFFFF]  min-h-screen flex flex-col">
                   <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
                     <div className="bg-white px-6 rounded  text-[#424242] w-full">
-                      <div className="xs:flex  md:hidden mx-[143px]">
+                      <div className="xs:flex  md:hidden items-center justify-center">
                         <button
                           type="button"
                           onClick={() => navigate(NonAuthRoutes.Home)}
                         >
                           <img
-                            className="cursor-pointer"
+                            className="cursor-pointer h-[30px]"
                             src={logo}
                             alt="Handout Logo"
                           />

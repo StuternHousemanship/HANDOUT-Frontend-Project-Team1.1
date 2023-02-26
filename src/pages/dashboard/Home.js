@@ -266,8 +266,8 @@ function Home() {
           </button>
         </div>
       </section>
-      <section className="xs:hidden md:inline-flex lg:inline-flex flex flex-col justify-center items-center h-screen w-full bg-white">
-        <div className="w-[85%] flex flex-col justify-center items-start">
+      <section className="xs:hidden md:inline-flex lg:inline-flex flex flex-col justify-center items-center w-full bg-white">
+        <div className="w-[85%] flex flex-col justify-center items-start sm:py-[15px] lg:py-[60px]">
           <header className="h-[100px] w-full">
             <h1 className="font-Raleway font-700 text-[40px] text-[#07484A]">
               Best Selling Products
@@ -567,6 +567,18 @@ function Home() {
             >
               View all categories
             </button>
+          </div>
+        </section>
+        <section className="md:hidden flex flex-col justify-center items-center w-full bg-white">
+          <div className="w-[85%] flex flex-col justify-center mb-4 items-start">
+            <header className=" w-full">
+              <h1 className="font-Raleway font-700 text-[16px text-[#07484A]">
+                Best Selling Products
+              </h1>
+              <hr className="w-[20%] h-[3px] bg-[#077369] mb-4" />
+            </header>
+
+            <BestSellingProducts />
           </div>
         </section>
         <section className=" bg-[#ffffff] w-[100%] h-[400px] flex flex-col justify-around items-center my-[20px]">

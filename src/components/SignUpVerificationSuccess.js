@@ -7,11 +7,7 @@ function SignUpVerificationSuccess() {
   const navigate = useNavigate();
   return (
     <div className="flex flex-col items-center justify-center  ">
-      <img
-        src={successrobot}
-        className="w-[120px] h-[120px] xs:hidden md:block "
-        alt="Handout"
-      />
+      <img src={successrobot} className="w-[120px] h-[120px] " alt="Handout" />
       <h2 className="font-Raleway font-[700] text-[32px] leading-[40px] ">
         Verification!
       </h2>
@@ -21,7 +17,7 @@ function SignUpVerificationSuccess() {
       <button
         type="button"
         onClick={() => navigate(NonAuthRoutes.VerifyEmail)}
-        className="xs:hidden md:block w-[480px] h-[60px] mt-[50px] rounded-[4px] bg-[#077369] text-white text-[16px] font-[700] font-Raleway "
+        className="xs:w-[200px] md:w-[480px] h-[60px] mt-[50px] rounded-[4px] bg-[#077369] text-white text-[16px] font-[700] font-Raleway "
       >
         Let&apos;s go
       </button>

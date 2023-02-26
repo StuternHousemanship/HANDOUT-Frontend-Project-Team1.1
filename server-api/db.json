@@ -26,6 +26,12 @@
       "itemCategory": "",
       "region": "",
       "image": []
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
     }
   ],
   "users": [
@@ -156,6 +162,22 @@
       "mail": "vicky@gmail.com",
       "phoneNo": "+2345555555555",
       "passwords": "12345Web"
+    },
+    {
+      "id": "5c319123-6068-8194-cfc5-1d2df678254d",
+      "name": "ola",
+      "surName": "ola",
+      "mail": "ola@gmail.com",
+      "phoneNo": "+23455",
+      "passwords": "Aa123456"
+    },
+    {
+      "id": "6b864d4a-f2b3-4e03-c2c9-fce02d4eafb3",
+      "name": "uguna",
+      "surName": "jamesq",
+      "mail": "uguna@gmail.com",
+      "phoneNo": "+234444",
+      "passwords": "Aa123456"
     }
   ]
 }

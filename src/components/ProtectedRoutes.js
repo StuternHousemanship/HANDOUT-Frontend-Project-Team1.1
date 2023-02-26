@@ -4,7 +4,7 @@ import UserAuth from "./hooks/UserAuth";
 
 function ProtectedRoutes() {
   const { auth } = UserAuth();
-  return auth?.email ? <Outlet /> : <Navigate to="/login" replace />;
+  return auth?.email ? <Outlet /> : <Navigate to="/unauthorized" replace />;
 }
 
 export default ProtectedRoutes;
