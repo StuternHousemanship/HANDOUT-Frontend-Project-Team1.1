@@ -6,18 +6,20 @@ import Input from "@mui/material/Input";
 import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import Cookies from "js-cookie";
+import { handoutJsonApi } from "../../../apii/items";
+import UserAuth from "../../../components/hooks/UserAuth";
+// import Cookies from "js-cookie";
 import logo from "../../../assets/svg/desktop.svg";
 import frame16 from "../../../assets/svg/Frame 16.svg";
-import onboarding from "../../../api/onboarding";
-import { NonAuthRoutes } from "../../../url";
+// import onboarding from "../../../api/onboarding";
+import { NonAuthRoutes, AuthRoutes } from "../../../url";
 import { ReactComponent as LoadingIcon } from "../../../assets/svg/loading-light-icon.svg";
 import ErrorOnLogin from "../../../components/ErrorOnLogin";
 import "./LogIn.css";
 
 function LogIn() {
   const navigate = useNavigate();
-  const [buttonIsLoading, setButtonIsLoading] = useState(false);
+  const [buttonIsLoading] = useState(false);
   const [errorExists, setErrorExists] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [password, setPassword] = useState("");
@@ -25,6 +27,7 @@ function LogIn() {
   const [values, setValues] = useState({
     showPassword: false,
   });
+  const { setAuth } = UserAuth();
 
   useEffect(() => {
     const ac = new AbortController();
@@ -33,6 +36,9 @@ function LogIn() {
       ac.abort();
     };
   }, []);
+  // const getAuth = (prev) => {
+  //   console.log(prev);
+  // };
 
   const handleEmailChange = (value) => {
     setEmail(value);
@@ -41,26 +47,68 @@ function LogIn() {
   /** Handle to Login */
   const handleLogin = async (e) => {
     e.preventDefault();
-    setButtonIsLoading(true);
-    try {
-      const response = await onboarding.Login(email, password);
-      if (response.status === 200) {
-        console.log(response);
-        const accessToken = response.access_token;
-        const refreshToken = response.refresh_token;
-        Cookies.set("accessToken", accessToken);
-        localStorage.setItem("token", refreshToken);
-        navigate(NonAuthRoutes.LoginSuccessPage);
-      }
-    } catch (error) {
-      // console.error("This is your Log In error", error.response.data.error);
-      console.log({
-        error,
-      });
+    const userDetails = {
+      mail: email.toLowerCase(),
+      passwords: password,
+    };
+    const { data } = await handoutJsonApi.get("/users");
+    console.log(data);
+
+    if (
+      data.find(
+        (user) =>
+          user.mail === userDetails.mail &&
+          user.passwords === userDetails.passwords
+      )
+    ) {
+      setAuth({ email, password });
+      navigate(AuthRoutes.LoginSuccessPage);
+    } else {
       setErrorExists(true);
-      setErrorMessage(error.message);
+      setErrorMessage("Invalid Credentials");
     }
+
+    //   setErrorSignUp(() => (
+    //     <ErrorOnSignUp
+    //       errors={{
+    //         response: {
+    //           data: "A user with this email already exists",
+    //         },
+    //       }}
+    //     />
+    //   ));
+    //   // return;
+    // } else {
+    //   const response = await handoutJsonApi.post("/users", userDetails);
+    //   console.log(response);
+    //   navigate(NonAuthRoutes.SignUpVerify);
+    // }
+    // };
   };
+
+  /** Handle to Login */
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
+  //   setButtonIsLoading(true);
+  //   try {
+  //     const response = await onboarding.Login(email, password);
+  //     if (response.status === 200) {
+  //       console.log(response);
+  //       const accessToken = response.access_token;
+  //       const refreshToken = response.refresh_token;
+  //       Cookies.set("accessToken", accessToken);
+  //       localStorage.setItem("token", refreshToken);
+  //       navigate(NonAuthRoutes.LoginSuccessPage);
+  //     }
+  //   } catch (error) {
+  //     // console.error("This is your Log In error", error.response.data.error);
+  //     console.log({
+  //       error,
+  //     });
+  //     setErrorExists(true);
+  //     setErrorMessage(error.response.data.error);
+  //   }
+  // };
 
   /** Function to toggle the state of show password */
   const handleClickShowPassword = () => {

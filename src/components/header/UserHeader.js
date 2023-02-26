@@ -27,10 +27,12 @@ function UserHeader() {
     {
       image: item,
       name: "All items",
+      to: AuthRoutes.BrowseItems,
     },
     {
       image: sell,
       name: "My Listings",
+      to: AuthRoutes.AddItem,
     },
     {
       image: notifications,
@@ -85,7 +87,11 @@ function UserHeader() {
                 />{" "}
               </div>
               <div className="">
-                <button type="button" className="font-Raleway text-[12px]">
+                <button
+                  type="button"
+                  className="font-Raleway text-[12px]"
+                  onClick={() => navigate(items.to)}
+                >
                   {items.name}{" "}
                 </button>
               </div>

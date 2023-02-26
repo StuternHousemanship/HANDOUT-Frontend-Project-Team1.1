@@ -3,9 +3,11 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable import/no-cycle */
 import React, { useState, useEffect } from "react";
+import uuid from "react-uuid";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { useNavigate } from "react-router-dom";
+import { handoutJsonApi } from "../../../apii/items";
 import { ReactComponent as BackArrow } from "../../../assets/svg/backArrow.svg";
 import "./SignUp.css";
 import ValidatePassword from "../ValidatePassword";
@@ -13,12 +15,14 @@ import caution from "../../../assets/svg/caution.svg";
 import checkmark from "../../../assets/svg/checkmark.svg";
 import showPwd from "../../../assets/svg/show-password.svg";
 import hidePwd from "../../../assets/svg/hide-password.svg";
-import onboarding from "../../../api/onboarding";
+
+// import onboarding from "../../../api/onboarding";
 import { NonAuthRoutes } from "../../../url";
 import { ReactComponent as LoadingIcon } from "../../../assets/svg/loading-light-icon.svg";
 import logo from "../../../assets/svg/desktop.svg";
 import HandoutLogo from "../../../assets/img/HandoutLogo.png";
 import ErrorOnSignUp from "../../../components/ErrorOnSignUp";
+// import Api from "../../../apii/items";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -35,11 +39,14 @@ function SignUp() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  // const [usersMail, setUsersMail] = useState("");
+  // const [users, setUsers] = useState([]);
   const [validEmail, setValidEmail] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
   const [phoneNovalue, setPhoneNoValue] = useState();
   const [step, setStep] = useState(1);
   const [errorSignUp, setErrorSignUp] = useState(null);
+
   const [errorExists, setErrorExists] = useState(false);
   const [checks, setChecks] = useState({
     upperCaseCheck: false,
@@ -61,33 +68,40 @@ function SignUp() {
     const match = pwdConfirm === password;
     setValidPasswordConfirm(match);
   }, [password, pwdConfirm]);
-
-  /** Handle to Sign Up and route to the email verification  page */
+  // function to sign-up
   const handleSignUp2 = async (e) => {
+    const userDetails = {
+      id: uuid(),
+      name: firstName,
+      surName: lastName,
+      mail: email.toLowerCase(),
+      phoneNo: phoneNovalue,
+      passwords: password,
+    };
     e.preventDefault();
     setButtonIsLoading(true);
     setPassword("");
     setPwdconfirm("");
     setCheckbox(!checkbox);
-    try {
-      const response = await onboarding.SignUp(
-        firstName,
-        lastName,
-        email,
-        phoneNovalue,
-        password
-      );
-      if (response.status === 201) {
-        console.log(response);
-        navigate(NonAuthRoutes.SignUpVerify);
-      }
-    } catch (error) {
-      console.log({
-        error,
-      });
+
+    const { data } = await handoutJsonApi.get(`/users?mail=${email}`);
+    console.log(data);
+    if (data.find((user) => user.mail === userDetails.mail)) {
       setErrorExists(true);
-      setErrorSignUp(() => <ErrorOnSignUp errors={error} />);
-      // navigate(NonAuthRoutes.ErrorOnSignUp);
+      setErrorSignUp(() => (
+        <ErrorOnSignUp
+          errors={{
+            response: {
+              data: "A user with this email already exists",
+            },
+          }}
+        />
+      ));
+      // return;
+    } else {
+      const response = await handoutJsonApi.post("/users", userDetails);
+      console.log(response);
+      navigate(NonAuthRoutes.SignUpVerify);
     }
   };
 
@@ -324,13 +338,13 @@ function SignUp() {
                 <div className="bg-[FFFFFF]  min-h-screen flex flex-col">
                   <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
                     <div className="bg-white px-6 rounded  text-[#424242] w-full">
-                      <div className="xs:flex  md:hidden mx-[143px]">
+                      <div className="xs:flex  md:hidden items-center justify-center">
                         <button
                           type="button"
                           onClick={() => navigate(NonAuthRoutes.Home)}
                         >
                           <img
-                            className="cursor-pointer"
+                            className="cursor-pointer h-[30px]"
                             src={logo}
                             alt="Handout Logo"
                           />

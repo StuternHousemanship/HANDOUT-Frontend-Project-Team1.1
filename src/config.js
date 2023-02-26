@@ -11,6 +11,7 @@ import TokenValidate from "./tokenvalidate";
 /** Base Url for Images STAGING */
 const handoutApiUrl = "https://handout.beargaze.com";
 const handoutImageUrl = "https://handout.beargaze.com/";
+const jsonUrl = "https://handout-stutern.web.app/";
 
 /** creating an Axios Base Url for all Onboarding Request */
 const handoutOnboardingApi = axios.create({
@@ -22,7 +23,7 @@ const handoutOnboardingApi = axios.create({
 
 // JWT DECODE SETUP and Onboarding Request Interceptor
 const handoutApi = axios.create({
-  baseURL: handoutApiUrl,
+  baseURL: jsonUrl,
 });
 handoutApi.interceptors.request.use(
   async (config) => {

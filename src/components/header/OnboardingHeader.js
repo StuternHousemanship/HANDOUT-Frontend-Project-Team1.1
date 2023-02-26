@@ -12,7 +12,7 @@ function OnboardingHeader() {
         <button
           type="button"
           onClick={() => navigate(NonAuthRoutes.Home)}
-          className="cursor-pointer md:ml-[128px] md:h-[30px] xs:h-[25px] xs:ml-[20px]"
+          className="cursor-pointer md:h-[30px] xs:h-[25px] md:ml-[50px] md:h-[30px] xs:h-[25px] xs:ml-[20px]"
         >
           <img src={logo} className=" md:h-[30px] xs:h-[25px]" alt="Handout" />
         </button>

@@ -138,6 +138,7 @@ function DashboardOnboarding() {
               </p>{" "}
               <button
                 type="button"
+                onClick={() => navigate(AuthRoutes.AddItem)}
                 className="flex flex-col justify-center items-center bg-[#077369] w-[220px] h-[48px] rounded-[4px] py-[12px] px-[50px] text-[#FEFEFE] font-Raleway text-[16px] font-[700] leading-[24px] mt-[30px] "
               >
                 List Items{" "}
@@ -160,6 +161,7 @@ function DashboardOnboarding() {
               </p>{" "}
               <button
                 type="button"
+                onClick={() => navigate(AuthRoutes.BrowseItems)}
                 className="flex flex-col justify-center items-center bg-[#077369] w-[220px] h-[48px] rounded-[4px] py-[12px] px-[50px] text-[#FEFEFE] font-Raleway text-[16px] font-[700] leading-[24px] mt-[30px] "
               >
                 Browse all{" "}

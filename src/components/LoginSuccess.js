@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { NonAuthRoutes } from "../url";
+import { AuthRoutes } from "../url";
 import successrobot from "../assets/svg/successrobot.svg";
 
 function LoginSuccess() {
@@ -20,7 +20,7 @@ function LoginSuccess() {
         That was a successfull login let&apos;s proceed <br /> to your dashboard{" "}
         <button
           type="button"
-          onClick={() => navigate(NonAuthRoutes.DashboardOnboarding)}
+          onClick={() => navigate(AuthRoutes.DashboardOnboarding)}
           className="text-[#278178] font-[700] "
         >
           here
