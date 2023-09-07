@@ -3,11 +3,11 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable import/no-cycle */
 import React, { useState, useEffect } from "react";
-import uuid from "react-uuid";
+// import uuid from "react-uuid";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { useNavigate } from "react-router-dom";
-import { handoutJsonApi } from "../../../apii/items";
+// import { handoutJsonApi } from "../../../apii/items";
 import { ReactComponent as BackArrow } from "../../../assets/svg/backArrow.svg";
 import "./SignUp.css";
 import ValidatePassword from "../ValidatePassword";
@@ -21,7 +21,7 @@ import { NonAuthRoutes } from "../../../url";
 import { ReactComponent as LoadingIcon } from "../../../assets/svg/loading-light-icon.svg";
 import logo from "../../../assets/svg/desktop.svg";
 import HandoutLogo from "../../../assets/img/HandoutLogo.png";
-import ErrorOnSignUp from "../../../components/ErrorOnSignUp";
+// import ErrorOnSignUp from "../../../components/ErrorOnSignUp";
 // import Api from "../../../apii/items";
 
 function SignUp() {
@@ -70,39 +70,45 @@ function SignUp() {
   }, [password, pwdConfirm]);
   // function to sign-up
   const handleSignUp2 = async (e) => {
-    const userDetails = {
-      id: uuid(),
-      name: firstName,
-      surName: lastName,
-      mail: email.toLowerCase(),
-      phoneNo: phoneNovalue,
-      passwords: password,
-    };
+    // const userDetails = {
+    //   id: uuid(),
+    //   name: firstName,
+    //   surName: lastName,
+    //   mail: email.toLowerCase(),
+    //   phoneNo: phoneNovalue,
+    //   passwords: password,
+    // };
     e.preventDefault();
     setButtonIsLoading(true);
     setPassword("");
     setPwdconfirm("");
     setCheckbox(!checkbox);
 
-    const { data } = await handoutJsonApi.get(`/users?mail=${email}`);
-    console.log(data);
-    if (data.find((user) => user.mail === userDetails.mail)) {
-      setErrorExists(true);
-      setErrorSignUp(() => (
-        <ErrorOnSignUp
-          errors={{
-            response: {
-              data: "A user with this email already exists",
-            },
-          }}
-        />
-      ));
-      // return;
-    } else {
-      const response = await handoutJsonApi.post("/users", userDetails);
-      console.log(response);
+    try {
       navigate(NonAuthRoutes.SignUpVerify);
+    } catch {
+      setErrorExists(true);
     }
+
+    // const { data } = await handoutJsonApi.get(`/users?mail=${email}`);
+    // console.log(data);
+    // if (data.find((user) => user.mail === userDetails.mail)) {
+    //   setErrorExists(true);
+    //   setErrorSignUp(() => (
+    //     <ErrorOnSignUp
+    //       errors={{
+    //         response: {
+    //           data: "A user with this email already exists",
+    //         },
+    //       }}
+    //     />
+    //   ));
+    //   // return;
+    // } else {
+    //   const response = await handoutJsonApi.post("/users", userDetails);
+    //   console.log(response);
+    //   navigate(NonAuthRoutes.SignUpVerify);
+    // }
   };
 
   const handleOnFocus = () => {

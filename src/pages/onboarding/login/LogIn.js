@@ -6,7 +6,7 @@ import Input from "@mui/material/Input";
 import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { handoutJsonApi } from "../../../apii/items";
+// import { handoutJsonApi } from "../../../apii/items";
 import UserAuth from "../../../components/hooks/UserAuth";
 // import Cookies from "js-cookie";
 import logo from "../../../assets/svg/desktop.svg";
@@ -47,26 +47,34 @@ function LogIn() {
   /** Handle to Login */
   const handleLogin = async (e) => {
     e.preventDefault();
-    const userDetails = {
-      mail: email.toLowerCase(),
-      passwords: password,
-    };
-    const { data } = await handoutJsonApi.get("/users");
-    console.log(data);
 
-    if (
-      data.find(
-        (user) =>
-          user.mail === userDetails.mail &&
-          user.passwords === userDetails.passwords
-      )
-    ) {
+    try {
       setAuth({ email, password });
       navigate(AuthRoutes.LoginSuccessPage);
-    } else {
+    } catch {
       setErrorExists(true);
       setErrorMessage("Invalid Credentials");
     }
+    // const userDetails = {
+    //   mail: email.toLowerCase(),
+    //   passwords: password,
+    // };
+    // const { data } = await handoutJsonApi.get("/users");
+    // console.log(data);
+
+    // if (
+    //   data.find(
+    //     (user) =>
+    //       user.mail === userDetails.mail &&
+    //       user.passwords === userDetails.passwords
+    //   )
+    // ) {
+    //   setAuth({ email, password });
+    //   navigate(AuthRoutes.LoginSuccessPage);
+    // } else {
+    //   setErrorExists(true);
+    //   setErrorMessage("Invalid Credentials");
+    // }
 
     //   setErrorSignUp(() => (
     //     <ErrorOnSignUp
