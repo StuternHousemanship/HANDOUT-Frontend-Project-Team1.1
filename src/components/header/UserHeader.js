@@ -4,7 +4,7 @@ import "../../App.css";
 import logo from "../../assets/svg/desktop.svg";
 import { NonAuthRoutes, AuthRoutes } from "../../url";
 import item from "../../assets/svg/all-items.svg";
-import notifications from "../../assets/svg/notifications.svg";
+// import notifications from "../../assets/svg/notifications.svg";
 import sell from "../../assets/svg/sell.svg";
 import avatar from "../../assets/svg/Avatar.svg";
 import help from "../../assets/svg/help.svg";
@@ -34,10 +34,10 @@ function UserHeader() {
       name: "My Listings",
       to: AuthRoutes.AddItem,
     },
-    {
-      image: notifications,
-      name: "Notifications",
-    },
+    // {
+    //   image: notifications,
+    //   name: "Notifications",
+    // },
   ];
   // const handleNavigate = () => {
   //   navigate(`AuthRoutes.${navbarMenus.link}`);
@@ -84,7 +84,7 @@ function UserHeader() {
                   alt={items.name}
                   src={items.image}
                   className="w-[20px] h-[20px]"
-                />{" "}
+                />
               </div>
               <div className="">
                 <button

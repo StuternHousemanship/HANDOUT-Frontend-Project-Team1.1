@@ -22,8 +22,8 @@ function DashboardOnboarding() {
     <>
       <DashboardHeader />
       <div className="xs:hidden md:inline-flex lg:inline-flex flex flex-col justify-center items-center w-screen h-screen mt-[] ">
-        <div className="flex flex-col justify-center items-center w-[80%] h-auto mt-[40px] ">
-          <div className="flex flex-col justify-start items-start w-[100%] h-[30px] mb-[25px] ">
+        <div className="flex flex-col justify-center items-center w-[80%] h-auto mt-[24px] ">
+          <div className="flex flex-col justify-start items-start w-[100%] h-[30px] mb-[56px] ">
             <h2 className="md:mt-[2px] lg:mt-[2px] xl:mt-[20px] text-[#191919] font-[Raleway] font-[700] text-[30px] leading-48 ">
               Welcome {getUsernameFromEmail(auth.email)}!
             </h2>{" "}
