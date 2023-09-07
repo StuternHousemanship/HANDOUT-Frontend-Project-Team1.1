@@ -5,17 +5,27 @@ import sellIcon from "../../assets/svg/sell (1).svg";
 import onboarding from "../../assets/svg/onboarding.png";
 import exploreIcon from "../../assets/svg/explore.svg";
 import DashboardHeader from "../../components/header/DashboardHeader";
+import UserAuth from "../../components/hooks/UserAuth";
 
 function DashboardOnboarding() {
+  const { auth } = UserAuth();
   const navigate = useNavigate();
+  const getUsernameFromEmail = (email) => {
+    const atIndex = email.indexOf("@");
+    if (atIndex !== -1) {
+      const username = email.substring(0, atIndex);
+      return username;
+    }
+    return email;
+  };
   return (
     <>
       <DashboardHeader />
       <div className="xs:hidden md:inline-flex lg:inline-flex flex flex-col justify-center items-center w-screen h-screen mt-[] ">
         <div className="flex flex-col justify-center items-center w-[80%] h-auto mt-[40px] ">
           <div className="flex flex-col justify-start items-start w-[100%] h-[30px] mb-[25px] ">
-            <h2 className="md:mt-[2px] lg:mt-[2px] xl:mt-[20px]text-[#191919] font-[Raleway] font-[700] text-[30px] leading-48 ">
-              Welcome Jane Doe!
+            <h2 className="md:mt-[2px] lg:mt-[2px] xl:mt-[20px] text-[#191919] font-[Raleway] font-[700] text-[30px] leading-48 ">
+              Welcome {getUsernameFromEmail(auth.email)}!
             </h2>{" "}
           </div>
           <div className="flex justify-center items-center w-[100%] h-auto ">

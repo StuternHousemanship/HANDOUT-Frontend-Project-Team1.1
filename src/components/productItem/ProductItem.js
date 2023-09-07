@@ -1,13 +1,8 @@
 /* eslint-disable no-nested-ternary */
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import "./ProductItem.css";
 import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
-import { CardMedia } from "@mui/material";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import { AuthRoutes } from "../../url";
 import { ReactComponent as LoadingIcon } from "../../assets/svg/loading-light-icon.svg";
 import product1 from "../../assets/img/Products/product1.png";
 import product2 from "../../assets/img/Products/product2.png";
@@ -21,14 +16,16 @@ import product9 from "../../assets/img/Products/product9.png";
 import product10 from "../../assets/img/Products/product10.png";
 import product11 from "../../assets/img/Products/product11.png";
 import product12 from "../../assets/img/Products/product12.png";
+import dropdown from "../../assets/svg/dropdown.svg";
+import SingleProduct from "./SingleProduct";
 
 function ProductItem() {
   const [allItems, setAllItems] = useState([]);
   const [visible, setVisible] = useState(3);
   const [buttonIsLoading, setButtonIsLoading] = useState(false);
-  const [textTooLong, setTextTooLong] = useState(true);
+  // const [textTooLong, setTextTooLong] = useState(true);
   const [toggleTab, setToggleTab] = useState(1);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const toggleView = (tab) => {
     setToggleTab(tab);
@@ -162,8 +159,8 @@ function ProductItem() {
             onClick={() => toggleView(1)}
             className={
               toggleTab === 1
-                ? "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] active-tab "
-                : "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] text-[#949292] "
+                ? "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] active-tab p-2 "
+                : "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] text-[#949292] p-2"
             }
           >
             All Products
@@ -173,8 +170,8 @@ function ProductItem() {
             onClick={() => toggleView(2)}
             className={
               toggleTab === 2
-                ? "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] active-tab"
-                : "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] text-[#949292]"
+                ? "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] active-tab p-2"
+                : "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] text-[#949292] p-2"
             }
           >
             Free
@@ -184,8 +181,8 @@ function ProductItem() {
             onClick={() => toggleView(3)}
             className={
               toggleTab === 3
-                ? "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] active-tab"
-                : "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] text-[#949292]"
+                ? "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] active-tab p-2"
+                : "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] text-[#949292] p-2"
             }
           >
             New In
@@ -195,14 +192,14 @@ function ProductItem() {
             onClick={() => toggleView(4)}
             className={
               toggleTab === 4
-                ? "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] active-tab"
-                : "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] text-[#949292]"
+                ? "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] active-tab p-2"
+                : "lg:mr-[110px] md:mr-[60px] sm:mr-[20px] xs:mr-[10px] text-[#949292] p-2"
             }
           >
             Sales
           </button>
         </div>
-        <div className="flex font-Raleway sm:text-[12px] xs:text-[10px]">
+        <div className="flex font-Raleway sm:text-[12px] xs:text-[10px] items-center justify-center ">
           <div
             className={
               allItems.length >= 1 && toggleTab === 1 ? "flex" : "hidden"
@@ -219,15 +216,12 @@ function ProductItem() {
           <div className={allItems.length === 0 ? "flex" : "hidden"}>
             <p>No items to display</p>
           </div>
-          <select className="bg-[#EAEDF2] cursor-pointer rounded-[12px] text-[#141414] sm:ml-[30px] xs:ml-[15px] ">
-            <option className="bg-[#EAEDF2] cursor-pointer rounded-[12px] text-[#141414] sm:ml-[30px] xs:ml-[15px] ">
-              Date Added
-            </option>
-            <option className="bg-[#EAEDF2] cursor-pointer rounded-[12px] text-[#141414] sm:ml-[30px] xs:ml-[15px] ">
-              Date Added
-            </option>
-            <option className="">Date Added</option>
-          </select>
+          <div className="bg-[#EAEDF2] cursor-pointer flex justify-center items-center w-[110px] h-[40px] rounded-[12px] text-[#141414] sm:ml-[30px] xs:ml-[15px] ">
+            <p className="font-[500] ">Date Added</p>
+            <span>
+              <img alt="dropdown icon" src={dropdown} />{" "}
+            </span>
+          </div>
         </div>
       </div>
       <div className={toggleTab === 1 ? "mt-[20px] block" : "hidden"}>
@@ -239,184 +233,7 @@ function ProductItem() {
           className="flex justify-center items-center"
         >
           {allItems.slice(0, visible).map((product) => (
-            <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-              <Card className="relative">
-                <CardMedia
-                  component="img"
-                  onClick={() => navigate(AuthRoutes.ViewAllItems)}
-                  image={product.imageSrc}
-                  title={product.name}
-                  sx={{
-                    position: "relative",
-                    cursor: "pointer",
-                  }}
-                />
-                <p className="rounded-[12px] bg-[#F1F7F7] absolute top-[12px] left-[12px] font-[500] font-Raleway text-[10px] text-[#141414] py-[6px] px-[12px] ">
-                  Today
-                </p>
-                <CardContent className="bg-[#F1F7F7] ">
-                  <div className="flex justify-between">
-                    <Typography
-                      variant="body2"
-                      fontStyle="Raleway"
-                      sx={{
-                        fontSize: "12px",
-                        fontFamily: "Raleway",
-                        fontWeight: "500",
-                      }}
-                    >
-                      {product.name}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        fontFamily: "Raleway",
-                        fontWeight: "700",
-                      }}
-                    >
-                      {product.price}
-                    </Typography>
-                  </div>
-                  <Typography
-                    sx={{
-                      fontSize: "10px",
-                      fontFamily: "Raleway",
-                      fontColor: "#141414",
-                      marginTop: "10px",
-                    }}
-                  >
-                    <div>
-                      {textTooLong
-                        ? `${product.text.substr(0, 70)} ...`
-                        : product.text}
-                      {textTooLong ? (
-                        <button
-                          type="button"
-                          key={product.id}
-                          className="text-[10px] font-[600] font-Raleway text-[#077369] ml-1"
-                          onClick={() => setTextTooLong(!textTooLong)}
-                        >
-                          View More
-                        </button>
-                      ) : (
-                        <button
-                          type="button"
-                          key={product.id}
-                          className="text-[10px] font-[600] font-Raleway text-[#077369] ml-1"
-                          onClick={() => setTextTooLong(!textTooLong)}
-                        >
-                          View less
-                        </button>
-                      )}
-                    </div>
-                  </Typography>
-                  <div className="mt-[10px] flex justify-between ">
-                    <div>
-                      <Typography
-                        sx={{
-                          fontSize: "10px",
-                          fontFamily: "Raleway",
-                          fontColor: "#141414",
-                        }}
-                      >
-                        Color
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontSize: "12px",
-                          fontFamily: "Raleway",
-                          fontWeight: "700",
-                        }}
-                      >
-                        Orange
-                      </Typography>
-                    </div>
-                    <div>
-                      <Typography
-                        sx={{
-                          fontSize: "10px",
-                          fontFamily: "Raleway",
-                          fontColor: "#141414",
-                        }}
-                      >
-                        Condtion
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontSize: "12px",
-                          fontFamily: "Raleway",
-                          fontWeight: "700",
-                        }}
-                      >
-                        Damaged
-                      </Typography>
-                    </div>
-                    <div>
-                      <Typography
-                        sx={{
-                          fontSize: "10px",
-                          fontFamily: "Raleway",
-                          fontColor: "#141414",
-                        }}
-                      >
-                        Shipping Option
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontSize: "12px",
-                          fontFamily: "Raleway",
-                          fontWeight: "700",
-                        }}
-                      >
-                        Pick-up
-                      </Typography>
-                    </div>
-                  </div>
-                  <div className="mt-[10px] flex justify-between ">
-                    <div>
-                      <Typography
-                        sx={{
-                          fontSize: "10px",
-                          fontFamily: "Raleway",
-                          fontColor: "#141414",
-                        }}
-                      >
-                        Items Category
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontSize: "12px",
-                          fontFamily: "Raleway",
-                          fontWeight: "700",
-                        }}
-                      >
-                        Phones and gadgets
-                      </Typography>
-                    </div>
-                    <div>
-                      <Typography
-                        sx={{
-                          fontSize: "10px",
-                          fontFamily: "Raleway",
-                          fontColor: "#141414",
-                        }}
-                      >
-                        Location
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontSize: "12px",
-                          fontFamily: "Raleway",
-                          fontWeight: "700",
-                        }}
-                      >
-                        Lagos/Ogudu
-                      </Typography>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </Grid>
+            <SingleProduct product={product} />
           ))}
         </Grid>
         {visible < allItems.length ? (

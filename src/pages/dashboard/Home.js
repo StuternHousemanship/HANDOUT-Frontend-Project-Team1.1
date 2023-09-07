@@ -54,9 +54,9 @@ function Home() {
               <Link to="#productCategory" smooth className="m-[15px]">
                 <p>Product Category</p>
               </Link>
-              <button type="button" className="m-[15px]">
+              <Link to="#contact" smooth type="button" className="m-[15px]">
                 <p>Contact Us</p>
-              </button>
+              </Link>
             </ul>
 
             <div className="w-[30%] flex justify-center items-center">
@@ -358,7 +358,10 @@ function Home() {
           </div>
         </div>
       </section>
-      <footer className="xs:hidden md:inline-flex lg:inline-flex w-[100%] h-[451px] bg-[#E6F1F0] flex flex-col justify-around items-center ">
+      <footer
+        id="contact"
+        className="xs:hidden md:inline-flex lg:inline-flex w-[100%] h-[451px] bg-[#E6F1F0] flex flex-col justify-around items-center "
+      >
         <div className="flex flex-col items-start justify-center w-[80%] h-[20%]">
           <nav className="flex flex-col items-start justify-center w-[80%] h-[20%] ">
             <button
