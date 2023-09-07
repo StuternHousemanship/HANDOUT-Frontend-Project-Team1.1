@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import UserAuth from "../../components/hooks/UserAuth";
 import DeleteModal from "../../components/DeleteModal";
 import UserHeader from "../../components/header/UserHeader";
 import avatar from "../../assets/svg/Avatar.svg";
@@ -26,6 +27,15 @@ import product12 from "../../assets/img/Products/product12.png";
 // eslint-disable-next-line react/function-component-definition
 const AccountOverview = () => {
   const [showModal, setShowModal] = useState(false);
+  const { auth } = UserAuth();
+  const getUsernameFromEmail = (email) => {
+    const atIndex = email.indexOf("@");
+    if (atIndex !== -1) {
+      const username = email.substring(0, atIndex);
+      return username;
+    }
+    return email;
+  };
 
   const navigate = useNavigate();
   const Profile = {
@@ -174,10 +184,10 @@ const AccountOverview = () => {
                 className=" ml-[24px] md:ml-[72px] w-[100px] h-[100px] my-[6px]"
               />
               <p className="font-Raleway font-[600] text-[20px] md:text-[32px] leading-[22px] text-[#09120D] my[2px] md:my-[6px] ml-[24px]  md:ml-[72px] ">
-                {Profile.name}
+                {getUsernameFromEmail(auth.email)}
               </p>
               <p className=" text-[12px] md:text-[14px] my-[0.5px] md:my-[2px] font-Raleway font-[500]  leading-[22px] text-[#09120D] ml-[24px]  md:ml-[72px]  ">
-                {Profile.email}
+                {auth.email}
               </p>
               <div className="flex justify-between">
                 <p className=" text-[12px] md:text-[14px] my-[0.5px] md:my-[2px] font-Raleway font-[500]  leading-[22px] text-[#09120D] ml-[24px] md:ml-[72px]">
